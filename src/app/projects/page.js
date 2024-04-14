@@ -1,13 +1,15 @@
+'use client'
+
 import {RenderModel} from "@/components/RenderModel";
 import {ComputerModel} from "@/components/models/ComputerModel";
 import {ProjectsList} from "@/components/projects/Index";
 import { Home } from 'lucide-react';
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 
 export default function page() {
     return (
-        <main className={'w-full h-full'}>
+        <main className={'w-full h-full overflow-x-hidden'}>
             <div className={'w-full h-screen relative'}>
                 <RenderModel>
                     <ComputerModel/>

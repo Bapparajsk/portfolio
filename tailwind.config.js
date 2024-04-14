@@ -11,7 +11,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-          'roboto': ['Roboto', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif'],
+        'ubuntu': ['Ubuntu', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -29,11 +30,24 @@ module.exports = {
         'spin-reverse': {
           '0%' : {transform: 'rotate(0deg)'},
           '100%' : {transform: 'rotate(-360deg)'},
-        }
+        },
+        'vibrate-button': {
+          '0%': { transform: 'translate(0)'},
+          '25%': { transform: 'translate(-2px, 2px)'},
+          '50%': { transform: 'translate(2px, -2px)'},
+          '75%': { transform: 'translate(-2px, 2px)'},
+          '100%': { transform: 'translate(0)'}
+        },
+        'full-bar': {
+          '0%': { height: '0%'},
+          '100%': { height: '100%'},
+        },
       },
       animation: {
         'spin-slow': 'spin 40s linear infinite',
         'spin-slow-reverse': 'spin-reverse 40s linear infinite',
+        'button-animation': 'vibrate-button .5s linear',
+        'bar-full':'full-bar .5s linear',
       },
     },
   },
