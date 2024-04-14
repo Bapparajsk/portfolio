@@ -3,49 +3,31 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {ProjectData} from "@/app/data";
 import {ProjectContainer} from "./ProjectContainer";
-import { Player } from '@lordicon/react';
-const ICON = require('@/assets/icon/share.json');
+import {Button} from "@nextui-org/react";
 
 export const ProjectsList = () => {
-
-    const iconRef = useRef(null);
     const scrollRef = useRef(null);
-
-    useEffect(() => {
-        iconRef.current?.playFromBeginning();
-    }, []);
-
     return (
-        <div className={'w-full h-full relative mb-20'}>
-            <div className={'w-full h-[100px] flex items-start justify-center absolute top-[-120px]'}>
-                <div className={'w-[100px] h-[100px] z-20 flex items-center justify-center cursor-pointer hover:scale-[1.1] transition-all image-back-shadow'}
-                    style={{
-                        transform: 'rotate(180deg)'
-                    }}
-                    onClick={() => {
-                        scrollRef.current.scrollIntoView({ behavior: 'smooth'});
-                    }}
+
+        <div className={'w-full h-full mb-[80px] relative mt-20'}  id="scroll-id">
+            <div ref={scrollRef} className={'w-full h-[80px] flex items-end justify-center'}>
+                <Button
+                    color="primary"
+                    variant="bordered"
+
+                    className={'text-2xl py-8 px-10'}
                 >
-                    <Player
-                        ref={iconRef}
-                        size={100}
-                        icon={ICON}
-                        state={"hover-slide"}
-                        onComplete={() => iconRef.current?.playFromBeginning()}
-
-                    />
-                </div>
-
+                    My Projects
+                </Button>
             </div>
-            <div ref={scrollRef}>
+            <div className={'w-full h-auto'}>
                 {
                     ProjectData.map((item, index) => {
                         return <ProjectContainer key={index} {...item}/>
                     })
                 }
             </div>
-
-            <div className={'center w-[3px] h-full bg-amber-50'}/>
+            <div className={'center w-[3px] h-full bg-amber-50 mt-[80px]'}/>
         </div>
     )
 }

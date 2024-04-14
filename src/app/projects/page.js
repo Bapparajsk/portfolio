@@ -1,26 +1,44 @@
 'use client'
 
+import React from "react";
 import {RenderModel} from "@/components/RenderModel";
 import {ComputerModel} from "@/components/models/ComputerModel";
 import {ProjectsList} from "@/components/projects/Index";
 import { Home } from 'lucide-react';
 import Link from "next/link";
-import { motion } from "framer-motion";
+import {ScrollButtonDown} from "@/components/projects/ScrollButtonDown";
+import {Button} from "@nextui-org/react";
+import { ArrowUpFromDot } from 'lucide-react'
+
 
 export default function page() {
+
     return (
         <main className={'w-full h-full overflow-x-hidden'}>
             <div className={'w-full h-screen relative'}>
                 <RenderModel>
                     <ComputerModel/>
                 </RenderModel>
-                <div className={'fixed top-5 left-2'}>
-                    <Link href={'/'} className={'w-[50px] h-[50px] flex justify-center items-center border-solid border-amber-50 border-2 rounded-[50%] shadow-glass-inset hover:shadow-glass-sm'}>
+                <div className={'fixed top-5 left-2 z-[100]'}>
+                    <Link href={'/'}
+                          className={'w-[50px] h-[50px] flex justify-center items-center border-solid border-amber-50 border-2 rounded-[50%] shadow-glass-inset hover:shadow-glass-sm'}>
                         <Home className={'w-[20px] h-[20px]'} strokeWidth={1.5}/>
                     </Link>
                 </div>
+                <ScrollButtonDown/>
             </div>
             <ProjectsList/>
+            <div className={'w-full h-[80px] flex items-start justify-center'}>
+                <Button
+                    color="primary"
+                    variant="bordered"
+                    className={'text-2xl py-8 px-10'}
+                    onClick={() => document.getElementById('scroll-id').scrollIntoView({behavior: 'smooth'})}
+                >
+                    End of The Day
+                    <ArrowUpFromDot className={'w-full h-auto animate-top-arrow-effect'} strokeWidth={1.5}/>
+                </Button>
+            </div>
         </main>
     )
 }

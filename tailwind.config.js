@@ -42,12 +42,17 @@ module.exports = {
           '0%': { height: '0%'},
           '100%': { height: '100%'},
         },
+        'top-arrow': {
+          '0%': { transform: 'translateY(-0.3rem)' },
+          '100%': { transform: 'translateY(0.7rem)'},
+        }
       },
       animation: {
         'spin-slow': 'spin 40s linear infinite',
         'spin-slow-reverse': 'spin-reverse 40s linear infinite',
         'button-animation': 'vibrate-button .5s linear',
         'bar-full':'full-bar .5s linear',
+        'top-arrow-effect' : 'top-arrow 1.2s linear infinite alternate-reverse',
       },
     },
   },
