@@ -17,7 +17,6 @@ export default function page() {
             <div className={'w-full h-screen relative'}>
                 <RenderModel>
                     <AboutModel/>
-                    <Environment preset={"dawn"}/>
                 </RenderModel>
                 <div className={'absolute w-full bottom-24 flex flex-col items-center justify-center'}>
                     <h1 className={'text-9xl font-roboto font-bold text-[#7A0BC0]'}>Bapparaj</h1>
