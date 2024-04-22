@@ -2,7 +2,7 @@
 
 import React from "react";
 import {RenderModel} from "@/components/RenderModel";
-import {ComputerModel} from "@/components/models/ComputerModel";
+import {ProjectModel} from "@/components/models/ProjectModel";
 import {ProjectsList} from "@/components/projects/Index";
 import { Home } from 'lucide-react';
 import Link from "next/link";
@@ -17,7 +17,7 @@ export default function page() {
         <main className={'w-full h-full overflow-x-hidden'}>
             <div className={'w-full h-screen relative'}>
                 <RenderModel>
-                    <ComputerModel/>
+                    <ProjectModel/>
                 </RenderModel>
                 <div className={'fixed top-5 left-2 z-[100]'}>
                     <Link href={'/'}
