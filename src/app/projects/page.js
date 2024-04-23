@@ -9,7 +9,10 @@ import Link from "next/link";
 import {ScrollButtonDown} from "@/components/projects/ScrollButtonDown";
 import {Button} from "@nextui-org/react";
 import { ArrowUpFromDot } from 'lucide-react'
+import {ResponsiveComponent} from "@/components/ResponsiveComponent";
+import {motion} from "framer-motion";
 
+const NavLink = motion(Link);
 
 export default function page() {
 
@@ -20,25 +23,35 @@ export default function page() {
                     <ProjectModel/>
                 </RenderModel>
                 <div className={'fixed top-5 left-2 z-[100]'}>
-                    <Link href={'/'}
-                          className={'w-[50px] h-[50px] flex justify-center items-center border-solid border-amber-50 border-2 rounded-[50%] shadow-glass-inset hover:shadow-glass-sm'}>
+                    <NavLink
+                        initial={{scale: 0}}
+                        animate={{scale: 1}}
+                        transition={{delay: 0.2, duration: 0.2}}
+                        href={'/'}
+                        className={'w-[50px] h-[50px] flex justify-center items-center border-solid border-amber-50 border-2 rounded-[50%] shadow-glass-inset hover:shadow-glass-sm'}>
                         <Home className={'w-[20px] h-[20px]'} strokeWidth={1.5}/>
-                    </Link>
+                    </NavLink>
                 </div>
                 <ScrollButtonDown/>
             </div>
             <ProjectsList/>
-            <div className={'w-full h-[80px] flex items-start justify-center'}>
-                <Button
-                    color="primary"
-                    variant="bordered"
-                    className={'text-2xl py-8 px-10'}
-                    onClick={() => document.getElementById('scroll-id').scrollIntoView({behavior: 'smooth'})}
-                >
-                    End of The Day
-                    <ArrowUpFromDot className={'w-full h-auto animate-top-arrow-effect'} strokeWidth={1.5}/>
-                </Button>
-            </div>
+            <ResponsiveComponent>
+                {({size}) => {
+                    return size && size > 640 ? (
+                        <div className={'w-full h-[80px] flex items-start justify-center'}>
+                            <Button
+                                color="primary"
+                                variant="bordered"
+                                className={'text-2xl py-8 px-10'}
+                                onClick={() => document.getElementById('scroll-id').scrollIntoView({behavior: 'smooth'})}
+                            >
+                                End of The Day
+                                <ArrowUpFromDot className={'w-full h-auto animate-top-arrow-effect'} strokeWidth={1.5}/>
+                            </Button>
+                        </div>
+                    ) : ('')
+                }}
+            </ResponsiveComponent>
         </main>
     )
 }

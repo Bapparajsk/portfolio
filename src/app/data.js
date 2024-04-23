@@ -20,6 +20,8 @@ export const ProjectData = [
         buttonList: ['next.js', 'express.js', 'node.js', 'mongoDB', 'mongoose', 'tailwindcss',],
         color: '1D24CA',
         top: 30,
+        sm_top: '45%',
+        xs_top: '35%'
     },
     {
         hading: 'News App',
@@ -31,6 +33,8 @@ export const ProjectData = [
         buttonList: ['react.js', 'javascript', 'tailwindcss', 'api'],
         color: '525CEB',
         top: 40,
+        sm_top: '40%',
+        xs_top: '37%'
     },
     {
         hading: 'Music.io',
@@ -42,6 +46,8 @@ export const ProjectData = [
         buttonList: ['html', 'javascript', 'css',],
         color: 'D862BC',
         top: 0,
+        sm_top: '50%',
+        xs_top: '47%'
     },
     {
         hading: 'Calculator',
@@ -53,5 +59,7 @@ export const ProjectData = [
         buttonList: ['html', 'javascript', 'css',],
         color: '865DFF',
         top: -110,
+        sm_top: '63%',
+        xs_top: '52%'
     },
 ]

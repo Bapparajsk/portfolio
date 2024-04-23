@@ -17,7 +17,7 @@ export const ListButton = ({ name, delay }) => {
     }, [delay]);
 
     return show ? (
-        <Button color="primary" variant="bordered" className={'mr-5 mb-2'}>
+        <Button color="primary" variant="bordered" className={'mr-3 mb-1 md:mr-5 md:mb-2'}>
             <span>#{name}</span>
         </Button>
     ): null;

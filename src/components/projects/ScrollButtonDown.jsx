@@ -3,6 +3,7 @@
 import React, {useEffect, useRef} from "react";
 import {Player} from "@lordicon/react";
 import ICON from "@/assets/icon/share.json";
+import useScreenSize from "@/hooks/useScreenSize";
 
 
 export const ScrollButtonDown = () => {
@@ -13,7 +14,11 @@ export const ScrollButtonDown = () => {
         iconRef.current?.playFromBeginning();
     }, []);
 
-    return (
+    const size = useScreenSize();
+    const isSmall = size <= 460;
+
+
+    return !isSmall && (
         <div className={'w-full h-[100px] flex  items-start justify-center absolute bottom-0'}>
             <div
                 className={'w-[100px] h-[100px] z-20 flex items-center justify-center cursor-pointer hover:scale-[1.1] transition-all image-back-shadow'}

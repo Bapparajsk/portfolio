@@ -12,7 +12,6 @@ export default function Form() {
     const [emailValid, setEmailValid] = useState(false);
 
     const sendEmail = (e) => {
-
         const toastId = toast.loading("Sending your massage, please wait...")
 
         emailjs

@@ -3,20 +3,33 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import {useFrame} from "@react-three/fiber";
+import useScreenSize from "@/hooks/useScreenSize";
 
 export function ProjectModel(props) {
     const { nodes, materials } = useGLTF('/models/house-transformed.glb');
     const modelRef = useRef();
 
+    const size = useScreenSize();
+    const isSmall = size <= 460;
+
     useFrame((state, delta, frame)=> {
         modelRef.current.rotation.y += 0.001;
-        modelRef.current.position.y = -0.19 + Math.sin( state.clock.getElapsedTime()) * 0.2;
+        if (!isSmall) {
+            modelRef.current.position.y = -0.19 + Math.sin( state.clock.getElapsedTime()) * 0.2;
+        }
+
     },[])
 
     return (
         <group {...props} dispose={null}
                ref={modelRef}
-               scale={[1.5, 1.5, 1.5]}
+               scale={[
+                   // 1.5, 1.5, 1.5
+                   isSmall ? 1 : 1.5,
+                   isSmall ? 1 : 1.5,
+                   isSmall ? 1 : 1.5,
+               ]}
+
                rotation={[0.19, -8, 0]}
         >
             <mesh

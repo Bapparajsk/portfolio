@@ -1,22 +1,32 @@
 
 "use client"
 import React, { useRef } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import {useFrame} from "@react-three/fiber";
+import useScreenSize from "@/hooks/useScreenSize";
 
 export function MainModel(props) {
     const { nodes, materials } = useGLTF('/models/scene-transformed.glb');
     const modelRef = useRef();
+    const size = useScreenSize();
+    const isLarge = size >= 1024;
+    const isMedium = size < 1024 && size > 768;
+    const isBigSmall = size < 768 && size > 480;
+    const isSmall = size <= 480;
 
     useFrame((state, delta, frame) => {
-        modelRef.current.position.y = -2.5 + Math.sin( state.clock.getElapsedTime()) * 0.2;
+        modelRef.current.position.y = (isSmall ? -1.5: -2.5) + Math.sin( state.clock.getElapsedTime()) * 0.2;
     })
 
     return (
         <group {...props} dispose={null}
                ref={modelRef}
-               scale={[0.3, 0.3, 0.05]}
-               position={[0, -2.5, 0]}
+               scale={[
+                   isLarge ? 0.30 : isMedium ? 0.28: isBigSmall ? 0.25 : 0.20,
+                   isLarge ? 0.30 : isMedium ? 0.28: isBigSmall ? 0.25 : 0.20,
+                   0.05
+               ]}
+               position={[0, isSmall ? -1.5: -2.5, 0]}
                rotation={[0.20, 0, 0]}
         >
             <mesh

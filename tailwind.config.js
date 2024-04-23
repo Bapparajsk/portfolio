@@ -54,6 +54,9 @@ module.exports = {
         'bar-full':'full-bar .5s linear',
         'top-arrow-effect' : 'top-arrow 1.2s linear infinite alternate-reverse',
       },
+      screens: {
+        xs: '480px',
+      }
     },
   },
   darkMode: "class",
