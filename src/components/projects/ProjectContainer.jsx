@@ -12,7 +12,6 @@ import useScreenSize from "@/hooks/useScreenSize";
 
 export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, buttonList, link, color, top, sm_top, xs_top }) => {
 
-    const [leftOrRight, setLeftOrRight] = useState('');
     const ref = useRef();
     const isInView = useInView(ref);
     const [mouseHover, setMouseHover] = useState(false);
@@ -24,9 +23,6 @@ export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, 
     const isMedium = size > 768;
     const isSmall = size <= 480
 
-    useEffect(() => {
-        setLeftOrRight(`${isRight ? 'left': 'right'}-[50%]`);
-    }, []);
 
     useEffect(() => {
 

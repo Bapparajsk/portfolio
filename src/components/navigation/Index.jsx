@@ -6,7 +6,6 @@ import useScreenSize from "@/hooks/useScreenSize";
 import {ResponsiveComponent} from "@/components/ResponsiveComponent";
 import { motion } from 'framer-motion'
 
-
 const container = {
     hidden: {opacity: 0},
     show: {
@@ -17,12 +16,10 @@ const container = {
     }
 }
 
-
 export const Navigation = () => {
 
     const angleIncrement = 360 / ButtonList.length;
     const size = useScreenSize();
-
     const isLarge = size >= 1024;
     const isMedium = size >= 768;
 
@@ -73,9 +70,7 @@ export const Navigation = () => {
                             </motion.div>
                         </>
                     )
-                }
-
-                }
+                }}
             </ResponsiveComponent>
         </div>
     )

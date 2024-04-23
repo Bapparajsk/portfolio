@@ -4,7 +4,6 @@ import ItemLayout from "@/components/about/ItemLayout";
 
 const AboutDetails = () => {
 
-    console.log("process.env.NEXT_PUBLIC_GITHUB_README_STATS_API", process.env.NEXT_PUBLIC_GITHUB_README_STATS_API)
     return (
         <section className={'py-20 w-full'}>
             <div className={'grid grid-cols-12 gap-4 xs:gap-6 md:gap-8 w-full'}>

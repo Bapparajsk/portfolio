@@ -9,25 +9,15 @@ export function AboutModel(props) {
     const { nodes, materials } = useGLTF('/models/about-transformed.glb')
     const modelRef = useRef();
 
-    const size = useScreenSize();
-    const isSmall = size <= 480;
-
     useFrame((state, delta, frame)=> {
         modelRef.current.rotation.y += 0.001;
-        // if(!isSmall) {
-            modelRef.current.position.y = -0.19 + Math.sin( state.clock.getElapsedTime()) * 0.2;
-        // }
+        modelRef.current.position.y = -0.19 + Math.sin( state.clock.getElapsedTime()) * 0.2;
 
     },[])
 
     return (
         <group {...props} dispose={null}
                ref={modelRef}
-               scale={[
-                   isSmall ? 1.5 : 1,
-                   isSmall ? 1.5  : 1,
-                   isSmall ? 1.5  : 1,
-               ]}
                rotation={[0.20, 0, 0]}
                position={[0, 0.5, 0]}
         >

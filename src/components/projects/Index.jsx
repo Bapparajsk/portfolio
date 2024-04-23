@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useRef } from 'react';
 import {ProjectData} from "@/app/data";
 import {ProjectContainer} from "./ProjectContainer";
 import {Button} from "@nextui-org/react";
@@ -18,7 +18,6 @@ export const ProjectsList = () => {
                 <Button
                     color="primary"
                     variant="bordered"
-
                     className={'text-2xl py-8 px-10'}
                 >
                     My Projects

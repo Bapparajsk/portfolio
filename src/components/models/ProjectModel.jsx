@@ -24,7 +24,6 @@ export function ProjectModel(props) {
         <group {...props} dispose={null}
                ref={modelRef}
                scale={[
-                   // 1.5, 1.5, 1.5
                    isSmall ? 1 : 1.5,
                    isSmall ? 1 : 1.5,
                    isSmall ? 1 : 1.5,

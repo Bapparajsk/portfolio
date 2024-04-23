@@ -6,10 +6,8 @@ import {Button} from "@nextui-org/react";
 import emailjs from '@emailjs/browser';
 import { Toaster, toast } from 'sonner'
 
-
 export default function Form() {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [emailValid, setEmailValid] = useState(false);
 
     const sendEmail = (e) => {
         const toastId = toast.loading("Sending your massage, please wait...")

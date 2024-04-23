@@ -14,7 +14,7 @@ export default function page() {
 
     return (
         <main className={'w-full h-full overflow-x-hidden py-20 px-8 xs:px-16 lg:px-32'}>
-            <div className={'w-full md:h-3/5 xs:h-3/4 sm:h-screen  relative'}>
+            <div className={'w-full h-3/5 xs:h-3/4 sm:h-screen  relative'}>
                 <RenderModel>
                     <AboutModel/>
                 </RenderModel>

@@ -6,7 +6,6 @@ import {ProjectModel} from "@/components/models/ProjectModel";
 import {ProjectsList} from "@/components/projects/Index";
 import { Home } from 'lucide-react';
 import Link from "next/link";
-import {ScrollButtonDown} from "@/components/projects/ScrollButtonDown";
 import {Button} from "@nextui-org/react";
 import { ArrowUpFromDot } from 'lucide-react'
 import {ResponsiveComponent} from "@/components/ResponsiveComponent";
@@ -32,7 +31,6 @@ export default function page() {
                         <Home className={'w-[20px] h-[20px]'} strokeWidth={1.5}/>
                     </NavLink>
                 </div>
-                <ScrollButtonDown/>
             </div>
             <ProjectsList/>
             <ResponsiveComponent>
@@ -43,7 +41,6 @@ export default function page() {
                                 color="primary"
                                 variant="bordered"
                                 className={'text-2xl py-8 px-10'}
-                                onClick={() => document.getElementById('scroll-id').scrollIntoView({behavior: 'smooth'})}
                             >
                                 End of The Day
                                 <ArrowUpFromDot className={'w-full h-auto animate-top-arrow-effect'} strokeWidth={1.5}/>

@@ -18,7 +18,7 @@ export const FireFliesBackground = () => {
         const intervalId = setInterval(() => {
             setFireFlies(prevState => {
                 if (prevState.length >= 50) {
-                    clearInterval(intervalId); // Stop adding fireflies after 50
+                    clearInterval(intervalId);
                     return prevState;
                 }
                 return [...prevState, createFirefly()];
