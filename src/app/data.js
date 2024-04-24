@@ -15,7 +15,7 @@ export const ProjectData = [
         subTitle: '(Problem solving)',
         paraGraph: 'Welcome to CodeKing, where coding challenges await and solutions reign supreme! Dive into a realm of problem-solving prowess, where every line of code brings you closer to mastery. Join us on this epic journey of discovery and triumph. Are you ready to conquer the code?',
         isRight: false,
-        image: '/images/codeKing.png',
+        image: '/images/codeking.png',
         link: 'https://github.com/Bapparajsk/codeking',
         buttonList: ['next.js', 'express.js', 'node.js', 'mongoDB', 'mongoose', 'tailwindcss',],
         color: '1D24CA',
