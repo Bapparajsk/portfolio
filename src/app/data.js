@@ -3,10 +3,10 @@ export const ButtonList = [
     {label: 'About', link: '/about', icon: 'info', newTab: false},
     {label: 'Projects', link: '/projects', icon: 'Projects', newTab: false},
     {label: 'Contact', link: '/contact', icon: 'contact', newTab: false},
-    {label: 'Github', link: 'https://github.com/johnny-m-lee', icon: 'github', newTab: true},
-    {label: 'LinkedIn', link: 'https://www.linkedin.com/in/johnny-lee-1000/', icon: 'linkedin', newTab: true},
+    {label: 'Github', link: 'https://github.com/Bapparajsk', icon: 'github', newTab: true},
+    {label: 'LinkedIn', link: 'https://www.linkedin.com/in/bappa-raj-sk-6a0153233/', icon: 'linkedin', newTab: true},
     {label: 'Resume', link: 'https://drive.google.com/file/d/17Z7Z6077707625077777777777777777/view?usp=sharing', icon: 'resume', newTab: true},
-    {label: 'x', link: 'https://twitter.com/johnny_m_lee', icon: 'twitter', newTab: true},
+    {label: 'x', link: 'https://twitter.com/bapparaj007', icon: 'twitter', newTab: true},
 ];
 
 export const ProjectData = [
@@ -21,7 +21,7 @@ export const ProjectData = [
         color: '1D24CA',
         top: 30,
         sm_top: '45%',
-        xs_top: '35%'
+        xs_top: '37%'
     },
     {
         hading: 'News App',
@@ -60,6 +60,6 @@ export const ProjectData = [
         color: '865DFF',
         top: -110,
         sm_top: '63%',
-        xs_top: '52%'
+        xs_top: '57%'
     },
 ]

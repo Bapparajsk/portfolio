@@ -49,7 +49,7 @@ export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, 
 
     return (
         <div
-            className={`w-full h-[700px] md:h-[500px] flex ${isMedium ? '' : 'flex-col'} mb-24 sm:mb-14 md:mb-8 items-center justify-between px-4 sm:px-8 md:px-10 relative ${isRight ? 'flex-row-reverse' : ''}`}
+            className={`w-full h-[700px] md:h-[500px] flex ${isMedium ? '' : 'flex-col'} xs:mb-20 sm:mb-14 md:mb-8 items-center justify-between px-4 sm:px-8 md:px-10 relative ${isRight ? 'flex-row-reverse' : ''}`}
             ref={ref}
         >
             <div className={`w-[90%] md:w-[45%] xs:mb-14 h-full flex items-center justify-center`}
@@ -60,7 +60,7 @@ export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, 
                      zIndex: '10'
                  } : {}}
             >
-                <div className={`h-full w-auto flex items-center justify-center`}>
+                <div className={`h-auto w-auto mt-8 flex items-center justify-center`}>
                     <Image
                         src={image}
                         alt={hading}
