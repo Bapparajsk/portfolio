@@ -10,7 +10,7 @@ import {Button} from "@nextui-org/react";
 import { ExternalLink } from 'lucide-react'
 import useScreenSize from "@/hooks/useScreenSize";
 
-export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, buttonList, link, color, top, sm_top, xs_top }) => {
+export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, buttonList, link, color, top, sm_top, xs_top, idx }) => {
 
     const ref = useRef();
     const isInView = useInView(ref);
@@ -49,7 +49,7 @@ export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, 
 
     return (
         <div
-            className={`w-full h-[700px] md:h-[500px] flex ${isMedium ? '' : 'flex-col'} xs:mb-20 sm:mb-14 md:mb-8 items-center justify-between px-4 sm:px-8 md:px-10 relative ${isRight ? 'flex-row-reverse' : ''}`}
+            className={`w-full h-[800px] md:h-[500px] flex ${isMedium ? '' : 'flex-col'} xs:mb-20 sm:mb-14 md:mb-8 items-center justify-between px-4 sm:px-8 md:px-10 relative ${isRight ? 'flex-row-reverse' : ''}`}
             ref={ref}
         >
             <div className={`w-[90%] md:w-[45%] xs:mb-14 h-full flex items-center justify-center`}
@@ -64,8 +64,8 @@ export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, 
                     <Image
                         src={image}
                         alt={hading}
-                        width={isMedium ? 400 : isSmall ? 260 : 300}
-                        height={isMedium ? 400 : isSmall ? 260 : 300}
+                        width={idx === 0 ? 200 : isMedium ? 400 : isSmall ? 260 : 200}
+                        height={isMedium ? 400 : isSmall ? 260 : 200}
                         className={`object-cover z-10 cursor-pointer ${isMedium ? 'hover:scale-[1.1]' : ''}  transition-all image-back-shadow`}
                         onMouseOver={() => setMouseHover(true)}
                         onMouseOut={() => setMouseHover(false)}

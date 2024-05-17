@@ -26,7 +26,7 @@ export const ProjectsList = () => {
             <div className={'w-full h-auto'}>
                 {
                     ProjectData.map((item, index) => {
-                        return <ProjectContainer key={index} {...item} />
+                        return <ProjectContainer key={index}  {...item}  idx={index}/>
                     })
                 }
             </div>
