@@ -74,6 +74,9 @@ export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, 
                 {
                     isMedium ? (
                         <Button
+                            as={Link}
+                            href={link}
+                            target={'_blank'}
                             className={`button-center ${mouseHover ? 'animate-button-animation' : ''}`}
                             variant="shadow"
                             style={{
@@ -90,6 +93,9 @@ export const ProjectContainer = ({ isRight, image, hading, subTitle, paraGraph, 
                         </Button>
                     ) : (
                         <Button
+                            as={Link}
+                            href={link}
+                            target={'_blank'}
                             className={`button-center `}
                             variant="shadow"
                             style={{
