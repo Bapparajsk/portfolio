@@ -14,7 +14,8 @@
     "@nextui-org/react": "^2.2.10",
     "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",
-    "clsx": "^2.1.0",
+    "@tabler/icons-react": "^3.12.0",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.1.7",
     "gsap": "^3.12.5",
     "lottie-web": "^5.12.2",
@@ -24,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.3",
     "sonner": "^1.4.41",
+    "tailwind-merge": "^2.5.2",
     "three": "^0.163.0",
     "uuid": "^9.0.1"
   },

@@ -31,7 +31,7 @@ const AboutDetails = () => {
                 </ItemLayout>
                 <ItemLayout className="col-span-full xs:col-span-6 lg:col-span-4 text-[#7A0BC0]">
                     <p className={'font-semibold text-left w-full text-2xl sm:text-5xl'}>
-                        2+ <sub className={'font-semibold text-base'}>years of experience</sub>
+                        3+ <sub className={'font-semibold text-base'}>years of experience</sub>
                     </p>
                 </ItemLayout>
                 <ItemLayout className="col-span-full sm:col-span-6 md:col-span-4 !p-0">
