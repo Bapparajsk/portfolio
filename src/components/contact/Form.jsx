@@ -10,12 +10,22 @@ export default function Form() {
     const { register, handleSubmit, formState: { errors }, watch, } = useForm();
 
     const sendEmail = (e) => {
-        const toastId = toast.loading("Sending your massage, please wait...")
+        const toastId = toast.loading("Sending your massage, please wait...");
+
+        const SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
+        const TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+
+        if (!SERVICE_ID || !TEMPLATE_ID) {
+            toast.error("Service ID or Template ID is missing, please contact the developer.", {
+                id: toastId
+            });
+            return;
+        }
 
         emailjs
             .send(
-                process.env.NEXT_PUBLIC_SERVICE_ID,
-                process.env.NEXT_PUBLIC_TEMPLATE_ID,
+                SERVICE_ID,
+                TEMPLATE_ID,
                 e,
                 {
                     publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
@@ -31,7 +41,7 @@ export default function Form() {
                     });
                 },
                 (error) => {
-                    toast.error(error.message, {
+                    toast.error(error.message || "something was wrong", {
                         id: toastId
                     });
                 },
@@ -56,7 +66,6 @@ export default function Form() {
                 onSubmit={handleSubmit(onSubmit)}
                 className='max-w-md w-full flex flex-col items-center justify-center space-y-4'
             >
-
                 <Input
                     type="text"
                     variant={"underlined"}
@@ -72,9 +81,6 @@ export default function Form() {
                         }
                     })}
                 />
-                {
-                    errors.name && <span className={'inline-block self-start text-[#FF204E] text-[15px]'}>{errors.name.message}</span>
-                }
                 <Input
                     type={"email"}
                     variant={"underlined"}
@@ -84,9 +90,6 @@ export default function Form() {
 
                     {...register("email", { required: "this field is required!" })}
                 />
-                {
-                    errors.email && <span className={'inline-block self-start text-[#FF204E] text-[15px]'}>{errors.email.message}</span>
-                }
                 <Textarea
                     label="Description"
                     variant="underlined"
