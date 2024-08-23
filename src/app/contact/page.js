@@ -5,10 +5,18 @@ import Link from "next/link";
 import {Home} from "lucide-react";
 import Form from "@/components/contact/Form";
 import {motion} from "framer-motion";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 const NavLink = motion(Link);
 
 export default function page() {
+
+    const words = [
+        { text: "Summon", className: "text-[#7A0BC0] font-semibold text-4xl" },
+        { text: "this", className: "text-[#7A0BC0] font-semibold text-4xl" },
+        { text: "my", className: "text-[#7A0BC0] font-semibold text-4xl" },
+        { text: "portfolio.", className: "text-blue-500 dark:text-blue-500 font-semibold text-4xl" },
+    ];
 
     return (
         <main className={'w-full h-full overflow-x-hidden py-20 px-8 xs:px-16 lg:px-32 flex flex-col items-center justify-center'}>
@@ -27,7 +35,7 @@ export default function page() {
             <article className={'relative w-full mt-40 flex flex-col items-center justify-center space-y-8'}>
                 <div className={'flex flex-col items-center justify-centers space-y-6 w-3/4'}>
                     <h1 className={'text-[#7A0BC0] font-semibold text-center text-4xl capitalize'}>
-                        summon this my portfolio
+                        <TypewriterEffectSmooth words={words}/>
                     </h1>
                     <p className="text-center font-light text-sm xs:text-base">
                         Step into the circle of enchantment and weave your words into the
