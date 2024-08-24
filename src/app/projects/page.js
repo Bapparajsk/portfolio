@@ -21,7 +21,7 @@ import {
 
 const NavLink = motion(Link);
 
-const clas = "h-full w-full text-neutral-500 dark:text-neutral-300";
+export const clas = "h-full w-full text-neutral-500 dark:text-neutral-300";
 
 export const links = [
     {

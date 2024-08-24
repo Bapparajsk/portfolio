@@ -82,7 +82,7 @@ export function AboutDetails() {
                     width={100}
                     height={80}
                     alt="linear demo image"
-                    className="object-center scale-[2] w-full h-[100px]"
+                    className="object-center scale-[1.4] sm:scale-[2] w-full h-[100px]"
                 />
             </WobbleCard>
         </div>
