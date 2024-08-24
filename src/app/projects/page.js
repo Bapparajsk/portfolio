@@ -21,62 +21,62 @@ import {
 
 const NavLink = motion(Link);
 
+const clas = "h-full w-full text-neutral-500 dark:text-neutral-300";
+
+export const links = [
+    {
+        title: "Home",
+        icon: (
+            <IconHome className={clas} />
+        ),
+        href: "/",
+    },
+    {
+        title: "About",
+        icon: (
+            <IconUser className={clas} />
+        ),
+        href: "/about",
+    },
+    {
+        title: "Contact",
+        icon: (
+            <IconPhone className={clas} />
+        ),
+        href: "/contact",
+    },
+    {
+        title: "Resume",
+        icon: (
+            <IconAlignBoxLeftTop className={clas} />
+        ),
+        href: "#",
+    },
+    {
+        title: "GitHub",
+        icon: (
+            <IconBrandGithub className={clas} />
+        ),
+        href: "https://github.com/Bapparajsk",
+    },
+
+    {
+        title: "Linkedin",
+        icon: (
+            <IconBrandLinkedin className={clas} />
+        ),
+        href: "https://www.linkedin.com/in/bappa-raj-sk-6a0153233",
+    },
+    {
+        title: "Twitter",
+        icon: (
+            <IconBrandX className={clas} />
+        ),
+        href: "https://twitter.com/bapparaj007",
+    },
+];
+
 export default function page() {
-
-    const clas = "h-full w-full text-neutral-500 dark:text-neutral-300";
-
-    const links = [
-        {
-            title: "Home",
-            icon: (
-                <IconHome className={clas} />
-            ),
-            href: "/",
-        },
-        {
-            title: "About",
-            icon: (
-                <IconUser className={clas} />
-            ),
-            href: "/about",
-        },
-        {
-            title: "Contact",
-            icon: (
-                <IconPhone className={clas} />
-            ),
-            href: "/contact",
-        },
-        {
-            title: "Resume",
-            icon: (
-                <IconAlignBoxLeftTop className={clas} />
-            ),
-            href: "#",
-        },
-        {
-            title: "GitHub",
-            icon: (
-                <IconBrandGithub className={clas} />
-            ),
-            href: "https://github.com/Bapparajsk",
-        },
-
-        {
-            title: "Linkedin",
-            icon: (
-                <IconBrandLinkedin className={clas} />
-            ),
-            href: "https://www.linkedin.com/in/bappa-raj-sk-6a0153233",
-        },
-        {
-            title: "Twitter",
-            icon: (
-                <IconBrandX className={clas} />
-            ),
-            href: "https://twitter.com/bapparaj007",
-        },
-    ];
 
     return (
         <main className={'w-full h-full overflow-x-hidden overflow-y-auto'}>

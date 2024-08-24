@@ -1,27 +1,35 @@
 'use client'
 
 import React from "react";
-import {RenderModel} from "@/components/RenderModel";
-import {AboutModel} from "@/components/models/AboutModel";
-import AboutDetails from "@/components/about/index";
+import {AboutDetails} from "@/components/about/index";
 import Link from "next/link";
-import {Home} from "lucide-react";
-import {motion} from "framer-motion";
+import { Home } from "lucide-react";
+import { motion } from "framer-motion";
+import { LampContainer } from "@/components/ui/lamp";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import { links } from "../projects/page";
 
 const NavLink = motion(Link);
 
 export default function page() {
 
     return (
-        <main className={'w-full h-full overflow-x-hidden py-20 px-8 xs:px-16 lg:px-32'}>
-            <div className={'w-full h-3/5 xs:h-3/4 sm:h-screen  relative'}>
-                <RenderModel>
-                    <AboutModel/>
-                </RenderModel>
-                <div className={'absolute w-full top-2/3 sm:top-[60%]  flex flex-col items-center justify-center'}>
-                    <h1 className={'text-6xl xs:text-7xl sm:text-8xl lg:text-9xl font-roboto font-bold text-[#7A0BC0]'}>Bapparaj</h1>
-                    <p className={'font-light text-foreground text-ls mt-3 tracking-[1px]'}>Welcome to My Portfolio</p>
-                </div>
+        <main className={'w-full h-auto bg-slate-950 pb-10'}>
+            <div className={'w-full h-auto'}>
+                <LampContainer>
+                    <motion.h1
+                        initial={{ opacity: 0.5, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{
+                            delay: 0.3,
+                            duration: 0.8,
+                            ease: "easeInOut",
+                        }}
+                        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+                    >
+                        Bapparaj <br /> Welcome to My Portfolio
+                    </motion.h1>
+                </LampContainer>
                 <div className={'fixed top-5 left-2 z-[100]'}>
                     <NavLink
                         initial={{scale: 0}}
@@ -34,6 +42,13 @@ export default function page() {
                 </div>
             </div>
             <AboutDetails/>
+            <footer>
+                <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
+                    <FloatingDock
+                        items={links}
+                    />
+                </div>
+            </footer>
         </main>
-    )
+    );
 }
