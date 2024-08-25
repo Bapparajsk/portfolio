@@ -1,6 +1,10 @@
 "use client";
 import React from "react";
 import { WobbleCard } from "../ui/wobble-card";
+import IconCloud from "@/components/ui/Interact-iveIcon-cloud";
+import { slugs } from "@/app/data";
+
+
 
 export function AboutDetails() {
     return (
@@ -34,14 +38,10 @@ export function AboutDetails() {
                     </p>
                 </div>
             </WobbleCard>
-            <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-blue-900 h-auto lg:min-h-[600px] xl:min-h-[300px]">
-                <img
-                    src="https://skillicons.dev/icons?i=java,js,express,nodejs,npm,linux,html,idea,c,cpp,css,docker,git,github,graphql,linkedin,mongodb,postman,py,react,nextjs,redis,sass,tailwind,threejs,ts,vscode,webpack,webstorm,aws,gcp,firebase"
-                    width={500}
-                    height={300}
-                    alt="linear demo image"
-                    className="object-cover w-full h-auto"
-                />
+            <WobbleCard isShadow={false} containerClassName="flex justify-center items-center col-span-1 lg:col-span-2 bg-blue-900 h-auto lg:min-h-[600px] xl:min-h-[300px]">
+                <div className="relative flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden bg-transparent px-20 pb-20 pt-8 ">
+                    <IconCloud iconSlugs={slugs} />
+                </div>
             </WobbleCard>
             <WobbleCard containerClassName="col-span-1 min-h-[300px]">
                 <img
@@ -51,22 +51,20 @@ export function AboutDetails() {
                     alt="linear demo image"
                     className="object-cover w-full h-auto"
                 />
-            </WobbleCard>
-            <WobbleCard
-                containerClassName="col-span-1 lg:col-span-2 h-full bg-pink-800 min-h-[500px] lg:min-h-[300px]"
-                className=""
-            >
-                 <img
-                    src="https://github-readme-stats.vercel.app/api?username=bapparajsk&theme=transparent&hide_border=true&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&text_bold=false"
+                <img
+                    src="https://github-readme-streak-stats.herokuapp.com?user=bapparajsk&theme=dark&hide_border=true&background=EB545400&ring=FFFFFF&currStreakLabel=FFFFFF"
                     width={500}
                     height={300}
                     alt="linear demo image"
                     className="object-cover w-full h-auto"
                 />
             </WobbleCard>
-            <WobbleCard containerClassName="col-span-1 bg-[#F2A07B]/50 min-h-[200px]">
+            <WobbleCard
+                containerClassName="col-span-1 lg:col-span-3 h-fit bg-pink-800 min-h-[300px] lg:min-h-[300px]"
+                className=""
+            >
                 <img
-                    src="https://github-readme-streak-stats.herokuapp.com?user=bapparajsk&theme=dark&hide_border=true&background=EB545400&ring=FFFFFF&currStreakLabel=FFFFFF"
+                    src="https://github-readme-stats.vercel.app/api?username=bapparajsk&theme=transparent&hide_border=true&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&text_bold=false"
                     width={500}
                     height={300}
                     alt="linear demo image"
@@ -77,12 +75,12 @@ export function AboutDetails() {
                 containerClassName="col-span-1 lg:col-span-2 bg-[#03C4A1]/80 h-auto lg:min-h-[200px] !p-0"
                 className=""
             >
-                 <img
+                <img
                     src="https://github-readme-stats.vercel.app/api/pin/?username=bapparajsk&repo=portfolio&description_lines_count=2&theme=transparent&hide_border=true&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&text_bold=false"
                     width={100}
                     height={80}
                     alt="linear demo image"
-                    className="object-center scale-[1.4] sm:scale-[2] w-full h-[100px]"
+                    className="object-center scale-[1.1] sm:scale-[2] w-full h-[100px]"
                 />
             </WobbleCard>
         </div>
