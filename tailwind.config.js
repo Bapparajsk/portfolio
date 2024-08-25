@@ -1,4 +1,10 @@
-const {nextui} = require("@nextui-org/react");
+const { nextui } = require("@nextui-org/react");
+const defaultTheme = require("tailwindcss/defaultTheme");
+
+const colors = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -19,7 +25,7 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'fire-dot-pink': 'radial-gradient(50% 50% at 50% 50%, rgba(243, 80, 255, 0.80) 0%, rgba(217, 217, 217, 0) 100%)',
-        'fire-dot-red': 'radial-gradient(50% 50% at 50% 50%, rgba(248, 35, 92, 0.80) 0%, rgba(217, 217, 217, 0) 100%)' ,
+        'fire-dot-red': 'radial-gradient(50% 50% at 50% 50%, rgba(248, 35, 92, 0.80) 0%, rgba(217, 217, 217, 0) 100%)',
       },
       boxShadow: {
         'glass-inset': 'rgba(245, 245, 245, 0.25) 0px 50px 36px -28px inset',
@@ -28,31 +34,37 @@ module.exports = {
       },
       keyframes: {
         'spin-reverse': {
-          '0%' : {transform: 'rotate(0deg)'},
-          '100%' : {transform: 'rotate(-360deg)'},
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-360deg)' },
         },
         'vibrate-button': {
-          '0%': { transform: 'translate(0)'},
-          '25%': { transform: 'translate(-2px, 2px)'},
-          '50%': { transform: 'translate(2px, -2px)'},
-          '75%': { transform: 'translate(-2px, 2px)'},
-          '100%': { transform: 'translate(0)'}
+          '0%': { transform: 'translate(0)' },
+          '25%': { transform: 'translate(-2px, 2px)' },
+          '50%': { transform: 'translate(2px, -2px)' },
+          '75%': { transform: 'translate(-2px, 2px)' },
+          '100%': { transform: 'translate(0)' }
         },
         'full-bar': {
-          '0%': { height: '0%'},
-          '100%': { height: '100%'},
+          '0%': { height: '0%' },
+          '100%': { height: '100%' },
         },
         'top-arrow': {
           '0%': { transform: 'translateY(-0.3rem)' },
-          '100%': { transform: 'translateY(0.7rem)'},
-        }
+          '100%': { transform: 'translateY(0.7rem)' },
+        },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
       },
       animation: {
         'spin-slow': 'spin 40s linear infinite',
         'spin-slow-reverse': 'spin-reverse 40s linear infinite',
         'button-animation': 'vibrate-button .5s linear',
-        'bar-full':'full-bar .5s linear',
-        'top-arrow-effect' : 'top-arrow 1.2s linear infinite alternate-reverse',
+        'bar-full': 'full-bar .5s linear',
+        'top-arrow-effect': 'top-arrow 1.2s linear infinite alternate-reverse',
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       screens: {
         xs: '480px',
@@ -60,5 +72,16 @@ module.exports = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()]
+  plugins: [nextui(), addVariablesForColors]
 };
+
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+ 
+  addBase({
+    ":root": newVars,
+  });
+}

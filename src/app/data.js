@@ -66,3 +66,25 @@ export const slugs = [
     "googlecloud", "firebase"
 ];
 
+export const testimonials = [
+    {
+        quote:
+            "I'm a passionate software developer with a strong foundation in Java, JavaScript, and TypeScript. I love tackling complex problems, whether it's through backend development with Node.js or creating responsive and interactive UIs with React and Next.js. My expertise extends to various frameworks like Express, Tailwind CSS, SASS, and Framer Motion, allowing me to build dynamic and aesthetically pleasing applications.",
+    },
+    {
+        quote: 
+        "With extensive experience in full-stack development, I've built and maintained robust applications using technologies like AWS, Google Cloud, and Firebase, and I've leveraged BullMQ for efficient task management. My go-to database is MongoDB, which I use to create scalable and high-performance solutions."
+    },
+    {
+        quote: 
+        "Some of my favorite projects include building a social media platform from scratch ('my-own-facebook') and creating an animated 3D portfolio that reflects my creativity and technical prowess. These projects highlight my ability to handle both frontend and backend development, as well as my commitment to delivering a polished user experience."
+    },
+    {
+        quote:
+        "Problem-solving is at the core of what I do. I’ve solved over 800 problems on LeetCode, constantly refining my skills and learning new approaches. This has equipped me to tackle real-world challenges with confidence and creativity."
+    },
+    {
+        quote:
+        "I'm always eager to learn and take on new challenges. My goal is to continue growing as a developer, contributing to impactful projects, and being part of a team where I can make a difference. I’m excited about the endless possibilities in technology and can’t wait to see where my journey takes me next."
+    },
+];
