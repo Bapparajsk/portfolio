@@ -16,65 +16,13 @@ import {
     IconBrandX,
     IconHome,
     IconUser,
-    IconPhone
+    IconPhone,
+    IconBrandLeetcode
 } from "@tabler/icons-react";
 
 const NavLink = motion(Link);
 
-export const clas = "h-full w-full text-neutral-500 dark:text-neutral-300";
 
-export const links = [
-    {
-        title: "Home",
-        icon: (
-            <IconHome className={clas} />
-        ),
-        href: "/",
-    },
-    {
-        title: "About",
-        icon: (
-            <IconUser className={clas} />
-        ),
-        href: "/about",
-    },
-    {
-        title: "Contact",
-        icon: (
-            <IconPhone className={clas} />
-        ),
-        href: "/contact",
-    },
-    {
-        title: "Resume",
-        icon: (
-            <IconAlignBoxLeftTop className={clas} />
-        ),
-        href: "#",
-    },
-    {
-        title: "GitHub",
-        icon: (
-            <IconBrandGithub className={clas} />
-        ),
-        href: "https://github.com/Bapparajsk",
-    },
-
-    {
-        title: "Linkedin",
-        icon: (
-            <IconBrandLinkedin className={clas} />
-        ),
-        href: "https://www.linkedin.com/in/bappa-raj-sk-6a0153233",
-    },
-    {
-        title: "Twitter",
-        icon: (
-            <IconBrandX className={clas} />
-        ),
-        href: "https://twitter.com/bapparaj007",
-    },
-];
 
 export default function page() {
 
@@ -106,7 +54,7 @@ export default function page() {
             <footer>
                 <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
                     <FloatingDock
-                        items={links}
+                        pathName={"projects"}
                     />
                 </div>
             </footer>

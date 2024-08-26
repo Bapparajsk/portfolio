@@ -3,7 +3,7 @@ import React from "react";
 import { WobbleCard } from "../ui/wobble-card";
 import IconCloud from "@/components/ui/Interact-iveIcon-cloud";
 import { slugs } from "@/app/data";
-import { ImponentText } from "@/components/utils/imponent-text";
+import { ImponentText } from "@/components/ui/imponent-text";
 
 export function AboutDetails() {
     return (
@@ -17,12 +17,12 @@ export function AboutDetails() {
                     </h2>
                     <p className="mt-4 text-left  text-base/6 text-neutral-200">
                         I'm a passionate software developer skilled 
-                        in <ImponentText words={"Java, JavaScript, TypeScript, Node.js, React, Next.js, and SASS"}/>
+                        in <ImponentText words={"Java, JavaScript, TypeScript, Node.js"}/>
                         . I specialize in full-stack development using
-                        frameworks like <ImponentText words={"Express, Tailwind CSS, SASS, and Framer Motion"}/>. My experience
-                        includes working with <ImponentText words={"AWS, Google Cloud, Firebase, BullMQ"}/>, and MongoDB.I've
-                        built projects like <ImponentText words={"my-own-facebook"}/>and an <ImponentText words={"animated 3D portfolio"}/> ,
-                        showcasing my technical and creative abilities. With over <ImponentText words={"800+ problems solved"}/> on LeetCode,
+                        frameworks like <ImponentText words={"React.js, Next.js, Express, Tailwind CSS, SASS"}/>, ans <ImponentText words={"Framer Motion"}/> . 
+                        My experience includes working with <ImponentText words={"AWS, Google Cloud, Firebase, BullMQ"}/>, and <ImponentText words={"MongoDB"}/>.I've
+                        built projects like <ImponentText words={"my-own-facebook"}/> and an <ImponentText words={"animated 3D portfolio"}/> ,
+                        showcasing my technical and creative abilities. With over <ImponentText words={"800+ problems solved"}/> on <ImponentText words={"LeetCode"}/>,
                         I'm constantly refining my problem-solving skills and eager to tackle new
                         challenges in tech.
                     </p>

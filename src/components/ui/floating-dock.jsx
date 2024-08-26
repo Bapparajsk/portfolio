@@ -1,27 +1,109 @@
-/**
- * Note: Use position fixed according to your needs
- * Desktop navbar is better positioned at the bottom
- * Mobile navbar is better positioned at bottom right.
- **/
-
 import { cn } from "@/lib/utils";
-import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
+import {
+  IconAlignBoxLeftTop,
+  IconBrandGithub,
+  IconBrandLeetcode,
+  IconBrandLinkedin,
+  IconBrandX,
+  IconHome,
+  IconLayoutNavbarCollapse,
+  IconPhone,
+  IconUser
+} from "@tabler/icons-react";
 import {
   AnimatePresence,
-  MotionValue,
   motion,
   useMotionValue,
   useSpring,
   useTransform,
 } from "framer-motion";
+import { Palette } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
+const clas = "h-full w-full text-neutral-500 dark:text-neutral-300";
+
+const links = [
+  {
+    title: "Home",
+    icon: (
+      <IconHome className={clas} />
+    ),
+    href: "/",
+  },
+  {
+    title: "About",
+    icon: (
+      <IconUser className={clas} />
+    ),
+    href: "/about",
+  },
+  {
+    title: "Projects",
+    icon: (
+      <Palette className={clas} />
+    ),
+    href: "/projects",
+  },
+  {
+    title: "Contact",
+    icon: (
+      <IconPhone className={clas} />
+    ),
+    href: "/contact",
+  },
+  {
+    title: "Resume",
+    icon: (
+      <IconAlignBoxLeftTop className={clas} />
+    ),
+    href: "#",
+  },
+  {
+    title: "GitHub",
+    icon: (
+      <IconBrandGithub className={clas} />
+    ),
+    href: "https://github.com/Bapparajsk",
+  },
+
+  {
+    title: "Linkedin",
+    icon: (
+      <IconBrandLinkedin className={clas} />
+    ),
+    href: "https://www.linkedin.com/in/bappa-raj-sk-6a0153233",
+  },
+  {
+    title: "Twitter",
+    icon: (
+      <IconBrandX className={clas} />
+    ),
+    href: "https://twitter.com/bapparaj007",
+  },
+  {
+    title: "LeetCode",
+    icon: (
+      <IconBrandLeetcode className={clas} />
+    ),
+    href: "https://leetcode.com/u/Bapparajsk",
+  },
+];
+
+const getItems = (name) => {
+  return links.filter((item) => {
+    return item.title.toLowerCase() !== name.toLowerCase();
+  });
+}
+
 export const FloatingDock = ({
-  items,
+  pathName,
   desktopClassName,
   mobileClassName,
 }) => {
+
+  const items = getItems(pathName);
+
   return (
     <>
       <FloatingDockDesktop items={items} className={desktopClassName} />

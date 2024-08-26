@@ -7,21 +7,10 @@ import { Home, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 import { LampContainer } from "@/components/ui/lamp";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { links, clas } from "../projects/page";
 
 const NavLink = motion(Link);
 
 export default function page() {
-
-    const linkss = [...links];
-
-    linkss[1] = {
-        title: "Projects",
-        icon: (
-            <Palette className={clas} />
-        ),
-        href: "/projects",
-    }
 
     return (
         <main className={'w-full h-auto bg-slate-950 pb-10'}>
@@ -55,7 +44,7 @@ export default function page() {
             <footer>
                 <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
                     <FloatingDock
-                        items={linkss}
+                        pathName={"about"}
                     />
                 </div>
             </footer>
