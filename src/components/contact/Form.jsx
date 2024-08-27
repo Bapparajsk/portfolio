@@ -11,21 +11,21 @@ export default function Form() {
     const [isSending, setIsSending] = useState(false);
 
     const sendEmail = async (e) => {
-        setIsSending(true);
         const toastId = toast.loading("Sending your massage, please wait...");
 
-        const api_key = process.env.RESEND_API_KEY;
+        const api_key = process.env.RESEND_API_KEY
+        const email_from = process.env.EMAIL_FROM;
         const myEmail = process.env.MY_EMAIL;
 
-        if (!api_key || !myEmail) {
+        if (!api_key || !email_from || !myEmail) {
             toast.error("Failed to send your massage, please try again!");
             return;
         }
 
         try {
             const resend = new Resend(api_key);
-            const { error } = await resend.emails.send({
-                from: `portfolio <${e.reply_to}>`,
+            const { data, error } = await resend.emails.send({
+                from: `portfolio <${email_from}>`,
                 to: [myEmail],
                 subject: 'New Massage from Portfolio',
                 text: `From: ${e.from_name} \nEmail: ${e.reply_to} \nMessage: ${e.message}`,
@@ -36,15 +36,9 @@ export default function Form() {
                 return;
             }
             toast.success("Your massage has been sent successfully!");
-            setValue("name", "");
-            setValue("email", "");
-            setValue("massage", "");
 
         } catch (e) {
             toast.error("Failed to send your massage, please try again!");
-        } finally {
-            setIsSending(false);
-            toast.dismiss(toastId);
         }
     };
 
@@ -55,8 +49,15 @@ export default function Form() {
             reply_to: data.email,
             message: data.message,
         }
+        setIsSending(true);
         sendEmail(paramsData);
+        setIsSending(false);
+
+        setValue("name", "");
+        setValue("email", "");
+        setValue("massage", "");
     };
+
 
     return (
         <Fragment>
@@ -110,17 +111,14 @@ export default function Form() {
                             message: 'Minimum message should be more than 50 characters.',
                         }
                     })}
-
                 />
-                <Button
-                    color="primary"
-                    variant="light"
-                    type={'submit'}
+                <Button 
+                    color="primary" 
+                    variant="light" 
                     loading={isSending}
-                    isIconOnly={isSending}
-                    className={'border-2 border-[#7A0BC0]/30 border-solid shadow-lg hover:shadow-glass-sm'}
-                >
-                    {!isSending && "Cast Your Massage"}
+                    type={'submit'} 
+                    className={'border-2 border-[#7A0BC0]/30 border-solid shadow-lg hover:shadow-glass-sm'}>
+                    Cast Your Massage!
                 </Button>
             </form>
         </Fragment>
