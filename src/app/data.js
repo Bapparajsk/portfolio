@@ -88,3 +88,60 @@ export const testimonials = [
         "I'm always eager to learn and take on new challenges. My goal is to continue growing as a developer, contributing to impactful projects, and being part of a team where I can make a difference. I’m excited about the endless possibilities in technology and can’t wait to see where my journey takes me next."
     },
 ];
+
+export const products = [
+    {
+        title: "GitHub",
+        link: "https://github.com/Bapparajsk",
+        thumbnail:
+            "/projects/github.png",
+    },
+    {
+        title: "LeetCode",
+        link: "https://leetcode.com/u/Bapparajsk/",
+        thumbnail:
+            "/projects/leetcode.png",
+    },
+    {
+        title: "LinkedIn",
+        link: "https://www.linkedin.com/in/bappa-raj-sk-6a0153233/",
+        thumbnail:
+            "/projects/linkedin.png",
+    },
+    {
+        title: "Code King",
+        link: "https://github.com/Bapparajsk/codeking",
+        thumbnail:
+            "/projects/codeking.png",
+    },
+    {
+        title: "My Own Facebook",
+        link: "https://github.com/Bapparajsk/my-own-facebook",
+        thumbnail:
+            "/projects/my-own-fb.png",
+    },
+    {
+        title: "My Own Facebook Server",
+        link: "https://github.com/Bapparajsk/my-own-facebook-server",
+        thumbnail:
+            "/projects/my-own-fb-server.png",
+    },
+    {
+        title: "Inews",
+        link: "https://github.com/Bapparajsk/Inews",
+        thumbnail:
+            "/projects/newapp.png",
+    },
+    {
+        title: "Solar System",
+        link: "https://github.com/Bapparajsk/bapparaj",
+        thumbnail:
+            "/projects/solar-system.png",
+    },
+    {
+        title: "Portfolio",
+        link: "3",
+        thumbnail:
+            "/projects/portfolio.png",
+    },
+];
