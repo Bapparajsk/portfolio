@@ -1,51 +1,51 @@
 'use client'
 
-import React, { Fragment, use, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Input, Textarea } from "@nextui-org/react";
-import emailjs from '@emailjs/browser';
-import { Toaster, toast } from 'sonner'
+import { Toaster, toast } from 'sonner';
+import { Resend } from 'resend';
 
 export default function Form() {
-    const { register, handleSubmit, formState: { errors }, } = useForm();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+    const [isSending, setIsSending] = useState(false);
 
-    const sendEmail = (e) => {
+    const sendEmail = async (e) => {
+        setIsSending(true);
         const toastId = toast.loading("Sending your massage, please wait...");
 
-        const SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
-        const TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+        const api_key = process.env.RESEND_API_KEY;
+        const myEmail = process.env.MY_EMAIL;
 
-        if (!SERVICE_ID || !TEMPLATE_ID) {
-            toast.error("Service ID or Template ID is missing, please contact the developer.", {
-                id: toastId
-            });
+        if (!api_key || !myEmail) {
+            toast.error("Failed to send your massage, please try again!");
             return;
         }
 
-        emailjs
-            .send(
-                SERVICE_ID,
-                TEMPLATE_ID,
-                e,
-                {
-                    publicKey: process.env.NEXT_PUBLIC_PUBLIC_KEY,
-                    limitRate: {
-                        throttle: 5000,
-                    }
-                }
-            )
-            .then(
-                () => {
-                    toast.success('Email sent successfully.', {
-                        id: toastId
-                    });
-                },
-                (error) => {
-                    toast.error(error.message || "something was wrong", {
-                        id: toastId
-                    });
-                },
-            );
+        try {
+            const resend = new Resend(api_key);
+            const { error } = await resend.emails.send({
+                from: `portfolio <${e.reply_to}>`,
+                to: [myEmail],
+                subject: 'New Massage from Portfolio',
+                text: `From: ${e.from_name} \nEmail: ${e.reply_to} \nMessage: ${e.message}`,
+            });
+
+            if (error) {
+                toast.error("Failed to send your massage, please try again!");
+                return;
+            }
+            toast.success("Your massage has been sent successfully!");
+            setValue("name", "");
+            setValue("email", "");
+            setValue("massage", "");
+
+        } catch (e) {
+            toast.error("Failed to send your massage, please try again!");
+        } finally {
+            setIsSending(false);
+            toast.dismiss(toastId);
+        }
     };
 
     const onSubmit = data => {
@@ -57,7 +57,6 @@ export default function Form() {
         }
         sendEmail(paramsData);
     };
-
 
     return (
         <Fragment>
@@ -111,10 +110,17 @@ export default function Form() {
                             message: 'Minimum message should be more than 50 characters.',
                         }
                     })}
-                    
+
                 />
-                <Button color="primary" variant="light" type={'submit'} className={'border-2 border-[#7A0BC0]/30 border-solid shadow-lg hover:shadow-glass-sm'}>
-                    Cast Your Massage!
+                <Button
+                    color="primary"
+                    variant="light"
+                    type={'submit'}
+                    loading={isSending}
+                    isIconOnly={isSending}
+                    className={'border-2 border-[#7A0BC0]/30 border-solid shadow-lg hover:shadow-glass-sm'}
+                >
+                    {!isSending && "Cast Your Massage"}
                 </Button>
             </form>
         </Fragment>
