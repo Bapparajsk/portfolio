@@ -1,20 +1,42 @@
-'use client'
+"use client";
+import React from "react";
+import Image from "next/image";
+import { TracingBeam } from "../ui/tracing-beam";
+import { Content } from "@/app/data";
 
-import React from 'react';
-import { ProjectData } from "@/app/data";
-import { Card } from "@/components/projects/Card"
-
-export const ProjectsList = () => {
-
+export function ProjectsList() {
     return (
-        <div className={"w-full h-auto flex flex-col items-center justify-center flex-wrap"}>
-            <div className='w-full flex flex-wrap gap-6 items-center justify-around'>
-                {
-                    ProjectData.map((item, idx) => (
-                        <Card key={idx} {...item} />
-                    ))
-                }
-            </div>
+        <div className={"w-full h-auto mb-60"}>
+            <TracingBeam className="px-6">
+                <div className="max-w-2xl mx-auto antialiased pt-4 relative">
+                    {Content.map((item, index) => (
+                        <div key={`content-${index}`} className="mb-10">
+                            <h2 className="bg-black text-white rounded-full text-sm w-fit px-4 py-1 mb-4">
+                                {item.badge}
+                            </h2>
+
+                            <p className={"text-xl mb-4"}>
+                                {item.title}
+                            </p>
+
+                            <div className="text-sm  prose prose-sm dark:prose-invert">
+                                {item?.image && (
+                                    <Image
+                                        src={item.image}
+                                        alt="blog thumbnail"
+                                        height="1000"
+                                        width="1000"
+                                        className="rounded-lg mb-10 object-cover" />
+                                )}
+                                <p className={"font-roboto text-[15px] tracking-wider"}>
+                                    {item.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </TracingBeam>
         </div>
-    )
+    );
 }
+

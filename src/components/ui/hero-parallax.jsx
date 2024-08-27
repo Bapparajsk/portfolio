@@ -6,7 +6,7 @@ import Link from "next/link";
 import { products } from "@/app/data";
 
 export const HeroParallax = ({
-    
+
 }) => {
     const firstRow = products.slice(0, 5);
     const secondRow = products.slice(5, 10);
@@ -26,7 +26,7 @@ export const HeroParallax = ({
     const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
     const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 500]), springConfig);
     return (
-        (<div
+        <div
             ref={ref}
             className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]">
             <Header />
@@ -54,7 +54,7 @@ export const HeroParallax = ({
                     ))}
                 </motion.div>
             </motion.div>
-        </div>)
+        </div>
     );
 };
 
@@ -63,12 +63,11 @@ export const Header = () => {
         <div
             className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
             <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-                The Ultimate <br /> development studio
+                Welcome to My<br />
+                Project Showcase
             </h1>
             <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-                We build beautiful products with the latest technologies and frameworks.
-                We are a team of passionate developers and designers that love to build
-                amazing products.
+                Here you can find a collection of my projects, each with a unique story and purpose. I have poured my creativity and passion into developing these projects, aiming to solve real-world problems and deliver exceptional user experiences. My project showcases my skills in full stack development and problem-solving. Feel free to explore and discover the innovative solutions I have created.
             </p>
         </div>
     );

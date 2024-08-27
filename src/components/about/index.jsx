@@ -76,7 +76,7 @@ export function AboutDetails() {
                 className=""
             >
                 <img
-                    src="https://github-readme-stats.vercel.app/api/pin/?username=bapparajsk&repo=portfolio&description_lines_count=2&theme=transparent&hide_border=true&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&text_bold=false"
+                    src="https://github-readme-stats.vercel.app/api/pin/?username=bapparajsk&repo=my-own-facebook&description_lines_count=2&theme=transparent&hide_border=true&title_color=FFFFFF&text_color=FFFFFF&icon_color=FFFFFF&text_bold=false"
                     width={100}
                     height={80}
                     alt="linear demo image"

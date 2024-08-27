@@ -6,15 +6,15 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { HeroParallax } from "@/components/ui/hero-parallax";
-import { products } from "../data";
+import { ProjectsList } from "@/components/projects/Index";
+import { MacbookScroll } from "@/components/ui/macbook-scroll";
 
 const NavLink = motion(Link);
-
 
 export default function page() {
 
     return (
-        <main className={'w-full h-full overflow-x-hidden overflow-y-auto'}>
+        <main className={'w-full h-auto overflow-x-hidden overflow-y-auto'}>
             <div className={'fixed top-2 left-2 z-[100]'}>
                 <NavLink
                     initial={{ scale: 0 }}
@@ -26,6 +26,10 @@ export default function page() {
                 </NavLink>
             </div>
             <HeroParallax />;
+            <div className="overflow-hidden">
+                <MacbookScroll />
+            </div>
+            <ProjectsList />
             <footer>
                 <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
                     <FloatingDock

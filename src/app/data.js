@@ -145,3 +145,33 @@ export const products = [
             "/projects/portfolio.png",
     },
 ];
+
+export const Content = [
+    {
+        title: "Inews Project",
+        badge: "My Fast React.js Project",
+        description:
+            "I developed a fast React web app utilizing the NewsAPI.org to fetch and display the latest news articles. The app features an intuitive infinite scroll, ensuring a seamless browsing experience by continuously loading new content as the user scrolls down. A responsive navigation bar allows users to easily switch between different news categories, while the integrated search bar enables quick access to specific topics or keywords. The app is designed for speed and efficiency, providing a smooth and user-friendly interface for staying updated with current events."
+        ,
+        image:
+            "/projects/newapp.png",
+    },
+    {
+        title: "Code King",
+        badge: "My Fast Next.js Project with Server Side Rendering",
+        description: (
+            " CodeKing is a comprehensive repository that houses a collection of coding solutions, algorithms, and data structures implemented in various programming languages. Whether you're a beginner looking to understand fundamental concepts or an experienced developer seeking optimized solutions, CodeKing offers a diverse range of resources to enhance your coding skills. The platform is designed for easy navigation and accessibility, allowing users to quickly find solutions to common coding problems and explore different programming paradigms. With a focus on clarity, efficiency, and versatility, CodeKing aims to empower developers with the knowledge and tools needed to excel in software development."
+        ),
+        image:
+            "/projects/codeking.png",
+    },
+    {
+        title: "My Problem Solving Skills",
+        badge: "Problem Solving",
+        description: (
+            "I have solved over 800+ coding problems on LeetCode, showcasing my dedication to enhancing my problem-solving skills and deepening my understanding of various algorithms and data structures. My profile reflects a strong commitment to continuous learning and improvement, tackling challenges across different difficulty levels, including easy, medium, and hard problems. Through consistent practice, I've developed a well-rounded skill set that spans across multiple domains such as dynamic programming, graph theory, and system design. This extensive experience not only strengthens my technical expertise but also equips me to approach real-world coding challenges with confidence and efficiency. My LeetCode journey is a testament to my passion for coding and my drive to excel in competitive programming and software development. You can view my progress and achievements on my LeetCode profile."
+        ),
+        image:
+            "/projects/leetcode.png",
+    },
+];
