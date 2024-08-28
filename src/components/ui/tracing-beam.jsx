@@ -18,9 +18,10 @@ export const TracingBeam = ({
 
     useEffect(() => {
         if (contentRef.current) {
-            setSvgHeight(contentRef.current.offsetHeight);
+            setSvgHeight(Math.min(contentRef.current.offsetHeight, 2400));
         }
     }, []);
+
 
     const y1 = useSpring(useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]), {
         stiffness: 500,

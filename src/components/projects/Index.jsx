@@ -6,7 +6,7 @@ import { Content } from "@/app/data";
 
 export function ProjectsList() {
     return (
-        <div className={"w-full h-auto mb-60"}>
+        <div className={'w-full'}>
             <TracingBeam className="px-6">
                 <div className="max-w-2xl mx-auto antialiased pt-4 relative">
                     {Content.map((item, index) => (

@@ -44,8 +44,6 @@ export const MacbookScroll = () => {
     const scaleY = useTransform(scrollYProgress, [0, 0.3], [0.6, isMobile ? 1 : 1.5]);
     const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
     const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
-    const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
-    const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
     return (
         (<div
@@ -125,8 +123,8 @@ export const Lid = ({
                 className="h-96 w-[32rem] absolute inset-0 bg-[#010101] rounded-2xl p-2">
                 <div className="absolute inset-0 bg-[#272729] rounded-lg" />
                 <Image
-                    src={src}
-                    alt="aceternity logo"
+                    src={"https://img.freepik.com/premium-photo/illustration-young-girl-dj-sits-front-computer-listening-music_898324-1368.jpg"}
+                    alt="Macbook"
                     fill
                     className="object-cover object-left-top absolute rounded-lg inset-0 h-full w-full" />
             </motion.div>

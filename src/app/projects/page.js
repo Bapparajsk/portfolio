@@ -12,9 +12,8 @@ import { MacbookScroll } from "@/components/ui/macbook-scroll";
 const NavLink = motion(Link);
 
 export default function page() {
-
     return (
-        <main className={'w-full h-auto overflow-x-hidden overflow-y-auto'}>
+        <main className={''}>
             <div className={'fixed top-2 left-2 z-[100]'}>
                 <NavLink
                     initial={{ scale: 0 }}
@@ -30,7 +29,7 @@ export default function page() {
                 <MacbookScroll />
             </div>
             <ProjectsList />
-            <footer>
+            <footer className="mt-40">
                 <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
                     <FloatingDock
                         pathName={"projects"}
@@ -38,5 +37,5 @@ export default function page() {
                 </div>
             </footer>
         </main>
-    )
+    );
 }

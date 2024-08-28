@@ -3,7 +3,7 @@
 import React from "react";
 import {AboutDetails} from "@/components/about/index";
 import Link from "next/link";
-import { Home, Palette } from "lucide-react";
+import { Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { LampContainer } from "@/components/ui/lamp";
 import { FloatingDock } from "@/components/ui/floating-dock";
