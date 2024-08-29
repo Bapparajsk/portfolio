@@ -1,13 +1,13 @@
 'use client'
 
-import {ButtonList} from "@/app/data";
-import {NavButton} from "@/components/navigation/NavButton";
+import { ButtonList } from "@/app/data";
+import { NavButton } from "@/components/navigation/NavButton";
 import useScreenSize from "@/hooks/useScreenSize";
-import {ResponsiveComponent} from "@/components/ResponsiveComponent";
-import { motion } from 'framer-motion'
+import { ResponsiveComponent } from "@/components/ResponsiveComponent";
+import { motion } from "framer-motion";
 
 const container = {
-    hidden: {opacity: 0},
+    hidden: { opacity: 0 },
     show: {
         opacity: 1,
         transition: {
@@ -26,7 +26,7 @@ export const Navigation = () => {
     return (
         <div className={'w-full fixed h-screen flex items-center justify-center'}>
             <ResponsiveComponent>
-                {({size}) => {
+                {({ size }) => {
                     return size && size >= 480 ? (
                         <motion.div
                             variants={container}
@@ -40,7 +40,7 @@ export const Navigation = () => {
                                     const x = `calc(${radius}*${Math.cos(angleRed)})`;
                                     const y = `calc(${radius}*${Math.sin(angleRed)})`;
 
-                                    return <NavButton key={item.label} x={x} y={y}  {...item}/>
+                                    return <NavButton key={item.label} x={x} y={y}  {...item} />
                                 })
                             }
                         </motion.div>
@@ -52,8 +52,8 @@ export const Navigation = () => {
                                 animate={'show'}
                                 className={'w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-start xs:items-center justify-center relative group'}>
                                 {
-                                    ButtonList.slice(0, ButtonList.length/2).map((item, index) => {
-                                        return <NavButton key={item.label} x={0} y={0}  {...item}/>
+                                    ButtonList.slice(0, ButtonList.length / 2).map((item, index) => {
+                                        return <NavButton key={item.label} x={0} y={0}  {...item} />
                                     })
                                 }
                             </motion.div>
@@ -63,8 +63,8 @@ export const Navigation = () => {
                                 animate={'show'}
                                 className={'w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-end xs:items-center justify-center relative group'}>
                                 {
-                                    ButtonList.slice(ButtonList.length/2, ButtonList.length).map((item, index) => {
-                                        return <NavButton key={item.label} x={0} y={0}  {...item} labelDirection={'left'}/>
+                                    ButtonList.slice(ButtonList.length / 2, ButtonList.length).map((item, index) => {
+                                        return <NavButton key={item.label} x={0} y={0}  {...item} labelDirection={'left'} />
                                     })
                                 }
                             </motion.div>
@@ -73,5 +73,5 @@ export const Navigation = () => {
                 }}
             </ResponsiveComponent>
         </div>
-    )
+    );
 }

@@ -1,7 +1,7 @@
 'use client'
 
-import {useEffect, useState} from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const createFirefly = () => ({
     id: uuidv4(),
@@ -25,7 +25,7 @@ export const FireFliesBackground = () => {
             });
         }, 1000);
 
-        return () => clearInterval(intervalId)
+        return () => clearInterval(intervalId);
 
     }, []);
 
@@ -48,5 +48,5 @@ export const FireFliesBackground = () => {
                 })
             }
         </div>
-    )
+    );
 }

@@ -1,12 +1,12 @@
 'use client'
 
-import { Canvas } from '@react-three/fiber';
-import { Suspense } from 'react';
-import clsx from 'clsx'
+import { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { cn } from "@/lib/utils";
 
 export const RenderModel = ({ children, className }) => {
     return (
-        <Canvas className={clsx('w-screen, -z-10 h-full, relative', className)} >
+        <Canvas className={cn('w-screen, -z-10 h-full, relative', className)} >
             <Suspense fallback={null}>
                 {children}
             </Suspense>

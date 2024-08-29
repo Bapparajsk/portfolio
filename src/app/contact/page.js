@@ -3,16 +3,17 @@
 import React from "react";
 import Link from "next/link";
 import { Home } from "lucide-react";
-import Form from "@/components/contact/Form";
 import { motion } from "framer-motion";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { testimonials } from "../data";
+import Form from "@/components/contact/Form";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { testimonials } from "../data";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
-const NavLink = motion(Link);
 
 export default function page() {
+
+    const NavLink = motion(Link);
 
     const words = [
         { text: "Summon", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },

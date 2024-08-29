@@ -9,9 +9,9 @@ import { HeroParallax } from "@/components/ui/hero-parallax";
 import { ProjectsList } from "@/components/projects/Index";
 import { MacbookScroll } from "@/components/ui/macbook-scroll";
 
-const NavLink = motion(Link);
-
 export default function page() {
+    const NavLink = motion(Link);
+    
     return (
         <main className={''}>
             <div className={'fixed top-2 left-2 z-[100]'}>
@@ -24,7 +24,7 @@ export default function page() {
                     <Home className={'w-[20px] h-[20px]'} strokeWidth={1.5} />
                 </NavLink>
             </div>
-            <HeroParallax />;
+            <HeroParallax />
             <div className="overflow-hidden">
                 <MacbookScroll />
             </div>

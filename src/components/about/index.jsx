@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 import { WobbleCard } from "../ui/wobble-card";
-import IconCloud from "@/components/ui/Interact-iveIcon-cloud";
+import IconCloud from "../ui/Interact-iveIcon-cloud";
+import { ImponentText } from "../ui/imponent-text";
 import { slugs } from "@/app/data";
-import { ImponentText } from "@/components/ui/imponent-text";
+
 
 export function AboutDetails() {
     return (
@@ -16,13 +17,13 @@ export function AboutDetails() {
                         Architect of Enchantment
                     </h2>
                     <p className="mt-4 text-left  text-base/6 text-neutral-200">
-                        I'm a passionate software developer skilled 
-                        in <ImponentText words={"Java, JavaScript, TypeScript, Node.js"}/>
+                        I'm a passionate software developer skilled
+                        in <ImponentText words={"Java, JavaScript, TypeScript, Node.js"} />
                         . I specialize in full-stack development using
-                        frameworks like <ImponentText words={"React.js, Next.js, Express, Tailwind CSS, SASS"}/>, ans <ImponentText words={"Framer Motion"}/> . 
-                        My experience includes working with <ImponentText words={"AWS, Google Cloud, Firebase, BullMQ"}/>, and <ImponentText words={"MongoDB"}/>.I've
-                        built projects like <ImponentText words={"my-own-facebook"}/> and an <ImponentText words={"animated 3D portfolio"}/> ,
-                        showcasing my technical and creative abilities. With over <ImponentText words={"800+ problems solved"}/> on <ImponentText words={"LeetCode"}/>,
+                        frameworks like <ImponentText words={"React.js, Next.js, Express, Tailwind CSS, SASS"} />, ans <ImponentText words={"Framer Motion"} /> .
+                        My experience includes working with <ImponentText words={"AWS, Google Cloud, Firebase, BullMQ"} />, and <ImponentText words={"MongoDB"} />.I've
+                        built projects like <ImponentText words={"my-own-facebook"} /> and an <ImponentText words={"animated 3D portfolio"} /> ,
+                        showcasing my technical and creative abilities. With over <ImponentText words={"800+ problems solved"} /> on <ImponentText words={"LeetCode"} />,
                         I'm constantly refining my problem-solving skills and eager to tackle new
                         challenges in tech.
                     </p>
@@ -31,10 +32,10 @@ export function AboutDetails() {
             <WobbleCard containerClassName="col-span-1 min-h-[300px] ">
                 <div className={'w-full h-full flex flex-col justify-evenly items-center'}>
                     <p className={'font-semibold text-left w-full text-2xl sm:text-5xl '}>
-                        10+ <sub className={'font-semibold text-base'}>Project</sub>
+                        8+ <sub className={'font-semibold text-base'}>Project</sub>
                     </p>
                     <p className={'font-semibold text-left w-full text-2xl sm:text-5xl'}>
-                        3+ <sub className={'font-semibold text-base'}>years of experience</sub>
+                        2+ <sub className={'font-semibold text-base'}>years of experience</sub>
                     </p>
                 </div>
             </WobbleCard>

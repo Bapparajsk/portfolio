@@ -4,41 +4,31 @@ import React, { Fragment, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Input, Textarea } from "@nextui-org/react";
 import { Toaster, toast } from 'sonner';
-import { Resend } from 'resend';
+import useScreenSize from '@/hooks/useScreenSize';
 
 export default function Form() {
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
     const [isSending, setIsSending] = useState(false);
+    const size = useScreenSize();
 
     const sendEmail = async (e) => {
         const toastId = toast.loading("Sending your massage, please wait...");
 
-        const api_key = process.env.RESEND_API_KEY
-        const email_from = process.env.EMAIL_FROM;
-        const myEmail = process.env.MY_EMAIL;
-
-        if (!api_key || !email_from || !myEmail) {
-            toast.error("Failed to send your massage, please try again!");
-            return;
-        }
-
         try {
-            const resend = new Resend(api_key);
-            const { data, error } = await resend.emails.send({
-                from: `portfolio <${email_from}>`,
-                to: [myEmail],
-                subject: 'New Massage from Portfolio',
-                text: `From: ${e.from_name} \nEmail: ${e.reply_to} \nMessage: ${e.message}`,
+            await fetch('/api/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(e),
             });
-
-            if (error) {
-                toast.error("Failed to send your massage, please try again!");
-                return;
-            }
+            
+            
             toast.success("Your massage has been sent successfully!");
-
         } catch (e) {
             toast.error("Failed to send your massage, please try again!");
+        } finally {
+            toast.dismiss(toastId);
         }
     };
 
@@ -61,7 +51,7 @@ export default function Form() {
 
     return (
         <Fragment>
-            <Toaster richColors={true} />
+            <Toaster richColors={true} position={size <= 760 ? "top-right" : "bottom-right"}/>
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className='max-w-md w-full flex flex-col items-center justify-center space-y-4'
