@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button, Input, Textarea } from "@nextui-org/react";
 import { Toaster, toast } from 'sonner';
@@ -12,19 +12,33 @@ export default function Form() {
     const size = useScreenSize();
 
     const sendEmail = async (e) => {
+
+        const getcount = localStorage.getItem("mailCount");
+        if (getcount && parseInt(getcount) >= 5) {
+            toast.error("You have reached maximum limit to send mail, please try again later!");
+            return;
+        }
+
         const toastId = toast.loading("Sending your massage, please wait...");
 
         try {
-            await fetch('/api/send', {
+            const res = await fetch('/api/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(e),
             });
-            
-            
-            toast.success("Your massage has been sent successfully!");
+
+            if (res.ok) {
+                toast.success("Your massage has been sent successfully!");
+            } else {
+                toast.error("Failed to send your massage, please try again!");
+            }
+            localStorage.setItem("mailCount", getcount ? parseInt(getcount) + 1 : 1);
+            setValue("name", "");
+            setValue("email", "");
+            setValue("massage", "");
         } catch (e) {
             toast.error("Failed to send your massage, please try again!");
         } finally {
@@ -37,21 +51,16 @@ export default function Form() {
             to_name: "bapparaj",
             from_name: data.name,
             reply_to: data.email,
-            message: data.message,
+            massage: data.massage,
         }
         setIsSending(true);
         sendEmail(paramsData);
         setIsSending(false);
-
-        setValue("name", "");
-        setValue("email", "");
-        setValue("massage", "");
     };
-
 
     return (
         <Fragment>
-            <Toaster richColors={true} position={size <= 760 ? "top-right" : "bottom-right"}/>
+            <Toaster richColors={true} position={size <= 760 ? "top-right" : "bottom-right"} />
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className='max-w-md w-full flex flex-col items-center justify-center space-y-4'
@@ -102,11 +111,11 @@ export default function Form() {
                         }
                     })}
                 />
-                <Button 
-                    color="primary" 
-                    variant="light" 
+                <Button
+                    color="primary"
+                    variant="light"
                     loading={isSending}
-                    type={'submit'} 
+                    type={'submit'}
                     className={'border-2 border-[#7A0BC0]/30 border-solid shadow-lg hover:shadow-glass-sm'}>
                     Cast Your Massage!
                 </Button>

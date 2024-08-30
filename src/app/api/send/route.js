@@ -1,23 +1,46 @@
 "use strict";
-import { Resend } from 'resend';
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { createTransport } from 'nodemailer';
 
 export async function POST(request) {
-    const { from_name, reply_to, message } = request.body;
-    try {
-        const { data, error } = await resend.emails.send({
-            from: 'Acme <bapparajsk97@gmail.com>',
-            to: ['sbapparaj38@gmail.com'],
-            subject: 'Portfolio',
-            text: `From: ${from_name} \nEmail: ${reply_to} \nMessage: ${message}`,
-        });
+    const { from_name, reply_to, massage } = await request.json();
 
-        if (error) {
-            return Response.json({ error }, { status: 500 });
+    if (!from_name || !reply_to || !massage) {
+        return Response.json({ error: 'Please provide all fields' }, { status: 400 });
+    }
+
+    try {
+
+        const NODEMAILER_USER = process.env.NODEMAILER_USER;
+        const NODEMAILER_PASS = process.env.NODEMAILER_PASS;
+        const MY_EMAIL = process.env.MY_EMAIL;
+
+        if (!NODEMAILER_USER || !NODEMAILER_PASS || !MY_EMAIL) {
+            throw new Error('Please provide NODEMAILER_USER and NODEMAILER_PASS');
         }
 
-        return Response.json(data);
+        const transporter = createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: NODEMAILER_USER,
+                pass: NODEMAILER_PASS,
+            },
+        });
+
+        const mailOptions = {
+            from: `"Portfolio" <bapparaj@code.com>`, // sender address
+            to: MY_EMAIL,
+            subject: 'New message from portfolio',
+            text: `Name: ${from_name} \nEmail: ${reply_to} \nMessage: ${massage}`,
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        return Response.json({ message: 'Email sent successfully' });
     } catch (error) {
+        console.log(error);
+        
         return Response.json({ error }, { status: 500 });
     }
 }

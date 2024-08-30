@@ -53,7 +53,6 @@ export default function page() {
                         className="w-full h-full"
                         particleColor="#FFFFFF"
                     />
-
                     <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
                 </div>
             </div>
