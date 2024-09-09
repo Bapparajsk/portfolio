@@ -3,56 +3,96 @@
 @tailwind utilities;
 
 @layer utilities {
-    .pause {
-        animation-play-state: paused;
-    }
+  .pause {
+    animation-play-state: paused;
+  }
 
-    .word-spacing {
-        word-spacing: 10px;
-    }
+  .word-spacing {
+    word-spacing: 10px;
+  }
 
-    .image-back-shadow {
-        filter: drop-shadow(0 0 0.35rem #8576FF);
-    }
+  .image-back-shadow {
+    filter: drop-shadow(0 0 0.35rem #8576ff);
+  }
 
-    .custom-bg {
-        background-color: transparent;
-        backdrop-filter: blur(10px);
-        cursor: pointer;
-        box-shadow: rgba(28, 71, 120, 0.79) 0px 0px 0px 2px, rgba(6, 24, 44, 0.85) 0px 4px 6px -1px, rgba(255, 255, 255, 0.38) 0px 1px 0px inset;
-        transition: box-shadow 0.4s;
-    }
+  .custom-bg {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    box-shadow: rgba(28, 71, 120, 0.79) 0px 0px 0px 2px,
+      rgba(6, 24, 44, 0.85) 0px 4px 6px -1px,
+      rgba(255, 255, 255, 0.38) 0px 1px 0px inset;
+    transition: box-shadow 0.4s;
+  }
 
-    .custom-bg:hover {
-        box-shadow: rgba(31, 87, 151, 0.91) 0px 0px 0px 2px, rgba(6, 24, 44, 0.85) 0px 4px 6px -1px, rgba(255, 255, 255, 0.76) 0px 1px 0px inset;
-    }
+  .custom-bg:hover {
+    box-shadow: rgba(31, 87, 151, 0.91) 0px 0px 0px 2px,
+      rgba(6, 24, 44, 0.85) 0px 4px 6px -1px,
+      rgba(255, 255, 255, 0.76) 0px 1px 0px inset;
+  }
 
-    .center {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%);
-    }
+  .center {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
 
-    .dot-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 100;
-    }
+  .dot-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+  }
 
-    .button-center {
-        position: absolute;
-    }
+  .button-center {
+    position: absolute;
+  }
 
-    @keyframes  move{
-        0% {
-            transform: translate(0, 0);
-        }
-        100% {
-            transform: translate(100px, 100px);
-        }
+  @keyframes move {
+    0% {
+      transform: translate(0, 0);
     }
-    
+    100% {
+      transform: translate(100px, 100px);
+    }
+  }
+
+  .grolb-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .animation-wrapper {
+    width: 50%;
+    padding-bottom: 50%;
+  }
+
+  .sphere-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 580px;
+    height: 580px;
+    margin: -290px 0 0 -290px;
+  }
+
+  .sphere path {
+    fill: url(#sphereGradient);
+    stroke-width: 1px;
+    stroke: rgba(44, 41, 41, 0.35);
+    backface-visibility: hidden;
+  }
+
+  @media (min-width: 500px) {
+    .sphere path {
+      stroke-width: 0.4px;
+    }
+  }
 }

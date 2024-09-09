@@ -9,11 +9,11 @@ import Form from "@/components/contact/Form";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-
+import SphereAnimation from "@/components/ui/grobal";
+import { Iconcard } from "@/components/ui/Iconcard";
 
 export default function page() {
-
-    const NavLink = motion(Link);
+    const NavLink = motion.create(Link);
 
     const words = [
         { text: "Summon", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
@@ -23,7 +23,7 @@ export default function page() {
     ];
 
     return (
-        <main className={'w-full h-full overflow-x-hidden py-20 px-8 xs:px-16 lg:px-32 flex flex-col items-center justify-center'}>
+        <main className={'w-full h-full overflow-x-hidden pt-20 px-8 xs:px-16 lg:px-32 flex flex-col items-center justify-center'}>
             <div className={'fixed top-5 left-2 z-[100]'}>
                 <NavLink
                     initial={{ scale: 0 }}
@@ -62,6 +62,15 @@ export default function page() {
                     direction="right"
                     speed="slow"
                 />
+            </div>
+            <div className={"w-fulll h-auto flex flex-col justify-center items-center"}>
+                <h1 className="text-[40px] font-mono"> Animate anything 
+                    <span className="text-[#7A0BC0] font-semibold"> with Three.js</span>
+                </h1>
+                <Iconcard/>
+            </div>
+            <div className="grolb-container bg-svg-pattern">
+                <SphereAnimation/>
             </div>
             <Form />
         </main>

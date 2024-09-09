@@ -26,6 +26,7 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'fire-dot-pink': 'radial-gradient(50% 50% at 50% 50%, rgba(243, 80, 255, 0.80) 0%, rgba(217, 217, 217, 0) 100%)',
         'fire-dot-red': 'radial-gradient(50% 50% at 50% 50%, rgba(248, 35, 92, 0.80) 0%, rgba(217, 217, 217, 0) 100%)',
+        "svg-pattern": "linear-gradient(4deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(36,35,32,1) 50%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%)",
       },
       boxShadow: {
         'glass-inset': 'rgba(245, 245, 245, 0.25) 0px 50px 36px -28px inset',
@@ -52,10 +53,14 @@ module.exports = {
           '0%': { transform: 'translateY(-0.3rem)' },
           '100%': { transform: 'translateY(0.7rem)' },
         },
-        scroll: {
+        "scroll": {
           to: {
             transform: "translate(calc(-50% - 0.5rem))",
           },
+        },
+        "movebar": {
+          "0%": { transform: "translateX(-130px)" },
+          "100%": { transform: "translateX(130px)" },
         },
       },
       animation: {
@@ -63,6 +68,7 @@ module.exports = {
         'spin-slow-reverse': 'spin-reverse 40s linear infinite',
         'button-animation': 'vibrate-button .5s linear',
         'bar-full': 'full-bar .5s linear',
+        "move": "movebar 5s linear infinite",
         'top-arrow-effect': 'top-arrow 1.2s linear infinite alternate-reverse',
         scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
