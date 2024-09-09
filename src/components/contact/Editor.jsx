@@ -1,13 +1,24 @@
-import { Editor } from "@monaco-editor/react";
-import { editroDefaultValue } from "./data";
+"use client";
+
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { editroDefaultValue } from './data';
 
 export const CodeEditor = () => {
+
     return (
-        <Editor
-            theme="vs-dark"
-            height="90vh"
-            defaultLanguage="javascript"
-            defaultValue={editroDefaultValue}
-        />
-    );
+        <SyntaxHighlighter 
+            language="javascript"
+            style={atomOneDark}
+            customStyle={{
+                BackgroundColor: "transparent",
+                paddingBottom: "50px",
+            }}
+        >
+          {/* {editroDefaultValue} */}
+          {/* <h1> */}
+            hello
+          {/* </h1> */}
+        </SyntaxHighlighter>
+      );
 };

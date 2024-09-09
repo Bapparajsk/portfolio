@@ -2,14 +2,16 @@ import { IconBoxAlignTopRight, IconBrandGithub, IconDeviceImac, IconFile, IconFl
 
 export const IconsManu = () => {
 
+    const className = "cursor-pointer hover:text-default-400 duration-500";
+
     const icons = [
-        <IconFile size={30} className={"cursor-pointer"}/>,
-        <IconSearch size={30} className={"cursor-pointer"}/>,
-        <IconGitMerge size={30} className={"cursor-pointer"}/>,
-        <IconBoxAlignTopRight size={30} className={"cursor-pointer"}/>,
-        <IconDeviceImac size={30} className={"cursor-pointer"}/>,
-        <IconFlask size={30} className={"cursor-pointer"}/>,
-        <IconBrandGithub size={30} className={"cursor-pointer"}/>,
+        <IconFile size={30} className={className}/>,
+        <IconSearch size={30} className={className}/>,
+        <IconGitMerge size={30} className={className}/>,
+        <IconBoxAlignTopRight size={30} className={className}/>,
+        <IconDeviceImac size={30} className={className}/>,
+        <IconFlask size={30} className={className}/>,
+        <IconBrandGithub size={30} className={className}/>,
     ]
 
     return (

@@ -2,9 +2,8 @@
 import { animate, motion } from "framer-motion";
 import React, { useEffect } from "react";
 import { cn } from "@/lib/utils";
-// import { GoCopilot } from "react-icons/go";
+
 import {
-  IconBrandGithubCopilot,
   IconBrandNextjs,
   IconBrandTailwind,
   IconBrandThreejs,
@@ -118,16 +117,8 @@ const Sparkles = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          style={{
-            position: "absolute",
-            top: `${random() * 100}%`,
-            left: `${random() * 100}%`,
-            width: `2px`,
-            height: `2px`,
-            borderRadius: "50%",
-            zIndex: 1,
-          }}
-          className="inline-block bg-black dark:bg-white"
+
+          className={`absolute top-[${random() * 100}%] left-[${random() * 100}%] w-[2px] h-[2px] rounded-[50%] z-10 inline-block bg-black dark:bg-white`}
         ></motion.span>
       ))}
     </div>

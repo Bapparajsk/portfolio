@@ -9,6 +9,7 @@ import { Minus, Square, X } from "lucide-react";
 import { TopManu } from "./TopManu";
 import { IconsManu } from "./IconsManu";
 import { CodeEditor } from "./Editor";
+import { Preview } from "./Preview";
 
 export default function Form() {
     const {
@@ -85,11 +86,11 @@ export default function Form() {
                     <div className={"w-auto h-full px-2 pt-2 border-r-1 border-gray-600"}>
                         <IconsManu />
                     </div>
-                    <div className="w-1/2 h-full">
+                    <div className="w-1/2 h-full overflow-y-auto">
                         <CodeEditor />
                     </div>
-                    <div className="w-1/2 h-full bg-red-500">
-
+                    <div className="w-1/2 h-full">
+                        <Preview />
                     </div>
                 </div>
             </div>

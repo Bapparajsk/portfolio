@@ -170,27 +170,54 @@ export const manu = {
 }
 
 export const editroDefaultValue = `
-const WindowButton = ({ iconName, className, color, isCloseicon }) => {
-    color = color || "#575353";
-
-    const [mouseOver, setMouseOver] = useState(false);
-
-    return (
-        <div
-            className={"w-4 h-4 rounded-[50%] mx-1 flex items-center justify-center cursor-pointer"}
-            style={{ backgroundColor: color }}
-            onMouseEnter={() => setMouseOver(true)}
-            onMouseLeave={() => setMouseOver(false)}
-        >
-            {iconName === "Minus" ? (
-                <Minus size={10} color="#fff" className={!mouseOver && "hidden"} />
-            ) : iconName === "Square" ? (
-                <Square size={10} color="#fff" className={!mouseOver && "hidden"} />
-            ) : iconName === "X" ? (
-                <X size={15} color={mouseOver ? "#FFFFFF" : "#000000"} />
-            ) : null}
-        </div>
-    );
-};
+1   const WindowButton = ({ iconName, className, color, isCloseicon }) => {
+2       color = color || "#575353";
+3   
+4       const [mouseOver, setMouseOver] = useState(false);
+5       return (
+6           <div
+7               className={"w-4..."}
+8               style={{ backgroundColor: color }}
+9               onMouseEnter={() => setMouseOver(true)}
+10              onMouseLeave={() => setMouseOver(false)}
+11          >
+12              {iconName === "Minus" ? (
+14                  <Minus size={10} color="#fff" className={!mouseOver && "hidden"} />
+15              ) : iconName === "Square" ? (
+16                  <Square size={10} color="#fff" className={!mouseOver && "hidden"} />
+17              ) : iconName === "X" ? (
+18                  <X size={15} color={mouseOver ? "#FFFFFF" : "#000000"} />
+19              ) : null}
+20          </div>
+<div
+7               className={"w-4..."}
+8               style={{ backgroundColor: color }}
+9               onMouseEnter={() => setMouseOver(true)}
+10              onMouseLeave={() => setMouseOver(false)}
+11          >
+12              {iconName === "Minus" ? (
+14                  <Minus size={10} color="#fff" className={!mouseOver && "hidden"} />
+15              ) : iconName === "Square" ? (
+16                  <Square size={10} color="#fff" className={!mouseOver && "hidden"} />
+17              ) : iconName === "X" ? (
+18                  <X size={15} color={mouseOver ? "#FFFFFF" : "#000000"} />
+19              ) : null}
+20          </div>
+<div
+7               className={"w-4..."}
+8               style={{ backgroundColor: color }}
+9               onMouseEnter={() => setMouseOver(true)}
+10              onMouseLeave={() => setMouseOver(false)}
+11          >
+12              {iconName === "Minus" ? (
+14                  <Minus size={10} color="#fff" className={!mouseOver && "hidden"} />
+15              ) : iconName === "Square" ? (
+16                  <Square size={10} color="#fff" className={!mouseOver && "hidden"} />
+17              ) : iconName === "X" ? (
+18                  <X size={15} color={mouseOver ? "#FFFFFF" : "#000000"} />
+19              ) : null}
+20          </div>
+21      );
+22  };
 
 `
