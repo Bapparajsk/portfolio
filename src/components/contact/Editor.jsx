@@ -12,13 +12,10 @@ export const CodeEditor = () => {
             style={atomOneDark}
             customStyle={{
                 BackgroundColor: "transparent",
-                paddingBottom: "50px",
+                paddingBottom: "100px",
             }}
         >
-          {/* {editroDefaultValue} */}
-          {/* <h1> */}
-            hello
-          {/* </h1> */}
+            {editroDefaultValue}
         </SyntaxHighlighter>
       );
 };
