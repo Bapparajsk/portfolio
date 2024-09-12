@@ -176,7 +176,7 @@ export const editroDefaultValue = `
 4   import { Button, Input, Textarea } from "@nextui-org/react";
 5   import { Toaster, toast } from 'sonner';
 6
-7   const PreviewPage = () => {
+7   const Form = () => {
 8       const [dot, setDot] = useState(".");
 9
 10      const [comment, setComment] = useState({ name: "", email: "", message: "" });

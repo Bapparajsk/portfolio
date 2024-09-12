@@ -37,7 +37,7 @@ export default function Form() {
                         <div className={"w-full h-12 flex bg-black items-center justify-between"}>
                             <div className={"w-auto h-full flex items-center justify-center gap-x-2 px-3 cursor-pointer"}>
                                 <Image src={"/svg/icons8-react.svg"} width={'20'}/>
-                                <span className="font-mono">From.jsx</span>
+                                <span className="font-mono">Form.jsx</span>
                             </div>
                         </div>
                         <CodeEditor />
