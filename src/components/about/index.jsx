@@ -10,36 +10,41 @@ export function AboutDetails() {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full px-10">
             <WobbleCard
-                containerClassName="col-span-1 lg:col-span-2 h-full bg-[#4B70F5]/50 min-h-[500px] lg:min-h-[300px]"
-            >
-                <div className="">
+                containerClassName="col-span-1 lg:col-span-2 h-auto bg-[#4B70F5]/50 min-h-[400px] lg:min-h-[250px]" >
+                <div>
                     <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                        Architect of Enchantment
+                        About Me
                     </h2>
                     <p className="mt-4 text-left  text-base/6 text-neutral-200">
-                        I'm a passionate software developer skilled
-                        in <ImponentText words={"Java, JavaScript, TypeScript, Node.js"} />
-                        . I specialize in full-stack development using
-                        frameworks like <ImponentText words={"React.js, Next.js, Express, Tailwind CSS, SASS"} />, ans <ImponentText words={"Framer Motion"} /> .
-                        My experience includes working with <ImponentText words={"AWS, Google Cloud, Firebase, BullMQ"} />, and <ImponentText words={"MongoDB"} />.I've
-                        built projects like <ImponentText words={"my-own-facebook"} /> and an <ImponentText words={"animated 3D portfolio"} /> ,
-                        showcasing my technical and creative abilities. With over <ImponentText words={"800+ problems solved"} /> on <ImponentText words={"LeetCode"} />,
-                        I'm constantly refining my problem-solving skills and eager to tackle new
-                        challenges in tech.
+                        I'm a passionate software engineer skilled in <ImponentText
+                        words={"Java, JavaScript, TypeScript,"}/> ans <ImponentText words={"Node.js"}/>. I specialize in
+                        full-stack development, working with frameworks like <ImponentText
+                        words={"React.js, Next.js, Express, Tailwind CSS, SASS, "}/>, ans <ImponentText
+                        words={"Framer Motion"}/> .
+                        My experience includes working with <ImponentText
+                        words={"AWS, Google Cloud, Firebase, BullMQ,"}/>and <ImponentText words={"MongoDB"}/>.
+                        My experience spans across <ImponentText
+                        words={"AWS, Google Cloud, Firebase, BullMQ,"}/> ans <ImponentText words={"MongoDB"}/>.
+                        <br/>
+                        <br/>
+                        I've created impactful projects, including <ImponentText words={"my-own-facebook"}/> and
+                        an <ImponentText words={"animated 3D portfolio"}/>, showcasing both technical expertise and
+                        creativity. With over <ImponentText words={"900+ problems solved on LeetCode"}/>, I continually
+                        enhance my problem-solving abilities and stay eager to take on new challenges.
                     </p>
                 </div>
             </WobbleCard>
-            <WobbleCard containerClassName="col-span-1 min-h-[300px] ">
+            <WobbleCard containerClassName="col-span-1 min-h-[250px] ">
                 <div className={'w-full h-full flex flex-col justify-evenly items-center'}>
                     <p className={'font-semibold text-left w-full text-2xl sm:text-5xl '}>
-                        8+ <sub className={'font-semibold text-base'}>Project</sub>
+                        6+ <sub className={'font-semibold text-base'}>Project</sub>
                     </p>
                     <p className={'font-semibold text-left w-full text-2xl sm:text-5xl'}>
-                        2+ <sub className={'font-semibold text-base'}>years of experience</sub>
+                        1+ <sub className={'font-semibold text-base'}>years of experience</sub>
                     </p>
                 </div>
             </WobbleCard>
-            <WobbleCard isShadow={false} containerClassName="flex justify-center items-center col-span-1 lg:col-span-2 bg-blue-900 h-auto lg:min-h-[600px] xl:min-h-[300px]">
+            <WobbleCard isShadow={false} containerClassName="flex justify-center items-center col-span-1 lg:col-span-2 bg-blue-900 h-auto lg:min-h-[500px] xl:min-h-[300px]">
                 <div className="relative flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden bg-transparent px-20 pb-20 pt-8 ">
                     <IconCloud iconSlugs={slugs} />
                 </div>
@@ -61,7 +66,7 @@ export function AboutDetails() {
                 />
             </WobbleCard>
             <WobbleCard
-                containerClassName="col-span-1 lg:col-span-3 h-fit bg-pink-800 min-h-[300px] lg:min-h-[300px]"
+                containerClassName="col-span-1 lg:col-span-1 h-fit bg-pink-800 min-h-[200px] lg:min-h-[200px]"
                 className=""
             >
                 <img
