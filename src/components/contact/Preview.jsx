@@ -1,12 +1,24 @@
 "use client";
 
+
+import { useState } from "react";
 import { IconArrowNarrowLeft, IconArrowNarrowRight, IconLayoutDashboard, IconLock, IconMenu2, IconRotate, IconSeparator, IconSquareToggle } from "@tabler/icons-react";
 import { X } from "lucide-react";
+import {CircularProgress} from "@nextui-org/progress"
 import { PreviewPage } from "./PreviewPage";
 
 export const Preview = () => {
 
     const iconClassName = "text-gray-400 hover:text-white cursor-pointer duration-400";
+    const [isLoading, setIsLoading] = useState(false);
+
+    const setloding = () => {
+    
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 3000);
+    }
 
     return (
         <div className={"w-full h-full flex flex-col items-start border-l-1 border-l-gray-500"}>
@@ -25,9 +37,13 @@ export const Preview = () => {
             <div className={"w-full h-10 flex items-center justify-between bg-gray-800/80"}>
                 <div className={"w-auto h-full flex items-center justify-center gap-x-2 ml-2 text-gray-400"}>
                     <div className={"w-auto h-full flex items-center justify-center gap-x-3"}>
-                        <IconArrowNarrowLeft size={20} className={iconClassName}/>
-                        <IconArrowNarrowRight size={20} className={iconClassName}/>
-                        <IconRotate size={20} className={iconClassName}/>
+                        {[
+                            {icon: IconArrowNarrowLeft},
+                            {icon: IconArrowNarrowRight},
+                            {icon: IconRotate},
+                        ].map((items, idx) => (
+                            <items.icon key={idx} size={20} className={iconClassName} onClick={setloding}/>
+                        ))}
                     </div>
                     <span>http://127.0.0.1:3000</span>
                 </div>
@@ -35,8 +51,8 @@ export const Preview = () => {
                     <IconMenu2 size={20} className={iconClassName}/>
                 </div>
             </div>
-            <div className="w-full h-full">
-                <PreviewPage />
+            <div className="w-full h-full flex items-center justify-center">
+                {isLoading ?  <CircularProgress size={"lg"} color={"#7A0BC0"}/> : <PreviewPage />}
             </div>
         </div>
     )
