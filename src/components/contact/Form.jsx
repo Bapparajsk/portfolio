@@ -17,8 +17,7 @@ export default function Form() {
     return (
         <div className={"w-[100vw] h-[100vh] p-4"}>
             <div className=" relative w-full h-full border-1 border-gray-700 rounded-[15px] overflow-hidden">
-                <div 
-                    
+                <div
                     className={`absolute top-0 left-0 w-full h-auto bg-gray-500/50 flex flex-col items-center justify-end`}>
                     <div className="w-full h-8 flex items-center justify-end pr-3">
                         <WindowButton iconName={"Minus"} />

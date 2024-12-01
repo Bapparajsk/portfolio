@@ -2,9 +2,9 @@
 import { createTransport } from 'nodemailer';
 
 export async function POST(request) {
-    const { from_name, reply_to, massage } = await request.json();
+    const { from_name, reply_to, message } = await request.json();
 
-    if (!from_name || !reply_to || !massage) {
+    if (!from_name || !reply_to || !message) {
         return Response.json({ error: 'Please provide all fields' }, { status: 400 });
     }
 
@@ -32,7 +32,7 @@ export async function POST(request) {
             from: `"Portfolio" <bapparaj@code.com>`, // sender address
             to: MY_EMAIL,
             subject: 'New message from portfolio',
-            text: `Name: ${from_name} \nEmail: ${reply_to} \nMessage: ${massage}`,
+            text: `Name: ${from_name} \nEmail: ${reply_to} \nMessage: ${message}`,
         };
 
         await transporter.sendMail(mailOptions);

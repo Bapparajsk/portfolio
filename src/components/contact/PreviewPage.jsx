@@ -22,7 +22,7 @@ export const PreviewPage = () => {
                 idx += direction; // Correct index after reversing
             }
             setDot(dots[idx]);
-            console.log("dot", dots[idx]);
+            // console.log("dot", dots[idx]);
         }, 1000);
         return () => clearInterval(interval);
     }, []);
@@ -32,14 +32,18 @@ export const PreviewPage = () => {
         const toastId = toast.loading("Sending your massage, please wait...");
 
         try {
-            await fetch('/api/send', {
+            const res =  await fetch('/api/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(e),
             });
-            
+
+            if (!res.ok) {
+                throw new Error("Failed to send your massage, please try again!");
+            }
+
             toast.success("Your massage has been sent successfully!");
         } catch (e) {
             toast.error("Failed to send your massage, please try again!");
