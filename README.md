@@ -71,3 +71,52 @@ The application should now be running on [http://localhost:3000](http://localhos
 ├── .gitignore         # Files to be ignored by Git
 ├── package.json       # Project dependencies and scripts
 └── README.md          # Project documentation
+```
+## Changelog
+
+### v1.0.0 (2024-10-04)
+- Initial release of the portfolio website.
+- Implemented interactive 3D elements using Three.js.
+- Added responsive design with Tailwind CSS.
+- Integrated dynamic content showcasing projects, skills, and experiences.
+- Utilized Framer Motion for animations and interactive elements.
+- Set up server-side rendering and static site generation with Next.js.
+- Included form handling and email sending functionality.
+
+### v2.0.0 (2024-11-01)
+- **New Features**:
+   - Added a blog section to share articles and tutorials.
+   - Implemented dark mode for better user experience in low-light environments.
+   - Integrated a contact form with reCAPTCHA for spam protection.
+- **Enhancements**:
+   - Improved performance and loading times with code splitting and lazy loading.
+   - Updated the design with new color schemes and typography.
+   - Enhanced accessibility features for better usability.
+- **Bug Fixes**:
+   - Fixed layout issues on mobile devices.
+   - Resolved animation glitches in the 3D elements.
+   - Corrected broken links in the project showcase section.
+
+### v3.0.0 (2024-12-01)
+- **New Features**:
+   - Added a testimonials section to showcase client feedback.
+   - Integrated a live chat feature for real-time communication.
+   - Implemented a portfolio filter to sort projects by category.
+- **Enhancements**:
+   - Improved SEO with better meta tags and structured data.
+   - Updated the contact form to include file upload functionality.
+   - Enhanced the blog section with social sharing buttons.
+- **Bug Fixes**:
+   - Fixed issues with dark mode on certain browsers.
+   - Resolved performance issues with the 3D elements.
+   - Corrected typos and grammatical errors in the content.
+
+### v3.2.2 (2024-12-15)
+- **New Features**:
+   - Added a loading indicator for the contact form submission.
+- **Enhancements**:
+   - Improved the contact form with better error handling and user feedback.
+   - Updated dependencies to the latest versions.
+- **Bug Fixes**:
+   - Fixed typos in the contact form messages.
+   - Resolved issues with the form validation.
