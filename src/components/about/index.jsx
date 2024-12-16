@@ -5,7 +5,6 @@ import IconCloud from "../ui/Interact-iveIcon-cloud";
 import { ImponentText } from "../ui/imponent-text";
 import { slugs } from "@/app/data";
 
-
 export function AboutDetails() {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full px-10">
