@@ -23,10 +23,11 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'fire-dot-pink': 'radial-gradient(50% 50% at 50% 50%, rgba(243, 80, 255, 0.80) 0%, rgba(217, 217, 217, 0) 100%)',
         'fire-dot-red': 'radial-gradient(50% 50% at 50% 50%, rgba(248, 35, 92, 0.80) 0%, rgba(217, 217, 217, 0) 100%)',
         "svg-pattern": "linear-gradient(4deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(36,35,32,1) 50%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%)",
+        "about-bg": "linear-gradient(142deg, rgba(97,207,232,1) 0%, rgba(97,207,232,1) 10%, rgba(182,98,209,1) 30%, rgba(97,52,111,1) 90%, rgba(43,30,81,1) 96%)",
       },
       boxShadow: {
         'glass-inset': 'rgba(245, 245, 245, 0.25) 0px 50px 36px -28px inset',

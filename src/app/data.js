@@ -56,16 +56,6 @@ export const ProjectData = [
     },
 ]
 
-export const slugs = [
-    "java", "javascript", "express", "nodejs", "npm",
-    "linux", "html5", "c", "css3", "docker", 
-    "git", "github", "gitlab", "mongodb", "graphql",
-    "postman", "python", "react", "nextdotjs",
-    "redux", "sass", "tailwindcss", "typescript", "visualstudiocode",
-    "threedotjs", "webpack", "webstorm", "intellijidea", "amazonaws",
-    "googlecloud", "firebase"
-];
-
 export const testimonials = [
     {
         quote:

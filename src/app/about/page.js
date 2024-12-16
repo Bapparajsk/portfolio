@@ -2,18 +2,19 @@
 
 import React from "react";
 import { AboutDetails } from "@/components/about/index";
+import  MainProjects  from "@/components/about/MainProjects";
 import { LampContainer } from "@/components/ui/lamp";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import Link from "next/link";
 import { Home } from "lucide-react";
 import { motion } from "framer-motion";
+import { Skills } from "@/components/about/Skills";
+
+const NavLink = motion.create(Link);
 
 export default function page() {
-
-    const NavLink = motion(Link);
-
     return (
-        <main className={'w-full h-auto bg-slate-950 pb-10'}>
+        <main className={'w-full h-auto bg-slate-950 pb-10 overflow-x-hidden'}>
             <div className={'w-full h-auto'}>
                 <LampContainer>
                     <motion.h1
@@ -24,7 +25,7 @@ export default function page() {
                             duration: 0.8,
                             ease: "easeInOut",
                         }}
-                        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+                        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl "
                     >
                         Bapparaj Sk <br /> <span className={"text-green-500"}>Software Engineer</span>
                     </motion.h1>
@@ -41,6 +42,8 @@ export default function page() {
                 </div>
             </div>
             <AboutDetails />
+            <Skills />
+            <MainProjects />
             <footer>
                 <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
                     <FloatingDock

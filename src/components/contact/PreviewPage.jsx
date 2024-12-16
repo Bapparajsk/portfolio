@@ -22,15 +22,14 @@ export const PreviewPage = () => {
                 idx += direction; // Correct index after reversing
             }
             setDot(dots[idx]);
-            // console.log("dot", dots[idx]);
         }, 1000);
         return () => clearInterval(interval);
     }, []);
 
 
     const sendEmail = async (e) => {
+        setIsSending(true);
         const toastId = toast.loading("Sending your massage, please wait...");
-
         try {
             const res =  await fetch('/api/send', {
                 method: 'POST',
@@ -40,38 +39,42 @@ export const PreviewPage = () => {
                 body: JSON.stringify(e),
             });
 
+            if(res.status === 429) {
+                throw new Error("Your meassage limit has been exceeded, please 1 day later!");
+            }
+
             if (!res.ok) {
                 throw new Error("Failed to send your massage, please try again!");
             }
 
             toast.success("Your massage has been sent successfully!");
         } catch (e) {
-            toast.error("Failed to send your massage, please try again!");
+            toast.error(e.message);
         } finally {
             toast.dismiss(toastId);
+            setIsSending(false);
         }
     };
 
     const onSubmit = async (e) => {
         e.preventDefault();
         const {name, email, message } = comment;
-
+        console.log(name, email, message);
+        
         const paramsData = {
             to_name: "Bapparaj sk",
             from_name: name,
             reply_to: email,
             message: message,
         }
-        setIsSending(true);
+        
         await sendEmail(paramsData);
-        setIsSending(false);
-
         setComment({ name: "", email: "", message: "" });
     };
 
     return (
         <Fragment>
-            <Toaster />
+            <Toaster richColors={true}/>
             <div className={"w-full h-full flex items-start"}>
                 <div className="w-full h-full flex flex-col">
                     <div className={"w-full h-1/5 flex items-end justify-center"}>
@@ -111,12 +114,11 @@ export const PreviewPage = () => {
                                 value={comment.message}
                                 onValueChange={(message) => setComment((prev) => ({...prev, message:message}))}
                                 isRequired
-                                minLength={10}
                             />
                             <Button
                                 color="primary"
                                 variant="light"
-                                loading={isSending}
+                                loading={false}
                                 type={"submit"}
                                 className={
                                     "border-2 border-[#7A0BC0]/30 border-solid shadow-lg hover:shadow-glass-sm"
