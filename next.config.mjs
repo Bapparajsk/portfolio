@@ -1,8 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    images: {
-        domains: ["img.freepik.com", "assets.aceternity.com"],
-    },
-};
+const nextConfig = { reactStrictMode: false };
 
 export default nextConfig;

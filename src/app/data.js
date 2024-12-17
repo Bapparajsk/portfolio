@@ -165,3 +165,12 @@ export const Content = [
             "/projects/leetcode.png",
     },
 ];
+
+export const skills = {
+    "language": [
+        "cpp", "css", "express", "graphql", "html", "java", "javascript", "mongodb", "nextjs", "nodejs", "python", "react", "sass", "typescript"
+    ],
+    "framework": [
+        "aws", "docker", "firebase", "git", "github", "googlecloud", "linux", "npm", "redux"
+    ]
+}
