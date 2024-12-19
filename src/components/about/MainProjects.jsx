@@ -75,9 +75,10 @@ const MainProjects = () => {
 
     const scaleX = canvas.width / img.width;
     const scaleY = canvas.height / img.height;
+    const scale = Math.max(scaleX, scaleY);
 
-    const newWidth = img.width * scaleX;
-    const newHeight = img.height * scaleY;
+    const newWidth = img.width * scale;
+    const newHeight = img.height * scale;
 
     const offsetX = (canvas.width - newWidth) / 2;
     const offsetY = (canvas.height - newHeight) / 2;
