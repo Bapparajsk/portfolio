@@ -14,7 +14,7 @@ const NavLink = motion.create(Link);
 
 export default function page() {
     return (
-        <main className={'w-full h-auto bg-slate-950 pb-10 overflow-x-hidden'}>
+        <main className={'w-full bg-slate-950'}>
             <div className={'w-full h-auto'}>
                 <LampContainer>
                     <motion.h1
@@ -41,16 +41,19 @@ export default function page() {
                     </NavLink>
                 </div>
             </div>
-            <AboutDetails />
+            <div className="w-full h-auto overflow-x-hidden">
+                <AboutDetails />
+            </div>
             <Skills />
             <MainProjects />
-            <footer>
+            <div className={"w-full h-[200vh]"}></div>
+            {/* <footer>
                 <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
                     <FloatingDock
                         pathName={"about"}
                     />
                 </div>
-            </footer>
+            </footer> */}
         </main>
     );
 }
