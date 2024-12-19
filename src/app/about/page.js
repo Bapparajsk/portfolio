@@ -9,13 +9,17 @@ import Link from "next/link";
 import { Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { Skills } from "@/components/about/Skills";
+import LocomotiveScroll from 'locomotive-scroll';
 
 const NavLink = motion.create(Link);
 
 export default function page() {
+
+    const locomotiveScroll = new LocomotiveScroll();
+
     return (
         <main className={'w-full bg-slate-950'}>
-            <div className={'w-full h-auto'}>
+            <div data-scroll data-scroll-section data-scroll-speed="-.5" className={'w-full h-auto'}>
                 <LampContainer>
                     <motion.h1
                         initial={{ opacity: 0.5, y: 100 }}
@@ -44,9 +48,9 @@ export default function page() {
             <div className="w-full h-auto overflow-x-hidden">
                 <AboutDetails />
             </div>
-            <Skills />
             <MainProjects />
-            <div className={"w-full h-[200vh]"}></div>
+            <Skills />
+            <div data-scroll data-scroll-section data-scroll-speed="1.5" className={"w-full h-[200vh] bg-red-500"}></div>
             {/* <footer>
                 <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
                     <FloatingDock

@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,17 +9,16 @@ gsap.registerPlugin(ScrollTrigger);
 const MainProjects = () => {
   
   const canvasRef = useRef(null);
-  const [imagesloaded, setImagesloaded] = useState(1);
+  const [, setImagesloaded] = useState(1);
   const [images, setImages] = useState([]);
   const [frame, setFrame] = useState({
     currIdx: 1,
-    maxIdx: 300
+    maxIdx: 285
   });
 
 
   useEffect(() => {
     init();
-
   }, [])
 
   function init() {
