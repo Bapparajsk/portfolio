@@ -1,42 +1,49 @@
 "use client";
-import React, { useEffect, useRef, useState } from 'react'
-
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const MainProjects = () => {
-  
   const canvasRef = useRef(null);
-  const [, setImagesloaded] = useState(1);
-  const [images, setImages] = useState([]);
-  const [frame, setFrame] = useState({
+  const imagesRef = useRef([]);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const frame = useRef({
     currIdx: 1,
-    maxIdx: 285
+    maxIdx: 285,
   });
-
 
   useEffect(() => {
     init();
-  }, [])
+
+    // Add resize event listener
+    const handleResize = () => {
+      loadImage(Math.floor(frame.current.currIdx));
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      // Cleanup resize event and GSAP ScrollTrigger
+      window.removeEventListener("resize", handleResize);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   function init() {
-    for (let i = 1; i <= frame.maxIdx; i++) {
+    for (let i = 1; i <= frame.current.maxIdx; i++) {
       const img = new Image();
       img.src = `/solar/frame_${i}.webp`;
       img.onload = () => {
-        images[i] = img;
-        setImagesloaded(prev => {
-          prev++;
-          if (prev === frame.maxIdx) {
+        imagesRef.current[i] = img;
+        setImagesLoaded((prev) => {
+          const newLoaded = prev + 1;
+          if (newLoaded === frame.current.maxIdx) {
             animate();
           }
-          return prev;
-        })
-      }
-
-      setImages(prev => ([...prev, img]));
+          return newLoaded;
+        });
+      };
     }
   }
 
@@ -47,29 +54,38 @@ const MainProjects = () => {
         start: 'top top',
         end: 'bottom bottom',
         scrub: 2,
-        anticipatePin: 1
-      }
+        anticipatePin: 1,
+      },
     });
 
-    tl.to(frame, {
-      currIdx: frame.maxIdx+1,
-      onUpdate: () => {
-        loadImage(Math.floor(frame.currIdx));
+    const anime = (idx) => {
+      return {
+        currIdx: idx,
+        ease: "linear",
+        onUpdate: () => {
+          loadImage(Math.floor(frame.current.currIdx));
+        },
       }
-    });
+    }
+
+    tl
+    .to(frame.current, anime(frame.current.maxIdx))
+
   }
 
   function loadImage(idx) {
+    if (idx < 0 || idx > frame.current.maxIdx) {
+      return;      
+    }
 
     const canvas = canvasRef.current;
-    if (!canvas) {
-      return;
-    }
+    if (!canvas) return;
+
     const ctx = canvas.getContext('2d');
+    const img = imagesRef.current[idx];
 
-    if (!(idx >= 1 && idx <= frame.maxIdx)) return;
+    if (!img) return;
 
-    const img = images[idx];
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -84,19 +100,23 @@ const MainProjects = () => {
     const offsetY = (canvas.height - newHeight) / 2;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.imageSmootingEnabled = true;
+    ctx.imageSmootingQuality = "high";
     ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
-
-    setFrame(prev => ({...prev, currIdx: idx}));
   }
-
 
   return (
     <div className="parent relative w-full h-[1200vh]">
       <div className="w-full sticky top-0 left-0 h-screen bg-[url('/solar/frame_1.webp')] bg-cover bg-center bg-no-repeat">
-        <canvas className="w-full h-screen object-cover" id='canvas' ref={canvasRef}></canvas>
+        <canvas
+          className="w-full h-screen object-cover"
+          id="canvas"
+          ref={canvasRef}
+        />
+        
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainProjects
+export default MainProjects;
