@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -11,20 +12,21 @@ const MainProjects = () => {
   const [imagesLoaded, setImagesLoaded] = useState(0);
   const frame = useRef({
     currIdx: 1,
-    maxIdx: 285,
+    maxIdx: 706,
   });
 
   useEffect(() => {
     init();
 
-    // Add resize event listener
     const handleResize = () => {
       loadImage(Math.floor(frame.current.currIdx));
     };
-    window.addEventListener("resize", handleResize);
 
+    if (typeof window === "undefined") {
+      return;
+    }
+    window.addEventListener("resize", handleResize);
     return () => {
-      // Cleanup resize event and GSAP ScrollTrigger
       window.removeEventListener("resize", handleResize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
@@ -106,7 +108,7 @@ const MainProjects = () => {
   }
 
   return (
-    <div className="parent relative w-full h-[1200vh]">
+    <div className="parent relative w-full h-[2000vh]">
       <div className="w-full sticky top-0 left-0 h-screen bg-[url('/solar/frame_1.webp')] bg-cover bg-center bg-no-repeat">
         <canvas
           className="w-full h-screen object-cover"

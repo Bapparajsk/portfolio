@@ -3,6 +3,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export function LampDemo() {
   return (
     <LampContainer>
@@ -22,11 +28,22 @@ export function LampDemo() {
   );
 }
 
-export const LampContainer = ({
-  children,
-  className,
-  icon
-}) => {
+export const LampContainer = ({ children, className }) => {
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".dd",
+        start: "bottom 90%",
+        end: "+=100 85%",
+        scrub: 1,
+        pinSpacing: true,
+      }
+    });
+
+    tl
+      .to(".scroll-down-icon", { y: 30, opacity: 1, scale: 1.3, ease: "linear" }, "start")
+      .to(".scroll-down-text", { y: -10, opacity: .7, scale: 0.9, ease: "sine.inOut" }, "start");
+  })
   return (
     <div
       className={cn(
@@ -92,9 +109,25 @@ export const LampContainer = ({
         ></motion.div>
 
         <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-slate-950 "></div>
-        
       </div>
-      {icon}
+      <div
+        className={
+          "absolute text-medium bottom-10 left-1/2 cursor-pointer -translate-x-1/2 text-center flex flex-col gap-3 items-center justify-center group"
+        }
+      >
+        <p className="font-ubuntu scroll-down-text">Scroll Down</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="icon icon-tabler scroll-down-icon icons-tabler-filled opacity-50 icon-tabler-arrow-down-rhombus group-hover:animate-scroll-hover-icon"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12.707 2.293l2.5 2.5a1 1 0 0 1 0 1.414l-2.207 2.207v10.17l1.293 -1.291a1 1 0 0 1 1.32 -.083l.094 .083a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1 -.112 .097l-.11 .071l-.114 .054l-.105 .035l-.149 .03l-.117 .006l-.075 -.003l-.126 -.017l-.111 -.03l-.111 -.044l-.098 -.052l-.096 -.067l-.09 -.08l-3 -3a1 1 0 0 1 1.414 -1.414l1.293 1.293v-10.171l-2.207 -2.208a1 1 0 0 1 0 -1.414l2.5 -2.5a1 1 0 0 1 1.414 0" />
+        </svg>
+      </div>
       <div className="relative z-50 flex -translate-y-80 flex-col items-center px-5">
         {children}
       </div>
