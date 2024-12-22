@@ -56,7 +56,8 @@ export default function page() {
                         }}
                         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl "
                     >
-                        Bapparaj Sk <br /> <span className={"text-green-500"}>Software Engineer</span>
+                        About Me <br/>
+                        <span className="text-2xl font-normal text-neutral-500">I am a Software Engineer</span>
                     </motion.h1>
                 </LampContainer>
 
