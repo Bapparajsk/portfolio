@@ -21,7 +21,7 @@ import { Palette } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
-const clas = "h-full w-full text-neutral-500 dark:text-neutral-300";
+const clas = "h-full w-full text-neutral-500";
 
 const links = [
   {
@@ -48,21 +48,21 @@ const links = [
   {
     title: "Contact",
     icon: (
-      <IconPhone className={clas} />
+      <IconPhone/>
     ),
     href: "/contact",
   },
   {
     title: "Resume",
     icon: (
-      <IconAlignBoxLeftTop className={clas} />
+      <IconAlignBoxLeftTop/>
     ),
     href: "#",
   },
   {
     title: "GitHub",
     icon: (
-      <IconBrandGithub className={clas} />
+      <IconBrandGithub/>
     ),
     href: "https://github.com/Bapparajsk",
   },
@@ -70,28 +70,31 @@ const links = [
   {
     title: "Linkedin",
     icon: (
-      <IconBrandLinkedin className={clas} />
+      <IconBrandLinkedin/>
     ),
     href: "https://www.linkedin.com/in/bappa-raj-sk-6a0153233",
   },
   {
     title: "Twitter",
     icon: (
-      <IconBrandX className={clas} />
+      <IconBrandX/>
     ),
     href: "https://twitter.com/bapparaj007",
   },
   {
     title: "LeetCode",
     icon: (
-      <IconBrandLeetcode className={clas} />
+      <IconBrandLeetcode/>
     ),
     href: "https://leetcode.com/u/Bapparajsk",
   },
 ];
 
-const getItems = (name) => {
+const getItems = (name, isDark) => {
   return links.filter((item) => {
+    item.icon = (
+      <item.icon.type className={cn(clas, isDark && "dark:text-neutral-300")} />
+    );
     return item.title.toLowerCase() !== name.toLowerCase();
   });
 }
@@ -100,14 +103,15 @@ export const FloatingDock = ({
   pathName,
   desktopClassName,
   mobileClassName,
+  isDark = true,
 }) => {
 
-  const items = getItems(pathName);
+  const items = getItems(pathName, isDark);
 
   return (
     <>
-      <FloatingDockDesktop items={items} className={desktopClassName} />
-      <FloatingDockMobile items={items} className={mobileClassName} />
+      <FloatingDockDesktop items={items} className={desktopClassName} isDark={isDark}/>
+      <FloatingDockMobile items={items} className={mobileClassName} isDark={isDark}/>
     </>
   );
 };
@@ -115,6 +119,7 @@ export const FloatingDock = ({
 const FloatingDockMobile = ({
   items,
   className,
+  isDark,
 }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -145,7 +150,7 @@ const FloatingDockMobile = ({
                 <Link
                   href={item.href}
                   key={item.title}
-                  className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center"
+                  className={cn(`h-10 w-10 rounded-full bg-gray-50 flex items-center justify-center`, isDark && "dark:bg-neutral-900")}
                 >
                   <div className="h-4 w-4">{item.icon}</div>
                 </Link>
@@ -156,9 +161,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
+        className={cn("h-10 w-10 rounded-full bg-gray-50 flex items-center justify-center", isDark && "dark:bg-neutral-800")}
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+        <IconLayoutNavbarCollapse className={cn("h-5 w-5 text-neutral-500", isDark && "dark:text-neutral-400")} />
       </button>
     </div>
   );
@@ -167,6 +172,7 @@ const FloatingDockMobile = ({
 const FloatingDockDesktop = ({
   items,
   className,
+  isDark
 }) => {
   let mouseX = useMotionValue(Infinity);
   return (
@@ -174,12 +180,13 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden md:flex h-16 gap-4 items-end  rounded-2xl bg-gray-50 dark:bg-neutral-900 px-4 pb-3",
-        className
+        "mx-auto hidden md:flex h-16 gap-4 items-end  rounded-2xl bg-gray-50 px-4 pb-3 shadow-lg",
+        className,
+        isDark && "dark:bg-neutral-900"
       )}
     >
       {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+        <IconContainer isDark={isDark} mouseX={mouseX} key={item.title} {...item} />
       ))}
     </motion.div>
   );
@@ -190,6 +197,7 @@ function IconContainer({
   title,
   icon,
   href,
+  isDark,
 }) {
   let ref = useRef(null);
 
@@ -241,7 +249,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center relative"
+        className={cn("aspect-square rounded-full bg-gray-200 flex items-center justify-center relative", isDark && "dark:bg-neutral-800")}
       >
         <AnimatePresence>
           {hovered && (
@@ -249,7 +257,10 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="px-2 py-0.5 whitespace-pre rounded-md bg-gray-100 border dark:bg-neutral-800 dark:border-neutral-900 dark:text-white border-gray-200 text-neutral-700 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
+              className={cn(
+                "px-2 py-0.5 whitespace-pre rounded-md bg-gray-100 border border-gray-200 text-neutral-700 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs",
+                isDark && "dark:bg-neutral-800 dark:border-neutral-900 dark:text-white"
+              )}
             >
               {title}
             </motion.div>

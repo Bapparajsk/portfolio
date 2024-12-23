@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { Skills } from "@/components/about/Skills";
+import { FloatingDock } from "@/components/ui/floating-dock";
 
 const NavLink = motion.create(Link);
 
@@ -66,15 +67,24 @@ export default function page() {
                 <AboutDetails />
             </div>
             <MainProjects />
-            <Skills />
-            <div data-scroll data-scroll-section data-scroll-speed="1.5" className={"w-full h-[200vh] bg-red-500"}></div>
-            {/* <footer>
-                <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
+            <div data-scroll data-scroll-section data-scroll-speed="0.3" className={"w-full h-auto bg-white"}>
+                <div className="w-full h-auto flex items-center justify-center py-10">
+                    <div className="max-w-[500px] h-auto flex flex-col items-center justify-center gap-4">
+                        <div className="w-80 h-20 bg-red-400"></div>
+                        <div className="w-20 h-20 bg-red-400"></div>
+                        <div className="w-20 h-20 bg-red-400"></div>
+                        <div className="w-20 h-20 bg-red-400"></div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full bg-white`}>
                     <FloatingDock
                         pathName={"about"}
+                        isDark={false}
                     />
                 </div>
-            </footer> */}
+            </footer>
         </main>
     );
 }

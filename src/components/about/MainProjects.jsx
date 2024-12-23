@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { ImponentText } from '../ui/imponent-text';
+import useScreenSize from "@/hooks/useScreenSize";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,10 +12,12 @@ const MainProjects = () => {
   const canvasRef = useRef(null);
   const imagesRef = useRef([]);
   const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [screenSize,] = useState(useScreenSize());
   const frame = useRef({
     currIdx: 1,
     maxIdx: 706,
   });
+  
 
   useEffect(() => {
     init();
@@ -141,7 +144,7 @@ const MainProjects = () => {
       .to(frame.current, anime(550), "fourteenth")
       .to(".animate-5", { opacity: 1 }, "fourteenth")
       .to("canvas", { scale: 0.7, ease: "circ.inOut", borderRadius: 30 }, "fourteenth")
-      .to(".animate-5 span", { width: 100, ease: "elastic" }, "fourteenth")
+      .to(".animate-5 span", { width: 85, ease: "elastic" }, "fourteenth")
 
       .to(frame.current, anime(600), "fifteenth")
       .to(".animate-5", { opacity: 1 }, "fifteenth")
@@ -150,7 +153,7 @@ const MainProjects = () => {
       .to(frame.current, anime(650), "sixteenth")
 
       .to(frame.current, anime(703), "seventeenth")
-      .to(".animate-5 span", { width: 100, ease: "elastic" }, "seventeenth")
+      .to(".animate-5 span", { width: 85, ease: "elastic" }, "seventeenth")
   }
  
   return (
@@ -192,8 +195,8 @@ const MainProjects = () => {
             enhance my problem-solving abilities and stay eager to take on new challenges.
           </p>
         </div>
-        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 animate-5 text-neutral-800 text-2xl font-bold font-ubuntu'>
-          I am a Software <span className="line inline-block w-[20px] h-1 bg-black"></span> Engineer
+        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 animate-5 text-neutral-800 text-sm md:text-2xl font-bold font-ubuntu'>
+          I am a Software <span className="line inline-block w-[20px] h-[2px] md:h-1 bg-black"></span> Developer
         </div>
       </div>
     </div>
