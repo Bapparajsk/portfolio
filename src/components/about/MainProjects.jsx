@@ -164,17 +164,17 @@ const MainProjects = () => {
           id="canvas"
           ref={canvasRef}
         />
-        <div className='absolute bottom-24 left-24 animate-1'>
-          <h2 className='text-neutral-800 text-6xl font-ubuntu '>
+        <div className='absolute bottom-24 left-1/2 !-translate-x-1/2 md:left-24 md:!translate-x-0 animate-1'>
+          <h2 className='text-neutral-800 text-2xl md:text-4xl xl:text-6xl font-ubuntu '>
             Welcome to my About
           </h2>
         </div>
-        <div className='absolute bottom-24 right-24 animate-2 opacity-0'>
-          <h2 className='text-neutral-800 text-6xl font-ubuntu '>
+        <div className='absolute bottom-24 left-1/2 !-translate-x-1/2 md:right-24 md:!translate-x-0 animate-2 opacity-0'>
+          <h2 className='text-neutral-800 text-2xl md:text-4xl xl:text-6xl font-ubuntu'>
             start a new <span className="bg-[linear-gradient(90deg,#0D92F4_0%,#6256CA_40%,#F95454_100%)] text-transparent bg-clip-text font-bold">journey</span>
           </h2>
         </div>
-        <div className='absolute top-10 left-20 max-w-[600px] animate-4-top opacity-0 bg-white p-4 rounded-lg'>
+        <div className='absolute top-10 left-20 max-w-[600px] animate-4-top opacity-0 bg-white p-4 rounded-lg hidden md:block'>
           <p className="text-left  text-neutral-800 text-xl">
             I'm a passionate software engineer skilled in <ImponentText
               words={"Java, JavaScript, TypeScript,"} /> ans <ImponentText words={"Node.js"} />. I specialize in
@@ -187,7 +187,7 @@ const MainProjects = () => {
               words={"AWS, Google Cloud, Firebase, BullMQ,"} /> ans <ImponentText words={"MongoDB"} />.
           </p>
         </div>
-        <div className='absolute bottom-20 right-20 max-w-[600px] animate-4-bottom opacity-0 bg-black p-4 rounded-lg'>
+        <div className='absolute bottom-20 right-20 max-w-[600px] animate-4-bottom opacity-0 bg-black p-4 rounded-lg hidden md:block'>
           <p className="text-left  text-neutral-200 text-xl">
             I've created impactful projects, including <ImponentText words={"my-own-facebook"} /> and
             an <ImponentText words={"animated 3D portfolio"} />, showcasing both technical expertise and

@@ -9,6 +9,7 @@ import { Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { Skills } from "@/components/about/Skills";
 import { FloatingDock } from "@/components/ui/floating-dock";
+import { ImponentText } from "@/components/ui/imponent-text";
 
 const NavLink = motion.create(Link);
 
@@ -23,18 +24,17 @@ export default function page() {
 
                 locomotiveScroll = new LocomotiveScroll();
             };
-
             Locomotive();
-
             // Cleanup on component unmount
             return () => {
                 if (locomotiveScroll) locomotiveScroll.destroy();
             };
         }
+
     }, []);
 
     return (
-        <main className={'w-full bg-slate-950'}>
+        <main className={'w-full bg- bg-neutral-50 px-2 md:px-0'}>
             <div className={'fixed top-5 left-2 z-[100]'}>
                 <NavLink
                     initial={{ scale: 0 }}
@@ -57,28 +57,41 @@ export default function page() {
                         }}
                         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl "
                     >
-                        About Me <br/>
+                        About Me <br />
                         <span className="text-2xl font-normal text-neutral-500">I am a Software Engineer</span>
                     </motion.h1>
                 </LampContainer>
-
             </div>
-            <div className="w-full h-auto overflow-x-hidden">
+            <div className="w-full h-auto overflow-x-hidden bg-slate-950">
                 <AboutDetails />
             </div>
             <MainProjects />
-            <div data-scroll data-scroll-section data-scroll-speed="0.3" className={"w-full h-auto bg-white"}>
-                <div className="w-full h-auto flex items-center justify-center py-10">
-                    <div className="max-w-[500px] h-auto flex flex-col items-center justify-center gap-4">
-                        <div className="w-80 h-20 bg-red-400"></div>
-                        <div className="w-20 h-20 bg-red-400"></div>
-                        <div className="w-20 h-20 bg-red-400"></div>
-                        <div className="w-20 h-20 bg-red-400"></div>
-                    </div>
+            <div data-scroll data-scroll-section data-scroll-speed="0.1" className={"w-full h-auto bg-neutral-50"}>
+                <Skills />
+                <div className=' max-w-[600px] bg-black p-4 rounded-lg  md:hidden'>
+                    <p className="text-left  text-neutral-200 text-xl">
+                        I'm a passionate software engineer skilled in <ImponentText
+                            words={"Java, JavaScript, TypeScript,"} /> ans <ImponentText words={"Node.js"} />. I specialize in
+                        full-stack development, working with frameworks like <ImponentText
+                            words={"React.js, Next.js, Express, Tailwind CSS, SASS, "} />, ans <ImponentText
+                            words={"Framer Motion"} /> .
+                        My experience includes working with <ImponentText
+                            words={"AWS, Google Cloud, Firebase, BullMQ,"} />and <ImponentText words={"MongoDB"} />.
+                        My experience spans across <ImponentText
+                            words={"AWS, Google Cloud, Firebase, BullMQ,"} /> ans <ImponentText words={"MongoDB"} />.
+                    </p>
+                </div>
+                <div className='max-w-[600px] bg-neutral-300 mt-2 p-4 rounded-lg md:hidden'>
+                    <p className="text-left  text-neutral-800 text-xl">
+                        I've created impactful projects, including <ImponentText words={"my-own-facebook"} /> and
+                        an <ImponentText words={"animated 3D portfolio"} />, showcasing both technical expertise and
+                        creativity. With over <ImponentText words={"900+ problems solved on LeetCode"} />, I continually
+                        enhance my problem-solving abilities and stay eager to take on new challenges.
+                    </p>
                 </div>
             </div>
             <footer>
-                <div className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full bg-white`}>
+                <div className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full bg-neutral-50`}>
                     <FloatingDock
                         pathName={"about"}
                         isDark={false}

@@ -30,11 +30,10 @@ export function AboutDetails() {
             <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
                 <div className="absolute bottom-[-80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem]">
                     <p>
-                        
+                        Hay there! I'm <span className="text-amber-500">Bapparaj</span>
                     </p>
                     <p className="text-gray-500">
-                        Zentry unites every player from countless games and platforms, both
-                        digital and physical, into a unified Play Economy
+                        I'm a Software Engineer based in india. I have a passion for web development and love to create new things.
                     </p>
                 </div>
             </div>

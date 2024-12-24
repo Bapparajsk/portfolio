@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export const Skills = () => {
   return (
-    <div data-scroll data-scroll-section data-scroll-speed="-.1" className="container p-5 mx-auto flex flex-col gap-4 items-center justify-center max-w-[900px]" id="ss">
+    <div data-scroll data-scroll-section data-scroll-speed="-.1" className="container p-5 my-20 mx-auto flex flex-col gap-4 items-center justify-center max-w-[900px]" id="ss">
       <CardCover
         left={false}
         items={skills["language"]}
@@ -22,7 +22,7 @@ export const Skills = () => {
 
 function CardCover({ left, items }) {
   return (
-      <div className="flex w-full  relative overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-10 before:bg-gradient-to-r before:from-zinc-950 before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:h-full after:w-10 after:bg-gradient-to-l after:from-zinc-950 after:to-transparent after:content-['']">
+      <div className="flex w-full  relative overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-10 before:bg-gradient-to-r before:from-zinc-50 before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:h-full after:w-10 after:bg-gradient-to-l after:from-zinc-50 after:to-transparent after:content-['']">
       <motion.div
         transition={{
           duration: 20,
