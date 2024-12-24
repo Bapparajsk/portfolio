@@ -120,3 +120,13 @@ The application should now be running on [http://localhost:3000](http://localhos
 - **Bug Fixes**:
    - Fixed typos in the contact form messages.
    - Resolved issues with the form validation.
+
+### v3.3.0 (2024-12-24)
+- **Bug Fixes**:
+    - Fixed the email sending functionality.
+    - Resolved issues with the contact form submission.
+- **New Features**:
+    - Update about page with new content.
+    - Added a new project to the showcase section.
+    - Implemented a new design for the testimonials section.
+    - Animation Library added for better user experience.
