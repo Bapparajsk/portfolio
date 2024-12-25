@@ -8,7 +8,7 @@ import { FireFliesBackground } from "@/components/FireFliesBackground";
 export default function Home() {
     return (
         <Fragment>
-            <main className={'flex h-screen flex-col items-center justify-center relative'}>
+            <main className={'flex h-screen flex-col items-center justify-center relative bg-transparent z-30'}>
                 <div className={'w-full h-screen'}>
                     <Navigation />
                     <RenderModel>

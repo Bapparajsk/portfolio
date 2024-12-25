@@ -30,7 +30,7 @@ export const FireFliesBackground = () => {
     }, []);
 
     return (
-        <div className=" absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <div className=" absolute top-0 left-0 w-full h-full z-10 overflow-hidden">
             {
                 fireFlies.map((fire, index) => {
                     const className = index % 2 === 0 ? 'bg-fire-dot-red' : 'bg-fire-dot-pink';

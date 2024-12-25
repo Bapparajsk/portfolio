@@ -68,4 +68,4 @@ export function MainModel(props) {
     )
 }
 
-useGLTF.preload('/models/scene-transformed.glb')
+useGLTF.preload('/models/scene-transformed.glb');

@@ -125,6 +125,11 @@ The application should now be running on [http://localhost:3000](http://localhos
 - **Bug Fixes**:
     - Fixed the email sending functionality.
     - Resolved issues with the contact form submission.
+    - Corrected typos and grammatical errors in the content.
+- **Enhancements**:
+      - Improved the contact form with better error handling and user feedback.
+      - Updated dependencies to the latest versions.
+      - Added a loading indicator for the contact form submission.
 - **New Features**:
     - Update about page with new content.
     - Added a new project to the showcase section.

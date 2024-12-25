@@ -4,24 +4,39 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { ImponentText } from '../ui/imponent-text';
-import useScreenSize from "@/hooks/useScreenSize";
+import { useImages } from "@/context/ImagesContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
+
+
 const MainProjects = () => {
   const canvasRef = useRef(null);
-  const imagesRef = useRef([]);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-  const [screenSize,] = useState(useScreenSize());
+  const ImagesRef = useRef([]);
+  const { images, loadImagein } = useImages();
   const frame = useRef({
     currIdx: 1,
     maxIdx: 706,
   });
-  
+
+  const init = () => {
+    if (images.length === 0) {
+      loadImagein().then((im) => {
+        console.log("22222");
+        ImagesRef.current = im;
+        animate();
+      })
+    } else {
+      console.log("11111");
+      
+      ImagesRef.current = images;
+      animate();
+    }
+  }
 
   useEffect(() => {
     init();
-
+    
     const handleResize = () => {
       loadImage(Math.floor(frame.current.currIdx));
     };
@@ -36,23 +51,6 @@ const MainProjects = () => {
     };
   }, []);
 
-  function init() {
-    for (let i = 1; i <= frame.current.maxIdx; i++) {
-      const img = new Image();
-      img.src = `/solar/frame_${i}.webp`;
-      img.onload = () => {
-        imagesRef.current[i] = img;
-        setImagesLoaded((prev) => {
-          const newLoaded = prev + 1;
-          if (newLoaded === frame.current.maxIdx) {
-            animate();
-          }
-          return newLoaded;
-        });
-      };
-    }
-  }
-
   function loadImage(idx) {
     if (idx < 0 || idx > frame.current.maxIdx) {
       return;
@@ -62,7 +60,7 @@ const MainProjects = () => {
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    const img = imagesRef.current[idx];
+    const img = ImagesRef.current[idx];
 
     if (!img) return;
 
@@ -85,7 +83,7 @@ const MainProjects = () => {
     ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
   }
 
-  function animate() {
+  function animate() {    
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.parent',
@@ -155,7 +153,7 @@ const MainProjects = () => {
       .to(frame.current, anime(703), "seventeenth")
       .to(".animate-5 span", { width: 85, ease: "elastic" }, "seventeenth")
   }
- 
+
   return (
     <div className="parent relative w-full h-[1800vh] ">
       <div className="w-full sticky top-0 left-0 h-screen bg-cover bg-center bg-no-repeat overflow-x-hidden">
@@ -178,9 +176,9 @@ const MainProjects = () => {
           <p className="text-left  text-neutral-800 text-xl">
             I'm a passionate software engineer skilled in <ImponentText
               words={"Java, JavaScript, TypeScript,"} /> ans <ImponentText words={"Node.js"} />. I specialize in
-            full-stack development, working with frameworks like <ImponentText
+            full-stack development, working with frame.currentworks like <ImponentText
               words={"React.js, Next.js, Express, Tailwind CSS, SASS, "} />, ans <ImponentText
-              words={"Framer Motion"} /> .
+              words={"frame.currentr Motion"} /> .
             My experience includes working with <ImponentText
               words={"AWS, Google Cloud, Firebase, BullMQ,"} />and <ImponentText words={"MongoDB"} />.
             My experience spans across <ImponentText
