@@ -1,12 +1,15 @@
 "use client"
-import React, { useRef } from "react";
+
+import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import useScreenSize from "@/hooks/useScreenSize";
 
 export function MainModel(props) {
-    const { nodes, materials } = useGLTF('/models/scene-transformed.glb');
+
     const modelRef = useRef();
+    const { nodes, materials } = useGLTF('/models/scene-transformed.glb');
+    
     const size = useScreenSize();
     const isLarge = size >= 1024;
     const isMedium = size < 1024 && size > 768;

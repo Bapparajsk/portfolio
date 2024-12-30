@@ -1,10 +1,9 @@
 "use client";;
-import { useScroll, useTransform, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
 
-export const Timeline = ({
-                             data
-                         }) => {
+import { useEffect, useRef, useState } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
+
+export const Timeline = ({ data }) => {
     const ref = useRef(null);
     const containerRef = useRef(null);
     const [height, setHeight] = useState(0);

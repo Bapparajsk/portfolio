@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Image } from "@nextui-org/image";
 import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/breadcrumbs";
 import { IconMinus, IconSquare, IconX } from "@tabler/icons-react";
+
 import { TopManu } from "./TopManu";
 import { IconsManu } from "./IconsManu";
 import { CodeEditor } from "./Editor";
@@ -60,7 +61,7 @@ export default function Form() {
 }
 
 
-const WindowButton = ({ iconName, className, color, isCloseicon }) => {
+const WindowButton = ({ iconName, color, isCloseicon }) => {
     color = color || "#575353";
 
     const [mouseOver, setMouseOver] = useState(false);

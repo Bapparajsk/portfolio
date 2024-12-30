@@ -1,4 +1,5 @@
-// components/SphereAnimation.tsx
+"use client";
+
 import { useEffect } from "react";
 import anime from "animejs";
 

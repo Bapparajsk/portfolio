@@ -1,14 +1,16 @@
-'use client'
+"use client";
 
 import { IconHome } from '@tabler/icons-react';
 import Link from "next/link";
 import { motion } from "framer-motion";
+
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { ProjectsList } from "@/components/projects/Index";
 
+const NavLink = motion.create(Link);
+
 export default function page() {
-    const NavLink = motion(Link);
     
     return (
         <main className={''}>

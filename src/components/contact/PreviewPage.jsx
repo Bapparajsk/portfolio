@@ -1,7 +1,8 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
-import { Button, Input, Textarea } from "@nextui-org/react";
+import { Input, Textarea } from "@nextui-org/input";
+import { Button } from "@nextui-org/button";
 import { Toaster, toast } from 'sonner';
 
 export const PreviewPage = () => {

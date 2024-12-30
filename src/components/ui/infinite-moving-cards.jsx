@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export const InfiniteMovingCards = ({
     items,
@@ -10,8 +10,8 @@ export const InfiniteMovingCards = ({
     pauseOnHover = true,
     className
 }) => {
-    const containerRef = React.useRef(null);
-    const scrollerRef = React.useRef(null);
+    const containerRef = useRef(null);
+    const scrollerRef = useRef(null);
 
     useEffect(() => {
         addAnimation();

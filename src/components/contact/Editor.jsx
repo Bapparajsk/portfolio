@@ -1,5 +1,3 @@
-"use client";
-
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { editroDefaultValue } from './data';

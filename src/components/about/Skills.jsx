@@ -1,9 +1,10 @@
 "use client";
 
-import { Fragment } from "react"
+import { Fragment } from "react";
+import { motion } from "framer-motion";
+
 import { SkilCard } from "@/components/about/SkilCard";
 import { skills } from "@/app/data";
-import { motion } from "framer-motion";
 
 export const Skills = () => {
   return (

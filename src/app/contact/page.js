@@ -1,25 +1,26 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { IconHome } from "@tabler/icons-react";
 import { motion } from "framer-motion";
-import { testimonials } from "../data";
+
 import Form from "@/components/contact/Form";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import SphereAnimation from "@/components/ui/grobal";
 import { Iconcard } from "@/components/ui/Iconcard";
+import { testimonials } from "../data";
+
+const NavLink = motion.create(Link);
+const words = [
+    { text: "Summon", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
+    { text: "this", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
+    { text: "My", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
+    { text: "Portfolio.", className: "text-blue-500 dark:text-blue-500 font-semibold md:text-5xl text-3xl lg:text-7xl" },
+];
 
 export default function page() {
-    const NavLink = motion.create(Link);
-
-    const words = [
-        { text: "Summon", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
-        { text: "this", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
-        { text: "My", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
-        { text: "Portfolio.", className: "text-blue-500 dark:text-blue-500 font-semibold md:text-5xl text-3xl lg:text-7xl" },
-    ];
 
     return (
         <main className={'w-full h-full overflow-x-hidden pt-20 px-8 xs:px-16 lg:px-32 flex flex-col items-center justify-center'}>
@@ -73,5 +74,5 @@ export default function page() {
             </div>
             <Form />
         </main>
-    )
+    );
 }

@@ -1,13 +1,14 @@
 "use client";
 
 import React from "react";
-import { AboutDetails } from "@/components/about/index";
-import MainProjects from "@/components/about/MainProjects";
-import { LampContainer } from "@/components/ui/lamp";
 import Link from "next/link";
 import { IconHome } from "@tabler/icons-react";
 import { motion } from "framer-motion";
+
+import { AboutDetails } from "@/components/about/index";
+import MainProjects from "@/components/about/MainProjects";
 import { Skills } from "@/components/about/Skills";
+import { LampContainer } from "@/components/ui/lamp";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { ImponentText } from "@/components/ui/imponent-text";
 

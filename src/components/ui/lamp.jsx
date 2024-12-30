@@ -1,11 +1,9 @@
-"use client";
-import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 

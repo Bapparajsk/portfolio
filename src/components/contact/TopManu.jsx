@@ -1,9 +1,6 @@
-"use client";
+const manuKeys = ["File", "Edit", "Selection", "View", "Go", "Run", "Terminal", "Help"];
 
 export const TopManu = () => {
-
-    const manuKeys = ["File", "Edit", "Selection", "View", "Go", "Run", "Terminal", "Help"];
-    
     return (
         <div className="w-auto h-full flex items-center justify-center">
             {manuKeys.map((key) => (

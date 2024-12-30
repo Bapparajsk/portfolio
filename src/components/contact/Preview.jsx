@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { IconArrowNarrowLeft, IconArrowNarrowRight, IconLayoutDashboard, IconLock, IconMenu2, IconRotate, IconSeparator, IconSquareToggle, IconX } from "@tabler/icons-react";
 import {CircularProgress} from "@nextui-org/progress"
+
 import { PreviewPage } from "./PreviewPage";
 
 export const Preview = () => {
@@ -11,7 +12,6 @@ export const Preview = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     const setloding = () => {
-    
         setIsLoading(true);
         setTimeout(() => {
             setIsLoading(false);
@@ -53,5 +53,5 @@ export const Preview = () => {
                 {isLoading ?  <CircularProgress size={"lg"} color={"#7A0BC0"}/> : <PreviewPage />}
             </div>
         </div>
-    )
-}
+    );
+};

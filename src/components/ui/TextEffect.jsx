@@ -1,6 +1,7 @@
 'use client';
+
+import {memo} from 'react';
 import { motion } from 'framer-motion';
-import React from 'react';
 
 const defaultContainerVariants = {
   hidden: { opacity: 0 },
@@ -55,7 +56,7 @@ const presetVariants = {
   },
 };
 
-const AnimationComponent = React.memo(({ word, variants, per }) => {
+const AnimationComponent = memo(({ word, variants, per }) => {
   if (per === 'word') {
     return (
       <motion.span

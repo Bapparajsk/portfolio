@@ -33,15 +33,13 @@ const getIcon = (icon) => {
     }
 }
 
+const NavLink = motion.create(Link);
+const item = {
+    hidden: { scale: 0 },
+    show: { scale: 1 },
+}
 
 export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "right" }) => {
-
-    const NavLink = motion(Link);
-    const item = {
-        hidden: { scale: 0 },
-        show: { scale: 1 },
-    }
-
     return (
         <ResponsiveComponent>
             {({ size }) => {

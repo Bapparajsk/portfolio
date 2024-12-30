@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { ImponentText } from '../ui/imponent-text';
+
 import { useImages } from "@/context/ImagesContext";
+import { ImponentText } from '../ui/imponent-text';
 
 gsap.registerPlugin(ScrollTrigger);
-
-
 
 const MainProjects = () => {
   const canvasRef = useRef(null);
@@ -22,13 +21,10 @@ const MainProjects = () => {
   const init = () => {
     if (images.length === 0) {
       loadImagein().then((im) => {
-        console.log("22222");
         ImagesRef.current = im;
         animate();
       })
     } else {
-      console.log("11111");
-      
       ImagesRef.current = images;
       animate();
     }
