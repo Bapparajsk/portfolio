@@ -1,8 +1,7 @@
 'use client'
 
-import React from "react";
 import Link from "next/link";
-import { Home } from "lucide-react";
+import { IconHome } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { testimonials } from "../data";
 import Form from "@/components/contact/Form";
@@ -31,7 +30,7 @@ export default function page() {
                     transition={{ delay: 0.2, duration: 0.2 }}
                     href={'/'}
                     className={'w-[50px] h-[50px] flex justify-center items-center border-solid border-amber-50 border-2 rounded-[50%] shadow-glass-inset hover:shadow-glass-sm'}>
-                    <Home className={'w-[20px] h-[20px]'} strokeWidth={1.5} />
+                    <IconHome className={'w-[20px] h-[20px]'} strokeWidth={1.5} />
                 </NavLink>
             </div>
             <div className="h-[35rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">

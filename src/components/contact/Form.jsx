@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { Image } from "@nextui-org/react";
-import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
-import { Minus, Square, X } from "lucide-react";
+import { useState } from "react";
+import { Image } from "@nextui-org/image";
+import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/breadcrumbs";
+import { IconMinus, IconSquare, IconX } from "@tabler/icons-react";
 import { TopManu } from "./TopManu";
 import { IconsManu } from "./IconsManu";
 import { CodeEditor } from "./Editor";
@@ -74,11 +74,11 @@ const WindowButton = ({ iconName, className, color, isCloseicon }) => {
             onMouseLeave={() => setMouseOver(false)}
         >
             {iconName === "Minus" ? (
-                <Minus size={10} color="#fff" className={!mouseOver && "hidden"} />
+                <IconMinus size={10} color="#fff" className={!mouseOver && "#ffffff10"} />
             ) : iconName === "Square" ? (
-                <Square size={10} color="#fff" className={!mouseOver && "hidden"} />
+                <IconSquare size={10} color="#fff" className={!mouseOver && "#ffffff10"} />
             ) : iconName === "X" ? (
-                <X size={15} color={mouseOver ? "#FFFFFF" : "#000000"} />
+                <IconX size={15} color={mouseOver ? "#FFFFFF" : "#000000"} />
             ) : null}
         </div>
     );

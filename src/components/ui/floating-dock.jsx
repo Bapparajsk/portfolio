@@ -8,7 +8,8 @@ import {
   IconHome,
   IconLayoutNavbarCollapse,
   IconPhone,
-  IconUser
+  IconUser,
+  IconPalette
 } from "@tabler/icons-react";
 import {
   AnimatePresence,
@@ -17,7 +18,6 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { Palette } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
@@ -41,7 +41,7 @@ const links = [
   {
     title: "Projects",
     icon: (
-      <Palette className={clas} />
+      <IconPalette className={clas} />
     ),
     href: "/projects",
   },

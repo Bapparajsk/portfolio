@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import {
-    Home, User, Palette,
-    Phone, Github, Linkedin,
-    NotebookText, Twitter
-} from "lucide-react";
+    IconHome, IconUser, IconPalette,
+    IconPhone, IconBrandGithub, IconBrandLinkedin,
+    IconAlignBoxLeftTop, IconBrandX
+} from "@tabler/icons-react";
 import { ResponsiveComponent } from "@/components/ResponsiveComponent";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -13,23 +13,23 @@ import { motion } from "framer-motion";
 const getIcon = (icon) => {
     switch (icon) {
         case 'home':
-            return <Home className={'w-full h-auto'} strokeWidth={1.5} />
+            return <IconHome className={'w-full h-auto'} strokeWidth={1.5} />
         case 'info':
-            return <User className={'w-full h-auto'} strokeWidth={1.5} />
+            return <IconUser className={'w-full h-auto'} strokeWidth={1.5} />
         case 'Projects':
-            return <Palette className={'w-full h-auto'} strokeWidth={1.5} />
+            return <IconPalette className={'w-full h-auto'} strokeWidth={1.5} />
         case 'contact':
-            return <Phone className={'w-full h-auto'} strokeWidth={1.5} />
+            return <IconPhone className={'w-full h-auto'} strokeWidth={1.5} />
         case 'github':
-            return <Github className={'w-full h-auto'} strokeWidth={1.5} />
+            return <IconBrandGithub className={'w-full h-auto'} strokeWidth={1.5} />
         case 'linkedin':
-            return <Linkedin className={'w-full h-auto'} strokeWidth={1.5} />
+            return <IconBrandLinkedin className={'w-full h-auto'} strokeWidth={1.5} />
         case 'resume':
-            return <NotebookText className={'w-full h-auto'} strokeWidth={1.5} />
+            return <IconAlignBoxLeftTop className={'w-full h-auto'} strokeWidth={1.5} />
         case 'twitter':
-            return <Twitter className={'w-full h-auto'} strokeWidth={1.5} />
+            return <IconBrandX className={'w-full h-auto'} strokeWidth={1.5} />
         default:
-            return <Home className={'w-full h-auto'} strokeWidth={1.5} />
+            return <IconHome className={'w-full h-auto'} strokeWidth={1.5} />
     }
 }
 

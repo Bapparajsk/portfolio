@@ -5,7 +5,7 @@ import { AboutDetails } from "@/components/about/index";
 import MainProjects from "@/components/about/MainProjects";
 import { LampContainer } from "@/components/ui/lamp";
 import Link from "next/link";
-import { Home } from "lucide-react";
+import { IconHome } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { Skills } from "@/components/about/Skills";
 import { FloatingDock } from "@/components/ui/floating-dock";
@@ -42,7 +42,7 @@ export default function page() {
                     transition={{ delay: 0.2, duration: 0.2 }}
                     href={'/'}
                     className={'w-[50px] h-[50px] flex justify-center items-center border-solid border-amber-50 border-2 rounded-[50%] shadow-glass-inset hover:shadow-glass-sm'}>
-                    <Home className={'w-[20px] h-[20px]'} strokeWidth={1.5} />
+                    <IconHome className={'w-[20px] h-[20px]'} strokeWidth={1.5} />
                 </NavLink>
             </div>
             <div data-scroll data-scroll-section data-scroll-speed="-.7" className={'w-full h-auto dd'}>

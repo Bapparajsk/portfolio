@@ -23,7 +23,7 @@ export default function Card({
             />
             <div className="absolute top-0 left-0 w-full h-full rounded-lg bg-transparent transition-all border border-transparent duration-300 group-hover:bg-transparent/60 group-hover:border-red-500 z-10 cursor-pointer" />
             <div className="absolute bottom-3 right-5 z-20 translate-y-10 transition-transform duration-300 group-hover:translate-y-0 flex gap-2">
-                <p className="font-roboto font-bold">{name}</p>
+                <p className="font-roboto font-bold">{name || alt}</p>
                 {links.map((link, idx) => (
                     <Link
                         href={link.href}

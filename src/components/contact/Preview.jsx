@@ -1,9 +1,7 @@
 "use client";
 
-
 import { useState } from "react";
-import { IconArrowNarrowLeft, IconArrowNarrowRight, IconLayoutDashboard, IconLock, IconMenu2, IconRotate, IconSeparator, IconSquareToggle } from "@tabler/icons-react";
-import { X } from "lucide-react";
+import { IconArrowNarrowLeft, IconArrowNarrowRight, IconLayoutDashboard, IconLock, IconMenu2, IconRotate, IconSeparator, IconSquareToggle, IconX } from "@tabler/icons-react";
 import {CircularProgress} from "@nextui-org/progress"
 import { PreviewPage } from "./PreviewPage";
 
@@ -26,7 +24,7 @@ export const Preview = () => {
                 <div className={"w-auto h-full cursor-pointer flex items-center gap-x-2 font-mono bg-gray-800/80 text-gray-500 px-2 border-t-1 border-t-red-500 border-r-1 border-r-gray-600 rounded-tr-sm hover:bg-gray-800 hover:text-white duration-300"}>
                     <IconLayoutDashboard size={20}/>
                     <span>Document</span>
-                    <X size={20}/>
+                    <IconX size={20}/>
                 </div>
                 <div className={"w-auto h-full flex items-center justify-center gap-x-3 px-2"}>
                     <IconSquareToggle size={20} className={iconClassName}/>
