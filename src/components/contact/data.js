@@ -1,5 +1,4 @@
-export const editroDefaultValue = `
-1   "use client";
+export const editroDefaultValue = `1   "use client";
 2
 3   import { Fragment, useEffect, useState } from "react";
 4   import { Button, Input, Textarea } from "@nextui-org/react";

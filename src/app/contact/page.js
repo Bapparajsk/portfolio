@@ -11,6 +11,7 @@ import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import SphereAnimation from "@/components/ui/grobal";
 import { Iconcard } from "@/components/ui/Iconcard";
 import { testimonials } from "../data";
+import { FloatingDock } from "@/components/ui/floating-dock";
 
 const NavLink = motion.create(Link);
 const words = [
@@ -64,15 +65,23 @@ export default function page() {
                 />
             </div>
             <div className={"w-fulll h-auto flex flex-col justify-center items-center"}>
-                <h1 className="text-[40px] font-mono"> Animate anything 
+                <h1 className="text-[40px] font-mono"> Animate anything
                     <span className="text-[#7A0BC0] font-semibold"> with Three.js</span>
                 </h1>
-                <Iconcard/>
+                <Iconcard />
             </div>
             <div className="grolb-container bg-svg-pattern">
-                <SphereAnimation/>
+                <SphereAnimation />
             </div>
             <Form />
+            <footer>
+                <div className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full`}>
+                    <FloatingDock
+                        pathName={"contact"}
+                        // isDark={false}
+                    />
+                </div>
+            </footer>
         </main>
     );
 }

@@ -47,7 +47,7 @@ export default function Form() {
                     </div>
                     
                 </div>
-                <div className="w-full h-8 absolute bottom-0 left-0 flex items-center justify-start bg-black px-3 font-mono">
+                <div className="w-full h-8 absolute bottom-0 left-0 flex items-center justify-start bg-black px-3 font-mono border-t-1 border-gray-600">
                     <Breadcrumbs>
                         <BreadcrumbItem>src</BreadcrumbItem>
                         <BreadcrumbItem>Components</BreadcrumbItem>
@@ -75,11 +75,11 @@ const WindowButton = ({ iconName, color, isCloseicon }) => {
             onMouseLeave={() => setMouseOver(false)}
         >
             {iconName === "Minus" ? (
-                <IconMinus size={10} color="#fff" className={!mouseOver && "#ffffff10"} />
+                <IconMinus size={10} style={{ color: mouseOver ? "#ffffff" : "#D8D2C2" }}/>
             ) : iconName === "Square" ? (
-                <IconSquare size={10} color="#fff" className={!mouseOver && "#ffffff10"} />
+                <IconSquare size={10} style={{ color: mouseOver ? "#ffffff" : "#D8D2C2" }} />
             ) : iconName === "X" ? (
-                <IconX size={15} color={mouseOver ? "#FFFFFF" : "#000000"} />
+                <IconX size={15} color={mouseOver ? "#FFFFFF" : "#000000"}/>
             ) : null}
         </div>
     );

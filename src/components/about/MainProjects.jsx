@@ -163,14 +163,14 @@ const MainProjects = () => {
             Welcome to my About
           </h2>
         </div>
-        <div className='absolute bottom-24 left-1/2 !-translate-x-1/2 md:right-24 md:!translate-x-0 animate-2 opacity-0'>
+        <div className='absolute bottom-24 left-2/3 !-translate-x-1/2 md:right-16 md:!translate-x-0 animate-2 opacity-0'>
           <h2 className='text-neutral-800 text-2xl md:text-4xl xl:text-6xl font-ubuntu'>
             start a new <span className="bg-[linear-gradient(90deg,#0D92F4_0%,#6256CA_40%,#F95454_100%)] text-transparent bg-clip-text font-bold">journey</span>
           </h2>
         </div>
         <div className='absolute top-10 left-20 max-w-[600px] animate-4-top opacity-0 bg-white p-4 rounded-lg hidden md:block'>
           <p className="text-left  text-neutral-800 text-xl">
-            I'm a passionate software engineer skilled in <ImponentText
+            I'm a passionate software Engineer skilled in <ImponentText
               words={"Java, JavaScript, TypeScript,"} /> ans <ImponentText words={"Node.js"} />. I specialize in
             full-stack development, working with frame.currentworks like <ImponentText
               words={"React.js, Next.js, Express, Tailwind CSS, SASS, "} />, ans <ImponentText

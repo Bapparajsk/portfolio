@@ -72,7 +72,7 @@ export default function page() {
                     <Skills />
                     <div className=' max-w-[600px] bg-black p-4 rounded-lg  md:hidden'>
                         <p className="text-left  text-neutral-200 text-xl">
-                            I'm a passionate software engineer skilled in <ImponentText
+                            I'm a passionate software Engineer skilled in <ImponentText
                                 words={"Java, JavaScript, TypeScript,"} /> ans <ImponentText words={"Node.js"} />. I specialize in
                             full-stack development, working with frameworks like <ImponentText
                                 words={"React.js, Next.js, Express, Tailwind CSS, SASS, "} />, ans <ImponentText
@@ -93,13 +93,13 @@ export default function page() {
                     </div>
                 </div>
                 <footer>
-                <div className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full bg-neutral-50`}>
-                    <FloatingDock
-                        pathName={"about"}
-                        isDark={false}
-                    />
-                </div>
-            </footer>
+                    <div className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full bg-neutral-50`}>
+                        <FloatingDock
+                            pathName={"about"}
+                            isDark={false}
+                        />
+                    </div>
+                </footer>
             </div>
         </main>
     );
