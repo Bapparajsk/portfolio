@@ -12,11 +12,11 @@ import {
     IconCircleCheck,
     IconGeometry,
     IconTableShare,
-    IconPencilCheck
+    IconPencilCheck,
 } from "@tabler/icons-react";
-
 import { Timeline } from "@/components/ui/timeline";
 import Card from "./Card";
+import InteractiveHoverButton from "../ui/interactive-hover-button";
 
 export function ProjectsList() {
     const router = useRouter();
@@ -206,14 +206,15 @@ export function ProjectsList() {
                         ].map((items, index) => (
                             <Card key={index} {...items} />
                         ))}
-                        <div className="w-full h-full bg-gray-800 rounded-md">
+                        <div className="w-full h-fullrounded-md">
                             <Link
                                 href="https://github.com/Bapparajsk?tab=repositories"
                                 target={"_blank"}
-                                className="w-full flex gap-1 items-center justify-center py-2 transition-colors duration-500 hover:text-blue-600"
                             >
-                                <IconBrandGithub /> View all projects
+                                <InteractiveHoverButton text={"View all projects"} className={"w-full items-center justify-center"}/>
+                                {/* <IconBrandGithub />  */}
                             </Link>
+                            
                         </div>
                     </div>
                 </div>
