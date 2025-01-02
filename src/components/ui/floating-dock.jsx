@@ -16,12 +16,11 @@ import {
 } from "@tabler/icons-react";
 import {
   AnimatePresence,
-  motion,
+  MotionDiv,
   useMotionValue,
   useSpring,
   useTransform,
-} from "@/components/motion";
-
+} from "@/lib/motion";
 
 const clas = "h-full w-full text-neutral-500";
 
@@ -123,7 +122,7 @@ const FloatingDockDesktop = ({
 }) => {
   let mouseX = useMotionValue(Infinity);
   return (
-    <motion.div
+    <MotionDiv
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
@@ -135,7 +134,7 @@ const FloatingDockDesktop = ({
       {items.map((item) => (
         <IconContainer isDark={isDark} mouseX={mouseX} key={item.title} {...item} />
       ))}
-    </motion.div>
+    </MotionDiv>
   );
 };
 
@@ -191,7 +190,7 @@ function IconContainer({
 
   return (
     <Link href={href} target={target}>
-      <motion.div
+      <MotionDiv
         ref={ref}
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
@@ -200,7 +199,7 @@ function IconContainer({
       >
         <AnimatePresence>
           {hovered && (
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
@@ -210,16 +209,16 @@ function IconContainer({
               )}
             >
               {title}
-            </motion.div>
+            </MotionDiv>
           )}
         </AnimatePresence>
-        <motion.div
+        <MotionDiv
           style={{ width: widthIcon, height: heightIcon }}
           className="flex items-center justify-center"
         >
           {icon}
-        </motion.div>
-      </motion.div>
+        </MotionDiv>
+      </MotionDiv>
     </Link>
   );
 }

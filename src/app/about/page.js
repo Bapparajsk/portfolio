@@ -9,13 +9,12 @@ import { Skills } from "@/components/about/Skills";
 import { LampContainer } from "@/components/ui/lamp";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { ImponentText } from "@/components/ui/imponent-text";
-import { motion, MotionLink } from "@/components/motion";
+import { MotionH1, MotionLink } from "@/lib/motion";
 
 export default function page() {
 
     useEffect(() => {
         let locomotiveScroll;
-
         if (typeof window !== "undefined") {
             const Locomotive = async () => {
                 const LocomotiveScroll = (await import("locomotive-scroll")).default;
@@ -28,7 +27,6 @@ export default function page() {
                 if (locomotiveScroll) locomotiveScroll.destroy();
             };
         }
-
     }, []);
 
     return (
@@ -45,7 +43,7 @@ export default function page() {
             </div>
             <div data-scroll data-scroll-section data-scroll-speed="-.7" className={'w-full h-auto dd'}>
                 <LampContainer>
-                    <motion.h1
+                    <MotionH1
                         initial={{ opacity: 0.5, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{
@@ -57,7 +55,7 @@ export default function page() {
                     >
                         About Me <br />
                         <span className="text-2xl font-normal text-neutral-500">I am a Software Engineer</span>
-                    </motion.h1>
+                    </MotionH1>
                 </LampContainer>
             </div>
             <div className="w-full h-auto overflow-x-hidden bg-slate-950">

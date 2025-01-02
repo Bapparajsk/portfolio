@@ -3,7 +3,7 @@
 import { ButtonList } from "@/app/data";
 import { NavButton } from "@/components/navigation/NavButton";
 import { ResponsiveComponent } from "@/components/ResponsiveComponent";
-import { motion } from "@/components/motion";
+import { MotionDiv } from "@/lib/motion";
 
 const container = {
     hidden: { opacity: 0 },
@@ -24,7 +24,7 @@ export const Navigation = () => {
             <ResponsiveComponent>
                 {({ size }) => {
                     return size && size >= 480 ? (
-                        <motion.div
+                        <MotionDiv
                             variants={container}
                             initial={'hidden'}
                             animate={'show'}
@@ -39,23 +39,23 @@ export const Navigation = () => {
                                     return <NavButton key={item.label} x={x} y={y}  {...item} />
                                 })
                             }
-                        </motion.div>
+                        </MotionDiv>
                     ) : (
                         <>
-                            <motion.div
+                            <MotionDiv
                                 variants={container}
                                 initial={'hidden'}
                                 animate={'show'}
                                 className={'w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-start xs:items-center justify-center relative group'}>
                                 {ButtonList.slice(0, ButtonList.length / 2).map((item, index) => <NavButton key={item.label} x={0} y={0}  {...item} />)}
-                            </motion.div>
-                            <motion.div
+                            </MotionDiv>
+                            <MotionDiv
                                 variants={container}
                                 initial={'hidden'}
                                 animate={'show'}
                                 className={'w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-end xs:items-center justify-center relative group'}>
                                 {ButtonList.slice(ButtonList.length / 2, ButtonList.length).map((item, index) => <NavButton key={item.label} x={0} y={0}  {...item} labelDirection={'left'} />)}
-                            </motion.div>
+                            </MotionDiv>
                         </>
                     )
                 }}

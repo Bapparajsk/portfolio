@@ -7,7 +7,7 @@ import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import SphereAnimation from "@/components/ui/grobal";
 import { Iconcard } from "@/components/ui/Iconcard";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { MotionLink } from "@/components/motion";
+import { MotionLink } from "@/lib/motion";
 import { testimonials, words } from "../data";
 
 export default function page() {

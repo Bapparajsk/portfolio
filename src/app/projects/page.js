@@ -3,7 +3,7 @@ import { IconHome } from '@tabler/icons-react';
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { ProjectsList } from "@/components/projects/Index";
-import { MotionLink } from "@/components/motion";
+import { MotionLink } from "@/lib/motion";
 
 export default function page() {
     return (

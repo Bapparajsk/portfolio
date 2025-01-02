@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { motion, stagger, useAnimate, useInView } from "@/components/motion";
+import { MotionDiv, MotionSpan, stagger, useAnimate, useInView } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export const TypewriterEffect = ({
@@ -39,12 +39,12 @@ export const TypewriterEffect = ({
 
   const renderWords = () => {
     return (
-      <motion.div ref={scope} className="inline">
+      <MotionDiv ref={scope} className="inline">
         {wordsArray.map((word, idx) => {
           return (
             <div key={`word-${idx}`} className="inline-block">
               {word.text.map((char, index) => (
-                <motion.span
+                <MotionSpan
                   initial={{}}
                   key={`char-${index}`}
                   className={cn(
@@ -53,13 +53,13 @@ export const TypewriterEffect = ({
                   )}
                 >
                   {char}
-                </motion.span>
+                </MotionSpan>
               ))}
               &nbsp;
             </div>
           );
         })}
-      </motion.div>
+      </MotionDiv>
     );
   };
   return (
@@ -70,7 +70,7 @@ export const TypewriterEffect = ({
       )}
     >
       {renderWords()}
-      <motion.span
+      <MotionSpan
         initial={{
           opacity: 0,
         }}
@@ -86,7 +86,7 @@ export const TypewriterEffect = ({
           "inline-block rounded-sm w-[4px] h-4 md:h-6 lg:h-10 bg-blue-500",
           cursorClassName
         )}
-      ></motion.span>
+      ></MotionSpan>
     </div>
   );
 };
@@ -127,7 +127,7 @@ export const TypewriterEffectSmooth = ({
 
   return (
     <div className={cn("flex space-x-1 my-6", className)}>
-      <motion.div
+      <MotionDiv
         className="overflow-hidden pb-2"
         initial={{
           width: "0%",
@@ -149,8 +149,8 @@ export const TypewriterEffectSmooth = ({
         >
           {renderWords()}{" "}
         </div>{" "}
-      </motion.div>
-      <motion.span
+      </MotionDiv>
+      <MotionSpan
         initial={{
           opacity: 0,
         }}
@@ -166,7 +166,7 @@ export const TypewriterEffectSmooth = ({
           "block rounded-sm w-[6px] h-8 sm:h-10 md:h-16 xl:h-16 bg-blue-500",
           cursorClassName
         )}
-      ></motion.span>
+      ></MotionSpan>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, useScroll, useTransform, useSpring } from "@/components/motion";
+import { MotionDiv, useScroll, useTransform, useSpring } from "@/lib/motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,7 +30,7 @@ export const HeroParallax = () => {
             ref={ref}
             className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]">
             <Header />
-            <motion.div
+            <MotionDiv
                 style={{
                     rotateX,
                     rotateZ,
@@ -38,22 +38,22 @@ export const HeroParallax = () => {
                     opacity,
                 }}
                 className="">
-                <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+                <MotionDiv className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
                     {firstRow.map((product) => (
                         <ProductCard product={product} translate={translateX} key={product.title} />
                     ))}
-                </motion.div>
-                <motion.div className="flex flex-row  mb-20 space-x-20 ">
+                </MotionDiv>
+                <MotionDiv className="flex flex-row  mb-20 space-x-20 ">
                     {secondRow.map((product) => (
                         <ProductCard product={product} translate={translateXReverse} key={product.title} />
                     ))}
-                </motion.div>
-                <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+                </MotionDiv>
+                <MotionDiv className="flex flex-row-reverse space-x-reverse space-x-20">
                     {thirdRow.map((product) => (
                         <ProductCard product={product} translate={translateX} key={product.title} />
                     ))}
-                </motion.div>
-            </motion.div>
+                </MotionDiv>
+            </MotionDiv>
         </div>
     );
 };
@@ -78,7 +78,7 @@ export const ProductCard = ({
     translate
 }) => {
     return (
-        (<motion.div
+        (<MotionDiv
             style={{
                 x: translate,
             }}
@@ -101,6 +101,6 @@ export const ProductCard = ({
                 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
                 {product.title}
             </h2>
-        </motion.div>)
+        </MotionDiv>)
     );
 };

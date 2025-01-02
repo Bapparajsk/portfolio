@@ -4,11 +4,10 @@ import {CircularProgress} from "@nextui-org/progress"
 
 import { PreviewPage } from "./PreviewPage";
 
+const iconClassName = "text-gray-400 hover:text-white cursor-pointer duration-400";
+
 export const Preview = () => {
-
-    const iconClassName = "text-gray-400 hover:text-white cursor-pointer duration-400";
     const [isLoading, setIsLoading] = useState(false);
-
     const setloding = () => {
         setIsLoading(true);
         setTimeout(() => {

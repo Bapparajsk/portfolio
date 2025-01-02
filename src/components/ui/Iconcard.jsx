@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { animate, motion } from "@/components/motion";
+import { animate, MotionSpan } from "@/lib/motion";
 
 import {
   IconBrandNextjs,
@@ -105,7 +105,7 @@ const Sparkles = () => {
   return (
     <div className="absolute inset-0">
       {[...Array(12)].map((_, i) => (
-        <motion.span
+        <MotionSpan
           key={`star-${i}`}
           animate={{
             top: `calc(${random() * 100}% + ${randomMove()}px)`,
@@ -120,7 +120,7 @@ const Sparkles = () => {
           }}
 
           className={`absolute top-[${random() * 100}%] left-[${random() * 100}%] w-[2px] h-[2px] rounded-[50%] z-10 inline-block bg-black dark:bg-white`}
-        ></motion.span>
+        ></MotionSpan>
       ))}
     </div>
   );

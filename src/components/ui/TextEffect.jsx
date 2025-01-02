@@ -1,7 +1,7 @@
 'use client';
 
 import {memo} from 'react';
-import { motion } from '@/components/motion';
+import { motion, MoctionSpan } from '@/lib/motion';
 
 const defaultContainerVariants = {
   hidden: { opacity: 0 },
@@ -59,27 +59,27 @@ const presetVariants = {
 const AnimationComponent = memo(({ word, variants, per }) => {
   if (per === 'word') {
     return (
-      <motion.span
+      <MoctionSpan
         aria-hidden='true'
         variants={variants}
         className='inline-block whitespace-pre'
       >
         {word}
-      </motion.span>
+      </MoctionSpan>
     );
   }
 
   return (
     <span className='inline-block whitespace-pre'>
       {word.split('').map((char, charIndex) => (
-        <motion.span
+        <MoctionSpan
           key={`char-${charIndex}`}
           aria-hidden='true'
           variants={variants}
           className='inline-block whitespace-pre'
         >
           {char}
-        </motion.span>
+        </MoctionSpan>
       ))}
     </span>
   );

@@ -128,7 +128,7 @@ The application should now be running on [http://localhost:3000](http://localhos
     - Corrected typos and grammatical errors in the content.
 - **Enhancements**:
       - Improved the contact form with better error handling and user feedback.
-      - Updated dependencies to the latest versions.
+      - Updated dependencies to the latest versions.s
       - Added a loading indicator for the contact form submission.
 - **New Features**:
     - Update about page with new content.

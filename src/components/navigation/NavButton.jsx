@@ -8,7 +8,7 @@ import {
 } from "@tabler/icons-react";
 import { ResponsiveComponent } from "@/components/ResponsiveComponent";
 import { cn } from "@/lib/utils";
-import { MotionLink } from "@/components/motion";
+import { MotionLink } from "@/lib/motion";
 
 const getIcon = (icon) => {
     switch (icon) {
