@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className='dark'>
-      <body className={clsx(inter.className, 'font-inter bg-black')}>
+      <body className={clsx(inter.className, 'font-inter bg-black relative')}>
         <Providers>
           <ImagesProvider>
             {children}

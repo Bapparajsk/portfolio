@@ -1,28 +1,22 @@
-"use client";
-
 import { IconHome } from '@tabler/icons-react';
-import Link from "next/link";
-import { motion } from "framer-motion";
 
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { ProjectsList } from "@/components/projects/Index";
-
-const NavLink = motion.create(Link);
+import { MotionLink } from "@/components/motion";
 
 export default function page() {
-    
     return (
-        <main className={''}>
+        <main>
             <div className={'fixed top-2 left-2 z-[100]'}>
-                <NavLink
+                <MotionLink
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.2 }}
                     href={'/'}
                     className={'w-[50px] h-[50px] flex justify-center items-center border-solid border-amber-50 border-2 rounded-[50%] shadow-glass-inset hover:shadow-glass-sm'}>
                     <IconHome className={'w-[20px] h-[20px]'} strokeWidth={1.5} />
-                </NavLink>
+                </MotionLink>
             </div>
             <HeroParallax />
             <ProjectsList />

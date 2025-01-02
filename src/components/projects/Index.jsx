@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
     IconCarambola,
     IconBrandGithub,
@@ -19,8 +16,6 @@ import Card from "./Card";
 import InteractiveHoverButton from "../ui/interactive-hover-button";
 
 export function ProjectsList() {
-    const router = useRouter();
-
     const data = [
         {
             title: "Early 2022",

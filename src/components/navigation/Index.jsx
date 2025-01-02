@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ButtonList } from "@/app/data";
 import { NavButton } from "@/components/navigation/NavButton";
 import { ResponsiveComponent } from "@/components/ResponsiveComponent";
+import { motion } from "@/components/motion";
 
 const container = {
     hidden: { opacity: 0 },

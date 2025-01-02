@@ -1,7 +1,7 @@
 'use client';
 
 import {memo} from 'react';
-import { motion } from 'framer-motion';
+import { motion } from '@/components/motion';
 
 const defaultContainerVariants = {
   hidden: { opacity: 0 },

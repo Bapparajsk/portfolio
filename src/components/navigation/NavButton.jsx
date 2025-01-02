@@ -8,7 +8,7 @@ import {
 } from "@tabler/icons-react";
 import { ResponsiveComponent } from "@/components/ResponsiveComponent";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { MotionLink } from "@/components/motion";
 
 const getIcon = (icon) => {
     switch (icon) {
@@ -33,7 +33,6 @@ const getIcon = (icon) => {
     }
 }
 
-const NavLink = motion.create(Link);
 const item = {
     hidden: { scale: 0 },
     show: { scale: 1 },
@@ -48,7 +47,7 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                         className={'absolute cursor-pointer z-50'}
                         style={{ transform: `translate(${x}, ${y})` }}
                     >
-                        <NavLink
+                        <MotionLink
                             variants={item}
                             className={'text-foreground  rounded-full flex items-center justify-center bg-background/20 border border-accent/30 border-solid backdrop-blur-[6px] shadow-glass-inset transition-shadow duration-500 hover:shadow-glass-sm '}
                             href={link}
@@ -67,11 +66,11 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                                     {label}
                                 </span>
                             </span>
-                        </NavLink>
+                        </MotionLink>
                     </div>
                 ) : (
                     <div className={'w-fit cursor-pointer z-50'} >
-                        <NavLink
+                        <MotionLink
                             variants={item}
                             className={'text-foreground  rounded-full flex items-center justify-center bg-background/20 border border-accent/30 border-solid backdrop-blur-[6px] shadow-glass-inset transition-shadow duration-500 hover:shadow-glass-sm '}
                             href={link}
@@ -90,7 +89,7 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                                     {label}
                                 </span>
                             </span>
-                        </NavLink>
+                        </MotionLink>
                     </div>
                 )
             }}

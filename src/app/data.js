@@ -126,4 +126,11 @@ export const skills = {
     "framework": [
         "aws", "docker", "firebase", "git", "github", "googlecloud", "linux", "npm", "redux"
     ]
-}
+};
+
+export const words = [
+    { text: "Summon", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
+    { text: "this", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
+    { text: "My", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
+    { text: "Portfolio.", className: "text-blue-500 dark:text-blue-500 font-semibold md:text-5xl text-3xl lg:text-7xl" },
+];

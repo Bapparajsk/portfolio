@@ -1,8 +1,4 @@
-"use client";
-
-import Link from "next/link";
 import { IconHome } from "@tabler/icons-react";
-import { motion } from "framer-motion";
 
 import Form from "@/components/contact/Form";
 import { SparklesCore } from "@/components/ui/sparkles";
@@ -10,30 +6,22 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import SphereAnimation from "@/components/ui/grobal";
 import { Iconcard } from "@/components/ui/Iconcard";
-import { testimonials } from "../data";
 import { FloatingDock } from "@/components/ui/floating-dock";
-
-const NavLink = motion.create(Link);
-const words = [
-    { text: "Summon", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
-    { text: "this", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
-    { text: "My", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
-    { text: "Portfolio.", className: "text-blue-500 dark:text-blue-500 font-semibold md:text-5xl text-3xl lg:text-7xl" },
-];
+import { MotionLink } from "@/components/motion";
+import { testimonials, words } from "../data";
 
 export default function page() {
-
     return (
         <main className={'w-full h-full overflow-x-hidden pt-20 px-8 xs:px-16 lg:px-32 flex flex-col items-center justify-center'}>
             <div className={'fixed top-5 left-2 z-[100]'}>
-                <NavLink
+                <MotionLink
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.2 }}
                     href={'/'}
                     className={'w-[50px] h-[50px] flex justify-center items-center border-solid border-amber-50 border-2 rounded-[50%] shadow-glass-inset hover:shadow-glass-sm'}>
                     <IconHome className={'w-[20px] h-[20px]'} strokeWidth={1.5} />
-                </NavLink>
+                </MotionLink>
             </div>
             <div className="h-[35rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
                 <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">

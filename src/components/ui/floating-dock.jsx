@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   IconAlignBoxLeftTop,
@@ -8,7 +10,6 @@ import {
   IconBrandLinkedin,
   IconBrandX,
   IconHome,
-  IconLayoutNavbarCollapse,
   IconPhone,
   IconUser,
   IconPalette
@@ -19,9 +20,8 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-} from "framer-motion";
-import Link from "next/link";
-import { useRef, useState } from "react";
+} from "@/components/motion";
+
 
 const clas = "h-full w-full text-neutral-500";
 
@@ -104,7 +104,6 @@ const getItems = (name, isDark) => {
 export const FloatingDock = ({
   pathName,
   desktopClassName,
-  mobileClassName,
   isDark = true,
 }) => {
 

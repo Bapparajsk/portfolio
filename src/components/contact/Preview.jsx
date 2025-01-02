@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { IconArrowNarrowLeft, IconArrowNarrowRight, IconLayoutDashboard, IconLock, IconMenu2, IconRotate, IconSeparator, IconSquareToggle, IconX } from "@tabler/icons-react";
 import {CircularProgress} from "@nextui-org/progress"

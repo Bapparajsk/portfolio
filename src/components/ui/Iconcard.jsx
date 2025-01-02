@@ -1,8 +1,8 @@
 "use client";
 
-import { animate, motion } from "framer-motion";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { animate, motion } from "@/components/motion";
 
 import {
   IconBrandNextjs,
