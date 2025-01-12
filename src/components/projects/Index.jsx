@@ -132,7 +132,7 @@ export function ProjectsList() {
                         {[
                             {
                                 src: "/projects/newapp.png",
-                                alt: "hero-sections",
+                                alt: "new App",
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/bapparaj",
