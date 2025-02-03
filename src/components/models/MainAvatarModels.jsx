@@ -20,14 +20,14 @@ const getScalePosition = (size) => {
         };
     } else if (size < 768 && size > 480) {
         return {
-            scale: [0.8, 0.8, 0.8],
-            position: [0, -1, 0],
+            scale: [1, 1, 1],
+            position: [0, -1.3, 0],
             rotation: [0.15, 0, 0],
         };
     } else {
         return {
-            scale: [0.5, 0.5, 0.5],
-            position: [0, -.7, 0],
+            scale: [0.8, 0.8, 0.8],
+            position: [0, -.9, 0],
             rotation: [0.15, 0, 0],
         };
     }

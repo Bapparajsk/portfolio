@@ -71,7 +71,7 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                                 <span className={'peer bg-transparent absolute top-0 w-full h-full'} />
 
                                 <span
-                                    className={'absolute hidden peer-hover:block shadow-glass-inset-label px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md  whitespace-nowrap'}>
+                                    className={'absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-gradient-to-bl from-[#1b2a42] to-[#181e2a] text-foreground text-sm rounded-md  whitespace-nowrap'}>
                                     {label}
                                 </span>
                             </span>
