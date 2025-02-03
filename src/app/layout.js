@@ -5,6 +5,7 @@ import { Providers } from "@/app/Providers";
 import clsx from "clsx";
 import { Analytics } from "@vercel/analytics/react"
 import { ImagesProvider } from "@/context/ImagesContext";
+import Intro from "./Intro";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,12 +18,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className='dark'>
       <body className={clsx(inter.className, 'font-inter bg-black relative')}>
-        <Providers>
-          <ImagesProvider>
-            {children}
-            <Analytics/>
-          </ImagesProvider>
-        </Providers>
+        <Intro>
+          <Providers>
+            {/* <ImagesProvider> */}
+              {children}
+              <Analytics/>
+            {/* </ImagesProvider> */}
+          </Providers>
+        </Intro>
       </body>
     </html>
   );

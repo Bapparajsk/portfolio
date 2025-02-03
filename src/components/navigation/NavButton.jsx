@@ -49,12 +49,21 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                     >
                         <MotionLink
                             variants={item}
-                            className={'text-foreground  rounded-full flex items-center justify-center bg-background/20 border border-accent/30 border-solid backdrop-blur-[6px] shadow-glass-inset transition-shadow duration-500 hover:shadow-glass-sm '}
+                            className={'relative text-foreground rounded-full flex items-center justify-center transition-shadow duration-500'}
                             href={link}
                             target={newTab ? '_blank' : '_self'}
                             aria-label={label}
                             nama={label}
+                            whileHover={{ scale: 1.2, transition: { duration: 0.3, type: "spring" } }}
+                            whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
                         >
+                            <div
+                                className="absolute top-0 left-0 w-full h-full bg-[#1c2a42] rounded-[50%_50%_48%_52%/39%_36%_64%_61%] animate-spin2 shadow-[0_0_100px_50px_rgba(0,0,0,0.25)]" />
+                            <div
+                                style={{ animationDirection: 'reverse' }}
+                                className="absolute top-0 left-0 w-full h-full bg-[#1c2a42a0] rounded-[50%_50%_48%_52%/39%_36%_64%_61%] animate-spin2" />
+                            <div
+                                className="absolute top-0 left-0 w-full h-full bg-[#1c2a4261] rounded-[22%_78%_59%_41%/55%_27%_73%_45%] animate-spin2" />
                             <span
                                 className={'relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent'}>
                                 {getIcon(icon)}
@@ -72,7 +81,7 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                     <div className={'w-fit cursor-pointer z-50'} >
                         <MotionLink
                             variants={item}
-                            className={'text-foreground  rounded-full flex items-center justify-center bg-background/20 border border-accent/30 border-solid backdrop-blur-[6px] shadow-glass-inset transition-shadow duration-500 hover:shadow-glass-sm '}
+                            className={'text-foreground rounded-full flex items-center justify-center bg-background/20 border border-accent/30 border-solid backdrop-blur-[6px] shadow-glass-inset transition-shadow duration-500 hover:shadow-glass-sm'}
                             href={link}
                             target={newTab ? '_blank' : '_self'}
                             aria-label={label}

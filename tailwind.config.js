@@ -67,7 +67,11 @@ module.exports = {
           "0%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(20px)" },
           "100%": { transform: "translateY(0)" },
-        }
+        },
+        "spin2": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         'spin-slow': 'spin 40s linear infinite',
@@ -78,6 +82,7 @@ module.exports = {
         'top-arrow-effect': 'top-arrow 1.2s linear infinite alternate-reverse',
         scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "scroll-hover-icon": "scroll-hover-icon 1.5s linear infinite",
+        "spin2": "spin2 14s linear infinite",
       },
       screens: {
         xs: '480px',
