@@ -20,10 +20,10 @@ export default function RootLayout({ children }) {
       <body className={clsx(inter.className, 'font-inter bg-black relative')}>
         <Intro>
           <Providers>
-            {/* <ImagesProvider> */}
+            <ImagesProvider>
               {children}
               <Analytics/>
-            {/* </ImagesProvider> */}
+            </ImagesProvider>
           </Providers>
         </Intro>
       </body>
