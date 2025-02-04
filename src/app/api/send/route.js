@@ -43,9 +43,9 @@ export async function POST(request) {
     }
 
     try {
-        const NODEMAILER_USER = process.env.NODEMAILER_USER || "sbapparaj38@gmail.com";
-        const NODEMAILER_PASS = process.env.NODEMAILER_PASS || "xnal fjba pqpq pggp";
-        const MY_EMAIL = process.env.MY_EMAIL || "bapparajsk97@gmail.com";
+        const NODEMAILER_USER = process.env.NODEMAILER_USER;
+        const NODEMAILER_PASS = process.env.NODEMAILER_PASS;
+        const MY_EMAIL = process.env.MY_EMAIL;
 
         if (!NODEMAILER_USER || !NODEMAILER_PASS || !MY_EMAIL) {
             throw new Error('Please provide NODEMAILER_USER and NODEMAILER_PASS');
