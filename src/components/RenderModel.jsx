@@ -6,7 +6,9 @@ import { cn } from "@/lib/utils";
 
 export const RenderModel = ({ children, className }) => {
     return (
-        <Canvas className={cn('w-screen, -z-10 h-full, relative', className)} >
+        <Canvas 
+        
+        className={cn('w-screen, -z-10 h-full, relative', className)} >
             <Suspense fallback={null}>
                 {children}
             </Suspense>

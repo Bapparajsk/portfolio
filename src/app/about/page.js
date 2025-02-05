@@ -57,7 +57,7 @@ export default function page() {
             </div>
             <div className="w-full h-auto">
                 <MainProjects />
-                <div className="w-full h-[200vh]"/>
+                {/* <div className="w-full h-[200vh]"/> */}
                 <footer>
                     <div className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full `}>
                         <FloatingDock
