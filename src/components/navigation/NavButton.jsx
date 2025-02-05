@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import {
     IconHome, IconUser, IconPalette,
     IconPhone, IconBrandGithub, IconBrandLinkedin,
