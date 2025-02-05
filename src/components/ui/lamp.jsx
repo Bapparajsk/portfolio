@@ -1,3 +1,5 @@
+"use client";
+
 import { MotionDiv, MotionH1 } from "@/lib/motion";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";

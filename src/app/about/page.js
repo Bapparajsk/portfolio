@@ -1,72 +1,61 @@
-"use client";
-
-import { useEffect } from "react";
-import { IconHome } from "@tabler/icons-react";
-
 import { AboutDetails } from "@/components/about/index";
 import MainProjects from "@/components/about/MainProjects";
-import { Skills } from "@/components/about/Skills";
 import { LampContainer } from "@/components/ui/lamp";
 import { FloatingDock } from "@/components/ui/floating-dock";
-import { ImponentText } from "@/components/ui/imponent-text";
-import { MotionH1, MotionLink } from "@/lib/motion";
+import { MotionH1 } from "@/lib/motion";
 import HomeButton from "@/components/ui/homeButton";
+import LocomotiveProviders from "../locomotiveProviders";
+
+export const metadata = {
+    title: "Bapparaj | About Me",
+    description: "I am a Software Engineer",
+};
 
 export default function page() {
-
-    useEffect(() => {
-        let locomotiveScroll;
-        if (typeof window !== "undefined") {
-            const Locomotive = async () => {
-                const LocomotiveScroll = (await import("locomotive-scroll")).default;
-
-                locomotiveScroll = new LocomotiveScroll();
-            };
-            Locomotive();
-            // Cleanup on component unmount
-            return () => {
-                if (locomotiveScroll) locomotiveScroll.destroy();
-            };
-        }
-    }, []);
-
     return (
-        <main className={'w-full px-2 md:px-0 bg-slate-950'}>
-            <div className={'fixed top-5 left-2 z-[100]'}>
-                <HomeButton />
-            </div>
-            <div data-scroll data-scroll-section data-scroll-speed="-.7" className={'w-full h-auto dd'}>
-                <LampContainer>
-                    <MotionH1
-                        initial={{ opacity: 0.5, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{
-                            delay: 0.3,
-                            duration: 0.8,
-                            ease: "easeInOut",
-                        }}
-                        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl "
-                    >
-                        About Me <br />
-                        <span className="text-2xl font-normal text-amber-500">I am a Software Engineer</span>
-                    </MotionH1>
-                </LampContainer>
-            </div>
-            <div className="w-full h-auto overflow-x-hidden">
-                <AboutDetails />
-            </div>
-            <div className="w-full h-auto">
-                <MainProjects />
-                {/* <div className="w-full h-[200vh]"/> */}
-                <footer>
-                    <div className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full `}>
-                        <FloatingDock
-                            pathName={"about"}
-                            isDark={false}
-                        />
-                    </div>
-                </footer>
-            </div>
-        </main>
+        <LocomotiveProviders>
+            <main className={"w-full px-2 md:px-0 bg-slate-950"}>
+                <div className={"fixed top-5 left-2 z-[100]"}>
+                    <HomeButton />
+                </div>
+                <div
+                    data-scroll
+                    data-scroll-section
+                    data-scroll-speed="-.7"
+                    className={"w-full h-auto dd"}
+                >
+                    <LampContainer>
+                        <MotionH1
+                            initial={{ opacity: 0.5, y: 100 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{
+                                delay: 0.3,
+                                duration: 0.8,
+                                ease: "easeInOut",
+                            }}
+                            className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl "
+                        >
+                            About Me <br />
+                            <span className="text-2xl font-normal text-amber-500">
+                                I am a Software Engineer
+                            </span>
+                        </MotionH1>
+                    </LampContainer>
+                </div>
+                <div className="w-full h-auto overflow-x-hidden">
+                    <AboutDetails />
+                </div>
+                <div className="w-full h-auto">
+                    <MainProjects />
+                    <footer>
+                        <div
+                            className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full `}
+                        >
+                            <FloatingDock pathName={"about"} isDark={false} />
+                        </div>
+                    </footer>
+                </div>
+            </main>
+        </LocomotiveProviders>
     );
 }

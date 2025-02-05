@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
@@ -59,20 +61,18 @@ const ProjectCard = ({ title, description, image, link, idx }) => {
             className={`flex-row max-w-7xl mx-auto mb-5 sticky z-50 "}`}
         >
             <CardBody>
-                <div className={`flex flex-row ${idx % 2 === 0 ? "flex-row-reverse" : "flex-row" }`} >
+                <div className={`flex flex-row ${idx % 2 === 0 ? "flex-row-reverse" : "flex-row" } overflow-hidden`} >
                     <div className="relative w-[35%] h-96 overflow-hidden group rounded-2xl shadow-lg">
                         <NextUi.Image
                             width={2000}
                             height={2000}
                             src={`/images/about-card-1.png`}
                             alt="image"
-                            className="group-hover:scale-125 transform transition-transform duration-500"
+                            className="group-hover:scale-125  transform transition-transform duration-500"
                         />
-                        <div className="absolute z-20 left-0 top-0 bg-transparent group-hover:bg-gradient-to-b from-slate-900 to-slate-950 w-full h-full opacity-50">
-                            
-                        </div>
+                        <div className="absolute z-20 left-0 top-0 bg-transparent group-hover:bg-gradient-to-b from-slate-900 to-slate-950 w-full h-full opacity-50"/>
                     </div>
-                    <div className={`relative flex-grow`}>
+                    <div className={`relative w-[65%]`}>
                         <Image
                             className="absolute top-0 left-0 object-cover opacity-5 w-full h-full"
                             src={"/themes-image/haunted-horror.webp"}
@@ -80,7 +80,14 @@ const ProjectCard = ({ title, description, image, link, idx }) => {
                             height={1000}
                             alt="image"
                         />
-                        <div className="w-full h-full"></div>
+                        <div className="w-full h-full">
+                            <div className="w-full h-20 px-5 py-3 font-Josefin">
+                                <strong className="text-2xl font-bold text-white">About Me</strong>
+                            </div>
+                            <div className="w-full h-full px-5 font-ubuntu">
+                                <p>I'm a passionate software Engineer skilled in Java, JavaScript, TypeScript, ans Node.js. I specialize in full-stack development, working with frame.currentworks like React.js, Next.js, Express, Tailwind CSS, SASS, , ans frame.currentr Motion . My experience includes working with AWS, Google Cloud, Firebase, BullMQ,and MongoDB. My experience spans across AWS, Google Cloud, Firebase, BullMQ, ans MongoDB.</p>
+                            </div> 
+                        </div>
                     </div>
                 </div>
             </CardBody>
