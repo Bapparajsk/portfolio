@@ -61,7 +61,7 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
         >
             <CardBody>
                 <div
-                    className={`flex h-full`}
+                    className={`flex h-full transition-all duration-300 ease-in-out`}
                     style={{
                         flexDirection: screenSize < 768 ? "column" : idx % 2 === 0 ? "row-reverse" : "row",
                     }}
@@ -85,7 +85,7 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
                     </div>
                     <div className={`relative w-full md:w-[65%] md:h-full`}>
                         <Image
-                            className="absolute top-0 left-0 object-cover opacity-5 w-full h-full"
+                            className="absolute top-0 left-0 object-cover opacity-10 w-full h-full"
                             src={theme_image || "/themes-image/haunted-horror.webp"}
                             width={1000}
                             height={1000}

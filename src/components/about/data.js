@@ -1,16 +1,43 @@
+import { useRef } from "react";
 import { ImpotentText } from "@/components/ui/impotent-text";
 import { MotionDiv, useInView } from "@/lib/motion";
-import { useRef } from "react";
+import Link from "next/link";
 
 const colorCodes = [
-    "D84040", "4B70F5", "AD49E1", "FFE893", "FFC0CB", "FFA07A", "FFD700", "00FF00", "00FFFF", "0000FF"
-]
+    "#D84040",
+    "#4B70F5",
+    "#AD49E1",
+    "#FFE893",
+    "#FFC0CB",
+    "#FFA07A",
+    "#FFD700",
+    "#00FF00",
+    "#00FFFF",
+    "#0000FF",
+];
 
+const LinkText = ({ children, href, target, color }) => {
+    return (
+        <Link
+            href={href}
+            target={target}
+            className={`group relative transition-all duration-100`}
+            style={{ color }}
+        >
+            {children}
+            <span
+                style={{ backgroundColor: color }}
+                className={`absolute -bottom-1 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-300`}
+            />
+        </Link>
+    );
+};
 
 export const aboutData = [
     {
         title: "🚀 About Me",
         image: "/images/about-card-1.png",
+        theme_image: "/themes-image/about-card-1.png",
         description: () => (
             <p>
                 I’m a <ImpotentText words={"Passionate Full-Stack Developer"} /> with
@@ -34,34 +61,69 @@ export const aboutData = [
         image: "/images/about-card-2.png",
         theme_image: "/themes-image/about-card-2.webp",
         description: () => (
-            <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly">
-                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+            <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly tracking-wider">
+                <p className={"font-heading relative text-neutral-200"}>
                     <span
-                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
-                        style={{ backgroundColor: `#${colorCodes[0]}` }}
+                        className={
+                            "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                        }
+                        style={{ backgroundColor: `${colorCodes[0]}` }}
                     ></span>
-                    <strong>My Own Facebook</strong> – A{" "}
+                    <LinkText
+                        href={"https://github.com/Bapparajsk/my-own-facebook"}
+                        target="_blank"
+                        color={colorCodes[0]}
+                    >
+                        <strong>My Own Facebook</strong>
+                    </LinkText> {" "} – A 
                     <strong>Full-Stack Social Media Web App</strong> with{" "}
                     <strong>Real-Time Interactions</strong> and a{" "}
                     <strong>Modern UI</strong>.
                 </p>
-                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                <p className={"font-heading relative text-neutral-200"}>
                     <span
-                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
-                        style={{ backgroundColor: `#${colorCodes[1]}` }}
+                        className={
+                            "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                        }
+                        style={{ backgroundColor: `${colorCodes[5]}` }}
                     ></span>
-                    <strong>3D Animated Portfolio</strong> – A{" "}
-                    <strong>Creative, Interactive Portfolio</strong> featuring{" "}
+                    <LinkText
+                        href={"https://github.com/Bapparajsk/component-lab"}
+                        target="_blank"
+                        color={colorCodes[5]}
+                    >
+                        <strong>Component Lab</strong>
+                    </LinkText> {" "} – A <strong>Full-Stack UI Component Library Web App</strong> with{" "}
+                    <strong>Real-Time Interactions</strong> and a{" "}
+                    <strong>Modern UI</strong>.
+                </p>
+                <p className={"font-heading relative text-neutral-200"}>
+                    <span
+                        className={
+                            "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                        }
+                        style={{ backgroundColor: `${colorCodes[1]}` }}
+                    ></span>
+                    <LinkText href={"/"} target="_self" color={colorCodes[1]}>
+                        <strong>3D Animated Portfolio</strong>
+                    </LinkText>{" "} – A <strong>Creative, Interactive Portfolio</strong> featuring{" "}
                     <strong>3D Elements</strong> to showcase skills dynamically.
                 </p>
-                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                <p className={"font-heading relative text-neutral-200"}>
                     <span
-                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
-                        style={{ backgroundColor: `#${colorCodes[2]}` }}
+                        className={
+                            "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                        }
+                        style={{ backgroundColor: `${colorCodes[2]}` }}
                     ></span>
-                    <strong>iNews</strong> – A <strong>News App</strong> with{" "}
-                    <strong>Infinite Scrolling</strong> and{" "}
-                    <strong>Search Functionality</strong> powered by{" "}
+                    <LinkText
+                        href={"https://github.com/Bapparajsk/Inews"}
+                        target="_blank"
+                        color={colorCodes[2]}
+                    >
+                        <strong>iNews</strong>
+                    </LinkText>{" "} – A <strong>News App</strong> with <strong>Infinite Scrolling</strong>{" "}
+                    and <strong>Search Functionality</strong> powered by{" "}
                     <strong>NewsAPI</strong>.
                 </p>
             </div>
@@ -82,11 +144,13 @@ export const aboutData = [
                 ].map((text, idx) => (
                     <p
                         key={idx}
-                        className={"font-heading relative tracking-tight text-neutral-200"}
+                        className={"font-heading relative text-neutral-200"}
                     >
                         <span
-                            className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
-                            style={{ backgroundColor: `#${colorCodes[idx]}` }}
+                            className={
+                                "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                            }
+                            style={{ backgroundColor: `${colorCodes[idx]}` }}
                         ></span>
                         <strong>{text}</strong>
                     </p>
@@ -100,7 +164,7 @@ export const aboutData = [
         theme_image: "/themes-image/about-card-4.png",
         description: () => {
             const ref = useRef(null);
-            const isInView = useInView(ref, { once: true })
+            const isInView = useInView(ref, { once: true });
             return (
                 <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly">
                     {[
@@ -112,10 +176,14 @@ export const aboutData = [
                     ].map(({ text, percentage, color }, idx) => (
                         <div
                             key={idx}
-                            className={"font-heading relative tracking-tight text-neutral-200"}
+                            className={
+                                "font-heading relative text-neutral-200"
+                            }
                         >
                             <span
-                                className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
+                                className={
+                                    "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                                }
                                 style={{ backgroundColor: color }}
                             ></span>
                             <strong>{text}</strong>
@@ -124,8 +192,8 @@ export const aboutData = [
                                     <MotionDiv
                                         ref={ref}
                                         initial={{ width: 0 }}
-                                        animate={isInView ? { width: percentage }: {}}
-                                        transition={{ duration: 2, type: "spring", bounce: .25 }}
+                                        animate={isInView ? { width: percentage } : {}}
+                                        transition={{ duration: 2, type: "spring", bounce: 0.25 }}
                                         className="h-full rounded-full"
                                         style={{ backgroundColor: color }}
                                     ></MotionDiv>
@@ -143,38 +211,50 @@ export const aboutData = [
         theme_image: "/themes-image/about-card-5.png",
         description: () => (
             <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly">
-                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                <p className={"font-heading relative text-neutral-200"}>
                     <span
-                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
-                        style={{ backgroundColor: `#${colorCodes[0]}` }}
+                        className={
+                            "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                        }
+                        style={{ backgroundColor: `${colorCodes[0]}` }}
                     ></span>
-                    <strong>Solved 900+ LeetCode Problems</strong> – {" "}
-                    Demonstrating strong problem-solving and algorithmic skills.
+                    <strong>Solved 900+ LeetCode Problems</strong> – Demonstrating strong
+                    problem-solving and algorithmic skills.
                 </p>
-                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                <p className={"font-heading relative  text-neutral-200"}>
                     <span
-                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
-                        style={{ backgroundColor: `#${colorCodes[7]}` }}
+                        className={
+                            "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                        }
+                        style={{ backgroundColor: `${colorCodes[7]}` }}
                     ></span>
-                    <strong>Built & Launched Multiple Full-Stack Projects</strong> – Including{" "}
-                    <strong>My Own Facebook</strong>, <strong>iNews</strong>, and a <strong>3D Animated Portfolio</strong>.
+                    <strong>Built & Launched Multiple Full-Stack Projects</strong> –
+                    Including <strong>My Own Facebook</strong>, <strong>iNews</strong>,
+                    and a <strong>3D Animated Portfolio</strong>.
                 </p>
-                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                <p className={"font-heading relative  text-neutral-200"}>
                     <span
-                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
-                        style={{ backgroundColor: `#${colorCodes[8]}` }}
+                        className={
+                            "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                        }
+                        style={{ backgroundColor: `${colorCodes[8]}` }}
                     ></span>
-                    <strong>Optimized Backend Performance</strong> – Reduced API response time in a social media app using <strong>Redis Caching</strong> and <strong>MongoDB Indexing</strong>.
+                    <strong>Optimized Backend Performance</strong> – Reduced API response
+                    time in a social media app using <strong>Redis Caching</strong> and{" "}
+                    <strong>MongoDB Indexing</strong>.
                 </p>
-                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                <p className={"font-heading relative  text-neutral-200"}>
                     <span
-                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
-                        style={{ backgroundColor: `#${colorCodes[9]}` }}
+                        className={
+                            "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
+                        }
+                        style={{ backgroundColor: `${colorCodes[9]}` }}
                     ></span>
-                    <strong>Implemented Scalable Systems</strong> – Used <strong>Node.js Cluster</strong>, <strong>BullMQ</strong>, and <strong>AWS S3</strong> for high-performance applications.
+                    <strong>Implemented Scalable Systems</strong> – Used{" "}
+                    <strong>Node.js Cluster</strong>, <strong>BullMQ</strong>, and{" "}
+                    <strong>AWS S3</strong> for high-performance applications.
                 </p>
             </div>
         ),
     },
-
 ];
