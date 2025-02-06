@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function Intro({ children }) {
-    const [showContent, setShowContent] = useState(true);
+    const [showContent, setShowContent] = useState(false);
 
     useEffect(() => {
         const video = document.getElementById("intro-video");
