@@ -70,6 +70,7 @@ export const aboutData = [
     {
         title: "🛠️ Tools & Technologies",
         image: "/images/about-card-3.png",
+        theme_image: "/themes-image/about-card-3.png",
         description: () => (
             <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly">
                 {[
@@ -96,6 +97,7 @@ export const aboutData = [
     {
         title: "📈 GitHub Top Languages",
         image: "/images/about-card-4.png",
+        theme_image: "/themes-image/about-card-4.png",
         description: () => {
             const ref = useRef(null);
             const isInView = useInView(ref, { once: true })
@@ -138,14 +140,40 @@ export const aboutData = [
     {
         title: "🏆 Achievements",
         image: "/images/about-card-5.png",
+        theme_image: "/themes-image/about-card-5.png",
         description: () => (
-            <p>
-                I have been <ImpotentText words={"Recognized"} /> by{" "}
-                <ImpotentText words={"Google"} /> for my{" "}
-                <ImpotentText words={"Open-Source Contributions"} />. I have also won{" "}
-                <ImpotentText words={"Multiple Hackathons"} /> and{" "}
-                <ImpotentText words={"Coding Competitions"} />.
-            </p>
+            <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly">
+                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                    <span
+                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
+                        style={{ backgroundColor: `#${colorCodes[0]}` }}
+                    ></span>
+                    <strong>Solved 900+ LeetCode Problems</strong> – {" "}
+                    Demonstrating strong problem-solving and algorithmic skills.
+                </p>
+                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                    <span
+                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
+                        style={{ backgroundColor: `#${colorCodes[7]}` }}
+                    ></span>
+                    <strong>Built & Launched Multiple Full-Stack Projects</strong> – Including{" "}
+                    <strong>My Own Facebook</strong>, <strong>iNews</strong>, and a <strong>3D Animated Portfolio</strong>.
+                </p>
+                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                    <span
+                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
+                        style={{ backgroundColor: `#${colorCodes[8]}` }}
+                    ></span>
+                    <strong>Optimized Backend Performance</strong> – Reduced API response time in a social media app using <strong>Redis Caching</strong> and <strong>MongoDB Indexing</strong>.
+                </p>
+                <p className={"font-heading relative tracking-tight text-neutral-200"}>
+                    <span
+                        className={"absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"}
+                        style={{ backgroundColor: `#${colorCodes[9]}` }}
+                    ></span>
+                    <strong>Implemented Scalable Systems</strong> – Used <strong>Node.js Cluster</strong>, <strong>BullMQ</strong>, and <strong>AWS S3</strong> for high-performance applications.
+                </p>
+            </div>
         ),
     },
 

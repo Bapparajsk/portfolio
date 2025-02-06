@@ -51,7 +51,7 @@ export default function page() {
                         <div
                             className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full `}
                         >
-                            <FloatingDock pathName={"about"} isDark={false} />
+                            <FloatingDock pathName={"about"}  />
                         </div>
                     </footer>
                 </div>
