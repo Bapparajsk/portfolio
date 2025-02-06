@@ -119,7 +119,7 @@ export const aboutData = [
                                 style={{ backgroundColor: color }}
                             ></span>
                             <strong>{text}</strong>
-                            <div className="absolute left-32 top-0 w-[400px] h-full flex items-center overflow-hidden">
+                            <div className="absolute left-32 top-0 w-[60%] h-full flex items-center overflow-hidden transition-all duration-250">
                                 <div className="w-full h-3 bg-neutral-600 rounded-full">
                                     <MotionDiv
                                         ref={ref}
