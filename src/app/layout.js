@@ -4,9 +4,7 @@ import "./fonts.css";
 import { Providers } from "@/app/Providers";
 import clsx from "clsx";
 import { Analytics } from "@vercel/analytics/react";
-import { ImagesProvider } from "@/context/ImagesContext";
 import Intro from "./Intro";
-import LocomotiveProviders from "./locomotiveProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 

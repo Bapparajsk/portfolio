@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/all";
 import { Card, CardBody } from "@nextui-org/react";
 import Image from "next/image";
 import * as NextUi from "@nextui-org/image";
+import { aboutData } from "./data";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,14 +19,14 @@ export default function MainProjects() {
 
     return (
         <div className="w-full h-auto">
-            {[...Array(5)].map((_, i) => (
-                <ProjectCard idx={i + 1} />
+            {aboutData.map((data, idx) => (
+                <ProjectCard key={idx} {...data} idx={idx+1} />
             ))}
         </div>
     );
 }
 
-const ProjectCard = ({ title, description, image, link, idx }) => {
+const ProjectCard = ({ title, description, theme_image ,image, idx }) => {
     const cardRef = useRef(null);
     useEffect(() => {
         const card = cardRef.current;
@@ -54,9 +55,7 @@ const ProjectCard = ({ title, description, image, link, idx }) => {
     return (
         <Card
             ref={cardRef}
-            style={{
-                top: `${idx * 6}vh`,
-            }}
+            style={{ top: `${idx * 6}vh`, }}
             className={`flex-row max-w-7xl mx-auto mb-5 sticky z-50 "}`}
         >
             <CardBody>
@@ -64,20 +63,22 @@ const ProjectCard = ({ title, description, image, link, idx }) => {
                     className={`flex h-full flex-row ${idx % 2 === 0 ? "flex-row-reverse" : "flex-row"
                         } `}
                 >
-                    <div className="relative w-[35%] h-96 overflow-hidden group rounded-2xl shadow-lg">
-                        <NextUi.Image
-                            width={2000}
-                            height={2000}
-                            src={`/images/about-card-1.png`}
-                            alt="image"
-                            className="group-hover:scale-125  transform transition-transform duration-500"
-                        />
-                        <div className="absolute z-20 left-0 top-0 bg-transparent group-hover:bg-gradient-to-b from-slate-900 to-slate-950 w-full h-full opacity-50" />
+                    <div className="w-[35%] h-96 overflow-hidden group rounded-2xl shadow-lg">
+                        <div className="relative w-full h-full">
+                            <Image
+                                width={1000}
+                                height={1000}
+                                src={image}
+                                alt="image"
+                                className="group-hover:scale-125 object-cover w-full h-full transform transition-transform duration-500"
+                            />
+                            <div className="absolute z-20 left-0 top-0 bg-transparent group-hover:bg-gradient-to-b from-slate-900 to-slate-950 w-full h-full opacity-50" />
+                        </div>
                     </div>
                     <div className={`relative w-[65%] h-full`}>
                         <Image
                             className="absolute top-0 left-0 object-cover opacity-5 w-full h-full"
-                            src={"/themes-image/haunted-horror.webp"}
+                            src={theme_image || "/themes-image/haunted-horror.webp"}
                             width={1000}
                             height={1000}
                             alt="image"
@@ -85,13 +86,11 @@ const ProjectCard = ({ title, description, image, link, idx }) => {
                         <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
                             <div className="w-full h-auto px-5 py-3 font-Josefin text-start">
                                 <strong className="text-2xl font-bold">
-                                    🚀 About Me
+                                    {title}
                                 </strong>
                             </div>
                             <div className="w-full h-full flex items-center px-5 py-3">
-                                <p>
-                                    I’m a Passionate Full-Stack Developer with strong Problem-Solving Skills, proven by solving 900+ LeetCode Problems. I specialize in JavaScript, TypeScript, and Java, crafting dynamic web apps using Next.js, React, and Express. My focus is on building Scalable, User-Friendly Applications while continuously improving my expertise in Cloud Technologies like AWS and Google Cloud.
-                                </p>
+                                {description()}
                             </div>
                         </div>
                     </div>
