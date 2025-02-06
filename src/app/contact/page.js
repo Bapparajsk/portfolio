@@ -1,5 +1,3 @@
-import { IconHome } from "@tabler/icons-react";
-
 import Form from "@/components/contact/Form";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
@@ -9,19 +7,18 @@ import { Iconcard } from "@/components/ui/Iconcard";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { MotionLink } from "@/lib/motion";
 import { testimonials, words } from "../data";
+import HomeButton from "@/components/ui/homeButton";
+
+export const metadata = {
+    title: "Bapparaj | Contact",
+    description: "I am a Software Engineer",
+};
 
 export default function page() {
     return (
         <main className={'w-full h-full overflow-x-hidden pt-20 px-8 xs:px-16 lg:px-32 flex flex-col items-center justify-center'}>
             <div className={'fixed top-5 left-2 z-[100]'}>
-                <MotionLink
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, duration: 0.2 }}
-                    href={'/'}
-                    className={'w-[50px] h-[50px] flex justify-center items-center border-solid border-amber-50 border-2 rounded-[50%] shadow-glass-inset hover:shadow-glass-sm'}>
-                    <IconHome className={'w-[20px] h-[20px]'} strokeWidth={1.5} />
-                </MotionLink>
+                <HomeButton />
             </div>
             <div className="h-[35rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
                 <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-white relative z-20">
