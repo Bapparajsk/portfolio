@@ -34,7 +34,7 @@ export function AboutDetails() {
                         Hay there! I'm <span className="text-amber-500">Bapparaj</span>
                     </p>
                     <p className="text-gray-500">
-                        I'm a Software Engineer based in india. I have a passion for web development and love to create new things.
+                        I'm a Software Developer based in india. I have a passion for web development and love to create new things.
                     </p>
                 </div>
             </div>

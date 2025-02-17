@@ -41,15 +41,15 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
                         : idx === 4
                             ? 0.8
                             : 0.85;
-        gsap.from(card, {
+        gsap.to(card, {
             scrollTrigger: {
                 trigger: card,
-                start: `top ${idx * 3}%`,
-                end: `top ${idx * 3}%`,
-                scrub: 0.2,
-                onEnter: () => gsap.to(card, { scale, y: -100 }),
-                onLeaveBack: () => gsap.to(card, { scale: 1, y: 0 }),
+                start: `top ${idx * 4}%`,
+                end: `top ${idx * 7}%`,
+                scrub: 0.5,
             },
+            scale,
+            y: -100,
         });
     }, []);
 

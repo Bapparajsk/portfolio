@@ -104,7 +104,7 @@ export const aboutData = [
                         }
                         style={{ backgroundColor: `${colorCodes[1]}` }}
                     ></span>
-                    <LinkText href={"/"} target="_self" color={colorCodes[1]}>
+                    <LinkText href={"https://github.com/Bapparajsk/portfolio"} target="_blank" color={colorCodes[1]}>
                         <strong>3D Animated Portfolio</strong>
                     </LinkText>{" "} – A <strong>Creative, Interactive Portfolio</strong> featuring{" "}
                     <strong>3D Elements</strong> to showcase skills dynamically.

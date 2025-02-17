@@ -36,8 +36,8 @@ export default function page() {
                             className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl "
                         >
                             About Me <br />
-                            <span className="text-2xl font-normal text-amber-500">
-                                I am a Software Engineer
+                            <span className="text-3xl text-amber-500 font-semibold">
+                                I am a Software Developer
                             </span>
                         </MotionH1>
                     </LampContainer>

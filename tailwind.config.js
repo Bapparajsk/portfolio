@@ -1,7 +1,5 @@
 const { nextui } = require("@nextui-org/react");
-const defaultTheme = require("tailwindcss/defaultTheme");
 
-const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
@@ -20,6 +18,7 @@ module.exports = {
         'roboto': ['Roboto', 'sans-serif'],
         'ubuntu': ['Ubuntu', 'sans-serif'],
         'Josefin': ["Josefin Sans", 'serif'],
+        "poppins": ["Poppins", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
