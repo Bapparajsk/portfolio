@@ -1,4 +1,4 @@
-export const SkilCard = ({name}) => {
+export const SkillCard = ({name}) => {
     name = name?.toLowerCase();
 
     return (

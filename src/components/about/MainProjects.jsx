@@ -3,10 +3,11 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { Card, CardBody } from "@nextui-org/react";
 import Image from "next/image";
-import { aboutData } from "./data";
+
+import { Card, CardBody } from "@/components/nextui";
 import useScreenSize from "@/hooks/useScreenSize";
+import { aboutData } from "./data";
 
 gsap.registerPlugin(ScrollTrigger);
 

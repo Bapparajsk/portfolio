@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { ImpotentText } from "@/components/ui/impotent-text";
 import { MotionDiv, useInView } from "@/lib/motion";
-import Link from "next/link";
+import { Link } from "@/components/next";
 
 const colorCodes = [
     "#D84040",

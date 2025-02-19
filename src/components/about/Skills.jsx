@@ -2,7 +2,7 @@
 
 import { Fragment } from "react";
 
-import { SkilCard } from "@/components/about/SkilCard";
+import { SkillCard } from "@/components/about/SkillCard";
 import { MotionDiv } from "@/lib/motion";
 import { skills } from "@/app/data";
 
@@ -37,7 +37,7 @@ function CardCover({ left, items }) {
         {[1, 2].fill(0).map((_, index) => (
           <Fragment key={index}>
             {items.map((src, alt) => (
-              <SkilCard name={src} key={alt} />
+              <SkillCard name={src} key={alt} />
             ))}
           </Fragment>
         ))}

@@ -42,7 +42,7 @@ export default function page() {
                         </MotionH1>
                     </LampContainer>
                 </div>
-                <div className="w-full h-auto overflow-x-hidden">
+                <div className="w-full h-auto overflow-x-hidden hidden md:block">
                     <AboutDetails />
                 </div>
                 <div className="w-full h-auto">
