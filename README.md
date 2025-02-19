@@ -135,3 +135,11 @@ The application should now be running on [http://localhost:3000](http://localhos
     - Added a new project to the showcase section.
     - Implemented a new design for the testimonials section.
     - Animation Library added for better user experience.
+
+### v3.3.10 (2025-02-19)
+- **Enhancements**:
+      - Improved the contact form with better error handling and user feedback.
+      - More animations added for better user experience.
+      - Site performance improved with code optimization.
+      - Updated dependencies to the latest versions.
+      
