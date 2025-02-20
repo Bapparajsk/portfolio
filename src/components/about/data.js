@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { ImpotentText } from "@/components/ui/impotent-text";
 import { MotionDiv, useInView } from "@/lib/motion";
 import { Link } from "@/components/next";
+import { skills } from "@/app/data";
+import { SkillCard } from "./SkillCard";
 
 const colorCodes = [
     "#D84040",
@@ -257,4 +259,33 @@ export const aboutData = [
             </div>
         ),
     },
+    {
+        title:  "🎮 Skills",
+        image: "/images/about-card-6.webp",
+        theme_image: "/themes-image/about-card-6.jpg",
+        description: () => (
+            <div className="w-full h-full pl-1 flex gap-2">
+                <div className="w-1/2 flex flex-col text-start">
+                    <strong>Languages</strong>
+                    <div className="flex flex-wrap">
+                        {
+                            skills.language.map((item, idx) => (
+                               <SkillCard name={item} key={idx}/>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div className="w-1/2 flex flex-col gap-2 text-start">
+                    <strong>Languages</strong>
+                    <div className="flex gap-1 flex-wrap">
+                        {
+                            skills.framework.map((item, idx) => (
+                               <SkillCard name={item} key={idx}/>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        ),
+    }
 ];

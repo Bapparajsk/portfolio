@@ -121,10 +121,10 @@ export const Content = [
 
 export const skills = {
     "language": [
-        "cpp", "css", "express", "graphql", "html", "java", "javascript", "mongodb", "nextjs", "nodejs", "python", "react", "sass", "typescript"
+        "java",  "cpp","html", "css", "javascript", "nodejs", "python", "sass", "typescript"
     ],
     "framework": [
-        "aws", "docker", "firebase", "git", "github", "googlecloud", "linux", "npm", "redux"
+        "aws", "docker", "firebase", "git", "github", "googlecloud", "linux", "npm", "redux", "mongodb", "nextjs", "react", "express", "graphql",
     ]
 };
 

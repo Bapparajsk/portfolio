@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Image from "next/image";
+import { Image } from "@/components/next";
 
 import { Card, CardBody } from "@/components/nextui";
 import useScreenSize from "@/hooks/useScreenSize";
@@ -19,7 +19,7 @@ export default function MainProjects() {
     }, []);
 
     return (
-        <div className="w-full h-auto ">
+        <div data-scroll data-scroll-section data-scroll-speed=".2" className="w-full h-auto">
             {aboutData.map((data, idx) => (
                 <ProjectCard key={idx} {...data} idx={idx + 1} />
             ))}
@@ -34,14 +34,15 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
         const card = cardRef.current;
         const scale =
             idx === 1
-                ? 0.65
+                ? 0.60
                 : idx === 2
-                    ? 0.7
+                    ? 0.65
                     : idx === 3
-                        ? 0.75
+                        ? 0.70
                         : idx === 4
-                            ? 0.8
-                            : 0.85;
+                            ? 0.75
+                            : idx === 5 
+                            ? 0.80 : 0.85;
         gsap.to(card, {
             scrollTrigger: {
                 trigger: card,
