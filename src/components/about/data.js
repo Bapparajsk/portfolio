@@ -261,13 +261,13 @@ export const aboutData = [
     },
     {
         title:  "🎮 Skills",
-        image: "/images/about-card-6.webp",
+        image: "/images/about-card-6.png",
         theme_image: "/themes-image/about-card-6.jpg",
         description: () => (
             <div className="w-full h-full pl-1 flex gap-2">
                 <div className="w-1/2 flex flex-col text-start">
                     <strong>Languages</strong>
-                    <div className="flex flex-wrap">
+                    <div className="flex gap-1 flex-wrap mt-2">
                         {
                             skills.language.map((item, idx) => (
                                <SkillCard name={item} key={idx}/>
@@ -276,8 +276,8 @@ export const aboutData = [
                     </div>
                 </div>
                 <div className="w-1/2 flex flex-col gap-2 text-start">
-                    <strong>Languages</strong>
-                    <div className="flex gap-1 flex-wrap">
+                    <strong>Framework</strong>
+                    <div className="flex gap-1 flex-wrap mt-2">
                         {
                             skills.framework.map((item, idx) => (
                                <SkillCard name={item} key={idx}/>

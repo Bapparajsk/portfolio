@@ -32,17 +32,7 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
     const screenSize = useScreenSize();
     useEffect(() => {
         const card = cardRef.current;
-        const scale =
-            idx === 1
-                ? 0.60
-                : idx === 2
-                    ? 0.65
-                    : idx === 3
-                        ? 0.70
-                        : idx === 4
-                            ? 0.75
-                            : idx === 5 
-                            ? 0.80 : 0.85;
+        const scale = 0.55 + idx * 0.05;
         gsap.to(card, {
             scrollTrigger: {
                 trigger: card,
@@ -91,7 +81,7 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
                             src={theme_image || "/themes-image/haunted-horror.webp"}
                             width={1000}
                             height={1000}
-                            alt="image"
+                            alt="background-theme-image"
                         />
                         <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
                             <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
