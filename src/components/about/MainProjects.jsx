@@ -1,15 +1,26 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { Image } from "@/components/next";
 
+import { Image } from "@/components/next";
 import { Card, CardBody } from "@/components/nextui";
 import useScreenSize from "@/hooks/useScreenSize";
+import { AnimatePresence, MotionDiv } from "@/lib/motion";
 import { aboutData } from "./data";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const directions = ["top", "right", "bottom", "left"];
+const motionVariants = {
+    initial: { x: 0 },
+    exit: { x: 0, y: 0 },
+    top: { y: 20 },
+    bottom: { y: -20 },
+    left: { x: 20 },
+    right: { x: -20 }
+};
 
 export default function MainProjects() {
     useEffect(() => {
@@ -19,7 +30,12 @@ export default function MainProjects() {
     }, []);
 
     return (
-        <div data-scroll data-scroll-section data-scroll-speed=".2" className="w-full h-auto">
+        <div
+            data-scroll
+            data-scroll-section
+            data-scroll-speed=".2"
+            className="w-full h-auto"
+        >
             {aboutData.map((data, idx) => (
                 <ProjectCard key={idx} {...data} idx={idx + 1} />
             ))}
@@ -30,6 +46,9 @@ export default function MainProjects() {
 const ProjectCard = ({ title, description, theme_image, image, idx }) => {
     const cardRef = useRef(null);
     const screenSize = useScreenSize();
+    const ImageRef = useRef(null);
+    const [direction, setDirection] = useState("left");
+
     useEffect(() => {
         const card = cardRef.current;
         const scale = 0.55 + idx * 0.05;
@@ -45,36 +64,69 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
         });
     }, []);
 
+    
+
+    const handleMouseEnter = (event) => {
+        if (!ImageRef.current) return;
+
+        const direction = getDirection(event, ImageRef.current);
+        
+
+        const dir = direction <= 3 ? directions[direction] : "left";
+        setDirection(dir);
+    };
+
+    const getDirection = (ev, obj) => {
+        const { width: w, height: h, left, top } = obj.getBoundingClientRect();
+        const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1);
+        const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1);
+        const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
+        return d;
+    };
+
     return (
         <Card
             ref={cardRef}
-            style={{ top: `${idx * 6}vh`, }}
+            style={{ top: `${idx * 6}vh` }}
             className={`flex-row max-w-7xl mx-auto mb-5 sticky z-50 "}`}
         >
             <CardBody>
                 <div
-                    className={`flex h-full transition-all duration-300 ease-in-out`}
-                    style={{
-                        flexDirection: screenSize < 768 ? "column" : idx % 2 === 0 ? "row-reverse" : "row",
-                    }}
+                    className={`flex h-full w-full transition-all duration-300 ease-in-out`}
+                    style={{ flexDirection: screenSize < 768 ? "column" : idx % 2 === 0 ? "row-reverse" : "row" }}
                 >
                     <div className="w-full h-auto px-5 py-3 font-Josefin text-start md:hidden">
-                        <strong className="text-2xl font-bold">
-                            {title}
-                        </strong>
+                        <strong className="text-2xl font-bold">{title}</strong>
                     </div>
-                    <div className="w-full h-[400px] sm:h-[600px] md:h-96 md:w-[35%] overflow-hidden group rounded-2xl shadow-lg">
-                        <div className="relative w-full h-full">
-                            <Image
-                                width={1000}
-                                height={1000}
-                                src={image}
-                                alt="image"
-                                className="group-hover:scale-125 object-cover w-full h-full transform transition-transform duration-500"
-                            />
-                            <div className="absolute z-20 left-0 top-0 bg-transparent group-hover:bg-gradient-to-b from-slate-900 to-slate-950 w-full h-full opacity-50" />
-                        </div>
-                    </div>
+                    <MotionDiv
+                        onMouseEnter={handleMouseEnter}
+                        ref={ImageRef}
+                        className={"md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-lg overflow-hidden group/card relative"}
+                    >
+                        <AnimatePresence mode="wait">
+                            <MotionDiv
+                                className="relative h-full w-full"
+                                initial="initial"
+                                whileHover={direction}
+                                exit="exit"
+                            >
+                                <MotionDiv className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
+                                <MotionDiv
+                                    variants={motionVariants}
+                                    className="h-full w-full relative bg-black"
+                                    transition={{ duration: 0.2, ease: "easeOut", }}
+                                >
+                                    <Image
+                                        alt="image"
+                                        className={"h-full w-full object-cover scale-[1.15]"}
+                                        width="1000"
+                                        height="1000"
+                                        src={image || "/themes-image/haunted-horror.webp"}
+                                    />
+                                </MotionDiv>
+                            </MotionDiv>
+                        </AnimatePresence>
+                    </MotionDiv>
                     <div className={`relative w-full md:w-[65%] md:h-full`}>
                         <Image
                             className="absolute top-0 left-0 object-cover opacity-10 w-full h-full"
@@ -85,9 +137,7 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
                         />
                         <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
                             <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
-                                <strong className="text-2xl font-bold">
-                                    {title}
-                                </strong>
+                                <strong className="text-2xl font-bold">{title}</strong>
                             </div>
                             <div className="w-full h-full flex items-center px-5 py-3 text-sm md:text-medium">
                                 {description()}
@@ -99,3 +149,4 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
         </Card>
     );
 };
+
