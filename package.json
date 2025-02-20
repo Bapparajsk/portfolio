@@ -23,6 +23,7 @@
     "gsap": "^3.12.5",
     "locomotive-scroll": "^5.0.0-beta.21",
     "next": "^14.2.20",
+    "nodemailer": "^6.10.0",
     "punycode": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
