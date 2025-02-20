@@ -1,16 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
-import {
-    IconCarambola,
-    IconBrandGithub,
-    IconChecks,
-    IconList,
-    IconBrowserPlus,
-    IconCircleCheck,
-    IconGeometry,
-    IconTableShare,
-    IconPencilCheck,
-} from "@tabler/icons-react";
+import { Link, Image } from "@/components/next"
+import { getIcon } from "@/assets/icons";
 import { Timeline } from "@/components/ui/timeline";
 import Card from "./Card";
 import InteractiveHoverButton from "../ui/interactive-hover-button";
@@ -31,7 +20,7 @@ export function ProjectsList() {
                             key={index}
                             className="text-neutral-200 text-md font-normal mb-6 flex gap-2"
                         >
-                            <IconCarambola color="blue" /> {text}
+                            {getIcon({name: "star", className: "!text-blue-500"})} {text}
                         </p>
                     ))}
                 </div>
@@ -47,7 +36,7 @@ export function ProjectsList() {
                         "I solved 800+ problems on LeetCode and participated in online coding.",
                     ].map((text, idx) => (
                         <div key={idx} className="flex gap-1">
-                            <IconChecks color="#73EC8B" />{" "}
+                            {getIcon({name: "checks", className: "!text-[#73EC8B]"})}{" "}
                             <p className="text-neutral-200 text-md font-normal mb-4">
                                 {" "}
                                 {text}{" "}
@@ -63,7 +52,7 @@ export function ProjectsList() {
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/bapparaj",
-                                        icon: <IconBrandGithub />,
+                                        icon: getIcon({name: "github"}),
                                     },
                                 ],
                             },
@@ -74,7 +63,7 @@ export function ProjectsList() {
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/music.io",
-                                        icon: <IconBrandGithub />,
+                                        icon: getIcon({name: "github"}),
                                     },
                                 ],
                             },
@@ -105,23 +94,23 @@ export function ProjectsList() {
                     {[
                         {
                             text: "Learning React, Node.js, Node.js Express framework and Database in MongoDB.",
-                            icon: IconList,
+                            icon: "list",
                         },
                         {
                             text: "Create meny of projects using React, Node.js, Express and MongoDB.",
-                            icon: IconBrowserPlus,
+                            icon: "projectList",
                         },
                         {
                             text: "Complete 900+ problems solved in leetcode.",
-                            icon: IconCircleCheck,
+                            icon: "circleCheck",
                         },
                         {
                             text: "Explore tools like Git, GitHub, aws, firebase, vercel, googleapis, google cloud, etc.",
-                            icon: IconGeometry,
+                            icon: "geometry",
                         },
                     ].map((item, idx) => (
                         <div key={idx} className="flex gap-x-1">
-                            <item.icon />{" "}
+                            {getIcon({name: item.icon})}{" "}
                             <p className="text-neutral-200 text-md font-normal mb-4">
                                 {" "}
                                 {item.text}{" "}
@@ -136,7 +125,7 @@ export function ProjectsList() {
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/bapparaj",
-                                        icon: <IconBrandGithub />,
+                                        icon: getIcon({name: "github"}),
                                     },
                                 ],
                             },
@@ -146,7 +135,7 @@ export function ProjectsList() {
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/music.io",
-                                        icon: <IconBrandGithub />,
+                                        icon: getIcon({name: "github"}),
                                     },
                                 ],
                             },
@@ -156,7 +145,7 @@ export function ProjectsList() {
                                 links: [
                                     {
                                         href: "https://bapparaj.tech/",
-                                        icon: <IconTableShare />,
+                                        icon: getIcon({name: "share"}),
                                     },
                                 ],
                             },
@@ -166,11 +155,11 @@ export function ProjectsList() {
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/quiz-app",
-                                        icon: <IconBrandGithub />,
+                                        icon: getIcon({name: "github"}),
                                     },
                                     {
                                         href: "https://quiz-app-amber-chi.vercel.app/",
-                                        icon: <IconTableShare />,
+                                        icon: getIcon({name: "share"}),
                                     },
                                 ],
                             },
@@ -180,11 +169,11 @@ export function ProjectsList() {
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/product",
-                                        icon: <IconBrandGithub />,
+                                        icon: getIcon({name: "github"}),
                                     },
                                     {
                                         href: "https://product-topaz-alpha.vercel.app/",
-                                        icon: <IconTableShare />,
+                                        icon: getIcon({name: "share"}),
                                     },
                                 ],
                             },
@@ -194,20 +183,19 @@ export function ProjectsList() {
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/component-lab",
-                                        icon: <IconBrandGithub />,
+                                        icon: getIcon({name: "github"}),
                                     },
                                 ],
                             },
                         ].map((items, index) => (
                             <Card key={index} {...items} />
                         ))}
-                        <div className="w-full h-fullrounded-md">
+                        <div className="w-full h-full rounded-md">
                             <Link
                                 href="https://github.com/Bapparajsk?tab=repositories"
                                 target={"_blank"}
                             >
                                 <InteractiveHoverButton text={"View all projects"} className={"w-full items-center justify-center"}/>
-                                {/* <IconBrandGithub />  */}
                             </Link>
                             
                         </div>
@@ -228,7 +216,7 @@ export function ProjectsList() {
                             "Updated all repositories on GitHub.",
                         ].map((text, idx) => (
                             <div key={idx} className="flex gap-2 items-start text-neutral-300 text-xl mb-3">
-                                <IconPencilCheck /> <p>{text}</p>
+                                {getIcon({name: "pencilCheck"})} <p>{text}</p>
                             </div>
                         ))}
 

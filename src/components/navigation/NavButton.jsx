@@ -1,36 +1,8 @@
-"use client";
-
-import {
-    IconHome, IconUser, IconPalette,
-    IconPhone, IconBrandGithub, IconBrandLinkedin,
-    IconAlignBoxLeftTop, IconBrandX
-} from "@tabler/icons-react";
 import { ResponsiveComponent } from "@/components/ResponsiveComponent";
 import { cn } from "@/lib/utils";
 import { MotionLink } from "@/lib/motion";
+import { getIcon } from "@/assets/icons";
 
-const getIcon = (icon) => {
-    switch (icon) {
-        case 'home':
-            return <IconHome className={'w-full h-auto'} strokeWidth={1.5} />
-        case 'info':
-            return <IconUser className={'w-full h-auto'} strokeWidth={1.5} />
-        case 'Projects':
-            return <IconPalette className={'w-full h-auto'} strokeWidth={1.5} />
-        case 'contact':
-            return <IconPhone className={'w-full h-auto'} strokeWidth={1.5} />
-        case 'github':
-            return <IconBrandGithub className={'w-full h-auto'} strokeWidth={1.5} />
-        case 'linkedin':
-            return <IconBrandLinkedin className={'w-full h-auto'} strokeWidth={1.5} />
-        case 'resume':
-            return <IconAlignBoxLeftTop className={'w-full h-auto'} strokeWidth={1.5} />
-        case 'twitter':
-            return <IconBrandX className={'w-full h-auto'} strokeWidth={1.5} />
-        default:
-            return <IconHome className={'w-full h-auto'} strokeWidth={1.5} />
-    }
-}
 
 const item = {
     hidden: { scale: 0 },
@@ -65,7 +37,7 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                                 className="absolute top-0 left-0 w-full h-full bg-[#1c2a4261] rounded-[22%_78%_59%_41%/55%_27%_73%_45%] animate-spin2" />
                             <span
                                 className={'relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent'}>
-                                {getIcon(icon)}
+                                {getIcon({name: icon})}
 
                                 <span className={'peer bg-transparent absolute top-0 w-full h-full'} />
 
@@ -88,7 +60,7 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                         >
                             <span
                                 className={'relative w-10 h-10 xs:w-14 xs:h-14 p-2.5 xs:p-4 group-hover:pause hover:text-accent'}>
-                                {getIcon(icon)}
+                                {getIcon({name: icon})}
 
                                 <span className={'peer bg-transparent absolute top-0 w-full h-full'} />
 

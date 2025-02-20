@@ -1,12 +1,12 @@
 export const ButtonList = [
     { label: 'Home', link: '/', icon: 'home', newTab: false },
-    { label: 'About', link: '/about', icon: 'info', newTab: false },
-    { label: 'Projects', link: '/projects', icon: 'Projects', newTab: false },
-    { label: 'Contact', link: '/contact', icon: 'contact', newTab: false },
+    { label: 'About', link: '/about', icon: 'about', newTab: false },
+    { label: 'Projects', link: '/projects', icon: 'project', newTab: false },
+    { label: 'Contact', link: '/contact', icon: 'phone', newTab: false },
     { label: 'Github', link: 'https://github.com/Bapparajsk', icon: 'github', newTab: true },
     { label: 'LinkedIn', link: 'https://www.linkedin.com/in/bappa-raj-sk-6a0153233/', icon: 'linkedin', newTab: true },
     { label: 'Resume', link: 'https://drive.google.com/file/d/17Z7Z6077707625077777777777777777/view?usp=sharing', icon: 'resume', newTab: true },
-    { label: 'x', link: 'https://twitter.com/bapparaj007', icon: 'twitter', newTab: true },
+    { label: 'x', link: 'https://twitter.com/bapparaj007', icon: 'x', newTab: true },
 ];
 
 export const testimonials = [
@@ -134,3 +134,52 @@ export const words = [
     { text: "My", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
     { text: "Portfolio.", className: "text-blue-500 dark:text-blue-500 font-semibold md:text-5xl text-3xl lg:text-7xl" },
 ];
+
+export const links = [
+    {
+      title: "Home",
+      iconName: "home",
+      href: "/",
+    },
+    {
+      title: "About",
+      iconName: "about",
+      href: "/about",
+    },
+    {
+      title: "Projects",
+      iconName: "project",
+      href: "/projects",
+    },
+    {
+      title: "Contact",
+      iconName: "phone",
+      href: "/contact",
+    },
+    {
+      title: "Resume",
+      iconName: "resume",
+      href: "#",
+    },
+    {
+      title: "GitHub",
+      iconName: "github",
+      href: "https://github.com/Bapparajsk",
+    },
+  
+    {
+      title: "Linkedin",
+      iconName: "linkedin",
+      href: "https://www.linkedin.com/in/bappa-raj-sk-6a0153233",
+    },
+    {
+      title: "Twitter",
+      iconName: "x",
+      href: "https://twitter.com/bapparaj007",
+    },
+    {
+      title: "LeetCode",
+      iconName: "leetcode",
+      href: "https://leetcode.com/u/Bapparajsk",
+    },
+  ];

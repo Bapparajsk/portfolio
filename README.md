@@ -142,4 +142,7 @@ The application should now be running on [http://localhost:3000](http://localhos
       - More animations added for better user experience.
       - Site performance improved with code optimization.
       - Updated dependencies to the latest versions.
-      
+      - Remove unused code and files.
+      - Removed @tabler/react-icons.
+- **New Features**:
+      - Added icons svg for better user experience.

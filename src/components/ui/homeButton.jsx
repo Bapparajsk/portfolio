@@ -1,5 +1,5 @@
 import { MotionLink } from "@/lib/motion";
-import { IconHome } from "@tabler/icons-react";
+import { getIcon } from "@/assets/icons";
 
 export default function HomeButton() {
     return (
@@ -22,9 +22,9 @@ export default function HomeButton() {
             />
             <div className="absolute top-0 left-0 w-full h-full bg-[#1c2a4261] rounded-[22%_78%_59%_41%/55%_27%_73%_45%] animate-spin2" />
             <span
-                className={ "relative w-14 h-14 p-4 group-hover:pause hover:text-accent" }
+                className={ "relative w-14 h-14 p-4 group-hover:pause hover:text-accent " }
             >
-                <IconHome className={'w-full h-auto'} strokeWidth={1.5} />
+                {getIcon({ name: "home", className: "text-gray-400" })}
             </span>
         </MotionLink>
     );

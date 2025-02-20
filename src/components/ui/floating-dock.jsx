@@ -3,17 +3,7 @@
 import { Link } from "@/components/next";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import {
-  IconAlignBoxLeftTop,
-  IconBrandGithub,
-  IconBrandLeetcode,
-  IconBrandLinkedin,
-  IconBrandX,
-  IconHome,
-  IconPhone,
-  IconUser,
-  IconPalette
-} from "@tabler/icons-react";
+import { getIcon } from "@/assets/icons";
 import {
   AnimatePresence,
   MotionDiv,
@@ -21,81 +11,13 @@ import {
   useSpring,
   useTransform,
 } from "@/lib/motion";
+import { links } from "@/app/data";
 
-const clas = "h-full w-full text-neutral-500";
-
-const links = [
-  {
-    title: "Home",
-    icon: (
-      <IconHome className={clas} />
-    ),
-    href: "/",
-  },
-  {
-    title: "About",
-    icon: (
-      <IconUser className={clas} />
-    ),
-    href: "/about",
-  },
-  {
-    title: "Projects",
-    icon: (
-      <IconPalette className={clas} />
-    ),
-    href: "/projects",
-  },
-  {
-    title: "Contact",
-    icon: (
-      <IconPhone/>
-    ),
-    href: "/contact",
-  },
-  {
-    title: "Resume",
-    icon: (
-      <IconAlignBoxLeftTop/>
-    ),
-    href: "#",
-  },
-  {
-    title: "GitHub",
-    icon: (
-      <IconBrandGithub/>
-    ),
-    href: "https://github.com/Bapparajsk",
-  },
-
-  {
-    title: "Linkedin",
-    icon: (
-      <IconBrandLinkedin/>
-    ),
-    href: "https://www.linkedin.com/in/bappa-raj-sk-6a0153233",
-  },
-  {
-    title: "Twitter",
-    icon: (
-      <IconBrandX/>
-    ),
-    href: "https://twitter.com/bapparaj007",
-  },
-  {
-    title: "LeetCode",
-    icon: (
-      <IconBrandLeetcode/>
-    ),
-    href: "https://leetcode.com/u/Bapparajsk",
-  },
-];
+const classIcon = "h-full w-full text-neutral-500";
 
 const getItems = (name, isDark) => {
   return links.filter((item) => {
-    item.icon = (
-      <item.icon.type className={cn(clas, isDark && "dark:text-neutral-300")} />
-    );
+    item.className = cn(classIcon, isDark && "dark:text-neutral-300");
     return item.title.toLowerCase() !== name.toLowerCase();
   });
 }
@@ -141,7 +63,8 @@ const FloatingDockDesktop = ({
 function IconContainer({
   mouseX,
   title,
-  icon,
+  iconName,
+  className,
   href,
   isDark,
 }) {
@@ -216,7 +139,7 @@ function IconContainer({
           style={{ width: widthIcon, height: heightIcon }}
           className="flex items-center justify-center"
         >
-          {icon}
+          {getIcon({name: iconName, className})}
         </MotionDiv>
       </MotionDiv>
     </Link>
