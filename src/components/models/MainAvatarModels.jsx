@@ -41,7 +41,6 @@ export function MainModel(props) {
     const { actions } = useAnimations(animations, modelRef);
 
     useEffect(() => {
-        console.log("MainModel loaded");
         actions["Take 001"].play();
         
     },[]);
@@ -54,7 +53,6 @@ export function MainModel(props) {
         sceneData.position[1] + Math.sin(state.clock.getElapsedTime()) * 0.2;
     });
 
-    
     return (
         <group 
             ref={modelRef} 

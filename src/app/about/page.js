@@ -7,8 +7,9 @@ import HomeButton from "@/components/ui/homeButton";
 import LocomotiveProviders from "../locomotiveProviders";
 
 export const metadata = {
-    title: "Bapparaj | About Me",
-    description: "I am a Software Engineer",
+    title: "Bapparaj | About",
+    description:
+      "Welcome to my portfolio! Powered by Next.js, Three.js, and Tailwind CSS, this site blends creativity with technology. Explore immersive experiences crafted with Three.js, navigate seamlessly with Next.js, and enjoy sleek design with Tailwind CSS. Dive into my projects and discover the fusion of artistry and innovation",
 };
 
 export default function page() {
