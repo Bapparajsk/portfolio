@@ -13,7 +13,8 @@ export const metadata = {
 export default function page() {
     return (
         <LocomotiveProviders>
-            <main>
+            <main className="relative w-full h-full">
+                <div className="absolute top-0 left-0 w-full h-full bg-project-bg z-0" />
                 <div className={'fixed top-2 left-2 z-[100]'}>
                     <HomeButton />
                 </div>

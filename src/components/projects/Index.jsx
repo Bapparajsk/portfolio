@@ -18,7 +18,7 @@ export function ProjectsList() {
                     ].map((text, index) => (
                         <p
                             key={index}
-                            className="text-neutral-200 font-semibold text-md font-normal mb-6 flex gap-2"
+                            className="text-neutral-200 font-semibold text-md mb-6 flex gap-2"
                         >
                             {getIcon({name: "star", className: "!text-blue-500"})} {text}
                         </p>

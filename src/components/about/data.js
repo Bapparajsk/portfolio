@@ -4,6 +4,7 @@ import { MotionDiv, useInView } from "@/lib/motion";
 import { Link } from "@/lib/next";
 import { skills } from "@/app/data";
 import { SkillCard } from "./SkillCard";
+import { Tooltip } from "@/lib/nextui";
 
 const colorCodes = [
     "#D84040",
@@ -77,8 +78,8 @@ export const aboutData = [
                         color={colorCodes[0]}
                     >
                         <strong>My Own Facebook</strong>
-                    </LinkText> {" "} – A 
-                    <strong>Full-Stack Social Media Web App</strong> with{" "}
+                    </LinkText>{" "}
+                    – A<strong>Full-Stack Social Media Web App</strong> with{" "}
                     <strong>Real-Time Interactions</strong> and a{" "}
                     <strong>Modern UI</strong>.
                 </p>
@@ -95,7 +96,8 @@ export const aboutData = [
                         color={colorCodes[5]}
                     >
                         <strong>Component Lab</strong>
-                    </LinkText> {" "} – A <strong>Full-Stack UI Component Library Web App</strong> with{" "}
+                    </LinkText>{" "}
+                    – A <strong>Full-Stack UI Component Library Web App</strong> with{" "}
                     <strong>Real-Time Interactions</strong> and a{" "}
                     <strong>Modern UI</strong>.
                 </p>
@@ -106,9 +108,14 @@ export const aboutData = [
                         }
                         style={{ backgroundColor: `${colorCodes[1]}` }}
                     ></span>
-                    <LinkText href={"https://github.com/Bapparajsk/portfolio"} target="_blank" color={colorCodes[1]}>
+                    <LinkText
+                        href={"https://github.com/Bapparajsk/portfolio"}
+                        target="_blank"
+                        color={colorCodes[1]}
+                    >
                         <strong>3D Animated Portfolio</strong>
-                    </LinkText>{" "} – A <strong>Creative, Interactive Portfolio</strong> featuring{" "}
+                    </LinkText>{" "}
+                    – A <strong>Creative, Interactive Portfolio</strong> featuring{" "}
                     <strong>3D Elements</strong> to showcase skills dynamically.
                 </p>
                 <p className={"font-heading relative text-neutral-200"}>
@@ -124,7 +131,8 @@ export const aboutData = [
                         color={colorCodes[2]}
                     >
                         <strong>iNews</strong>
-                    </LinkText>{" "} – A <strong>News App</strong> with <strong>Infinite Scrolling</strong>{" "}
+                    </LinkText>{" "}
+                    – A <strong>News App</strong> with <strong>Infinite Scrolling</strong>{" "}
                     and <strong>Search Functionality</strong> powered by{" "}
                     <strong>NewsAPI</strong>.
                 </p>
@@ -144,10 +152,7 @@ export const aboutData = [
                     "Cloud Platforms: AWS, Google Cloud, Firebase",
                     "Others: Tailwind CSS, SASS, BullMQ, Node.js Cluster",
                 ].map((text, idx) => (
-                    <p
-                        key={idx}
-                        className={"font-heading relative text-neutral-200"}
-                    >
+                    <p key={idx} className={"font-heading relative text-neutral-200"}>
                         <span
                             className={
                                 "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -176,12 +181,7 @@ export const aboutData = [
                         { text: "HTML", percentage: "3.56%", color: "#E34E3A" },
                         { text: "Java", percentage: "2.37%", color: "#B07226" },
                     ].map(({ text, percentage, color }, idx) => (
-                        <div
-                            key={idx}
-                            className={
-                                "font-heading relative text-neutral-200"
-                            }
-                        >
+                        <div key={idx} className={"font-heading relative text-neutral-200"}>
                             <span
                                 className={
                                     "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -190,16 +190,22 @@ export const aboutData = [
                             ></span>
                             <strong>{text}</strong>
                             <div className="absolute left-32 top-0 w-[60%] h-full flex items-center overflow-hidden transition-all duration-250">
-                                <div className="w-full h-3 bg-neutral-600 rounded-full">
-                                    <MotionDiv
-                                        ref={ref}
-                                        initial={{ width: 0 }}
-                                        animate={isInView ? { width: percentage } : {}}
-                                        transition={{ duration: 2, type: "spring", bounce: 0.25 }}
-                                        className="h-full rounded-full"
-                                        style={{ backgroundColor: color }}
-                                    ></MotionDiv>
-                                </div>
+                                <Tooltip
+                                    content={percentage}
+                                    placement="top"
+                                    color="foreground"
+                                >
+                                    <div className="w-full h-3 bg-neutral-600 rounded-full">
+                                        <MotionDiv
+                                            ref={ref}
+                                            initial={{ width: 0 }}
+                                            animate={isInView ? { width: percentage } : {}}
+                                            transition={{ duration: 2, type: "spring", bounce: 0.25 }}
+                                            className="h-full rounded-full"
+                                            style={{ backgroundColor: color }}
+                                        />
+                                    </div>
+                                </Tooltip>
                             </div>
                         </div>
                     ))}
@@ -260,7 +266,7 @@ export const aboutData = [
         ),
     },
     {
-        title:  "🎮 Skills",
+        title: "🎮 Skills",
         image: "/images/about-card-6.png",
         theme_image: "/themes-image/about-card-6.jpg",
         description: () => (
@@ -268,24 +274,20 @@ export const aboutData = [
                 <div className="w-full md:w-1/2 flex flex-col gap-2 text-start">
                     <strong className="text-lg">Languages</strong>
                     <div className="flex gap-1 flex-wrap mt-2">
-                        {
-                            skills.language.map((item, idx) => (
-                               <SkillCard name={item} key={idx}/>
-                            ))
-                        }
+                        {skills.language.map((item, idx) => (
+                            <SkillCard name={item} key={idx} />
+                        ))}
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col gap-2 text-start">
                     <strong className="text-lg">Framework</strong>
                     <div className="flex gap-1 flex-wrap mt-2">
-                        {
-                            skills.framework.map((item, idx) => (
-                               <SkillCard name={item} key={idx}/>
-                            ))
-                        }
+                        {skills.framework.map((item, idx) => (
+                            <SkillCard name={item} key={idx} />
+                        ))}
                     </div>
                 </div>
             </div>
         ),
-    }
+    },
 ];

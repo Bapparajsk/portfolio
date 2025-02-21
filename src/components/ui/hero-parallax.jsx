@@ -61,11 +61,11 @@ export const Header = () => {
     return (
         <div
             className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-            <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
+            <h1 className="text-2xl md:text-7xl font-bold text-white">
                 Welcome to My<br />
                 Project Showcase
             </h1>
-            <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+            <p className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200">
                 Here you can find a collection of my projects, each with a unique story and purpose. I have poured my creativity and passion into developing these projects, aiming to solve real-world problems and deliver exceptional user experiences. My project showcases my skills in full stack development and problem-solving. Feel free to explore and discover the innovative solutions I have created.
             </p>
         </div>

@@ -28,11 +28,7 @@ module.exports = {
         'fire-dot-red': 'radial-gradient(50% 50% at 50% 50%, rgba(248, 35, 92, 0.80) 0%, rgba(217, 217, 217, 0) 100%)',
         "svg-pattern": "linear-gradient(4deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(36,35,32,1) 50%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%)",
         "about-bg": "linear-gradient(142deg, rgba(97,207,232,1) 0%, rgba(97,207,232,1) 10%, rgba(182,98,209,1) 30%, rgba(97,52,111,1) 90%, rgba(43,30,81,1) 96%)",
-      },
-      boxShadow: {
-        'glass-inset': 'rgba(245, 245, 245, 0.25) 0px 50px 36px -28px inset',
-        'glass-sm': '5px 5px 20px 0px rgba(254, 254, 91, 0.30)',
-        'glass-inset-label': 'rgba(245, 245, 245, 0.25) 0px -50px 36px -28px inset',
+        "project-bg": "linear-gradient(to left top, #001c30, #011b2e, #01192c, #02182a, #021728, #081425, #0c1222, #0f0f1e, #110a17, #10060f, #0a0306, #000000)"
       },
       keyframes: {
         'spin-reverse': {
