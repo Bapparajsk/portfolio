@@ -5,8 +5,10 @@ import { useScroll, useTransform, MotionDiv } from "@/lib/motion";
 
 export const Timeline = ({ data }) => {
     const ref = useRef(null);
+    const titleRef = useRef(null);
     const containerRef = useRef(null);
     const [height, setHeight] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(null);
 
     useEffect(() => {
         if (ref.current) {
@@ -32,7 +34,7 @@ export const Timeline = ({ data }) => {
                     Changelog from my journey
                 </h2>
                 <p
-                    className="text-neutral-400 text-sm md:text-base max-w-sm">
+                    className="text-neutral-400 font-semibold text-sm md:text-base max-w-sm">
                     I have been working on different projects and learning new things. Here is a list of things I have been
                     working on and learning.
                 </p>
@@ -41,6 +43,7 @@ export const Timeline = ({ data }) => {
                 {data.map((item, index) => (
                     <div key={index} className="flex justify-start pt-10 md:pt-40 md:gap-10">
                         <div
+                            ref={titleRef}
                             className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
                             <div
                                 className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
@@ -48,6 +51,7 @@ export const Timeline = ({ data }) => {
                                     className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
                             </div>
                             <h3
+                                
                                 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
                                 {item.title}
                             </h3>

@@ -18,7 +18,7 @@ export function ProjectsList() {
                     ].map((text, index) => (
                         <p
                             key={index}
-                            className="text-neutral-200 text-md font-normal mb-6 flex gap-2"
+                            className="text-neutral-200 font-semibold text-md font-normal mb-6 flex gap-2"
                         >
                             {getIcon({name: "star", className: "!text-blue-500"})} {text}
                         </p>
@@ -37,9 +37,8 @@ export function ProjectsList() {
                     ].map((text, idx) => (
                         <div key={idx} className="flex gap-1">
                             {getIcon({name: "checks", className: "!text-[#73EC8B]"})}{" "}
-                            <p className="text-neutral-200 text-md font-normal mb-4">
-                                {" "}
-                                {text}{" "}
+                            <p className="text-neutral-200 font-semibold text-md mb-4">
+                                {text}
                             </p>
                         </div>
                     ))}
@@ -47,7 +46,7 @@ export function ProjectsList() {
                         {[
                             {
                                 src: "/projects/solar-system.png",
-                                alt: "hero-sections",
+                                alt: "solar system project",
                                 name: "Soler system",
                                 links: [
                                     {
@@ -58,7 +57,7 @@ export function ProjectsList() {
                             },
                             {
                                 src: "/projects/music.png",
-                                alt: "music.io",
+                                alt: "music.io for music any time",
                                 name: "Music.io",
                                 links: [
                                     {
@@ -69,13 +68,13 @@ export function ProjectsList() {
                             },
                             {
                                 src: "/projects/leetcode.png",
-                                alt: "leecode",
+                                alt: "leetcode profile",
                                 name: "Leetcode",
                                 links: [
                                     {
                                         href: "https://leetcode.com/u/Bapparajsk/",
                                         icon: (
-                                            <Image src="/svg/leetcode.svg" width={20} height={20} />
+                                            <Image src="/svg/leetcode.svg" alt="leetcode icon image" width={20} height={20} />
                                         ),
                                     },
                                 ],
@@ -111,17 +110,16 @@ export function ProjectsList() {
                     ].map((item, idx) => (
                         <div key={idx} className="flex gap-x-1">
                             {getIcon({name: item.icon})}{" "}
-                            <p className="text-neutral-200 text-md font-normal mb-4">
-                                {" "}
-                                {item.text}{" "}
-                            </p>
+                            <strong className="text-neutral-200 mb-4">
+                                {item.text}
+                            </strong>
                         </div>
                     ))}
                     <div className="grid grid-cols-2 gap-4 mt-4">
                         {[
                             {
                                 src: "/projects/newapp.png",
-                                alt: "new App",
+                                alt: "new app project",
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/bapparaj",
@@ -131,7 +129,7 @@ export function ProjectsList() {
                             },
                             {
                                 src: "/projects/codeking.png",
-                                alt: "codeking",
+                                alt: "codeking project for coding",
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/music.io",
@@ -141,7 +139,7 @@ export function ProjectsList() {
                             },
                             {
                                 src: "/projects/portfolio.png",
-                                alt: "portfolio",
+                                alt: "portfolio project",
                                 links: [
                                     {
                                         href: "https://bapparaj.tech/",
@@ -151,7 +149,7 @@ export function ProjectsList() {
                             },
                             {
                                 src: "/projects/quze-app1.png",
-                                alt: "quze app",
+                                alt: "quze app project for quiz",
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/quiz-app",
@@ -165,7 +163,7 @@ export function ProjectsList() {
                             },
                             {
                                 src: "/projects/product1.png",
-                                alt: "product ",
+                                alt: "product project",
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/product",
@@ -179,7 +177,7 @@ export function ProjectsList() {
                             },
                             {
                                 src: "/projects/component-lab.png",
-                                alt: "component lab",
+                                alt: "component lab project for component design",
                                 links: [
                                     {
                                         href: "https://github.com/Bapparajsk/component-lab",
@@ -216,7 +214,7 @@ export function ProjectsList() {
                             "Updated all repositories on GitHub.",
                         ].map((text, idx) => (
                             <div key={idx} className="flex gap-2 items-start text-neutral-300 text-xl mb-3">
-                                {getIcon({name: "pencilCheck"})} <p>{text}</p>
+                                {getIcon({name: "pencilCheck"})} <strong>{text}</strong>
                             </div>
                         ))}
 
