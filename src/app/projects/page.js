@@ -21,9 +21,10 @@ export default function page() {
                 <HeroParallax />
                 <ProjectsList />
                 <footer className="mt-40">
-                    <div className={`flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
+                    <div className={`relative flex items-center justify-center h-[35rem] md:h-[200px]  w-full`}>
                         <FloatingDock
                             pathName={"projects"}
+                            isDark={false}
                         />
                     </div>
                 </footer>

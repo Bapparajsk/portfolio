@@ -1,6 +1,6 @@
 # My Portfolio
 
-<!-- ![Portfolio Screenshot](link-to-your-portfolio-screenshot.png) -->
+![Portfolio Screenshot](./public/portfolio-screenshot.png)
 
 This is the repository for my personal portfolio website. It showcases my skills, projects, and experiences as a web developer. The portfolio is built with modern web technologies, including React, Next.js, Tailwind CSS, and Framer Motion.
 
@@ -148,3 +148,4 @@ The application should now be running on [http://localhost:3000](http://localhos
    - Added icons svg for better user experience.
    - Added a new project to the showcase section.
    - Added Responsive Project Cards.
+   - Added Gradient Background for Project Page.
