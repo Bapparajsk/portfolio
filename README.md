@@ -127,9 +127,9 @@ The application should now be running on [http://localhost:3000](http://localhos
     - Resolved issues with the contact form submission.
     - Corrected typos and grammatical errors in the content.
 - **Enhancements**:
-      - Improved the contact form with better error handling and user feedback.
-      - Updated dependencies to the latest versions.s
-      - Added a loading indicator for the contact form submission.
+   - Improved the contact form with better error handling and user feedback.
+   - Updated dependencies to the latest versions.s
+   - Added a loading indicator for the contact form submission.
 - **New Features**:
     - Update about page with new content.
     - Added a new project to the showcase section.
@@ -138,13 +138,13 @@ The application should now be running on [http://localhost:3000](http://localhos
 
 ### v3.3.10 (2025-02-19)
 - **Enhancements**:
-      - Improved the contact form with better error handling and user feedback.
-      - More animations added for better user experience.
-      - Site performance improved with code optimization.
-      - Updated dependencies to the latest versions.
-      - Remove unused code and files.
-      - Removed @tabler/react-icons.
+   - Improved the contact form with better error handling and user feedback.
+   - More animations added for better user experience.
+   - Site performance improved with code optimization.
+   - Updated dependencies to the latest versions.
+   - Remove unused code and files.
+   - Removed @tabler/react-icons.
 - **New Features**:
-      - Added icons svg for better user experience.
-      - Added a new project to the showcase section.
-      - Added Responsive Project Cards.
+   - Added icons svg for better user experience.
+   - Added a new project to the showcase section.
+   - Added Responsive Project Cards.
