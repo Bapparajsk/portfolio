@@ -226,7 +226,7 @@ export const aboutData = [
                         }
                         style={{ backgroundColor: `${colorCodes[0]}` }}
                     ></span>
-                    <strong>Solved 900+ LeetCode Problems</strong> – Demonstrating strong
+                    <strong>Solved 1000+ LeetCode Problems</strong> – Demonstrating strong
                     problem-solving and algorithmic skills.
                 </p>
                 <p className={"font-heading relative  text-neutral-200"}>

@@ -1,6 +1,6 @@
 # My Portfolio
 
-![Portfolio Screenshot](./public/portfolio-screenshot.png)
+<video autoPlay muted loop src="public/portfolio-video.mp4" title="Title"></video>
 
 This is the repository for my personal portfolio website. It showcases my skills, projects, and experiences as a web developer. The portfolio is built with modern web technologies, including React, Next.js, Tailwind CSS, and Framer Motion.
 
