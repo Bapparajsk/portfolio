@@ -63,7 +63,7 @@ export const aboutData = [
         image: "/images/about-card-2.png",
         theme_image: "/themes-image/about-card-2.webp",
         description: () => (
-            <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly tracking-wider">
+            <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly tracking-wider">
                 <p className={"font-heading relative text-neutral-200"}>
                     <span
                         className={
@@ -136,7 +136,7 @@ export const aboutData = [
         image: "/images/about-card-3.png",
         theme_image: "/themes-image/about-card-3.png",
         description: () => (
-            <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly">
+            <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly">
                 {[
                     "Languages: JavaScript, TypeScript, Java",
                     "Frameworks: Next.js, React, Express",
@@ -168,7 +168,7 @@ export const aboutData = [
             const ref = useRef(null);
             const isInView = useInView(ref, { once: true });
             return (
-                <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly">
+                <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly">
                     {[
                         { text: "TypeScript", percentage: "71.31%", color: "#3178C6" },
                         { text: "JavaScript", percentage: "17.32%", color: "#F1E05A" },
@@ -212,7 +212,7 @@ export const aboutData = [
         image: "/images/about-card-5.png",
         theme_image: "/themes-image/about-card-5.png",
         description: () => (
-            <div className="w-full h-full relative text-start pl-5 flex flex-col justify-evenly">
+            <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly">
                 <p className={"font-heading relative text-neutral-200"}>
                     <span
                         className={
@@ -264,8 +264,8 @@ export const aboutData = [
         image: "/images/about-card-6.png",
         theme_image: "/themes-image/about-card-6.jpg",
         description: () => (
-            <div className="w-full h-full pl-1 flex gap-2">
-                <div className="w-1/2 flex flex-col text-start">
+            <div className="w-full h-full pl-1 flex gap-5 md:gap-2 flex-col md:flex-row">
+                <div className="w-full md:w-1/2 flex flex-col gap-2 text-start">
                     <strong>Languages</strong>
                     <div className="flex gap-1 flex-wrap mt-2">
                         {
@@ -275,7 +275,7 @@ export const aboutData = [
                         }
                     </div>
                 </div>
-                <div className="w-1/2 flex flex-col gap-2 text-start">
+                <div className="w-full md:w-1/2 flex flex-col gap-2 text-start">
                     <strong>Framework</strong>
                     <div className="flex gap-1 flex-wrap mt-2">
                         {

@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/all";
 
 import { Image } from "@/lib/next";
 import { Card, CardBody } from "@/lib/nextui";
-import useScreenSize from "@/hooks/useScreenSize";
 import { AnimatePresence, MotionDiv } from "@/lib/motion";
 import { aboutData } from "./data";
 
@@ -23,29 +22,60 @@ const motionVariants = {
 };
 
 export default function MainProjects() {
-    useEffect(() => {
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-        };
-    }, []);
+    
 
     return (
-        <div
-            data-scroll
-            data-scroll-section
-            data-scroll-speed=".2"
-            className="w-full h-auto"
-        >
-            {aboutData.map((data, idx) => (
-                <ProjectCard key={idx} {...data} idx={idx + 1} />
-            ))}
-        </div>
+        <>
+            <div
+                data-scroll
+                data-scroll-section
+                data-scroll-speed=".2"
+                className="w-full h-auto hidden md:block"
+            >
+                {aboutData.map((data, idx) => (
+                    <ProjectCard key={idx} {...data} idx={idx + 1} />
+                ))}
+            </div>
+            <div className="w-full h-auto md:hidden px-3 flex flex-col gap-5">
+                {aboutData.map((data, idx) => (
+                    <ProjectCardMobile key={idx} {...data} idx={idx + 1} />
+                ))}
+            </div>
+        </>
+    );
+}
+
+const ProjectCardMobile = ({ title, description, theme_image, image, idx }) => {
+    return (
+        <Card>
+            <div className="w-full h-auto px-5 py-3 font-Josefin text-start">
+                <strong className="text-2xl font-bold">{title}</strong>
+            </div>
+            <CardBody>
+            <div className={`relative w-full md:w-[65%] md:h-full`}>
+                        <Image
+                            className="absolute top-0 left-0 object-cover opacity-10 w-full h-full"
+                            src={theme_image || "/themes-image/haunted-horror.webp"}
+                            width={1000}
+                            height={1000}
+                            alt="background-theme-image"
+                        />
+                        <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
+                            <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
+                                <strong className="text-2xl font-bold">{title}</strong>
+                            </div>
+                            <div className="w-full h-full flex items-center px-5 py-3 text-sm md:text-medium">
+                                {description()}
+                            </div>
+                        </div>
+                    </div>
+            </CardBody>
+        </Card>
     );
 }
 
 const ProjectCard = ({ title, description, theme_image, image, idx }) => {
     const cardRef = useRef(null);
-    const screenSize = useScreenSize();
     const ImageRef = useRef(null);
     const [direction, setDirection] = useState("left");
 
@@ -62,9 +92,11 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
             scale,
             y: -100,
         });
-    }, []);
 
-    
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => t.kill());
+        };
+    }, []);
 
     const handleMouseEnter = (event) => {
         if (!ImageRef.current) return;
@@ -92,7 +124,7 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
             <CardBody>
                 <div
                     className={`flex h-full w-full transition-all duration-300 ease-in-out`}
-                    style={{ flexDirection: screenSize < 768 ? "column" : idx % 2 === 0 ? "row-reverse" : "row" }}
+                    style={{ flexDirection: idx % 2 === 0 ? "row-reverse" : "row" }}
                 >
                     <div className="w-full h-auto px-5 py-3 font-Josefin text-start md:hidden">
                         <strong className="text-2xl font-bold">{title}</strong>
