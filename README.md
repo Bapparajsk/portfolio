@@ -146,3 +146,5 @@ The application should now be running on [http://localhost:3000](http://localhos
       - Removed @tabler/react-icons.
 - **New Features**:
       - Added icons svg for better user experience.
+      - Added a new project to the showcase section.
+      - Added Responsive Project Cards.
