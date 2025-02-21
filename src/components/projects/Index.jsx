@@ -1,4 +1,4 @@
-import { Link, Image } from "@/components/next"
+import { Link, Image } from "@/lib/next"
 import { getIcon } from "@/assets/icons";
 import { Timeline } from "@/components/ui/timeline";
 import Card from "./Card";

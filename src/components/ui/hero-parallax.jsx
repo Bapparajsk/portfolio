@@ -2,7 +2,7 @@
 
 import React from "react";
 import { MotionDiv, useScroll, useTransform, useSpring } from "@/lib/motion";
-import { Link, Image } from "@/components/next";
+import { Link, Image } from "@/lib/next";
 
 import { products } from "@/app/data";
 

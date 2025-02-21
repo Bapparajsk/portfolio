@@ -1,6 +1,6 @@
 "use client";
 
-import { Image, Link } from "@/components/next";
+import { Image, Link } from "@/lib/next";
 
 export default function Card({
     src,

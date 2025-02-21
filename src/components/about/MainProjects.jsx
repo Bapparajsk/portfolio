@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-import { Image } from "@/components/next";
-import { Card, CardBody } from "@/components/nextui";
+import { Image } from "@/lib/next";
+import { Card, CardBody } from "@/lib/nextui";
 import useScreenSize from "@/hooks/useScreenSize";
 import { AnimatePresence, MotionDiv } from "@/lib/motion";
 import { aboutData } from "./data";
@@ -70,9 +70,8 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
         if (!ImageRef.current) return;
 
         const direction = getDirection(event, ImageRef.current);
-        
-
         const dir = direction <= 3 ? directions[direction] : "left";
+        
         setDirection(dir);
     };
 

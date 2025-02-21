@@ -3,7 +3,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
-import { Image } from "@/components/next";
+import { Image } from "@/lib/next";
 
 gsap.registerPlugin(ScrollTrigger);
 

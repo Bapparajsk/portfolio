@@ -1,4 +1,4 @@
-import { Image } from "@/components/next";
+import { Image } from "@/lib/next";
 
 export const FireFliesBackground = () => {
     return (

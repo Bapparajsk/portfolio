@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/components/next";
+import { Link } from "@/lib/next";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { getIcon } from "@/assets/icons";

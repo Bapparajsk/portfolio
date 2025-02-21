@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { ImpotentText } from "@/components/ui/impotent-text";
 import { MotionDiv, useInView } from "@/lib/motion";
-import { Link } from "@/components/next";
+import { Link } from "@/lib/next";
 import { skills } from "@/app/data";
 import { SkillCard } from "./SkillCard";
 
