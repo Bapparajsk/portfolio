@@ -266,7 +266,7 @@ export const aboutData = [
         description: () => (
             <div className="w-full h-full pl-1 flex gap-5 md:gap-2 flex-col md:flex-row">
                 <div className="w-full md:w-1/2 flex flex-col gap-2 text-start">
-                    <strong>Languages</strong>
+                    <strong className="text-lg">Languages</strong>
                     <div className="flex gap-1 flex-wrap mt-2">
                         {
                             skills.language.map((item, idx) => (
@@ -276,7 +276,7 @@ export const aboutData = [
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col gap-2 text-start">
-                    <strong>Framework</strong>
+                    <strong className="text-lg">Framework</strong>
                     <div className="flex gap-1 flex-wrap mt-2">
                         {
                             skills.framework.map((item, idx) => (
