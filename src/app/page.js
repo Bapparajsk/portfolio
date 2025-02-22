@@ -9,7 +9,7 @@ export default function Home() {
             <main className={'flex h-screen flex-col items-center justify-center relative bg-transparent z-30'}>
                 <div className={'w-full h-screen'}>
                     <Navigation />
-                    <RenderModel>
+                    <RenderModel className={"-z-20"}>
                         <MainModel />
                     </RenderModel>
                 </div>

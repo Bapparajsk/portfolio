@@ -1,44 +1,58 @@
-'use client'
+"use client";
 
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Html, useProgress } from "@react-three/drei";
+import { OrbitControls, Environment, Preload } from "@react-three/drei";
 import { cn } from "@/lib/utils";
 
 export const RenderModel = ({ children, className }) => {
-    return (
-        <Canvas className={cn('w-screen, -z-10 h-full, relative', className)} >
-            <Suspense fallback={<CanvasLoader/>}>
-                {children}
-            </Suspense>
-        </Canvas>
-    )
-}
+  return (
+    <Canvas
+      className={cn("w-screen, h-full, relative z-50", className)}
+    >
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[2, 2, 2]} intensity={1} castShadow />
+      <pointLight position={[-2, -2, -2]} intensity={0.5} />
+      <Environment preset="city" />
+      <Suspense fallback={<CanvasLoader />}>
+      <OrbitControls 
+        enableZoom={false} 
+        rotateSpeed={0.5}  // Lower rotation speed
+        dampingFactor={0.1}  // Add damping for smooth effect
+        enableDamping={true} // Enable damping
+      />
+      {children}
+      </Suspense>
+      <Preload all />
+    </Canvas>
+  );
+};
 
 const CanvasLoader = () => {
-    const { progress } = useProgress();
-    return (
-      <Html
-        as='div'
-        center
+  const { progress } = useProgress();
+  return (
+    <Html
+      as="div"
+      center
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <span className="canvas-loader"></span>
+      <p
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
+          fontSize: 14,
+          color: "#F1F1F1",
+          fontWeight: 800,
+          marginTop: 40,
         }}
       >
-        <span className='canvas-loader'></span>
-        <p
-          style={{
-            fontSize: 14,
-            color: "#F1F1F1",
-            fontWeight: 800,
-            marginTop: 40,
-          }}
-        >
-          {progress.toFixed(2)}%
-        </p>
-      </Html>
-    );
-  };
+        {progress.toFixed(2)}%
+      </p>
+    </Html>
+  );
+};
