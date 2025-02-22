@@ -2,19 +2,33 @@
 
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations, OrbitControls } from '@react-three/drei'
+import useScreenSize from "@/hooks/useScreenSize";
+
+const getScale = (size) => {
+    if (size >= 1024) {
+        return 1.5;
+    } else if (size < 1024 && size > 768) {
+        return 1.5;
+    } else if (size < 768 && size > 480) {
+        return 1.5;
+    } else {
+        return 0.8;
+    }
+}
+
 
 export function ContactModel(props) {
     const group = useRef()
     const { nodes, materials, animations } = useGLTF('/models/earth-scene.glb')
     const { actions } = useAnimations(animations, group);
 
-    useEffect(() => {
-        actions["Animaci��n"].play();
-    }, []);
+    const size = useScreenSize();
+
+    useEffect(() => { actions["Animaci��n"].play(); }, []);
 
 
     return (
-        <group ref={group} scale={[ 1.5, 1.5, 1.5 ]} {...props}  dispose={null}>
+        <group ref={group} scale={getScale(size)} {...props}  dispose={null}>
             <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
             <group name="Sketchfab_Scene">
                 <group name="GLTF_SceneRootNode">

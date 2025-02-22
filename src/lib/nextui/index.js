@@ -1,8 +1,7 @@
-import { Card, CardBody } from "./card";
+import { Card, CardBody, CardHeader } from "./card";
 import { Tooltip } from "./tooltip";
 
 export {
-    Card,
-    CardBody,
+    Card, CardBody, CardHeader,
     Tooltip
 }

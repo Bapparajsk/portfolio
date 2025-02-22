@@ -1,8 +1,9 @@
 "use client";
 
-import { Card, CardBody } from "@nextui-org/card";
+import { Card, CardBody, CardHeader } from "@nextui-org/card";
 
 export {
     Card,
-    CardBody
+    CardBody,
+    CardHeader
 }
