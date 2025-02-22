@@ -2,8 +2,7 @@
 
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Html, useProgress } from "@react-three/drei";
-import { OrbitControls, Environment, Preload } from "@react-three/drei";
+import { Html, useProgress, OrbitControls, Environment, Preload } from "@react-three/drei";
 import { cn } from "@/lib/utils";
 
 export const RenderModel = ({ children, className }) => {

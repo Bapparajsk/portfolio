@@ -137,6 +137,10 @@ The application should now be running on [http://localhost:3000](http://localhos
     - Animation Library added for better user experience.
 
 ### v3.3.10 (2025-02-19)
+- **Bug Fixes**:
+   - remove unused code and files.
+   - Remove unused dependencies.
+   - Resolved issues with the contact form submission.
 - **Enhancements**:
    - Improved the contact form with better error handling and user feedback.
    - More animations added for better user experience.
@@ -149,3 +153,4 @@ The application should now be running on [http://localhost:3000](http://localhos
    - Added a new project to the showcase section.
    - Added Responsive Project Cards.
    - Added Gradient Background for Project Page.
+   - Added Contact page compleat.
