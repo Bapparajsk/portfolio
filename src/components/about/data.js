@@ -64,8 +64,8 @@ export const aboutData = [
         image: "/images/about-card-2.png",
         theme_image: "/themes-image/about-card-2.webp",
         description: () => (
-            <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly tracking-wider">
-                <p className={"font-heading relative text-neutral-200"}>
+            <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly tracking-wider text-neutral-700">
+                <p className={"font-heading relative"}>
                     <span
                         className={
                             "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -83,7 +83,7 @@ export const aboutData = [
                     <strong>Real-Time Interactions</strong> and a{" "}
                     <strong>Modern UI</strong>.
                 </p>
-                <p className={"font-heading relative text-neutral-200"}>
+                <p className={"font-heading relative"}>
                     <span
                         className={
                             "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -101,7 +101,7 @@ export const aboutData = [
                     <strong>Real-Time Interactions</strong> and a{" "}
                     <strong>Modern UI</strong>.
                 </p>
-                <p className={"font-heading relative text-neutral-200"}>
+                <p className={"font-heading relative"}>
                     <span
                         className={
                             "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -118,7 +118,7 @@ export const aboutData = [
                     – A <strong>Creative, Interactive Portfolio</strong> featuring{" "}
                     <strong>3D Elements</strong> to showcase skills dynamically.
                 </p>
-                <p className={"font-heading relative text-neutral-200"}>
+                <p className={"font-heading relative"}>
                     <span
                         className={
                             "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -152,7 +152,7 @@ export const aboutData = [
                     "Cloud Platforms: AWS, Google Cloud, Firebase",
                     "Others: Tailwind CSS, SASS, BullMQ, Node.js Cluster",
                 ].map((text, idx) => (
-                    <p key={idx} className={"font-heading relative text-neutral-200"}>
+                    <p key={idx} className={"font-heading relative text-neutral-700"}>
                         <span
                             className={
                                 "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -181,7 +181,7 @@ export const aboutData = [
                         { text: "HTML", percentage: "3.56%", color: "#E34E3A" },
                         { text: "Java", percentage: "2.37%", color: "#B07226" },
                     ].map(({ text, percentage, color }, idx) => (
-                        <div key={idx} className={"font-heading relative text-neutral-200"}>
+                        <div key={idx} className={"font-heading relative text-neutral-700"}>
                             <span
                                 className={
                                     "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -195,7 +195,7 @@ export const aboutData = [
                                     placement="top"
                                     color="foreground"
                                 >
-                                    <div className="w-full h-3 bg-neutral-600 rounded-full">
+                                    <div className="w-full h-3 bg-neutral-400 rounded-full">
                                         <MotionDiv
                                             ref={ref}
                                             initial={{ width: 0 }}
@@ -218,8 +218,8 @@ export const aboutData = [
         image: "/images/about-card-5.png",
         theme_image: "/themes-image/about-card-5.png",
         description: () => (
-            <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly">
-                <p className={"font-heading relative text-neutral-200"}>
+            <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly text-neutral-700">
+                <p className={"font-heading relative"}>
                     <span
                         className={
                             "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -229,7 +229,7 @@ export const aboutData = [
                     <strong>Solved 1000+ LeetCode Problems</strong> – Demonstrating strong
                     problem-solving and algorithmic skills.
                 </p>
-                <p className={"font-heading relative  text-neutral-200"}>
+                <p className={"font-heading relative "}>
                     <span
                         className={
                             "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -240,7 +240,7 @@ export const aboutData = [
                     Including <strong>My Own Facebook</strong>, <strong>iNews</strong>,
                     and a <strong>3D Animated Portfolio</strong>.
                 </p>
-                <p className={"font-heading relative  text-neutral-200"}>
+                <p className={"font-heading relative "}>
                     <span
                         className={
                             "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"
@@ -251,7 +251,7 @@ export const aboutData = [
                     time in a social media app using <strong>Redis Caching</strong> and{" "}
                     <strong>MongoDB Indexing</strong>.
                 </p>
-                <p className={"font-heading relative  text-neutral-200"}>
+                <p className={"font-heading relative "}>
                     <span
                         className={
                             "absolute block -left-5 rounded-tr-full rounded-br-full top-0 z-20 h-full w-[6px]"

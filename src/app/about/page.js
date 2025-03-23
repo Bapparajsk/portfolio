@@ -46,13 +46,13 @@ export default function page() {
                 <div className="w-full h-auto overflow-x-hidden hidden md:block">
                     <AboutDetails />
                 </div>
-                <div className="w-full h-auto">
+                <div className="w-full h-auto bg-[#FFFFFF]">
                     <MainProjects />
                     <footer>
                         <div
                             className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full `}
                         >
-                            <FloatingDock pathName={"about"}  />
+                            <FloatingDock pathName={"about"} isDark={false} />
                         </div>
                     </footer>
                 </div>

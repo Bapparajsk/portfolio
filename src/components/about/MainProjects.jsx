@@ -22,8 +22,6 @@ const motionVariants = {
 };
 
 export default function MainProjects() {
-    
-
     return (
         <>
             <div
@@ -119,7 +117,8 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
         <Card
             ref={cardRef}
             style={{ top: `${idx * 6}vh` }}
-            className={`flex-row max-w-7xl mx-auto mb-5 sticky z-50 "}`}
+            className={`flex-row max-w-7xl mx-auto mb-5 sticky z-50 bg-white text-black`}
+
         >
             <CardBody>
                 <div
@@ -160,7 +159,7 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
                     </MotionDiv>
                     <div className={`relative w-full md:w-[65%] md:h-full`}>
                         <Image
-                            className="absolute top-0 left-0 object-cover opacity-10 w-full h-full"
+                            className="absolute top-0 left-0 object-cover opacity-10 w-full h-full rounded-md"
                             src={theme_image || "/themes-image/haunted-horror.webp"}
                             width={1000}
                             height={1000}
