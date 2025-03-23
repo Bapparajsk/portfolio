@@ -5,22 +5,22 @@ import { Canvas } from "@react-three/fiber";
 import { Html, useProgress, OrbitControls, Environment, Preload } from "@react-three/drei";
 import { cn } from "@/lib/utils";
 
-export const RenderModel = ({ children, className }) => {
+export const RenderModel = ({ children, isMainModel = false }) => {
   return (
     <Canvas
-      className={cn("w-screen, h-full, relative z-50", className)}
+      className={cn("w-screen, h-full, relative", isMainModel ? "-z-20" : "z-50" )}
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[2, 2, 2]} intensity={1} castShadow />
       <pointLight position={[-2, -2, -2]} intensity={0.5} />
       <Environment preset="city" />
       <Suspense fallback={<CanvasLoader />}>
-      <OrbitControls 
+      {<OrbitControls 
         enableZoom={false} 
         rotateSpeed={0.5}  // Lower rotation speed
         dampingFactor={0.1}  // Add damping for smooth effect
         enableDamping={true} // Enable damping
-      />
+      />}
       {children}
       </Suspense>
       <Preload all />

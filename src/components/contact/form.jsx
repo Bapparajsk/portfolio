@@ -12,6 +12,26 @@ import {
     Textarea,
 } from "@nextui-org/react";
 import { BorderBeam } from "../ui/border-beam";
+import { Image } from "@/lib/next";
+
+const FormButtonData = [
+    {
+        icon: "/svg/github.svg",
+        alt: "github",
+        link: "https://github.com/Bapparajsk",
+    },
+    {
+        icon: "/svg/linkedin.svg",
+        alt: "linkedin",
+        link: "https://www.linkedin.com/in/bappa-raj-sk-6a0153233/",
+    },
+    {
+        icon: "/svg/gmail.svg",
+        alt: "gmail",
+        link: "https://mail.google.com/mail/?view=cm&fs=1&to=bapparajsk97@gmail.com&su=Collaboration%20Inquiry%20-%20Excited%20to%20Connect!&body=Hello%20there,%0A%0AI%20came%20across%20your%20portfolio%20and%20was%20truly%20impressed%20by%20your%20work!%20I%20would%20love%20to%20discuss%20a%20potential%20collaboration%20or%20project%20opportunity.%0A%0ALooking%20forward%20to%20your%20response.%0A%0ABest%20regards,%0A%5BYour%20Name%5D"
+    
+    }
+]
 
 export default function Form() {
 
@@ -86,7 +106,7 @@ export default function Form() {
                                 <div className="flex flex-col gap-1">
                                     <Input
                                         type="text"
-                                        variant="flat"
+                                        variant="bordered"
                                         label="Full Name"
                                         isRequired={true}
                                         errorMessage={errors.name?.message}
@@ -100,7 +120,7 @@ export default function Form() {
                                 <div className="flex flex-col gap-1">
                                     <Input
                                         type="email"
-                                        variant="flat"
+                                        variant="bordered"
                                         label="Email"
                                         isRequired={true}
                                         errorMessage={errors.email?.message}
@@ -119,7 +139,7 @@ export default function Form() {
                                         label="Message"
                                         minRows={6}
                                         maxRows={6}
-                                        variant="flat"
+                                        variant="bordered"
                                         isRequired={true}
                                         errorMessage={errors.message?.message}
                                         isInvalid={errors.message}
@@ -129,7 +149,30 @@ export default function Form() {
                                         })}
                                     />
                                 </div>
-                                <Button type="submit" isLoading={isSubmitting} >Submit</Button>
+                                <div className="flex justify-between items-center">
+                                    <div className="flex items-center gap-2 px-2">
+                                        {FormButtonData.map((item, index) => (
+                                            <Button 
+                                                variant="bordered" 
+                                                isIconOnly
+                                                key={index}
+                                                href={item.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                as={"a"}
+                                            >
+                                                <Image
+                                                    src={item.icon}
+                                                    width={50}
+                                                    height={50}
+                                                    alt={item.alt}
+                                                    className="size-6"
+                                                />
+                                            </Button>
+                                        ))}
+                                    </div>
+                                    <Button type="submit" variant="shadow" color="primary" isLoading={isSubmitting} >Submit</Button>
+                                </div>
                             </div>
                         </form>
                     </CardBody>
