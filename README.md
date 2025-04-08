@@ -154,3 +154,10 @@ The application should now be running on [http://localhost:3000](http://localhos
    - Added Responsive Project Cards.
    - Added Gradient Background for Project Page.
    - Added Contact page compleat.
+
+### v3.3.13 (2025-04-08)
+- **Enhancements**:
+   - Update @NextUi to @HeroUi
+   - Update Dependencies to the latest versions.
+   - Update README.md with new features and enhancements.
+   - Resume Button added to the toast.
