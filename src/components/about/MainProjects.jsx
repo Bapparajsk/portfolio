@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 import { Image } from "@/lib/next";
-import { Card, CardBody } from "@/lib/nextui";
+import { Card, CardBody } from "@heroui/card";
 import { AnimatePresence, MotionDiv } from "@/lib/motion";
 import { aboutData } from "./data";
 

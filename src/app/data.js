@@ -1,12 +1,12 @@
 export const ButtonList = [
-    { label: 'Home', link: '/', icon: 'home', newTab: false },
-    { label: 'About', link: '/about', icon: 'about', newTab: false },
-    { label: 'Projects', link: '/projects', icon: 'project', newTab: false },
-    { label: 'Contact', link: '/contact', icon: 'phone', newTab: false },
-    { label: 'Github', link: 'https://github.com/Bapparajsk', icon: 'github', newTab: true },
-    { label: 'LinkedIn', link: 'https://www.linkedin.com/in/bappa-raj-sk-6a0153233/', icon: 'linkedin', newTab: true },
-    { label: 'Resume', link: 'https://drive.google.com/file/d/17Z7Z6077707625077777777777777777/view?usp=sharing', icon: 'resume', newTab: true },
-    { label: 'x', link: 'https://twitter.com/bapparaj007', icon: 'x', newTab: true },
+    { label: 'Home', link: '/', icon: 'home' },
+    { label: 'About', link: '/about', icon: 'about' },
+    { label: 'Projects', link: '/projects', icon: 'project' },
+    { label: 'Contact', link: '/contact', icon: 'phone' },
+    { label: 'Github', link: 'https://github.com/Bapparajsk', icon: 'github'},
+    { label: 'LinkedIn', link: 'https://www.linkedin.com/in/bappa-raj-sk-6a0153233/', icon: 'linkedin'},
+    { label: 'Resume', link: '#', icon: 'resume'},
+    { label: 'x', link: 'https://twitter.com/bapparaj007', icon: 'x'},
 ];
 
 export const testimonials = [

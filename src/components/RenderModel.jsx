@@ -8,20 +8,20 @@ import { cn } from "@/lib/utils";
 export const RenderModel = ({ children, isMainModel = false }) => {
   return (
     <Canvas
-      className={cn("w-screen, h-full, relative", isMainModel ? "-z-20" : "z-50" )}
+      className={cn("w-screen h-full relative cursor-pointer", isMainModel ? "-z-20" : "z-50 " )}
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[2, 2, 2]} intensity={1} castShadow />
       <pointLight position={[-2, -2, -2]} intensity={0.5} />
       <Environment preset="city" />
       <Suspense fallback={<CanvasLoader />}>
-      {<OrbitControls 
+      <OrbitControls 
         enableZoom={false} 
         rotateSpeed={0.5}  // Lower rotation speed
         dampingFactor={0.1}  // Add damping for smooth effect
         enableDamping={true} // Enable damping
-      />}
-      {children}
+      />
+        {children}
       </Suspense>
       <Preload all />
     </Canvas>

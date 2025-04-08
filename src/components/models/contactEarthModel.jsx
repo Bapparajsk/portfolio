@@ -26,7 +26,6 @@ export function ContactModel(props) {
 
     useEffect(() => { actions["Animaci��n"].play(); }, []);
 
-
     return (
         <group ref={group} scale={getScale(size)} {...props}  dispose={null}>
             <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />

@@ -1,15 +1,39 @@
 import { ResponsiveComponent } from "@/components/ResponsiveComponent";
 import { cn } from "@/lib/utils";
-import { MotionLink } from "@/lib/motion";
+import { MotionDiv } from "@/lib/motion";
 import { getIcon } from "@/assets/icons";
-
+import { addToast } from "@heroui/toast";
+import { useRouter } from "@/lib/next";
 
 const item = {
     hidden: { scale: 0 },
     show: { scale: 1 },
 }
 
-export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "right" }) => {
+export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" }) => {
+
+    const router = useRouter();
+
+    const handleClick = () => {
+        if(!link) return;
+
+        if(label === "Resume") {
+            addToast({
+                title: 'Resume',
+                description: 'Download link is not available yet.',
+                type: 'info',
+                duration: 2000,
+            });
+            return;
+        }
+
+        if (link.startsWith('http')) {
+            window.open(link, '_blank');
+        } else {
+            router.push(link);
+        }
+    };
+
     return (
         <ResponsiveComponent>
             {({ size }) => {
@@ -18,11 +42,10 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                         className={'absolute cursor-pointer z-50'}
                         style={{ transform: `translate(${x}, ${y})` }}
                     >
-                        <MotionLink
+                        <MotionDiv
                             variants={item}
                             className={'relative text-foreground rounded-full flex items-center justify-center transition-shadow duration-500'}
-                            href={link}
-                            target={newTab ? '_blank' : '_self'}
+                            onClick={handleClick}
                             aria-label={label}
                             nama={label}
                             whileHover={{ scale: 1.2, transition: { duration: 0.3, type: "spring" } }}
@@ -46,15 +69,14 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                                     {label}
                                 </span>
                             </span>
-                        </MotionLink>
+                        </MotionDiv>
                     </div>
                 ) : (
                     <div className={'w-fit cursor-pointer z-50'} >
-                        <MotionLink
+                        <MotionDiv
                             variants={item}
                             className={'relative text-foreground rounded-full flex items-center justify-center transition-shadow duration-500'}
-                            href={link}
-                            target={newTab ? '_blank' : '_self'}
+                            onClick={handleClick}
                             aria-label={label}
                             nama={label}
                             whileHover={{ scale: 1.2, transition: { duration: 0.3, type: "spring" } }}
@@ -78,7 +100,7 @@ export const NavButton = ({ x, y, label, link, icon, newTab, labelDirection = "r
                                     {label}
                                 </span>
                             </span>
-                        </MotionLink>
+                        </MotionDiv>
                     </div>
                 )
             }}

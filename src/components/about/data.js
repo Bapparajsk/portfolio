@@ -4,7 +4,7 @@ import { MotionDiv, useInView } from "@/lib/motion";
 import { Link } from "@/lib/next";
 import { skills } from "@/app/data";
 import { SkillCard } from "./SkillCard";
-import { Tooltip } from "@/lib/nextui";
+import { Tooltip } from "@heroui/tooltip";
 
 const colorCodes = [
     "#D84040",

@@ -47,14 +47,14 @@ export const Navigation = () => {
                                 initial={'hidden'}
                                 animate={'show'}
                                 className={'w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-start xs:items-center justify-center relative group'}>
-                                {ButtonList.slice(0, ButtonList.length / 2).map((item, index) => <NavButton key={item.label} x={0} y={0}  {...item} />)}
+                                {ButtonList.slice(0, ButtonList.length / 2).map((item) => <NavButton key={item.label} x={0} y={0}  {...item} />)}
                             </MotionDiv>
                             <MotionDiv
                                 variants={container}
                                 initial={'hidden'}
                                 animate={'show'}
                                 className={'w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-end xs:items-center justify-center relative group'}>
-                                {ButtonList.slice(ButtonList.length / 2, ButtonList.length).map((item, index) => <NavButton key={item.label} x={0} y={0}  {...item} labelDirection={'left'} />)}
+                                {ButtonList.slice(ButtonList.length / 2, ButtonList.length).map((item) => <NavButton key={item.label} x={0} y={0}  {...item} labelDirection={'left'} />)}
                             </MotionDiv>
                         </>
                     )
