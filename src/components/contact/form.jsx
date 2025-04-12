@@ -40,8 +40,8 @@ export default function Form() {
     const sendEmail = async (e) => {
         addToast({
             title: "Sending...",
-            description: "Please wait while we send your message.",
-            color: "default",
+            description: "Please wait send your message...",
+            color: "",
             icon: <Spinner variant={"gradient"} size="sm" />,
         });
         try {
