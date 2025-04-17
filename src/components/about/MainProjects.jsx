@@ -51,13 +51,6 @@ const ProjectCardMobile = ({ title, description, theme_image, image, idx }) => {
             </div>
             <CardBody>
             <div className={`relative w-full md:w-[65%] md:h-full`}>
-                        <Image
-                            className="absolute top-0 left-0 object-cover opacity-10 w-full h-full"
-                            src={theme_image || "/themes-image/haunted-horror.webp"}
-                            width={1000}
-                            height={1000}
-                            alt="background-theme-image"
-                        />
                         <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
                             <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
                                 <strong className="text-2xl font-bold">{title}</strong>
@@ -118,7 +111,6 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
             ref={cardRef}
             style={{ top: `${idx * 6}vh` }}
             className={`flex-row max-w-7xl mx-auto mb-5 sticky z-50 bg-white text-black`}
-
         >
             <CardBody>
                 <div
@@ -158,13 +150,6 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
                         </AnimatePresence>
                     </MotionDiv>
                     <div className={`relative w-full md:w-[65%] md:h-full`}>
-                        <Image
-                            className="absolute top-0 left-0 object-cover opacity-10 w-full h-full rounded-md"
-                            src={theme_image || "/themes-image/haunted-horror.webp"}
-                            width={1000}
-                            height={1000}
-                            alt="background-theme-image"
-                        />
                         <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
                             <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
                                 <strong className="text-2xl font-bold">{title}</strong>

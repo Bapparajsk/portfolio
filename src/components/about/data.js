@@ -40,7 +40,6 @@ export const aboutData = [
     {
         title: "🚀 About Me",
         image: "/images/about-card-1.png",
-        theme_image: "/themes-image/about-card-1.png",
         description: () => (
             <p>
                 I’m a <ImpotentText words={"Passionate Full-Stack Developer"} /> with
@@ -62,7 +61,6 @@ export const aboutData = [
     {
         title: "💼 Projects",
         image: "/images/about-card-2.png",
-        theme_image: "/themes-image/about-card-2.webp",
         description: () => (
             <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly tracking-wider text-neutral-700">
                 <p className={"font-heading relative"}>
@@ -142,7 +140,6 @@ export const aboutData = [
     {
         title: "🛠️ Tools & Technologies",
         image: "/images/about-card-3.png",
-        theme_image: "/themes-image/about-card-3.png",
         description: () => (
             <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly">
                 {[
@@ -168,7 +165,6 @@ export const aboutData = [
     {
         title: "📈 GitHub Top Languages",
         image: "/images/about-card-4.png",
-        theme_image: "/themes-image/about-card-4.png",
         description: () => {
             const ref = useRef(null);
             const isInView = useInView(ref, { once: true });
@@ -216,7 +212,6 @@ export const aboutData = [
     {
         title: "🏆 Achievements",
         image: "/images/about-card-5.png",
-        theme_image: "/themes-image/about-card-5.png",
         description: () => (
             <div className="w-full h-full relative text-start pl-5 flex flex-col gap-3 justify-evenly text-neutral-700">
                 <p className={"font-heading relative"}>
@@ -268,7 +263,6 @@ export const aboutData = [
     {
         title: "🎮 Skills",
         image: "/images/about-card-6.png",
-        theme_image: "/themes-image/about-card-6.jpg",
         description: () => (
             <div className="w-full h-full pl-1 flex gap-5 md:gap-2 flex-col md:flex-row">
                 <div className="w-full md:w-1/2 flex flex-col gap-2 text-start">
