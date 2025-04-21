@@ -18,11 +18,16 @@ export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" })
         if(!link) return;
 
         if(label === "Resume") {
+            const link = document.createElement('a');
+            link.href = "/bapparaj-resume.pdf";
+            link.download = 'bapparaj-resume.pdf';
+            link.click();
             addToast({
-                title: 'Resume',
-                description: 'Download link is not available yet.',
-                type: 'info',
-                duration: 2000,
+                title: 'Resume Downloaded',
+                description: 'Resume is being downloaded.',
+                type: 'success',
+                color: "success",
+                duration: 3000,
             });
             return;
         }
