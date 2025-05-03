@@ -5,6 +5,7 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 import { MotionH1 } from "@/lib/motion";
 import HomeButton from "@/components/ui/homeButton";
 import LocomotiveProviders from "../locomotiveProviders";
+import TrueFocus from "@/components/ui/TrueFocus";
 
 export const metadata = {
     title: "Bapparaj | About",
@@ -36,10 +37,22 @@ export default function page() {
                             }}
                             className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl "
                         >
-                            About Me <br />
-                            <span className="text-3xl text-amber-500 font-semibold">
-                                I am a Software Developer
-                            </span>
+                            <div className="text-center">
+                                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 flex gap-5">
+                                    Hi, I'm a
+                                    <TrueFocus 
+                                        sentence="Software Developer."
+                                        manualMode={false}
+                                        blurAmount={5}
+                                        borderColor="#64D8FA"
+                                        animationDuration={0.8}
+                                        pauseBetweenAnimations={1}
+                                    />
+                                </h1>
+                                <p className="text-lg md:text-xl text-gray-300 max-w-xl mx-auto mt-4 leading-relaxed tracking-wide">
+                                    I build scalable apps that solve real-world problems.
+                                </p>
+                            </div>
                         </MotionH1>
                     </LampContainer>
                 </div>
