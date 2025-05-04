@@ -115,7 +115,7 @@ export const LampContainer = ({ children, className }) => {
           "absolute text-medium bottom-10 left-1/2 cursor-pointer -translate-x-1/2 text-center flex flex-col gap-3 items-center justify-center group"
         }
       >
-        <p className="font-ubuntu scroll-down-text">Scroll Down</p>
+        <p className="font-ubuntu font-semibold scroll-down-text">Scroll Down</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
