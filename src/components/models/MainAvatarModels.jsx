@@ -8,27 +8,23 @@ import useScreenSize from "@/hooks/useScreenSize";
 const getScalePosition = (size) => {
     if (size >= 1024) {
         return {
-            scale: [1.5, 1.5, 1.5],
-            position: [0, -2, 0],
-            rotation: [0.15, 0, 0],
+            scale: [2.6, 2.6, 2.6],
+            position: [0, -3, 0],
         };
     } else if (size < 1024 && size > 768) {
         return {
-            scale: [1.2, 1.2, 1.2],
-            position: [0, -1.5, 0],
-            rotation: [0.15, 0, 0],
+            scale: [2.5, 2.5, 2.5],
+            position: [0, -3, 0],
         };
     } else if (size < 768 && size > 480) {
         return {
-            scale: [1, 1, 1],
-            position: [0, -1.3, 0],
-            rotation: [0.15, 0, 0],
+            scale: [2.3, 2.3, 2.3],
+            position: [0, -3, 0],
         };
     } else {
         return {
-            scale: [0.8, 0.8, 0.8],
-            position: [0, -.9, 0],
-            rotation: [0.15, 0, 0],
+            scale: [2, 2, 2],
+            position: [0, -2.4, 0],
         };
     }
 }
@@ -36,12 +32,12 @@ const getScalePosition = (size) => {
 export function MainModel(props) {
     const modelRef = useRef();
     const { nodes, materials, animations } = useGLTF(
-        "/models/scene-transformed.glb"
+        "/models/home.glb"
     );
     const { actions } = useAnimations(animations, modelRef);
 
     useEffect(() => {
-        actions["Take 001"].play();
+        actions["Weapon Idle"].play();
         
     },[]);
 
@@ -54,140 +50,89 @@ export function MainModel(props) {
     });
 
     return (
-        <group 
-            ref={modelRef} 
-            {...props} 
-            {...sceneData}
-        >
-            <group>
-                <group name="RootNode" rotation={[0.001, 0, 0]} scale={0.041}>
-                    <group name="geo_sword" position={[0.592, 35.219, 1.075]}>
-                        <group name="sword_main" position={[-0.592, -0.191, -1.075]}>
-                            <mesh
-                                name="sword_main_M_Sword_0"
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.sword_main_M_Sword_0.geometry}
-                                material={materials.M_Sword}
-                            />
-                            <mesh
-                                name="sword_main_M_Emissive_0"
-                                castShadow
-                                receiveShadow
-                                geometry={nodes.sword_main_M_Emissive_0.geometry}
-                                material={materials.M_Emissive}
-                            />
-                        </group>
-                        <group name="sword_piece" position={[-0.592, -0.244, -1.075]}>
-                            <group name="sword_piece_1" position={[0, -0.016, 0]}>
-                                <mesh
-                                    name="sword_piece_1_M_Sword_0"
-                                    castShadow
-                                    receiveShadow
-                                    geometry={nodes.sword_piece_1_M_Sword_0.geometry}
-                                    material={materials.M_Sword}
-                                />
-                            </group>
-                            <group name="sword_piece_2" position={[0, -0.003, 0]}>
-                                <mesh
-                                    name="sword_piece_2_M_Sword_0"
-                                    castShadow
-                                    receiveShadow
-                                    geometry={nodes.sword_piece_2_M_Sword_0.geometry}
-                                    material={materials.M_Sword}
-                                />
-                            </group>
-                            <group name="sword_piece_3" position={[0, -0.042, 0]}>
-                                <mesh
-                                    name="sword_piece_3_M_Sword_0"
-                                    castShadow
-                                    receiveShadow
-                                    geometry={nodes.sword_piece_3_M_Sword_0.geometry}
-                                    material={materials.M_Sword}
-                                />
-                            </group>
-                            <group name="sword_piece_4">
-                                <mesh
-                                    name="sword_piece_4_M_Sword_0"
-                                    castShadow
-                                    receiveShadow
-                                    geometry={nodes.sword_piece_4_M_Sword_0.geometry}
-                                    material={materials.M_Sword}
-                                />
-                            </group>
-                            <group name="sword_piece_5">
-                                <mesh
-                                    name="sword_piece_5_M_Sword_0"
-                                    castShadow
-                                    receiveShadow
-                                    geometry={nodes.sword_piece_5_M_Sword_0.geometry}
-                                    material={materials.M_Sword}
-                                />
-                            </group>
-                            <group name="sword_piece_6">
-                                <mesh
-                                    name="sword_piece_6_M_Sword_0"
-                                    castShadow
-                                    receiveShadow
-                                    geometry={nodes.sword_piece_6_M_Sword_0.geometry}
-                                    material={materials.M_Sword}
-                                />
-                            </group>
-                            <group name="sword_piece_7" position={[0, -0.246, 0]}>
-                                <mesh
-                                    name="sword_piece_7_M_Sword_0"
-                                    castShadow
-                                    receiveShadow
-                                    geometry={nodes.sword_piece_7_M_Sword_0.geometry}
-                                    material={materials.M_Sword}
-                                />
-                            </group>
-                            <group name="sword_piece_8" position={[0, -0.173, 0]}>
-                                <mesh
-                                    name="sword_piece_8_M_Sword_0"
-                                    castShadow
-                                    receiveShadow
-                                    geometry={nodes.sword_piece_8_M_Sword_0.geometry}
-                                    material={materials.M_Sword}
-                                />
-                            </group>
-                            <group name="sword_piece_9" position={[0, -0.199, 0]}>
-                                <mesh
-                                    name="sword_piece_9_M_Sword_0"
-                                    castShadow
-                                    receiveShadow
-                                    geometry={nodes.sword_piece_9_M_Sword_0.geometry}
-                                    material={materials.M_Sword}
-                                />
-                            </group>
-                        </group>
-                    </group>
-                    <group name="vfx_circle" scale={0.382}>
-                        <mesh
-                            name="vfx_circle_M_VFX2_0"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.vfx_circle_M_VFX2_0.geometry}
-                            material={materials.M_VFX2}
-                        />
-                    </group>
-                    <group
-                        name="vfx_circle1"
-                        rotation={[-Math.PI, -1.1, -Math.PI]}
-                        scale={[0.479, 0.887, 0.479]}
-                    >
-                        <mesh
-                            name="vfx_circle1_M_VFX2_0"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.vfx_circle1_M_VFX2_0.geometry}
-                            material={materials.M_VFX2}
-                        />
-                    </group>
-                </group>
-            </group>
+      <group 
+        ref={modelRef} 
+        {...props} 
+        {...sceneData}
+        rotation={[0, 2, 0]}
+      >
+      <group name="Sketchfab_Scene">
+        <group name="RootNode" scale={0.005}>
+          <group name="Energy_Shape_3" position={[0, 314.399, -12.958]} rotation={[-0.032, 0, 0]}>
+            <mesh
+              name="Energy_Shape_3_Mat_staff_Translucent_0"
+              castShadow
+              receiveShadow
+              geometry={nodes.Energy_Shape_3_Mat_staff_Translucent_0.geometry}
+              material={materials.Mat_staff_Translucent}
+            />
+          </group>
+          <group
+            name="Energy_core"
+            position={[0, 316.582, -13.129]}
+            rotation={[-0.214, -0.205, -0.044]}>
+            <mesh
+              name="Energy_core_Mat_Staff_0"
+              castShadow
+              receiveShadow
+              geometry={nodes.Energy_core_Mat_Staff_0.geometry}
+              material={materials.Mat_Staff}
+            />
+          </group>
+          <group name="Energy_Shape_2" position={[0, 314.168, -11.503]} rotation={[0.001, 0, 0]}>
+            <mesh
+              name="Energy_Shape_2_Mat_staff_Translucent_0"
+              castShadow
+              receiveShadow
+              geometry={nodes.Energy_Shape_2_Mat_staff_Translucent_0.geometry}
+              material={materials.Mat_staff_Translucent}
+            />
+          </group>
+          <group name="Energy_Shape_1" position={[0, 318.471, -13.133]} rotation={[-0.006, 0, 0]}>
+            <mesh
+              name="Energy_Shape_1_Mat_staff_Translucent_0"
+              castShadow
+              receiveShadow
+              geometry={nodes.Energy_Shape_1_Mat_staff_Translucent_0.geometry}
+              material={materials.Mat_staff_Translucent}
+            />
+          </group>
+          <group
+            name="Energy_aura_1"
+            position={[0, 317.403, -13.129]}
+            rotation={[1.344, -0.207, 0.727]}>
+            <mesh
+              name="Energy_aura_1_Mat_staff_Translucent_0"
+              castShadow
+              receiveShadow
+              geometry={nodes.Energy_aura_1_Mat_staff_Translucent_0.geometry}
+              material={materials.Mat_staff_Translucent}
+            />
+          </group>
+          <group
+            name="Energy_aura_2"
+            position={[0, 320.619, -13.129]}
+            rotation={[-1.826, 0.054, -0.204]}>
+            <mesh
+              name="Energy_aura_2_Mat_staff_Translucent_0"
+              castShadow
+              receiveShadow
+              geometry={nodes.Energy_aura_2_Mat_staff_Translucent_0.geometry}
+              material={materials.Mat_staff_Translucent}
+            />
+          </group>
         </group>
+        <mesh
+          name="Staff_Body_Mat_Staff_0"
+          castShadow
+          receiveShadow
+          geometry={nodes.Staff_Body_Mat_Staff_0.geometry}
+          material={materials.Mat_Staff}
+          scale={0.005}
+        />
+      </group>
+    </group>
     );
 }
 
-useGLTF.preload("/models/scene-transformed.glb");
+useGLTF.preload("/models/home.glb");
