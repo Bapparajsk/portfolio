@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react'
-import { useGLTF, useAnimations, OrbitControls } from '@react-three/drei'
+import { useGLTF, useAnimations } from '@react-three/drei'
 import useScreenSize from "@/hooks/useScreenSize";
 
 const getScale = (size) => {
     if (size >= 1024) {
-        return 1.5;
+        return 1.2;
     } else if (size < 1024 && size > 768) {
-        return 1.5;
+        return 1.2;
     } else if (size < 768 && size > 480) {
-        return 1.5;
+        return 1.1;
     } else {
         return 0.8;
     }
@@ -19,350 +19,736 @@ const getScale = (size) => {
 
 export function ContactModel(props) {
     const group = useRef()
-    const { nodes, materials, animations } = useGLTF('/models/earth-scene.glb')
+    const { nodes, materials, animations } = useGLTF('/models/contact.glb')
     const { actions } = useAnimations(animations, group);
 
     const size = useScreenSize();
 
-    useEffect(() => { actions["Animaci��n"].play(); }, []);
+
+    useEffect(() => { actions["Experiment"].play(); }, []);
 
     return (
-        <group ref={group} scale={getScale(size)} {...props}  dispose={null}>
-            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
+        <group ref={group} {...props} position={[0, -1, 0]} rotation={[0.1, 0, 0]}  scale={getScale(size)} dispose={null}>
             <group name="Sketchfab_Scene">
-                <group name="GLTF_SceneRootNode">
+                <group name="holo" scale={0.107}>
                     <group
-                        name="Armature001_10"
-                        position={[0.564, 0.451, 0.62]}
-                        rotation={[0.708, -0.369, -0.737]}
-                        scale={0.01}>
-                        <group name="GLTF_created_0">
-                            <primitive object={nodes.GLTF_created_0_rootJoint} />
-                            <skinnedMesh
-                                name="Object_15"
-                                geometry={nodes.Object_15.geometry}
-                                material={materials.ballena}
-                                skeleton={nodes.Object_15.skeleton}
-                            />
+                        name="group36"
+                        position={[0.33, 0, -0.099]}
+                        rotation={[-Math.PI, -0.142, -Math.PI]}
+                        scale={0.989}>
+                        <group name="group39" rotation={[0, 0.877, 0]}>
+                            <group name="group37" position={[-4.63, 14.294, 1.994]}>
+                                <group
+                                    name="group31"
+                                    position={[4.63, -4.887, -1.994]}
+                                    rotation={[0.006, 0, 0.01]}
+                                    scale={1.182}>
+                                    <group
+                                        name="group35"
+                                        position={[0.225, 0.107, 0.003]}
+                                        rotation={[-Math.PI, -1.463, Math.PI]}>
+                                        <group name="group38" position={[0.039, 0.755, 0.248]}>
+                                            <group
+                                                name="group29"
+                                                position={[-0.027, -10.245, -0.036]}
+                                                rotation={[0, Math.PI / 4, 0]}>
+                                                <group name="group21" position={[-12.687, 10.697, 0]} scale={0.245}>
+                                                    <group
+                                                        name="MASH1_ReproMesh12"
+                                                        position={[0, 0.239, 0]}
+                                                        rotation={[-1.132, 0, Math.PI / 2]}
+                                                        scale={[1.033, 1, 1.033]}>
+                                                        <mesh
+                                                            name="MASH1_ReproMesh12_holo1_0"
+                                                            castShadow
+                                                            receiveShadow
+                                                            geometry={nodes.MASH1_ReproMesh12_holo1_0.geometry}
+                                                            material={materials.holo1}
+                                                        />
+                                                    </group>
+                                                    <group name="group14" rotation={[0, 1.132, 0]}>
+                                                        <group name="group30" rotation={[0.492, 0, 0]} scale={3.169}>
+                                                            <group name="pSuperShape2" scale={2.076}>
+                                                                <mesh
+                                                                    name="pSuperShape2_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pSuperShape2_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                            <group name="pSuperShape3" scale={2.076}>
+                                                                <mesh
+                                                                    name="pSuperShape3_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pSuperShape3_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                        </group>
+                                                    </group>
+                                                </group>
+                                            </group>
+                                            <group
+                                                name="group28"
+                                                position={[-0.027, -10.245, -0.036]}
+                                                rotation={[0, Math.PI / 2, 0]}>
+                                                <group name="group21_1" position={[-12.687, 10.697, 0]} scale={0.245}>
+                                                    <group
+                                                        name="MASH1_ReproMesh12_1"
+                                                        position={[0, 0.239, 0]}
+                                                        rotation={[-1.132, 0, Math.PI / 2]}
+                                                        scale={[1.033, 1, 1.033]}>
+                                                        <group name="MASH1_ReproMesh19">
+                                                            <mesh
+                                                                name="MASH1_ReproMesh19_holo1_0"
+                                                                castShadow
+                                                                receiveShadow
+                                                                geometry={nodes.MASH1_ReproMesh19_holo1_0.geometry}
+                                                                material={materials.holo1}
+                                                            />
+                                                        </group>
+                                                    </group>
+                                                    <group name="group14_1" rotation={[0, 1.132, 0]}>
+                                                        <group name="group7" rotation={[0.317, -0.659, 1.521]} scale={2.048}>
+                                                            <group name="pGear1">
+                                                                <mesh
+                                                                    name="pGear1_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pGear1_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                            <group name="pGear2">
+                                                                <mesh
+                                                                    name="pGear2_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pGear2_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                        </group>
+                                                    </group>
+                                                </group>
+                                            </group>
+                                            <group
+                                                name="group27"
+                                                position={[-0.027, -10.245, -0.036]}
+                                                rotation={[-Math.PI, Math.PI / 4, Math.PI]}>
+                                                <group name="group20" position={[-12.687, 10.697, 0]} scale={0.245}>
+                                                    <group
+                                                        name="MASH1_ReproMesh11"
+                                                        position={[0, 0.239, 0]}
+                                                        rotation={[-1.132, 0, Math.PI / 2]}
+                                                        scale={[1.033, 1, 1.033]}>
+                                                        <group name="MASH1_ReproMesh18">
+                                                            <mesh
+                                                                name="MASH1_ReproMesh18_holo1_0"
+                                                                castShadow
+                                                                receiveShadow
+                                                                geometry={nodes.MASH1_ReproMesh18_holo1_0.geometry}
+                                                                material={materials.holo1}
+                                                            />
+                                                        </group>
+                                                    </group>
+                                                    <group name="group13" rotation={[0, 1.132, 0]}>
+                                                        <group
+                                                            name="group6"
+                                                            position={[0, 0.028, 0]}
+                                                            rotation={[0.479, 0.1, -0.002]}
+                                                            scale={2.37}>
+                                                            <group name="pHelix1">
+                                                                <mesh
+                                                                    name="pHelix1_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pHelix1_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                            <group name="pHelix2">
+                                                                <mesh
+                                                                    name="pHelix2_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pHelix2_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                        </group>
+                                                    </group>
+                                                </group>
+                                            </group>
+                                            <group
+                                                name="group26"
+                                                position={[-0.027, -10.245, -0.036]}
+                                                rotation={[-Math.PI, 0, -Math.PI]}>
+                                                <group name="group19" position={[-12.687, 10.697, 0]} scale={0.245}>
+                                                    <group
+                                                        name="MASH1_ReproMesh10"
+                                                        position={[0, 0.239, 0]}
+                                                        rotation={[-1.132, 0, Math.PI / 2]}
+                                                        scale={[1.033, 1, 1.033]}>
+                                                        <group name="MASH1_ReproMesh17">
+                                                            <mesh
+                                                                name="MASH1_ReproMesh17_holo1_0"
+                                                                castShadow
+                                                                receiveShadow
+                                                                geometry={nodes.MASH1_ReproMesh17_holo1_0.geometry}
+                                                                material={materials.holo1}
+                                                            />
+                                                        </group>
+                                                    </group>
+                                                    <group name="group12" rotation={[0, 1.132, 0]}>
+                                                        <group
+                                                            name="group4"
+                                                            position={[-0.254, 1.103, -0.402]}
+                                                            rotation={[-0.176, -0.673, 0.273]}
+                                                            scale={1.554}>
+                                                            <group name="pPyramid1" scale={[5.263, 7.637, 5.263]}>
+                                                                <mesh
+                                                                    name="pPyramid1_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pPyramid1_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                            <group name="pPyramid2" scale={[5.572, 8.085, 5.572]}>
+                                                                <mesh
+                                                                    name="pPyramid2_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pPyramid2_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                        </group>
+                                                    </group>
+                                                </group>
+                                            </group>
+                                            <group
+                                                name="group25"
+                                                position={[-0.027, -10.245, -0.036]}
+                                                rotation={[-Math.PI, -Math.PI / 4, -Math.PI]}>
+                                                <group name="group18" position={[-12.692, 10.697, 0]} scale={0.245}>
+                                                    <group
+                                                        name="MASH1_ReproMesh9"
+                                                        position={[0, 0.239, 0]}
+                                                        rotation={[-1.132, 0, Math.PI / 2]}
+                                                        scale={[1.033, 1, 1.033]}>
+                                                        <group name="MASH1_ReproMesh16">
+                                                            <mesh
+                                                                name="MASH1_ReproMesh16_holo1_0"
+                                                                castShadow
+                                                                receiveShadow
+                                                                geometry={nodes.MASH1_ReproMesh16_holo1_0.geometry}
+                                                                material={materials.holo1}
+                                                            />
+                                                        </group>
+                                                    </group>
+                                                    <group name="group11" rotation={[0, 1.132, 0]}>
+                                                        <group name="group5" rotation={[0.222, 0.16, 0.928]} scale={1.89}>
+                                                            <group name="pTorus2">
+                                                                <mesh
+                                                                    name="pTorus2_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pTorus2_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                            <group name="pTorus1">
+                                                                <mesh
+                                                                    name="pTorus1_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pTorus1_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                        </group>
+                                                    </group>
+                                                </group>
+                                            </group>
+                                            <group
+                                                name="group23"
+                                                position={[-0.027, -10.245, -0.036]}
+                                                rotation={[0, -Math.PI / 4, 0]}>
+                                                <group name="group16" position={[-12.687, 10.697, 0]} scale={0.245}>
+                                                    <group
+                                                        name="MASH1_ReproMesh7"
+                                                        position={[0, 0.239, 0]}
+                                                        rotation={[-1.132, 0, Math.PI / 2]}
+                                                        scale={[1.033, 1, 1.033]}>
+                                                        <group name="MASH1_ReproMesh14">
+                                                            <mesh
+                                                                name="MASH1_ReproMesh14_holo1_0"
+                                                                castShadow
+                                                                receiveShadow
+                                                                geometry={nodes.MASH1_ReproMesh14_holo1_0.geometry}
+                                                                material={materials.holo1}
+                                                            />
+                                                        </group>
+                                                    </group>
+                                                    <group name="group9" rotation={[0, 1.132, 0]} scale={1.303}>
+                                                        <group name="group2" rotation={[-0.623, -0.617, 0.102]}>
+                                                            <group name="pCube1" scale={4.808}>
+                                                                <mesh
+                                                                    name="pCube1_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pCube1_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                            <group name="pCube2" scale={4.918}>
+                                                                <mesh
+                                                                    name="pCube2_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pCube2_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                        </group>
+                                                    </group>
+                                                </group>
+                                            </group>
+                                            <group name="group22" position={[-0.027, -10.245, -0.036]}>
+                                                <group name="group15" position={[-12.687, 10.697, 0]} scale={0.245}>
+                                                    <group
+                                                        name="MASH1_ReproMesh6"
+                                                        position={[0, 0.239, 0]}
+                                                        rotation={[-1.132, 0, Math.PI / 2]}
+                                                        scale={[1.033, 1, 1.033]}>
+                                                        <group name="MASH1_ReproMesh13">
+                                                            <mesh
+                                                                name="MASH1_ReproMesh13_holo1_0"
+                                                                castShadow
+                                                                receiveShadow
+                                                                geometry={nodes.MASH1_ReproMesh13_holo1_0.geometry}
+                                                                material={materials.holo1}
+                                                            />
+                                                        </group>
+                                                    </group>
+                                                    <group name="group8" rotation={[0, 1.132, 0]}>
+                                                        <group
+                                                            name="group1"
+                                                            rotation={[-0.513, 0, 0]}
+                                                            scale={[1.223, 0.98, 1.223]}>
+                                                            <group name="pCylinder2" scale={3.569}>
+                                                                <mesh
+                                                                    name="pCylinder2_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pCylinder2_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                            <group name="pCylinder3" scale={3.665}>
+                                                                <mesh
+                                                                    name="pCylinder3_holo1_0"
+                                                                    castShadow
+                                                                    receiveShadow
+                                                                    geometry={nodes.pCylinder3_holo1_0.geometry}
+                                                                    material={materials.holo1}
+                                                                />
+                                                            </group>
+                                                        </group>
+                                                    </group>
+                                                </group>
+                                            </group>
+                                            <group
+                                                name="pCylinder4"
+                                                position={[-0.027, 0.458, -0.036]}
+                                                scale={[0.818, 0.439, 0.818]}>
+                                                <mesh
+                                                    name="pCylinder4_holo1_0"
+                                                    castShadow
+                                                    receiveShadow
+                                                    geometry={nodes.pCylinder4_holo1_0.geometry}
+                                                    material={materials.holo1}
+                                                />
+                                            </group>
+                                        </group>
+                                        <group
+                                            name="group24"
+                                            position={[0.021, -10.723, 0.224]}
+                                            rotation={[0, -Math.PI / 2, 0]}>
+                                            <group name="group17" position={[-12.356, 11.797, 0.231]} scale={0.295}>
+                                                <group name="group10" rotation={[Math.PI, -1.163, Math.PI]}>
+                                                    <group name="group3" scale={1.445}>
+                                                        <group name="pPlatonic1" scale={3.239}>
+                                                            <mesh
+                                                                name="pPlatonic1_holo1_0"
+                                                                castShadow
+                                                                receiveShadow
+                                                                geometry={nodes.pPlatonic1_holo1_0.geometry}
+                                                                material={materials.holo1}
+                                                            />
+                                                        </group>
+                                                        <group name="pPlatonic2" scale={3.414}>
+                                                            <mesh
+                                                                name="pPlatonic2_holo1_0"
+                                                                castShadow
+                                                                receiveShadow
+                                                                geometry={nodes.pPlatonic2_holo1_0.geometry}
+                                                                material={materials.holo1}
+                                                            />
+                                                        </group>
+                                                    </group>
+                                                </group>
+                                                <group
+                                                    name="MASH1_ReproMesh8"
+                                                    position={[0.227, 0.006, -0.549]}
+                                                    rotation={[-1.132, 0, Math.PI / 2]}
+                                                    scale={[0.818, 0.792, 0.818]}>
+                                                    <group name="MASH1_ReproMesh15">
+                                                        <mesh
+                                                            name="MASH1_ReproMesh15_holo1_0"
+                                                            castShadow
+                                                            receiveShadow
+                                                            geometry={nodes.MASH1_ReproMesh15_holo1_0.geometry}
+                                                            material={materials.holo1}
+                                                        />
+                                                    </group>
+                                                </group>
+                                            </group>
+                                        </group>
+                                    </group>
+                                    <group name="pPlatonic3" position={[-0.348, -0.124, -0.324]} scale={0.001}>
+                                        <mesh
+                                            name="pPlatonic3_holo1_0"
+                                            castShadow
+                                            receiveShadow
+                                            geometry={nodes.pPlatonic3_holo1_0.geometry}
+                                            material={materials.holo1}
+                                        />
+                                    </group>
+                                </group>
+                            </group>
                         </group>
                     </group>
-                    <group
-                        name="Armature002_17"
-                        position={[-0.846, -0.218, -0.378]}
-                        rotation={[2.298, 0.497, 1.648]}
-                        scale={0.01}>
-                        <group name="GLTF_created_1">
-                            <primitive object={nodes.GLTF_created_1_rootJoint} />
-                            <skinnedMesh
-                                name="Object_25"
-                                geometry={nodes.Object_25.geometry}
-                                material={materials.ballena}
-                                skeleton={nodes.Object_25.skeleton}
-                            />
-                        </group>
-                    </group>
-                    <group
-                        name="avion003_27"
-                        position={[-0.409, -1.016, 0.477]}
-                        rotation={[-0.438, 0, 2.792]}
-                        scale={0.018}>
+                </group>
+                <group name="ground" position={[0, 0.042, 0]} scale={0.107}>
+                    <group name="pPipe4" position={[0, -0.429, 0]} rotation={[0, -0.311, 0]}>
                         <mesh
-                            name="Object_42"
+                            name="pPipe4_holo1_0"
                             castShadow
                             receiveShadow
-                            geometry={nodes.Object_42.geometry}
-                            material={materials['Atlas.2']}
+                            geometry={nodes.pPipe4_holo1_0.geometry}
+                            material={materials.holo1}
                         />
-                        <group name="avion004_25">
+                        <group name="MASH1_ReproMesh2" position={[0, 0.429, 0]}>
                             <mesh
-                                name="Object_44"
+                                name="MASH1_ReproMesh2_holo1_0"
                                 castShadow
                                 receiveShadow
-                                geometry={nodes.Object_44.geometry}
-                                material={materials['ox-logo']}
+                                geometry={nodes.MASH1_ReproMesh2_holo1_0.geometry}
+                                material={materials.holo1}
                             />
                         </group>
-                        <group
-                            name="Cube009_26"
-                            position={[-3.44, -0.807, 0]}
-                            rotation={[2.338, 0, 0]}
-                            scale={[0.319, 0.221, 0.221]}>
+                    </group>
+                    <group name="pPipe2" position={[0, -0.576, 0]} rotation={[0, 0.311, 0]}>
+                        <mesh
+                            name="pPipe2_holo1_0"
+                            castShadow
+                            receiveShadow
+                            geometry={nodes.pPipe2_holo1_0.geometry}
+                            material={materials.holo1}
+                        />
+                        <group name="MASH1_ReproMesh3" position={[0, 0.576, 0]} scale={[0.819, 0.804, 0.819]}>
                             <mesh
-                                name="Object_46"
+                                name="MASH1_ReproMesh3_holo1_0"
                                 castShadow
                                 receiveShadow
-                                geometry={nodes.Object_46.geometry}
-                                material={materials['Atlas.2']}
+                                geometry={nodes.MASH1_ReproMesh3_holo1_0.geometry}
+                                material={materials.holo1}
                             />
                         </group>
-                    </group>
-                    <group
-                        name="ox-logo008_28"
-                        position={[-0.954, 0.859, 0.547]}
-                        rotation={[2.135, 0.755, 0.825]}
-                        scale={0.141}>
-                        <mesh
-                            name="Object_48"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_48.geometry}
-                            material={materials['Atlas.2']}
-                        />
-                    </group>
-                    <group
-                        name="ox-logo009_29"
-                        position={[-0.842, 0.381, -1.049]}
-                        rotation={[0.344, 0.653, 0.461]}
-                        scale={0.141}>
-                        <mesh
-                            name="Object_50"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_50.geometry}
-                            material={materials['Atlas.2']}
-                        />
-                    </group>
-                    <group
-                        name="avion001_31"
-                        position={[0.01, 0.636, 1.074]}
-                        rotation={[1.036, 0, 0]}
-                        scale={0.018}>
-                        <mesh
-                            name="Object_54"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_54.geometry}
-                            material={materials['ox-logo']}
-                        />
-                    </group>
-                    <group
-                        name="ox-logo001_32"
-                        position={[-0.954, 0.859, 0.547]}
-                        rotation={[2.135, 0.755, 0.825]}
-                        scale={0.141}>
-                        <mesh
-                            name="Object_56"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_56.geometry}
-                            material={materials['ox-logo']}
-                        />
-                    </group>
-                    <group
-                        name="ox-logo002_33"
-                        position={[-0.842, 0.381, -1.049]}
-                        rotation={[0.344, 0.653, 0.461]}
-                        scale={0.141}>
-                        <mesh
-                            name="Object_58"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_58.geometry}
-                            material={materials['ox-logo']}
-                        />
-                    </group>
-                    <group
-                        name="avion002_35"
-                        position={[0.01, 0.636, 1.074]}
-                        rotation={[1.036, 0, 0]}
-                        scale={0.018}>
-                        <mesh
-                            name="Object_60"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_60.geometry}
-                            material={materials['Atlas.2']}
-                        />
-                        <group
-                            name="Cube001_34"
-                            position={[-3.44, -0.807, 0]}
-                            rotation={[2.338, 0, 0]}
-                            scale={[0.319, 0.221, 0.221]}>
+                        <group name="pPipe3" rotation={[0, 0.684, 0]} scale={0.856}>
                             <mesh
-                                name="Object_62"
+                                name="pPipe3_holo1_0"
                                 castShadow
                                 receiveShadow
-                                geometry={nodes.Object_62.geometry}
-                                material={materials['Atlas.2']}
+                                geometry={nodes.pPipe3_holo1_0.geometry}
+                                material={materials.holo1}
                             />
                         </group>
                     </group>
-                    <group
-                        name="Icosphere004_37"
-                        position={[-0.012, 1.161, 0.6]}
-                        rotation={[Math.PI / 2, -1.053, Math.PI / 2]}
-                        scale={[0.045, 0.035, 0.045]}>
+                    <group name="pPipe1" rotation={[0, -0.311, 0]}>
                         <mesh
-                            name="Object_66"
+                            name="pPipe1_holo1_0"
                             castShadow
                             receiveShadow
-                            geometry={nodes.Object_66.geometry}
-                            material={materials.nube}
+                            geometry={nodes.pPipe1_holo1_0.geometry}
+                            material={materials.holo1}
                         />
-                    </group>
-                    <group
-                        name="nube002_38"
-                        position={[-0.003, 0, 1.572]}
-                        rotation={[2.489, -1.503, -0.655]}
-                        scale={[-0.023, -0.017, -0.023]}>
-                        <mesh
-                            name="Object_68"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_68.geometry}
-                            material={materials.nube}
-                        />
-                    </group>
-                    <group
-                        name="Icosphere006_39"
-                        position={[1.421, 0.599, -0.52]}
-                        rotation={[-3.11, -0.434, -3.05]}
-                        scale={[0.063, 0.055, 0.052]}>
-                        <mesh
-                            name="Object_70"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_70.geometry}
-                            material={materials.nube}
-                        />
-                    </group>
-                    <group
-                        name="nube003_40"
-                        position={[0.587, -0.527, -1.197]}
-                        rotation={[0.076, 0.992, 3.078]}
-                        scale={[-0.018, -0.013, -0.018]}>
-                        <mesh
-                            name="Object_72"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_72.geometry}
-                            material={materials.nube}
-                        />
-                    </group>
-                    <group
-                        name="Icosphere007_41"
-                        position={[-0.495, -1.3, -0.305]}
-                        rotation={[0.594, -0.483, 0.304]}
-                        scale={[0.05, 0.039, 0.05]}>
-                        <mesh
-                            name="Object_74"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_74.geometry}
-                            material={materials.nube}
-                        />
-                    </group>
-                    <group
-                        name="Icosphere008_42"
-                        position={[-1.436, -0.22, -0.172]}
-                        rotation={[0.518, 0.025, -0.014]}
-                        scale={[0.045, 0.035, 0.045]}>
-                        <mesh
-                            name="Object_76"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_76.geometry}
-                            material={materials.nube}
-                        />
-                    </group>
-                    <group
-                        name="Icosphere009_43"
-                        position={[0.952, 0.357, 1.09]}
-                        rotation={[2.426, 0.715, -2.624]}
-                        scale={[0.045, 0.035, 0.045]}>
-                        <mesh
-                            name="Object_78"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_78.geometry}
-                            material={materials.nube}
-                        />
-                    </group>
-                    <group
-                        name="nube004_44"
-                        position={[-0.487, 0.642, -1.03]}
-                        rotation={[0.098, -1.134, -3.052]}
-                        scale={[-0.023, -0.017, -0.023]}>
-                        <mesh
-                            name="Object_80"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_80.geometry}
-                            material={materials.nube}
-                        />
-                    </group>
-                    <group
-                        name="nube005_45"
-                        position={[-1.119, -0.737, 0.257]}
-                        rotation={[0.043, 0.22, 3.129]}
-                        scale={[-0.023, -0.017, -0.023]}>
-                        <mesh
-                            name="Object_82"
-                            castShadow
-                            receiveShadow
-                            geometry={nodes.Object_82.geometry}
-                            material={materials.nube}
-                        />
+                        <group name="MASH1_ReproMesh1" scale={[1.033, 1, 1.033]}>
+                            <mesh
+                                name="MASH1_ReproMesh1_holo1_0"
+                                castShadow
+                                receiveShadow
+                                geometry={nodes.MASH1_ReproMesh1_holo1_0.geometry}
+                                material={materials.holo1}
+                            />
+                        </group>
                     </group>
                 </group>
                 <mesh
-                    name="Object_4"
+                    name="pDisc1_holo1_0"
                     castShadow
                     receiveShadow
-                    geometry={nodes.Object_4.geometry}
-                    material={materials.agua}
+                    geometry={nodes.pDisc1_holo1_0.geometry}
+                    material={materials.holo1}
+                    scale={1.189}
                 />
-                <mesh
-                    name="Object_6"
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Object_6.geometry}
-                    material={materials.tierra}
-                    scale={0.996}
-                />
-                <mesh
-                    name="Object_8"
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Object_8.geometry}
-                    material={materials.Atlas_1}
-                    position={[0.644, -0.215, -0.719]}
-                    rotation={[-1.679, 0.395, 0.896]}
-                    scale={[0.015, 0.021, 0.016]}
-                />
-                <mesh
-                    name="Object_10"
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Object_10.geometry}
-                    material={materials['Atlas.2']}
-                    position={[0.848, 0.333, 0.4]}
-                    rotation={[-1.408, -0.59, -1.937]}
-                    scale={0.01}
-                />
-                <primitive object={nodes.GLTF_created_2_rootJoint} />
+                <primitive object={nodes._rootJoint} />
                 <skinnedMesh
-                    name="Object_35"
-                    geometry={nodes.Object_35.geometry}
-                    material={materials.ballena}
-                    skeleton={nodes.Object_35.skeleton}
-                    position={[0.43, -0.474, -0.704]}
-                    rotation={[-0.216, 1.029, -1.973]}
-                    scale={0.01}
+                    name="Object_162"
+                    geometry={nodes.Object_162.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_162.skeleton}
+                    scale={0.057}
                 />
-                <mesh
-                    name="Object_64"
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Object_64.geometry}
-                    material={materials.vegetacin}
-                    position={[0.851, 0.605, -0.005]}
-                    rotation={[0.173, 0.354, -1.1]}
-                    scale={0.011}
+                <skinnedMesh
+                    name="Object_164"
+                    geometry={nodes.Object_164.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_164.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_166"
+                    geometry={nodes.Object_166.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_166.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_168"
+                    geometry={nodes.Object_168.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_168.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_170"
+                    geometry={nodes.Object_170.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_170.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_172"
+                    geometry={nodes.Object_172.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_172.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_174"
+                    geometry={nodes.Object_174.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_174.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_176"
+                    geometry={nodes.Object_176.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_176.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_178"
+                    geometry={nodes.Object_178.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_178.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_180"
+                    geometry={nodes.Object_180.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_180.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_182"
+                    geometry={nodes.Object_182.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_182.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_184"
+                    geometry={nodes.Object_184.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_184.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_186"
+                    geometry={nodes.Object_186.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_186.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_188"
+                    geometry={nodes.Object_188.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_188.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_190"
+                    geometry={nodes.Object_190.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_190.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_192"
+                    geometry={nodes.Object_192.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_192.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_194"
+                    geometry={nodes.Object_194.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_194.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_196"
+                    geometry={nodes.Object_196.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_196.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_198"
+                    geometry={nodes.Object_198.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_198.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_200"
+                    geometry={nodes.Object_200.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_200.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_202"
+                    geometry={nodes.Object_202.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_202.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_204"
+                    geometry={nodes.Object_204.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_204.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_206"
+                    geometry={nodes.Object_206.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_206.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_208"
+                    geometry={nodes.Object_208.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_208.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_210"
+                    geometry={nodes.Object_210.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_210.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_212"
+                    geometry={nodes.Object_212.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_212.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_214"
+                    geometry={nodes.Object_214.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_214.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_216"
+                    geometry={nodes.Object_216.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_216.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_218"
+                    geometry={nodes.Object_218.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_218.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_220"
+                    geometry={nodes.Object_220.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_220.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_222"
+                    geometry={nodes.Object_222.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_222.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_224"
+                    geometry={nodes.Object_224.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_224.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_226"
+                    geometry={nodes.Object_226.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_226.skeleton}
+                    scale={0.057}
+                />
+                <skinnedMesh
+                    name="Object_228"
+                    geometry={nodes.Object_228.geometry}
+                    material={materials.material}
+                    skeleton={nodes.Object_228.skeleton}
+                    scale={0.057}
                 />
             </group>
         </group>
     )
 }
 
-useGLTF.preload('/models/earth-scene.glb')
+useGLTF.preload('/models/contact.glb')
