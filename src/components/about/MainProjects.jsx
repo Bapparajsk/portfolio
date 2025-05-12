@@ -43,45 +43,51 @@ export default function MainProjects() {
     );
 }
 
-const ProjectCardMobile = ({ title, description, theme_image, image, idx }) => {
+const ProjectCardMobile = ({ title, description }) => {
     return (
         <Card>
             <div className="w-full h-auto px-5 py-3 font-Josefin text-start">
                 <strong className="text-2xl font-bold">{title}</strong>
             </div>
             <CardBody>
-            <div className={`relative w-full md:w-[65%] md:h-full`}>
-                        <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
-                            <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
-                                <strong className="text-2xl font-bold">{title}</strong>
-                            </div>
-                            <div className="w-full h-full flex items-center px-5 py-3 text-sm md:text-medium">
-                                {description()}
-                            </div>
+                <div className={`relative w-full md:w-[65%] md:h-full`}>
+                    <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
+                        <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
+                            <strong className="text-2xl font-bold">{title}</strong>
+                        </div>
+                        <div className="w-full h-full flex items-center px-5 py-3 text-sm md:text-medium">
+                            {description()}
                         </div>
                     </div>
+                </div>
             </CardBody>
         </Card>
     );
 }
 
-const ProjectCard = ({ title, description, theme_image, image, idx }) => {
+const ProjectCard = ({ title, description, image, idx }) => {
     const cardRef = useRef(null);
     const ImageRef = useRef(null);
     const [direction, setDirection] = useState("left");
 
     useEffect(() => {
         const card = cardRef.current;
-        const scale = 0.55 + idx * 0.05;
+        const baseScale = 0.55;
+        const scaleIncrement = 0.05;
+        const targetScale = baseScale + idx * scaleIncrement;
+
         gsap.to(card, {
             scrollTrigger: {
                 trigger: card,
                 start: `top ${idx * 4}%`,
                 end: `top ${idx * 7}%`,
-                scrub: 0.5,
+                scrub: 0.3,
+                markers: false,       
             },
-            scale,
+            duration: 0.5,
+            scale: targetScale,
             y: -100,
+            ease: "power2.inOut",
         });
 
         return () => {
@@ -94,7 +100,7 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
 
         const direction = getDirection(event, ImageRef.current);
         const dir = direction <= 3 ? directions[direction] : "left";
-        
+
         setDirection(dir);
     };
 
@@ -117,9 +123,6 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
                     className={`flex h-full w-full transition-all duration-300 ease-in-out`}
                     style={{ flexDirection: idx % 2 === 0 ? "row-reverse" : "row" }}
                 >
-                    <div className="w-full h-auto px-5 py-3 font-Josefin text-start md:hidden">
-                        <strong className="text-2xl font-bold">{title}</strong>
-                    </div>
                     <MotionDiv
                         onMouseEnter={handleMouseEnter}
                         ref={ImageRef}
@@ -152,7 +155,9 @@ const ProjectCard = ({ title, description, theme_image, image, idx }) => {
                     <div className={`relative w-full md:w-[65%] md:h-full`}>
                         <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
                             <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
-                                <strong className="text-2xl font-bold">{title}</strong>
+                                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-2 text-gray-900">
+                                    {title}
+                                </h2>
                             </div>
                             <div className="w-full h-full flex items-center px-5 py-3 text-sm md:text-medium">
                                 {description()}

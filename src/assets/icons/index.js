@@ -20,10 +20,24 @@ export const getIcon = ({ name, className }) => {
     share: <Share className={className} />,
     rightArrow: <RightArrow className={className} />,
     bottomArrow: <BottomArrow className={className} />,
+    code: <Code className={className} />,
+    tool: <Tool className={className} />,
   };
 
   return map[name] || <Notfound />;
 };
+
+function Tool({className}) {
+  return (
+    <svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth={2}  strokeLinecap="round"  strokeLinejoin="round"  className={className}><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5" /></svg>
+  );
+}
+
+function Code({ className }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className={className}><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 8l-4 4l4 4" /><path d="M17 8l4 4l-4 4" /><path d="M14 4l-4 16" /></svg>
+  )
+}
 
 function Notfound() {
   return (
