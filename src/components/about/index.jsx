@@ -46,7 +46,7 @@ export function AboutDetails() {
                         width={3000}
                         height={3000}
                         loading="lazy"
-                        src="/themes-image/3267188.jpg"
+                        src="/themes-image/about-card.jpg"
                         alt="Background"
                         className="absolute left-0 top-0 size-full object-cover"
                     />

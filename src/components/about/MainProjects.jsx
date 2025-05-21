@@ -1,172 +1,130 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { useRef, useState } from "react";
+import { motion, useScroll, useMotionValueEvent, useSpring, useTransform, AnimatePresence } from "framer-motion"
+import AboutMeCard from "./AboutMeCard";
+import Projects from "./ProjectsCard";
+import ToolsTechnologies from "./ToolsTechnologiesCard";
+import GitHubLanguages from "./GitHubLanguagesCard";
+import Aurora from "../ui/Aurora";
 
-import { Image } from "@/lib/next";
-import { Card, CardBody } from "@heroui/card";
-import { AnimatePresence, MotionDiv } from "@/lib/motion";
-import { aboutData } from "./data";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const directions = ["top", "right", "bottom", "left"];
-const motionVariants = {
-    initial: { x: 0 },
-    exit: { x: 0, y: 0 },
-    top: { y: 20 },
-    bottom: { y: -20 },
-    left: { x: 20 },
-    right: { x: -20 }
-};
+const offset = ["start 90%", "start 0%"];
+const springVal = { stiffness: 120, damping: 20 };
+const transVal = [[0, 1], ["0%", "100%"]];
 
 export default function MainProjects() {
-    return (
-        <>
-            <div
-                data-scroll
-                data-scroll-section
-                data-scroll-speed=".2"
-                className="w-full h-auto hidden md:block"
-            >
-                {aboutData.map((data, idx) => (
-                    <ProjectCard key={idx} {...data} idx={idx + 1} />
-                ))}
-            </div>
-            <div className="w-full h-auto md:hidden px-3 flex flex-col gap-5">
-                {aboutData.map((data, idx) => (
-                    <ProjectCardMobile key={idx} {...data} idx={idx + 1} />
-                ))}
-            </div>
-        </>
-    );
-}
 
-const ProjectCardMobile = ({ title, description }) => {
+    const aboutRef = useRef(null);
+    const projectsRef = useRef(null);
+    const toolsRef = useRef(null);
+    const githubRef = useRef(null);
+
+    const [showTitle, setShowTitle] = useState({
+        about: false,
+        projects: false,
+        tools: false,
+        github: false
+    });
+
+    const aboutScroll = useScroll({ target: aboutRef, offset });
+    const projectsScroll = useScroll({ target: projectsRef, offset });
+    const toolsScroll = useScroll({ target: toolsRef, offset });
+    const githubScroll = useScroll({ target: githubRef, offset });
+
+    const changeProgress = (key, progress) => {
+        let isShow = progress > 0.1 && progress < 1;
+        if (key === "github") {
+            isShow = progress > 0.1;
+        }
+        setShowTitle(prev => ({
+            ...prev,
+            [key]: isShow
+        }));
+    }
+
+    useMotionValueEvent(aboutScroll.scrollYProgress, "change", (latest) => changeProgress("about", latest));
+    useMotionValueEvent(projectsScroll.scrollYProgress, "change", (latest) => changeProgress("projects", latest));
+    useMotionValueEvent(toolsScroll.scrollYProgress, "change", (latest) => changeProgress("tools", latest));
+    useMotionValueEvent(githubScroll.scrollYProgress, "change", (latest) => changeProgress("github", latest));
+
+    const progress = {
+        about: useTransform(
+            useSpring(useTransform(aboutScroll.scrollYProgress, ...transVal), springVal),
+            (v) => `${v.toFixed(0)}%`
+        ),
+        projects: useTransform(
+            useSpring(useTransform(projectsScroll.scrollYProgress, ...transVal), springVal),
+            (v) => `${v.toFixed(0)}%`
+        ),
+        tools: useTransform(
+            useSpring(useTransform(toolsScroll.scrollYProgress, ...transVal), springVal),
+            (v) => `${v.toFixed(0)}%`
+        ),
+        github: useTransform(
+            useSpring(useTransform(githubScroll.scrollYProgress, ...transVal), springVal),
+            (v) => `${v.toFixed(0)}%`
+        ),
+    };
+
     return (
-        <Card>
-            <div className="w-full h-auto px-5 py-3 font-Josefin text-start">
-                <strong className="text-2xl font-bold">{title}</strong>
-            </div>
-            <CardBody>
-                <div className={`relative w-full md:w-[65%] md:h-full`}>
-                    <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
-                        <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
-                            <strong className="text-2xl font-bold">{title}</strong>
-                        </div>
-                        <div className="w-full h-full flex items-center px-5 py-3 text-sm md:text-medium">
-                            {description()}
-                        </div>
-                    </div>
+        <div className="w-full h-auto relative">
+            <div className="fixed top-14 left-5 w-fit pt-10 z-50">
+                <div className="flex-col gap-4 hidden lg:flex">
+                    <AnimatePresence mode="wait">
+                        {
+                            showTitle.about ? <MotionTitle title="About Me" progress={progress.about} /> :
+                                showTitle.projects ? <MotionTitle title="Top Projects" progress={progress.projects} /> :
+                                    showTitle.tools ? <MotionTitle title="Tools & Technologies" progress={progress.tools} /> :
+                                        showTitle.github ? <MotionTitle title="GitHub Status" progress={progress.github} /> :
+                                            null
+                        }
+                    </AnimatePresence>
                 </div>
-            </CardBody>
-        </Card>
+            </div>
+
+            <div className="lg:sticky top-0 border-t border-[#5BC3DE]" >
+                <section ref={aboutRef} className="relative w-full min-h-screen text-white flex items-center justify-center px-4 py-24 bg-[#010409]">
+                    <AboutMeCard />
+                </section>
+            </div>
+            <div className="lg:sticky top-0 border-t border-[#5BC3DE]">
+                <section ref={projectsRef} className="top-0 w-full min-h-screen h-fit bg-[#010409] text-white px-6 py-10 flex items-center justify-center">
+                    <Projects />
+                </section>
+            </div>
+            <div className="lg:sticky top-0 border-t border-[#5BC3DE]" >
+                <section ref={toolsRef} className="top-0 w-full min-h-screen py-24 px-6 bg-[#010409] text-white ">
+                    <ToolsTechnologies />
+                </section>
+            </div>
+            <div className="lg:sticky top-0 border-t border-[#5BC3DE]">
+                <section ref={githubRef} className="top-0 w-full h-full min-h-screen bg-[#010409] text-white flex items-center justify-center py-10 px-6 ">
+                    <GitHubLanguages />
+                </section>
+            </div>
+        </div>
     );
 }
 
-const ProjectCard = ({ title, description, image, idx }) => {
-    const cardRef = useRef(null);
-    const ImageRef = useRef(null);
-    const [direction, setDirection] = useState("left");
-
-    useEffect(() => {
-        const card = cardRef.current;
-        const baseScale = 0.55;
-        const scaleIncrement = 0.05;
-        const targetScale = baseScale + idx * scaleIncrement;
-
-        gsap.to(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: `top ${idx * 4}%`,
-                end: `top ${idx * 7}%`,
-                scrub: 0.3,
-                markers: false,       
-            },
-            duration: 0.5,
-            scale: targetScale,
-            y: -100,
-            ease: "power2.inOut",
-        });
-
-        return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-        };
-    }, []);
-
-    const handleMouseEnter = (event) => {
-        if (!ImageRef.current) return;
-
-        const direction = getDirection(event, ImageRef.current);
-        const dir = direction <= 3 ? directions[direction] : "left";
-
-        setDirection(dir);
-    };
-
-    const getDirection = (ev, obj) => {
-        const { width: w, height: h, left, top } = obj.getBoundingClientRect();
-        const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1);
-        const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1);
-        const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
-        return d;
-    };
-
+const MotionTitle = ({ title, progress }) => {
     return (
-        <Card
-            ref={cardRef}
-            style={{ top: `${idx * 6}vh` }}
-            className={`flex-row max-w-7xl mx-auto mb-5 sticky z-50 bg-white text-black`}
+        <motion.div
+            key={title}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-2 relative"
         >
-            <CardBody>
-                <div
-                    className={`flex h-full w-full transition-all duration-300 ease-in-out`}
-                    style={{ flexDirection: idx % 2 === 0 ? "row-reverse" : "row" }}
-                >
-                    <MotionDiv
-                        onMouseEnter={handleMouseEnter}
-                        ref={ImageRef}
-                        className={"md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-lg overflow-hidden group/card relative"}
-                    >
-                        <AnimatePresence mode="wait">
-                            <MotionDiv
-                                className="relative h-full w-full"
-                                initial="initial"
-                                whileHover={direction}
-                                exit="exit"
-                            >
-                                <MotionDiv className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
-                                <MotionDiv
-                                    variants={motionVariants}
-                                    className="h-full w-full relative bg-black"
-                                    transition={{ duration: 0.2, ease: "easeOut", }}
-                                >
-                                    <Image
-                                        alt="image"
-                                        className={"h-full w-full object-cover scale-[1.15]"}
-                                        width="1000"
-                                        height="1000"
-                                        src={image || "/themes-image/haunted-horror.webp"}
-                                    />
-                                </MotionDiv>
-                            </MotionDiv>
-                        </AnimatePresence>
-                    </MotionDiv>
-                    <div className={`relative w-full md:w-[65%] md:h-full`}>
-                        <div className="w-full h-full flex  px-5 font-ubuntu text-lg tracking-wide text-center flex-col ">
-                            <div className="w-full h-auto px-5 py-3 font-Josefin text-start hidden md:block">
-                                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight mb-2 text-gray-900">
-                                    {title}
-                                </h2>
-                            </div>
-                            <div className="w-full h-full flex items-center px-5 py-3 text-sm md:text-medium">
-                                {description()}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </CardBody>
-        </Card>
-    );
-};
-
+            <div className="w-fit text-2xl font-semibold capitalize">
+                {title}
+                <motion.div
+                    className="absolute bottom-0 left-0 w-0 h-1 bg-[#64D4EE] rounded-full"
+                    style={{
+                        width: progress
+                    }}
+                />
+            </div>
+        </motion.div>
+    )
+}

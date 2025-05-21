@@ -1,22 +1,39 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import LocomotiveScroll from "locomotive-scroll";
 
-export default function LocomotiveProviders({ children }) {
-  useEffect(() => {
-    let locomotiveScroll;
-    if (typeof window !== "undefined") {
-      const Locomotive = async () => {
-        const LocomotiveScroll = (await import("locomotive-scroll")).default;
+export function LocomotiveProviders({ children, autoStart = true }) {
+  const scrollRef = useRef();
 
-        locomotiveScroll = new LocomotiveScroll();
-      };
-      Locomotive();
-      // Cleanup on component unmount
-      return () => {
-        if (locomotiveScroll) locomotiveScroll.destroy();
-      };
+  const scrollToTop = () => {
+    if (scrollInstance) {
+      scrollInstance.scrollTo(0, 0, { duration: 0 });
     }
+  }
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+
+    const scroll = new LocomotiveScroll({
+      lenisOptions: {
+        content: scrollRef.current,
+        smoothTouch: true,
+      },
+      autoStart: autoStart,
+    });
+
+    setTimeout(() => {
+      scroll.start();
+    }, 3100);
+
+    return () => {
+      scroll.destroy();
+    };
   }, []);
-  return <>{children}</>;
+  return (
+    <div ref={scrollRef} data-scroll-container>
+      {children}
+    </div>
+  );
 }

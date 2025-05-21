@@ -2,7 +2,7 @@ import { FloatingDock } from "@/components/ui/floating-dock";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { ProjectsList } from "@/components/projects/Index";
 import HomeButton from '@/components/ui/homeButton';
-import LocomotiveProviders from "../locomotiveProviders";
+import {LocomotiveProviders} from "../locomotiveProviders";
 
 export const metadata = {
     title: "Bapparaj | Projects",
@@ -28,6 +28,7 @@ export default function page() {
                         />
                     </div>
                 </footer>
+                
             </main>
         </LocomotiveProviders>
     );

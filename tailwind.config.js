@@ -23,13 +23,13 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
-        "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'fire-dot-pink': 'radial-gradient(50% 50% at 50% 50%, rgba(243, 80, 255, 0.80) 0%, rgba(217, 217, 217, 0) 100%)',
         'fire-dot-red': 'radial-gradient(50% 50% at 50% 50%, rgba(248, 35, 92, 0.80) 0%, rgba(217, 217, 217, 0) 100%)',
         "svg-pattern": "linear-gradient(4deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(36,35,32,1) 50%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%)",
         "about-bg": "linear-gradient(142deg, rgba(97,207,232,1) 0%, rgba(97,207,232,1) 10%, rgba(182,98,209,1) 30%, rgba(97,52,111,1) 90%, rgba(43,30,81,1) 96%)",
         "project-bg": "linear-gradient(to left top, #001c30, #011b2e, #01192c, #02182a, #021728, #081425, #0c1222, #0f0f1e, #110a17, #10060f, #0a0306, #000000)",
-        "contact-bg" : "linear-gradient(to right top, #000000, #0a0306, #10060f, #110a17, #0f0f1e, #0c1020, #071022, #021124, #020e22, #030920, #03051e, #03001c)",
+        "contact-bg": "linear-gradient(to right top, #000000, #0a0306, #10060f, #110a17, #0f0f1e, #0c1020, #071022, #021124, #020e22, #030920, #03051e, #03001c)",
       },
       keyframes: {
         'spin-reverse': {
@@ -60,7 +60,7 @@ module.exports = {
           "0%": { transform: "translateX(-130px)" },
           "100%": { transform: "translateX(130px)" },
         },
-        "scroll-hover-icon" : {
+        "scroll-hover-icon": {
           "0%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(20px)" },
           "100%": { transform: "translateY(0)" },
@@ -68,6 +68,10 @@ module.exports = {
         "spin2": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
+        },
+        gradientMove: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         },
       },
       animation: {
@@ -80,10 +84,14 @@ module.exports = {
         scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
         "scroll-hover-icon": "scroll-hover-icon 1.5s linear infinite",
         "spin2": "spin2 14s linear infinite",
+        gradient: 'gradientMove 10s ease infinite',
       },
       screens: {
         xs: '480px',
-      }
+      },
+      backgroundSize: {
+        '400%': '400% 400%',
+      },
     },
   },
   darkMode: "class",
@@ -95,7 +103,7 @@ function addVariablesForColors({ addBase, theme }) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });
