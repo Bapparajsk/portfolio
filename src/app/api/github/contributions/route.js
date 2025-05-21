@@ -1,9 +1,11 @@
+export const dynamic = "force-dynamic";
+
 import { redis } from '@/lib/redis';
 import { fetchContributions, isValidYear } from './utils';
  
 export async function GET(request) {
   try {
-    const { searchParams } = new URL(request.url);
+    const searchParams = request.nextUrl.searchParams;
     let years = searchParams.get('year');
 
     if(years) {
