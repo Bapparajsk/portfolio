@@ -119,16 +119,6 @@ export const Content = [
     },
 ];
 
-export const skills = {
-  language: [
-    'java', 'cpp', 'html', 'css', 'javascript', 'nodejs', 'python', 'sass', 'typescript',
-  ],
-  framework: [
-    'aws', 'docker', 'firebase', 'git', 'github', 'googlecloud', 'linux',
-    'npm', 'redux', 'mongodb', 'nextjs', 'react', 'express', 'graphql',
-  ],
-};
-
 export const words = [
     { text: "Summon", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
     { text: "this", className: "text-[#7A0BC0] font-semibold md:text-5xl text-3xl lg:text-7xl" },
