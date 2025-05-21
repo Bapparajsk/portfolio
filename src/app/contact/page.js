@@ -1,5 +1,5 @@
 import { FloatingDock } from "@/components/ui/floating-dock";
-import LocomotiveProviders from "../locomotiveProviders";
+import {LocomotiveProviders} from "../locomotiveProviders";
 import HomeButton from "@/components/ui/homeButton";
 import { ContactCard } from "@/components/contact";
 import { getIcon } from "@/assets/icons";
@@ -31,7 +31,6 @@ export default function page() {
                     >
                         <FloatingDock
                             pathName={"contact"}
-                        // isDark={false}
                         />
                     </div>
                 </footer>
