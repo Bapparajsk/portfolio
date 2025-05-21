@@ -7,18 +7,18 @@ const redis = Redis.fromEnv();
 
 const ratelimit = new Ratelimit({
     redis,
-    limiter: Ratelimit.slidingWindow(3, '20 s'), // 5 requests per 10s
-})
+    limiter: Ratelimit.slidingWindow(20, '60 s'), // 5 requests per 10s
+});
 
 export async function middleware(req) {
     const ip = req.headers.get('x-forwarded-for') || '127.0.0.1'
 
     // * use for production
-    // const { success } = await ratelimit.limit(ip)
+    const { success } = await ratelimit.limit(ip)
 
-    // if (!success) {
-    //     return new Response('Too many requests', { status: 429 })
-    // }
+    if (!success) {
+        return new Response('Too many requests', { status: 429 })
+    }
 
     return NextResponse.next()
 }
