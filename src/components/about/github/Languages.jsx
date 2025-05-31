@@ -51,7 +51,7 @@ export const Languages = () => {
     })
 
     return (
-        <Card fullWidth className='w-full bg-[#151B23]'>
+        <Card fullWidth className='w-full bg-[#151B23] overflow-hidden'>
             <CardHeader>
                 <h2 className='text-md md:text-xl lg:text-2xl font-semibold text-white'>GitHub Languages</h2>
             </CardHeader>
@@ -76,7 +76,7 @@ export const Languages = () => {
                         <XAxis dataKey="value" type="number" hide />
                         <ChartTooltip
                             cursor={false}
-                            content={<ChartTooltipContent indicator="line" />}
+                            content={<ChartTooltipContent indicator="dot" />}
                         />
                         <Bar
                             dataKey="value"
@@ -85,8 +85,13 @@ export const Languages = () => {
                         >
                             <LabelList
                                 dataKey="value"
-                                position="right"
+                                position="insideLeft"
                                 offset={8}
+                                style={{
+                                    fill: '#fff',
+                                    fontSize: 12,
+                                    fontWeight: 'bold',
+                                }}
                                 className="fill-foreground"
                                 fontSize={12}
                                 formatter={(value) => `${value}%`}

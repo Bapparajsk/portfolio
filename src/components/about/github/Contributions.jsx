@@ -72,7 +72,7 @@ export function Contributions() {
                             variant="flat"
                             onSelectionChange={setSelectedKeys}
                         >
-                            {["2021", "2022", "2023", "2024", "2025"].map(e => (
+                            {["2021", "2022", "2023", "2024", "2025"].reverse().map(e => (
                                 <DropdownItem key={e}> {e} </DropdownItem>
                             ))}
                         </DropdownMenu>
@@ -117,10 +117,11 @@ export function Contributions() {
                             dataKey="contributionCount"
                             tickLine={false}
                             axisLine={false}
+                            allowDecimals={false}
                             tickMargin={8}
                             minTickGap={10}
                             tickFormatter={(value) => {
-                                return value.toLocaleString()
+                                return value.toLocaleString();
                             }}
                         />
                         <ChartTooltip
@@ -128,6 +129,7 @@ export function Contributions() {
                                 <ChartTooltipContent
                                     className="w-[150px]"
                                     nameKey="views"
+                                    keyLabel="contribution"
                                     labelFormatter={(value) => {
                                         return new Date(value).toLocaleDateString("en-US", {
                                             month: "short",

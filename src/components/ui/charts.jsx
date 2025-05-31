@@ -97,6 +97,7 @@ const ChartTooltipContent = React.forwardRef(
             color,
             nameKey,
             labelKey,
+            keyLabel
         },
         ref
     ) => {
@@ -204,7 +205,7 @@ const ChartTooltipContent = React.forwardRef(
                                             <div className="grid gap-1.5">
                                                 {nestLabel ? tooltipLabel : null}
                                                 <span className="text-muted-foreground">
-                                                    {itemConfig?.label || item.name}
+                                                    {keyLabel}
                                                 </span>
                                             </div>
                                             {item.value && (

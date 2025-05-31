@@ -11,6 +11,7 @@ const techDetails = [
             { name: 'JavaScript', icon: "javaScript" },
             { name: 'TypeScript', icon: "typeScript" },
             { name: 'Java', icon: "java" },
+            { name: 'GraphQL', icon: "graphql" },
         ],
     },
     {
@@ -20,6 +21,8 @@ const techDetails = [
             { name: 'Next.js', icon: "nextJs" },
             { name: 'React', icon: "react" },
             { name: 'Express', icon: "express" },
+            { name: 'Apollo', icon: "apollo" },
+            { name: 'Prisma', icon: "prisma" },
         ],
     },
     {
@@ -27,6 +30,7 @@ const techDetails = [
         color: 'text-pink-400',
         items: [
             { name: 'MongoDB', icon: "mongoDB" },
+            { name: 'MySQL', icon: "sql" },
             { name: 'Redis', icon: "redis" },
         ],
     },

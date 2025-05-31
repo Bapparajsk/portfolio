@@ -146,7 +146,7 @@ export default function TopProjects() {
                                 </Button>
                             </Tooltip>
                         </div>
-                        <p className="text-gray-400 mb-4 text-sm">{project.description.length > 200 ? project.description.substring(0, 200) + "..." : project.description}</p>
+                        <p className="text-gray-400 mb-4 text-sm">{project.description?.length > 200 ? project.description.substring(0, 200) + "..." : project.description}</p>
                         <div className='flex flex-col gap-2'>
                             <div className="flex flex-wrap gap-2 items-center">
                                 {project.languages.map((tech) => (
