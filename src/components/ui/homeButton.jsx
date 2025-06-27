@@ -4,7 +4,7 @@ import { getIcon } from "@/assets/icons";
 export default function HomeButton() {
     return (
         <MotionLink
-            className={ "relative text-foreground rounded-full flex items-center justify-center transition-shadow duration-500"}
+            className={ "relative text-foreground rounded-full flex items-center justify-center transition-shadow duration-500 nav-button"}
             href={'/'}
             target={"_self"}
             aria-label={"home"}

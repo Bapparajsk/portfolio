@@ -4,6 +4,7 @@ import "./fonts.css";
 import { Providers } from "@/app/Providers";
 import clsx from "clsx";
 import { Analytics } from "@vercel/analytics/react";
+import Cursor from "@/components/ui/cursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +17,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <body className={clsx(inter.className, "font-inter bg-black font-poppins relative")}>
-      <Providers>
-            {children}
-            <Analytics />
-          </Providers>
+      <body className={clsx(inter.className, "font-inter bg-black font-poppins relative cursor-none")}>
+        <Providers>
+          <Cursor />
+          {children}
+          <Analytics />
+        </Providers>
       </body>
     </html>
   );

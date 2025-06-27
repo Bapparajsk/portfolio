@@ -19,7 +19,7 @@ export default function page() {
     return (
         <LocomotiveProviders autoStart={false} >
             <main className={"w-full px-2 md:px-0 bg-slate-950"} >
-                <div className={"fixed top-5 left-2 z-[100]"}>
+                <div className={"fixed top-5 left-2 z-50"}>
                     <HomeButton />
                 </div>
                 <div >
