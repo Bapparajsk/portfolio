@@ -53,7 +53,7 @@ export const Languages = () => {
     return (
         <Card fullWidth className='w-full bg-[#151B23] overflow-hidden'>
             <CardHeader>
-                <h2 className='text-md md:text-xl lg:text-2xl font-semibold text-white'>GitHub Languages</h2>
+                <h3 className='text-md md:text-xl lg:text-2xl font-semibold text-white text-heading-3'>GitHub Languages</h3>
             </CardHeader>
             <CardBody >
                 {data && <ChartContainer config={chartConfig}>

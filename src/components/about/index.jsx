@@ -14,28 +14,40 @@ export function AboutDetails() {
                 trigger: "#clip",
                 start: "center center",
                 end: "+=800 center",
-                scrub: 0.5,
+                scrub: true,
                 pin: true,
-                pinSpacing: true,
+                pinSpacing: false,
             },
         });
+
+        const titleAnimation = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#clip",
+                start: "top top",
+                end: "+=20 top",
+                scrub: true,
+            }
+        })
 
         clipAnimation.to(".mask-clip-path", {
             width: "100vw",
             height: "100vh",
             borderRadius: 0,
         });
+
+        titleAnimation.fromTo(".card-title", { opacity: 1 }, { opacity: 0 });
     });
 
     return (
         <div id="about" className="min-h-screen w-screen">
             <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
-                <div className="absolute bottom-[-80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem]">
-                    <p>
+                <div className="card-title absolute bottom-[-80dvh] z-10 left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem]">
+                    <p className="text-paragraph">
                         Hay there! I'm <span className="text-amber-500">Bapparaj</span>
                     </p>
                     <p className="text-gray-500">
-                        I'm a Software Developer based in india. I have a passion for web development and love to create new things.
+                        <span className="text-paragraph">I'm a Software Developer based in india. I have a passion for</span> <br />
+                        <span className="text-paragraph"> web development and love to create new things.</span>
                     </p>
                 </div>
             </div>

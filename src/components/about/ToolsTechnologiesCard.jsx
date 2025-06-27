@@ -63,7 +63,7 @@ export default function ToolsTechnologies() {
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-5xl font-extrabold text-center mb-16 flex justify-center items-center gap-4"
+                className="text-5xl font-extrabold text-center mb-16 flex justify-center items-center gap-4 text-heading-1"
             >
                 <img src={`/svg/tools.svg`} className={"size-20"} />
                 Tools & Technologies
@@ -79,21 +79,16 @@ export default function ToolsTechnologies() {
                         viewport={{ once: true }}
                         className="bg-[#151B23] p-6 rounded-2xl backdrop-blur-md shadow-lg"
                     >
-                        <h3 className={`text-2xl font-semibold mb-4 ${color}`}>{title}</h3>
+                        <h3 className={`text-2xl font-semibold mb-4 text-heading-3 ${color}`}>{title}</h3>
                         <div className="space-y-2">
                             {items.map((i, idx) => (
                                 <motion.div
                                     key={idx}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    transition={{ type: "spring", stiffness: 300, }}
                                     className="flex items-center gap-2 text-white/90 py-1.5 px-2 rounded-lg cursor-pointer 
-             border border-gray-600 hover:border-cyan-400 
-             transition-transform duration-300 bg-white/5 hover:bg-white/10"
+                                        border border-gray-600 
+                                        transition-transform duration-300 bg-white/5 hover:bg-white/10 button"
                                 >
                                     <motion.div
-                                        whileHover={{ scale: 1.2, rotate: 5 }}
-                                        transition={{ type: "spring", stiffness: 300 }}
                                         className="shrink-0"
                                     >
                                         <Image

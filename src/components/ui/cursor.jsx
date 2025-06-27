@@ -86,7 +86,7 @@ const Cursor = () => {
         const handleMouseOver = (e) => {
             const navBtn = e.target.closest(".nav-button");
             const button = e.target.closest(".button, .button-full-round");
-            const textBlock = e.target.closest(".text-paragraph, .text-heading, .text-heading-1");
+            const textBlock = e.target.closest(".text-paragraph, .text-heading, .text-heading-1, .text-heading-3");
             const inputField = e.target.closest(".input");
 
             const target = navBtn || button || inputField;
@@ -121,9 +121,14 @@ const Cursor = () => {
 
                 const rect = textBlock.getBoundingClientRect();
                 // const contains = textBlock.classList.contains;
-                const w = textBlock.classList.contains("text-heading-1") ? 10 : textBlock.classList.contains("text-heading") ? 5 : 2;
+                const w = textBlock.classList.contains("text-heading-1") ? 10
+                    : textBlock.classList.contains("text-heading-3") ? 6
+                        : textBlock.classList.contains("text-heading") ? 5 : 2;
                 cursorWidth.set(w);
-                cursorHeight.set(rect.height);
+
+                const computedStyle = window.getComputedStyle(textBlock);
+                const fontSize = parseFloat(computedStyle.lineHeight || computedStyle.fontSize || "24");
+                cursorHeight.set(fontSize);
                 round.set("100%");
 
                 if (textBlock.classList.contains("text-paragraph")) {

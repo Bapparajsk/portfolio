@@ -105,7 +105,7 @@ export default function TopProjects() {
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
-                className="text-4xl md:text-5xl font-bold text-center"
+                className="text-4xl md:text-5xl font-bold text-center text-heading-1"
             >
                 🚀 Top Projects
             </motion.h2>
@@ -127,7 +127,7 @@ export default function TopProjects() {
                         className="bg-[#151B23] border border-[#173043] rounded-2xl p-6 shadow-lg hover:scale-[1.02] transition-transform duration-300"
                     >
                         <div className="flex items-center gap-3 mb-3 text-xl font-semibold">
-                            <span >{project.name}</span>
+                            <span className='text-paragraph'>{project.name}</span>
 
                             <Tooltip content="View on GitHub" color='foreground'>
                                 <Button
@@ -138,6 +138,7 @@ export default function TopProjects() {
                                     size='sm'
                                     color='primary'
                                     isIconOnly={true}
+                                    className='button'
                                 >
                                     {getIcon({
                                         name: "github",
@@ -146,22 +147,24 @@ export default function TopProjects() {
                                 </Button>
                             </Tooltip>
                         </div>
-                        <p className="text-gray-400 mb-4 text-sm">{project.description?.length > 200 ? project.description.substring(0, 200) + "..." : project.description}</p>
+                        <p className="text-gray-400 mb-4 text-sm text-paragraph">{project.description?.length > 200 ? project.description.substring(0, 200) + "..." : project.description}</p>
                         <div className='flex flex-col gap-2'>
                             <div className="flex flex-wrap gap-2 items-center">
                                 {project.languages.map((tech) => (
                                     <span
                                         key={tech}
-                                        className="text-xs border border-gray-700 text-gray-300 px-2 py-1 rounded-full shadow-sm"
+                                        className="text-xs border border-gray-700 button-full-round text-gray-300 px-2 py-1 rounded-full shadow-sm"
                                     >
                                         {tech}
                                     </span>
                                 ))}
-                                <div className='w-[2px] h-5 rounded-lg bg-pink-500' />
+                                <div className='w-[2px] h-5 rounded-lg bg-pink-500' style={{
+                                    display: project.topics.length > 0 ? 'block' : 'none'
+                                }}/>
                                 {project.topics.map((tech) => (
                                     <span
                                         key={tech}
-                                        className="text-xs border border-gray-700 text-gray-300 px-2 py-1 rounded-full shadow-sm"
+                                        className="button-full-round text-xs border border-gray-700 text-gray-300 px-2 py-1 rounded-full shadow-sm"
                                     >
                                         {tech}
                                     </span>

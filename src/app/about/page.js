@@ -19,7 +19,7 @@ export default function page() {
     return (
         <LocomotiveProviders autoStart={false} >
             <main className={"w-full px-2 md:px-0 bg-slate-950"} >
-                <div className={"fixed top-5 left-2 z-50"}>
+                <div className={"fixed top-5 left-2 z-40"}>
                     <HomeButton />
                 </div>
                 <div >
@@ -42,7 +42,7 @@ export default function page() {
                             >
                                 <div className="text-center">
                                     <div className="text-3xl md:text-5xl font-bold text-white mb-4 flex gap-5">
-                                        Hi, I'm a
+                                        <span className="text-heading">Hi, I'm a</span>
                                         <TrueFocus
                                             sentence="Software Developer."
                                             manualMode={false}
@@ -53,7 +53,7 @@ export default function page() {
                                             
                                         />
                                     </div>
-                                    <p className="text-lg md:text-xl text-gray-300 max-w-xl mx-auto mt-4 leading-relaxed tracking-wide">
+                                    <p className="text-paragraph text-lg md:text-xl text-gray-300 max-w-xl mx-auto mt-4 leading-relaxed tracking-wide">
                                         I build scalable apps that solve real-world problems.
                                     </p>
                                 </div>

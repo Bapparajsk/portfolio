@@ -77,7 +77,7 @@ export default function MainProjects() {
     return (
         <div className="w-full h-auto relative">
             {/* Floating Title */}
-            <div className="fixed top-14 left-5 w-fit pt-10 z-50">
+            <div className="fixed top-14 left-5 w-fit pt-10 z-20">
                 <div className="flex-col gap-4 hidden lg:flex">
                     <AnimatePresence mode="wait">
                         {activeSection && (
@@ -141,7 +141,7 @@ const MotionTitle = ({ title, progress }) => (
         className="flex items-center gap-2 relative"
     >
         <div className="w-fit text-2xl font-semibold capitalize">
-            {title}
+            <h3 className="text-heading-3">{title}</h3>
             <motion.div
                 className="absolute bottom-0 left-0 w-0 h-1 bg-[#64D4EE] rounded-full"
                 style={{ width: progress }}

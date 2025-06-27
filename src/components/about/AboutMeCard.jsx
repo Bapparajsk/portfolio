@@ -10,9 +10,8 @@ export default function AboutMe() {
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl md:text-5xl font-bold flex items-center justify-center gap-4"
+                    className="text-4xl md:text-5xl font-bold flex items-center justify-center gap-4 text-heading-1"
                 >
-                    {/* <FaUserAstronaut className="text-yellow-300" /> */}
                     About Me
                 </motion.h1>
 
@@ -20,7 +19,7 @@ export default function AboutMe() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg leading-relaxed text-gray-300"
+                    className="text-lg leading-relaxed text-gray-300 text-paragraph"
                 >
                     I’m a{' '}
                     <span className="text-cyan-400 font-semibold">Full-Stack Developer</span> with a
@@ -34,7 +33,7 @@ export default function AboutMe() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-md leading-relaxed text-gray-400"
+                    className="text-md leading-relaxed text-gray-400 text-paragraph"
                 >
                     I specialize in{' '}
                     <span className="text-blue-400">JavaScript</span>,{' '}
@@ -51,7 +50,7 @@ export default function AboutMe() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="text-md leading-relaxed text-gray-400"
+                    className="text-md leading-relaxed text-gray-400 text-paragraph"
                 >
                     My focus is on building{' '}
                     <span className="text-purple-400">scalable backend services</span>, managing{' '}
@@ -66,7 +65,7 @@ export default function AboutMe() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 }}
-                    className="text-md text-gray-500 italic"
+                    className="text-md text-gray-500 italic text-paragraph"
                 >
                     “Build. Break. Learn. Repeat.” 💡
                 </motion.p>

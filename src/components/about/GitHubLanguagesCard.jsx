@@ -13,7 +13,7 @@ export default function GitHubLanguages() {
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
-                className="text-4xl md:text-5xl font-bold text-center mb-10"
+                className="text-4xl md:text-5xl font-bold text-center mb-10 text-heading-1"
             >
                 🚀 Github Status
             </motion.h2>
@@ -30,8 +30,7 @@ export default function GitHubLanguages() {
                 <div className="w-full h-full bg-inherit md:col-start-3 md:col-span-3 md:row-span-2">
                     <Card className="w-full h-full bg-[#151B23]">
                         <CardHeader>
-                            <h2 className="text-md md:text-xl lg:text-2xl font-semibold text-white">GitHub Stats</h2>
-                            {/* <p className="text-gray-400 text-sm">My GitHub activity and stats</p> */}
+                            <h3 className="text-md md:text-xl lg:text-2xl font-semibold text-white text-heading-3">GitHub Stats</h3>
                         </CardHeader>
                         <CardBody>
                             <img
