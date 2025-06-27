@@ -100,8 +100,8 @@ export default function Form() {
                 shadow="sm"
             >
                 <CardHeader>
-                    <h3 className="text-2xl font-bold">Contact</h3>
-                    <p className="text-sm ml-2 text-gray-500">
+                    <h3 className="text-2xl font-bold text-heading">Contact</h3>
+                    <p className="text-sm ml-2 text-gray-500 text-paragraph">
                         to bapparajsk97@gmail.com
                     </p>
                 </CardHeader>
@@ -110,7 +110,8 @@ export default function Form() {
                         <div className="flex flex-col gap-3">
                             <div className="flex flex-col gap-1">
                                 <Input
-                                    type="text"
+                                    className="input"
+                                    type="text" 
                                     variant="bordered"
                                     label="Full Name"
                                     isRequired={true}
@@ -124,6 +125,7 @@ export default function Form() {
                             </div>
                             <div className="flex flex-col gap-1">
                                 <Input
+                                    className="input"
                                     type="email"
                                     variant="bordered"
                                     label="Email"
@@ -141,6 +143,7 @@ export default function Form() {
                             </div>
                             <div className="flex flex-col gap-1">
                                 <Textarea
+                                    className="input"
                                     label="Message"
                                     minRows={6}
                                     maxRows={6}
@@ -165,6 +168,7 @@ export default function Form() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             as={"a"}
+                                            className="button cursor-none"
                                         >
                                             <Image
                                                 src={item.icon}
@@ -176,7 +180,7 @@ export default function Form() {
                                         </Button>
                                     ))}
                                 </div>
-                                <Button type="submit" variant="shadow" color="primary" isLoading={isSubmitting} >Submit</Button>
+                                <Button type="submit" variant="shadow" color="primary" className="button cursor-none" isLoading={isSubmitting} >Submit</Button>
                             </div>
                         </div>
                     </form>

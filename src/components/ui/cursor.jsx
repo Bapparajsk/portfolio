@@ -2,42 +2,60 @@
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { usePathname } from "next/navigation"; // 🧠 hook to detect page change
+import { usePathname } from "next/navigation";
+
+const roundValues = {
+    "input": 10,
+    "button": 15,
+    "nav-button": 100,
+    "text-paragraph": 0,
+    "text-heading": 0,
+}
 
 const Cursor = () => {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
+    const cursorWidth = useMotionValue(32);
+    const cursorHeight = useMotionValue(32);
+    const cursorScale = useMotionValue(1);
+    const round = useMotionValue(100);
 
     const springX = useSpring(mouseX, { stiffness: 300, damping: 30 });
     const springY = useSpring(mouseY, { stiffness: 300, damping: 30 });
-
-    const cursorWidth = useMotionValue(32);
-    const cursorHeight = useMotionValue(32);
     const springWidth = useSpring(cursorWidth, { stiffness: 300, damping: 20 });
     const springHeight = useSpring(cursorHeight, { stiffness: 300, damping: 20 });
+    const springScale = useSpring(cursorScale, { stiffness: 300, damping: 20 });
+    const springRound = useSpring(round, { stiffness: 300, damping: 20 });
 
     const isMagnetActive = useRef(false);
+    const currentType = useRef(null);
     const currentTarget = useRef(null);
-
-    const pathname = usePathname(); // 📍 track route changes
+    const pathname = usePathname();
 
     useEffect(() => {
-        // 🧹 Reset everything when the route changes
+        // Reset on route change
         isMagnetActive.current = false;
         currentTarget.current = null;
         cursorWidth.set(32);
         cursorHeight.set(32);
+        cursorScale.set(1);
     }, [pathname]);
 
     useEffect(() => {
         const moveCursor = (e) => {
-            if (isMagnetActive.current && currentTarget.current) {
-                const rect = currentTarget.current.getBoundingClientRect();
+            const target = currentTarget.current;
+
+            if (isMagnetActive.current && target) {
+                const rect = target.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
 
-                const offsetX = (e.clientX - centerX) * 0.3;
-                const offsetY = (e.clientY - centerY) * 0.3;
+                // Use softer magnet effect for input
+                const isInput = target.classList.contains("input");
+                const strength = isInput ? 0.01 : 0.2;
+
+                const offsetX = (e.clientX - centerX) * strength;
+                const offsetY = (e.clientY - centerY) * strength;
 
                 mouseX.set(centerX + offsetX - springWidth.get() / 2);
                 mouseY.set(centerY + offsetY - springHeight.get() / 2);
@@ -48,37 +66,86 @@ const Cursor = () => {
         };
 
         const handleClick = () => {
-            cursorWidth.set(50);
-            cursorHeight.set(50);
-            setTimeout(() => {
-                if (!isMagnetActive.current) {
-                    cursorWidth.set(32);
-                    cursorHeight.set(32);
-                }
-            }, 100);
+            const el = currentTarget.current;
+
+            const isInteractive =
+                el &&
+                (el.classList.contains("nav-button") ||
+                    el.classList.contains("text-paragraph") ||
+                    el.classList.contains("text-heading") ||
+                    el.classList.contains("input"));
+
+            if (!isInteractive) {
+                cursorScale.set(1.5);
+                setTimeout(() => cursorScale.set(1), 100);
+            }
         };
 
         const handleMouseOver = (e) => {
             const navBtn = e.target.closest(".nav-button");
-            if (navBtn) {
-                isMagnetActive.current = true;
-                currentTarget.current = navBtn;
+            const button = e.target.closest(".button");
+            const textBlock = e.target.closest(".text-paragraph, .text-heading");
+            const inputField = e.target.closest(".input");
 
-                const rect = navBtn.getBoundingClientRect();
-                cursorWidth.set(rect.width);
+            const target = navBtn || button || inputField;
+
+            if (target) {
+                isMagnetActive.current = true;
+                currentTarget.current = target;
+
+                const rect = target.getBoundingClientRect();
+                cursorWidth.set(rect.width + 8);
+                cursorHeight.set(rect.height + 8);
+
+                // Track type
+                if (target.classList.contains("nav-button")) {
+                    round.set(roundValues["nav-button"]);
+                    currentType.current = "nav-button";
+                } else if (target.classList.contains("button")) {
+                    round.set(roundValues["button"]);
+                    currentType.current = "button";
+                } else if (target.classList.contains("input")) {
+                    round.set(roundValues["input"]);
+                    currentType.current = "input";
+                }
+            } else if (textBlock) {
+                isMagnetActive.current = false;
+                currentTarget.current = textBlock;
+
+                const rect = textBlock.getBoundingClientRect();
+                const w = textBlock.classList.contains("text-heading") ? 2 : 1;
+                cursorWidth.set(w);
                 cursorHeight.set(rect.height);
+
+                if (textBlock.classList.contains("text-paragraph")) {
+                    round.set(roundValues["text-paragraph"]);
+                    currentType.current = "text-paragraph";
+                } else {
+                    round.set(roundValues["text-heading"]);
+                    currentType.current = "text-heading";
+                }
             }
         };
+
+
 
         const handleMouseOut = (e) => {
-            const navBtn = e.target.closest(".nav-button");
-            if (navBtn) {
+            const leftTarget = e.target;
+            const related = e.relatedTarget;
+
+            // If we moved from target to something else NOT inside target
+            if (currentTarget.current && (!related || !currentTarget.current.contains(related))) {
                 isMagnetActive.current = false;
                 currentTarget.current = null;
+                currentType.current = null;
+
                 cursorWidth.set(32);
                 cursorHeight.set(32);
+                round.set("100%");
+                cursorScale.set(1);
             }
         };
+
 
         document.addEventListener("mousemove", moveCursor);
         document.addEventListener("click", handleClick);
@@ -95,12 +162,14 @@ const Cursor = () => {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 z-50 pointer-events-none rounded-full border-2 border-blue-500"
+            className="fixed top-0 left-0 z-50 pointer-events-none border-2 border-blue-500"
             style={{
                 translateX: springX,
                 translateY: springY,
                 width: springWidth,
                 height: springHeight,
+                scale: springScale,
+                borderRadius: springRound,
             }}
         />
     );

@@ -44,7 +44,7 @@ export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" })
             {({ size }) => {
                 return size && size >= 480 ? (
                     <div
-                        className={'absolute cursor-pointer z-50 nav-button'}
+                        className={'absolute z-50 nav-button'}
                         style={{ transform: `translate(${x}, ${y})` }}
                     >
                         <MotionDiv
