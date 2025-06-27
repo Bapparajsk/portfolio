@@ -3,7 +3,7 @@
 import React from "react";
 import { MotionDiv, useScroll, useTransform, useSpring } from "@/lib/motion";
 import { Link, Image } from "@/lib/next";
-
+ 
 import { products } from "@/app/data";
 
 export const HeroParallax = () => {
@@ -24,6 +24,7 @@ export const HeroParallax = () => {
     const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0.2, 1]), springConfig);
     const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), springConfig);
     const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 500]), springConfig);
+
     return (
         <div
             ref={ref}
@@ -35,8 +36,7 @@ export const HeroParallax = () => {
                     rotateZ,
                     translateY,
                     opacity,
-                }}
-                className="">
+                }}>
                 <MotionDiv className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
                     {firstRow.map((product) => (
                         <ProductCard product={product} translate={translateX} key={product.title} />
@@ -59,14 +59,20 @@ export const HeroParallax = () => {
 
 export const Header = () => {
     return (
-        <div
-            className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-            <h1 className="text-2xl md:text-7xl font-bold text-white">
-                Welcome to My<br />
-                Project Showcase
+        <div 
+            className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0 z-40">
+            <h1 className="text-2xl md:text-7xl font-bold text-white text-hh">
+                <span className="text-heading-1">Welcome to My</span>
+                <br />
+                <span className="text-heading-1"> Project Showcase</span> 
             </h1>
             <p className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200">
-                Here you can find a collection of my projects, each with a unique story and purpose. I have poured my creativity and passion into developing these projects, aiming to solve real-world problems and deliver exceptional user experiences. My project showcases my skills in full stack development and problem-solving. Feel free to explore and discover the innovative solutions I have created.
+                <span className="text-paragraph">Here you can find a collection of my projects, each with a unique</span> <br />
+                <span className="text-paragraph">story and purpose. I have poured my creativity and passion into</span> <br />
+                <span className="text-paragraph">developing these projects, aiming to solve real-world problems</span> <br />
+                <span className="text-paragraph">and deliver exceptional user experiences. My project showcases</span> <br />
+                <span className="text-paragraph">my skills in full stack development and problem-solving. Feel free</span> <br />
+                <span className="text-paragraph">to explore and discover the innovative solutions I have created.</span>
             </p>
         </div>
     );
@@ -77,7 +83,7 @@ export const ProductCard = ({
     translate
 }) => {
     return (
-        (<MotionDiv
+        <MotionDiv
             style={{
                 x: translate,
             }}
@@ -100,6 +106,6 @@ export const ProductCard = ({
                 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
                 {product.title}
             </h2>
-        </MotionDiv>)
+        </MotionDiv>
     );
 };

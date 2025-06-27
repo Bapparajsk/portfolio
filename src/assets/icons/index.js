@@ -1,7 +1,7 @@
 import { type } from "os";
 
 export const getIcon = ({ name, className }) => {
-  className = "text-gray-400 " + className;
+  className = "text-gray-400" + className;
   const map = {
     home: <Home className={className} />,
     about: <About className={className} />,

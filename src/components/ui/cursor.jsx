@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
@@ -8,17 +8,23 @@ const roundValues = {
     "input": 10,
     "button": 15,
     "nav-button": 100,
-    "text-paragraph": 0,
-    "text-heading": 0,
+
 }
 
 const Cursor = () => {
+
+    const isMagnetActive = useRef(false);
+    const currentType = useRef(null);
+    const currentTarget = useRef(null);
+    const pathname = usePathname();
+
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
     const cursorWidth = useMotionValue(32);
     const cursorHeight = useMotionValue(32);
     const cursorScale = useMotionValue(1);
     const round = useMotionValue(100);
+    const backgroundColor = useMotionValue("transparent");
 
     const springX = useSpring(mouseX, { stiffness: 300, damping: 30 });
     const springY = useSpring(mouseY, { stiffness: 300, damping: 30 });
@@ -26,11 +32,7 @@ const Cursor = () => {
     const springHeight = useSpring(cursorHeight, { stiffness: 300, damping: 20 });
     const springScale = useSpring(cursorScale, { stiffness: 300, damping: 20 });
     const springRound = useSpring(round, { stiffness: 300, damping: 20 });
-
-    const isMagnetActive = useRef(false);
-    const currentType = useRef(null);
-    const currentTarget = useRef(null);
-    const pathname = usePathname();
+    // const backgroundColorSpring = useSpring(backgroundColor, { stiffness: 300, damping: 30 });
 
     useEffect(() => {
         // Reset on route change
@@ -83,8 +85,8 @@ const Cursor = () => {
 
         const handleMouseOver = (e) => {
             const navBtn = e.target.closest(".nav-button");
-            const button = e.target.closest(".button");
-            const textBlock = e.target.closest(".text-paragraph, .text-heading");
+            const button = e.target.closest(".button, .button-full-round");
+            const textBlock = e.target.closest(".text-paragraph, .text-heading, .text-heading-1");
             const inputField = e.target.closest(".input");
 
             const target = navBtn || button || inputField;
@@ -101,9 +103,13 @@ const Cursor = () => {
                 if (target.classList.contains("nav-button")) {
                     round.set(roundValues["nav-button"]);
                     currentType.current = "nav-button";
+
                 } else if (target.classList.contains("button")) {
                     round.set(roundValues["button"]);
                     currentType.current = "button";
+                } else if (target.classList.contains("button-full-round")) {
+                    round.set("100%");
+                    currentType.current = "button-full-round";
                 } else if (target.classList.contains("input")) {
                     round.set(roundValues["input"]);
                     currentType.current = "input";
@@ -111,17 +117,20 @@ const Cursor = () => {
             } else if (textBlock) {
                 isMagnetActive.current = false;
                 currentTarget.current = textBlock;
+                backgroundColor.set("#3b82f6");
 
                 const rect = textBlock.getBoundingClientRect();
-                const w = textBlock.classList.contains("text-heading") ? 2 : 1;
+                // const contains = textBlock.classList.contains;
+                const w = textBlock.classList.contains("text-heading-1") ? 10 : textBlock.classList.contains("text-heading") ? 5 : 2;
                 cursorWidth.set(w);
                 cursorHeight.set(rect.height);
+                round.set("100%");
 
                 if (textBlock.classList.contains("text-paragraph")) {
-                    round.set(roundValues["text-paragraph"]);
+                    // round.set(10);
                     currentType.current = "text-paragraph";
                 } else {
-                    round.set(roundValues["text-heading"]);
+                    // round.set(roundValues["text-heading"]);
                     currentType.current = "text-heading";
                 }
             }
@@ -130,7 +139,6 @@ const Cursor = () => {
 
 
         const handleMouseOut = (e) => {
-            const leftTarget = e.target;
             const related = e.relatedTarget;
 
             // If we moved from target to something else NOT inside target
@@ -143,6 +151,7 @@ const Cursor = () => {
                 cursorHeight.set(32);
                 round.set("100%");
                 cursorScale.set(1);
+                backgroundColor.set("transparent");
             }
         };
 
@@ -170,6 +179,7 @@ const Cursor = () => {
                 height: springHeight,
                 scale: springScale,
                 borderRadius: springRound,
+                backgroundColor
             }}
         />
     );

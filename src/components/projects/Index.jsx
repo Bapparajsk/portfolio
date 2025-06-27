@@ -18,7 +18,7 @@ export function ProjectsList() {
                     ].map((text, index) => (
                         <p
                             key={index}
-                            className="text-neutral-200 font-semibold text-md mb-6 flex gap-2"
+                            className="text-neutral-200 font-semibold text-md mb-6 flex gap-2 text-paragraph"
                         >
                             {getIcon({name: "star", className: "!text-blue-500"})} {text}
                         </p>
@@ -37,7 +37,7 @@ export function ProjectsList() {
                     ].map((text, idx) => (
                         <div key={idx} className="flex gap-1">
                             {getIcon({name: "checks", className: "!text-[#73EC8B]"})}{" "}
-                            <p className="text-neutral-200 font-semibold text-md mb-4">
+                            <p className="text-neutral-200 font-semibold text-md mb-4 text-paragraph">
                                 {text}
                             </p>
                         </div>
@@ -110,7 +110,7 @@ export function ProjectsList() {
                     ].map((item, idx) => (
                         <div key={idx} className="flex gap-x-1">
                             {getIcon({name: item.icon})}{" "}
-                            <strong className="text-neutral-200 mb-4">
+                            <strong className="text-neutral-200 mb-4 text-paragraph">
                                 {item.text}
                             </strong>
                         </div>
@@ -188,7 +188,7 @@ export function ProjectsList() {
                         ].map((items, index) => (
                             <Card key={index} {...items} />
                         ))}
-                        <div className="w-full h-full rounded-md">
+                        <div className="w-full h-full rounded-md button-full-round">
                             <Link
                                 href="https://github.com/Bapparajsk?tab=repositories"
                                 target={"_blank"}
@@ -214,7 +214,7 @@ export function ProjectsList() {
                             "Updated all repositories on GitHub.",
                         ].map((text, idx) => (
                             <div key={idx} className="flex gap-2 items-start text-neutral-300 text-xl mb-3">
-                                {getIcon({name: "pencilCheck"})} <strong>{text}</strong>
+                                {getIcon({name: "pencilCheck"})} <strong className="text-paragraph">{text}</strong>
                             </div>
                         ))}
 

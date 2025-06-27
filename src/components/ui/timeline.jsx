@@ -8,7 +8,7 @@ export const Timeline = ({ data }) => {
     const titleRef = useRef(null);
     const containerRef = useRef(null);
     const [height, setHeight] = useState(0);
-    const [activeIndex, setActiveIndex] = useState(null);
+    // const [activeIndex, setActiveIndex] = useState(null);
 
     useEffect(() => {
         if (ref.current) {
@@ -26,7 +26,7 @@ export const Timeline = ({ data }) => {
     const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
     return (
-        (<div
+        <div
             className="w-full font-sans md:px-10"
             ref={containerRef}>
             <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
@@ -51,8 +51,7 @@ export const Timeline = ({ data }) => {
                                     className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
                             </div>
                             <h3
-                                
-                                className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
+                                className="text-heading-1 hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
                                 {item.title}
                             </h3>
                         </div>
@@ -79,6 +78,6 @@ export const Timeline = ({ data }) => {
                         className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full" />
                 </div>
             </div>
-        </div>)
+        </div>
     );
 };

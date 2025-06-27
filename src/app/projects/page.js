@@ -15,7 +15,7 @@ export default function page() {
         <LocomotiveProviders>
             <main className="relative w-full h-full">
                 <div className="absolute top-0 left-0 w-full h-full bg-project-bg z-0" />
-                <div className={'fixed top-2 left-2 z-[100]'}>
+                <div className={'fixed top-2 left-2 z-40'}>
                     <HomeButton />
                 </div>
                 <HeroParallax />
