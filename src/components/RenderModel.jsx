@@ -15,13 +15,13 @@ export const RenderModel = ({ children, isMainModel = false }) => {
       <pointLight position={[-2, -2, -2]} intensity={0.5} />
       <Environment preset="city" />
       <Suspense fallback={<CanvasLoader />}>
-      <OrbitControls 
-        enableZoom={false} 
-        rotateSpeed={0.5}  // Lower rotation speed
-        dampingFactor={0.1}  // Add damping for smooth effect
-        enableDamping={true} // Enable damping
-      />
-        {children}
+        <OrbitControls 
+          enableZoom={false} 
+          rotateSpeed={0.5}  // Lower rotation speed
+          dampingFactor={0.1}  // Add damping for smooth effect
+          enableDamping={true} // Enable damping
+        />
+          {children}
       </Suspense>
       <Preload all />
     </Canvas>

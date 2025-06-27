@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const techDetails = [
@@ -65,29 +65,48 @@ export default function ToolsTechnologies() {
                 transition={{ duration: 0.6 }}
                 className="text-5xl font-extrabold text-center mb-16 flex justify-center items-center gap-4"
             >
-                <img src={`/svg/tools.svg`} className={"size-20"}/>
+                <img src={`/svg/tools.svg`} className={"size-20"} />
                 Tools & Technologies
             </motion.h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                {techDetails.map(({ title, items, color }, index) => (
+                {techDetails.map(({ title, items, color }) => (
                     <motion.div
                         key={title}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.15, duration: 0.5 }}
+                        transition={{ duration: 0.5 }}
                         viewport={{ once: true }}
                         className="bg-[#151B23] p-6 rounded-2xl backdrop-blur-md shadow-lg"
                     >
                         <h3 className={`text-2xl font-semibold mb-4 ${color}`}>{title}</h3>
                         <div className="space-y-2">
                             {items.map((i, idx) => (
-                                <div key={idx} 
-                                    className="flex items-center gap-2 text-white/90 py-1.5 px-2 rounded-lg duration-300 cursor-pointer border border-gray-600 hover:border-gray-300 transition-transform "
+                                <motion.div
+                                    key={idx}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    transition={{ type: "spring", stiffness: 300, }}
+                                    className="flex items-center gap-2 text-white/90 py-1.5 px-2 rounded-lg cursor-pointer 
+             border border-gray-600 hover:border-cyan-400 
+             transition-transform duration-300 bg-white/5 hover:bg-white/10"
                                 >
-                                    <Image src={`/svg/${i.icon.toLowerCase()}.svg`} width={500} height={500} className={"size-5"}/>
-                                    {i.name}
-                                </div>
+                                    <motion.div
+                                        whileHover={{ scale: 1.2, rotate: 5 }}
+                                        transition={{ type: "spring", stiffness: 300 }}
+                                        className="shrink-0"
+                                    >
+                                        <Image
+                                            src={`/svg/${i.icon.toLowerCase()}.svg`}
+                                            width={500}
+                                            height={500}
+                                            className="size-5"
+                                            alt={i.name}
+                                        />
+                                    </motion.div>
+                                    <span className="ml-1">{i.name}</span>
+                                </motion.div>
+
                             ))}
                         </div>
                     </motion.div>
