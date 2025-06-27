@@ -112,13 +112,13 @@ function IconContainer({
   const target = href.startsWith("http") ? "_blank" : "_self";
 
   return (
-    <Link href={href} target={target}>
+    <Link href={href} target={target} className="nav-button cursor-none">
       <MotionDiv
         ref={ref}
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className={cn("aspect-square rounded-full bg-gray-200 flex items-center justify-center relative", isDark && "dark:bg-neutral-800")}
+        className={cn("aspect-square rounded-full  bg-gray-200 flex items-center justify-center relative", isDark && "dark:bg-neutral-800")}
       >
         <AnimatePresence>
           {hovered && (
