@@ -34,6 +34,7 @@
     "gsap": "^3.12.5",
     "ioredis": "^5.6.1",
     "locomotive-scroll": "^5.0.0-beta.21",
+    "lodash": "^4.17.21",
     "next": "^14.2.21",
     "nodemailer": "^6.10.0",
     "ogl": "^1.0.11",

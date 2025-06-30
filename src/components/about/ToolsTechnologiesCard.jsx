@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import MagneticContainer from '../ui/MagneticButton';
 
 const techDetails = [
     {
@@ -82,26 +83,26 @@ export default function ToolsTechnologies() {
                         <h3 className={`text-2xl font-semibold mb-4 text-heading-3 ${color}`}>{title}</h3>
                         <div className="space-y-2">
                             {items.map((i, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    className="flex items-center gap-2 text-white/90 py-1.5 px-2 rounded-lg cursor-pointer 
+                                <MagneticContainer sensitivity={15} key={idx}>
+                                    <motion.div
+                                        className="flex items-center gap-2 text-white/90 py-1.5 px-2 rounded-lg cursor-pointer 
                                         border border-gray-600 
                                         transition-transform duration-300 bg-white/5 hover:bg-white/10 button"
-                                >
-                                    <motion.div
-                                        className="shrink-0"
                                     >
-                                        <Image
-                                            src={`/svg/${i.icon.toLowerCase()}.svg`}
-                                            width={500}
-                                            height={500}
-                                            className="size-5"
-                                            alt={i.name}
-                                        />
+                                        <motion.div
+                                            className="shrink-0"
+                                        >
+                                            <Image
+                                                src={`/svg/${i.icon.toLowerCase()}.svg`}
+                                                width={500}
+                                                height={500}
+                                                className="size-5"
+                                                alt={i.name}
+                                            />
+                                        </motion.div>
+                                        <span className="ml-1">{i.name}</span>
                                     </motion.div>
-                                    <span className="ml-1">{i.name}</span>
-                                </motion.div>
-
+                                </MagneticContainer>
                             ))}
                         </div>
                     </motion.div>

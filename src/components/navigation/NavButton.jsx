@@ -4,6 +4,7 @@ import { MotionDiv } from "@/lib/motion";
 import { getIcon } from "@/assets/icons";
 import { addToast } from "@heroui/toast";
 import { useRouter } from "@/lib/next";
+import MagneticContainer from "../ui/MagneticButton";
 
 const item = {
     hidden: { scale: 0 },
@@ -15,9 +16,9 @@ export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" })
     const router = useRouter();
 
     const handleClick = () => {
-        if(!link) return;
+        if (!link) return;
 
-        if(label === "Resume") {
+        if (label === "Resume") {
             const link = document.createElement('a');
             link.href = "/bapparaj-resume.pdf";
             link.download = 'bapparaj-resume.pdf';
@@ -43,6 +44,7 @@ export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" })
         <ResponsiveComponent>
             {({ size }) => {
                 return size && size >= 480 ? (
+
                     <div
                         className={'absolute z-50 nav-button'}
                         style={{ transform: `translate(${x}, ${y})` }}
@@ -52,7 +54,7 @@ export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" })
                             className={'relative text-foreground rounded-full flex items-center justify-center transition-shadow duration-500'}
                             onClick={handleClick}
                             aria-label={label}
-                            nama={label}
+                            name={label}
                             whileHover={{ scale: 1.2, transition: { duration: 0.3, type: "spring" } }}
                             whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
                         >
@@ -65,7 +67,7 @@ export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" })
                                 className="absolute top-0 left-0 w-full h-full bg-[#1c2a4261] rounded-[22%_78%_59%_41%/55%_27%_73%_45%] animate-spin2" />
                             <span
                                 className={'relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent'}>
-                                {getIcon({name: icon})}
+                                {getIcon({ name: icon })}
 
                                 <span className={'peer bg-transparent absolute top-0 w-full h-full'} />
 
@@ -74,8 +76,10 @@ export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" })
                                     {label}
                                 </span>
                             </span>
+
                         </MotionDiv>
                     </div>
+
                 ) : (
                     <div className={'w-fit cursor-pointer z-50 nav-button '} >
                         <MotionDiv
@@ -96,7 +100,7 @@ export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" })
                                 className="absolute top-0 left-0 w-full h-full bg-[#1c2a4261] rounded-[22%_78%_59%_41%/55%_27%_73%_45%] animate-spin2" />
                             <span
                                 className={'relative w-10 h-10 xs:w-14 xs:h-14 p-2.5 xs:p-4'}>
-                                {getIcon({name: icon, className: "w-full h-full"})}
+                                {getIcon({ name: icon, className: "w-full h-full" })}
 
                                 <span className={'peer bg-transparent absolute top-0 w-full h-full'} />
 

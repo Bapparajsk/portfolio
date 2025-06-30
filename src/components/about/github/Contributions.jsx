@@ -17,6 +17,7 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/charts"
 import { Spinner } from "@heroui/spinner";
+import MagneticContainer from "@/components/ui/MagneticButton";
 
 const chartConfig = {
     views: {
@@ -60,9 +61,11 @@ export function Contributions() {
                     </h3>
                     <Dropdown backdrop="opaque">
                         <DropdownTrigger>
-                            <Button variant="ghost" className="button" color="primary" radius="lg" isLoading={isPending} isDisabled={isError}>
+                            <MagneticContainer>
+                                <Button variant="ghost" className="button" color="primary" radius="lg" isLoading={isPending} isDisabled={isError}>
                                 <span className="font-semibold">{selectedValue}</span>
                             </Button>
+                            </MagneticContainer>
                         </DropdownTrigger>
                         <DropdownMenu
                             disallowEmptySelection

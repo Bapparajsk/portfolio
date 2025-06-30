@@ -6,6 +6,7 @@ import { Tooltip } from "@heroui/tooltip";
 import { Button } from '@heroui/button';
 import { getIcon } from '@/assets/icons';
 import { Skeleton } from '@heroui/skeleton';
+import MagneticContainer from '../ui/MagneticButton';
 
 const staticData =
     [
@@ -115,7 +116,7 @@ export default function TopProjects() {
                 </div>
             )}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {isPending && Array.from({length: 4}).map((_, len) => (
+                {isPending && Array.from({ length: 4 }).map((_, len) => (
                     <SkeletonCard key={len} />
                 ))}
                 {data && data.map((project, index) => (
@@ -130,44 +131,49 @@ export default function TopProjects() {
                             <span className='text-paragraph'>{project.name}</span>
 
                             <Tooltip content="View on GitHub" color='foreground'>
-                                <Button
-                                    as={"a"}
-                                    href={project.url}
-                                    target="_blank"
-                                    variant='faded'
-                                    size='sm'
-                                    color='primary'
-                                    isIconOnly={true}
-                                    className='button'
-                                >
-                                    {getIcon({
-                                        name: "github",
-                                        className: "text-gray-400 size-5"
-                                    })}
-                                </Button>
+                                <MagneticContainer sensitivity={8}>
+                                    <Button
+                                        as={"a"}
+                                        href={project.url}
+                                        target="_blank"
+                                        variant='faded'
+                                        size='sm'
+                                        color='primary'
+                                        isIconOnly={true}
+                                        className='button'
+                                    >
+                                        {getIcon({
+                                            name: "github",
+                                            className: "text-gray-400 size-5"
+                                        })}
+                                    </Button>
+                                </MagneticContainer>
                             </Tooltip>
                         </div>
                         <p className="text-gray-400 mb-4 text-sm text-paragraph">{project.description?.length > 200 ? project.description.substring(0, 200) + "..." : project.description}</p>
                         <div className='flex flex-col gap-2'>
                             <div className="flex flex-wrap gap-2 items-center">
                                 {project.languages.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="text-xs border border-gray-700 button-full-round text-gray-300 px-2 py-1 rounded-full shadow-sm"
-                                    >
-                                        {tech}
-                                    </span>
+                                    <MagneticContainer sensitivity={8} key={tech}>
+                                        <span
+                                            key={tech}
+                                            className="text-xs border border-gray-700 button-full-round text-gray-300 px-2 py-1 rounded-full shadow-sm"
+                                        >
+                                            {tech}
+                                        </span>
+                                    </MagneticContainer>
                                 ))}
                                 <div className='w-[2px] h-5 rounded-lg bg-pink-500' style={{
                                     display: project.topics.length > 0 ? 'block' : 'none'
-                                }}/>
+                                }} />
                                 {project.topics.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="button-full-round text-xs border border-gray-700 text-gray-300 px-2 py-1 rounded-full shadow-sm"
-                                    >
-                                        {tech}
-                                    </span>
+                                    <MagneticContainer sensitivity={8} key={tech}>
+                                        <span
+                                            className="button-full-round text-xs border border-gray-700 text-gray-300 px-2 py-1 rounded-full shadow-sm"
+                                        >
+                                            {tech}
+                                        </span>
+                                    </MagneticContainer>
                                 ))}
                             </div>
                         </div>

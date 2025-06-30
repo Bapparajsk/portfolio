@@ -92,18 +92,21 @@ const Cursor = () => {
             const target = navBtn || button || inputField;
 
             if (target) {
+                // 🛑 Prevent redundant updates
+                if (currentTarget.current === target) return;
+
                 isMagnetActive.current = true;
                 currentTarget.current = target;
 
                 const rect = target.getBoundingClientRect();
+                console.log("Cursor target:", target, "Rect:", rect);
+                
                 cursorWidth.set(rect.width + 8);
                 cursorHeight.set(rect.height + 8);
 
-                // Track type
                 if (target.classList.contains("nav-button")) {
                     round.set(roundValues["nav-button"]);
                     currentType.current = "nav-button";
-
                 } else if (target.classList.contains("button")) {
                     round.set(roundValues["button"]);
                     currentType.current = "button";
@@ -115,12 +118,13 @@ const Cursor = () => {
                     currentType.current = "input";
                 }
             } else if (textBlock) {
+                if (currentTarget.current === textBlock) return;
+
                 isMagnetActive.current = false;
                 currentTarget.current = textBlock;
                 backgroundColor.set("#3b82f6");
 
                 const rect = textBlock.getBoundingClientRect();
-                // const contains = textBlock.classList.contains;
                 const w = textBlock.classList.contains("text-heading-1") ? 10
                     : textBlock.classList.contains("text-heading-3") ? 6
                         : textBlock.classList.contains("text-heading") ? 5 : 2;
@@ -131,16 +135,11 @@ const Cursor = () => {
                 cursorHeight.set(fontSize);
                 round.set("100%");
 
-                if (textBlock.classList.contains("text-paragraph")) {
-                    // round.set(10);
-                    currentType.current = "text-paragraph";
-                } else {
-                    // round.set(roundValues["text-heading"]);
-                    currentType.current = "text-heading";
-                }
+                currentType.current = textBlock.classList.contains("text-paragraph")
+                    ? "text-paragraph"
+                    : "text-heading";
             }
         };
-
 
 
         const handleMouseOut = (e) => {

@@ -8,6 +8,10 @@ import { Input, Textarea } from "@heroui/input";
 import { Spinner } from "@heroui/spinner";
 import { BorderBeam } from "../ui/border-beam";
 import { Image } from "@/lib/next";
+import { motion } from "framer-motion";
+import { useMagnetic } from "@/hooks/useMagnetic";
+import MagneticButton from "../ui/MagneticButton";
+import MagneticContainer from "../ui/MagneticButton";
 
 const FormButtonData = [
     {
@@ -28,7 +32,11 @@ const FormButtonData = [
     }
 ]
 
+const MotionButton = motion.create(Button)
+
 export default function Form() {
+
+    const { ref, style, handleMouseMove, handleMouseLeave } = useMagnetic();
 
     const {
         register,
@@ -91,7 +99,6 @@ export default function Form() {
         reset();
     };
 
-
     return (
         <div className="relative w-full h-full p-3 overflow-hidden">
             <Card
@@ -111,7 +118,7 @@ export default function Form() {
                             <div className="flex flex-col gap-1">
                                 <Input
                                     className="input"
-                                    type="text" 
+                                    type="text"
                                     variant="bordered"
                                     label="Full Name"
                                     isRequired={true}
@@ -160,27 +167,39 @@ export default function Form() {
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-2 px-2">
                                     {FormButtonData.map((item, index) => (
-                                        <Button
-                                            variant="bordered"
-                                            isIconOnly
-                                            key={index}
-                                            href={item.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            as={"a"}
-                                            className="button cursor-none"
-                                        >
-                                            <Image
-                                                src={item.icon}
-                                                width={50}
-                                                height={50}
-                                                alt={item.alt}
-                                                className="size-6"
-                                            />
-                                        </Button>
+                                        <MagneticContainer>
+                                            <Button
+                                                as={"a"}
+                                                variant="bordered"
+                                                isIconOnly
+                                                key={index}
+                                                href={item.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="button cursor-none"
+                                            >
+                                                <Image
+                                                    src={item.icon}
+                                                    width={50}
+                                                    height={50}
+                                                    alt={item.alt}
+                                                    className="size-6"
+                                                />
+                                            </Button>
+                                        </MagneticContainer>
                                     ))}
                                 </div>
-                                <Button type="submit" variant="shadow" color="primary" className="button cursor-none" isLoading={isSubmitting} >Submit</Button>
+                                <MagneticContainer>
+                                    <Button
+                                        type="submit"
+                                        variant="shadow"
+                                        color="primary"
+                                        className="button cursor-none"
+                                        isLoading={isSubmitting}
+                                    >
+                                        Submit
+                                    </Button>
+                                </MagneticContainer>
                             </div>
                         </div>
                     </form>
