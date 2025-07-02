@@ -68,7 +68,7 @@ const TrueFocus = ({
           <span
             key={index}
             ref={(el) => (wordRefs.current[index] = el)}
-            className="relative font-black cursor-pointer text-cyan-400 button"
+            className="relative font-black cursor-none text-cyan-400 button"
             style={{
               filter: manualMode
                 ? isActive
@@ -90,7 +90,7 @@ const TrueFocus = ({
       })}
 
       <motion.div
-        className="absolute top-0 left-0 pointer-events-none box-border border-0"
+        className="absolute top-0 left-0 cursor-none box-border border-0"
         animate={{
           x: focusRect.x,
           y: focusRect.y,
