@@ -1,9 +1,7 @@
 import { AboutDetails } from "@/components/about/index";
 import MainProjects from "@/components/about/MainProjects";
 import { LampContainer } from "@/components/ui/lamp";
-import { FloatingDock } from "@/components/ui/floating-dock";
 import { MotionH1 } from "@/lib/motion";
-import HomeButton from "@/components/ui/homeButton";
 import { LocomotiveProviders } from "../locomotiveProviders";
 import TrueFocus from "@/components/ui/TrueFocus";
 import LoadingAnimation from "@/components/about/loading";
@@ -19,9 +17,6 @@ export default function page() {
     return (
         <LocomotiveProviders autoStart={false} >
             <main className={"w-full px-2 md:px-0 bg-slate-950"} >
-                <div className={"fixed top-5 left-2 z-40"}>
-                    <HomeButton />
-                </div>
                 <div >
                     <div
                         data-scroll
@@ -65,13 +60,6 @@ export default function page() {
                     </div>
                     <div className="w-full h-auto bg-[#010409] relative">
                         <MainProjects />
-                        <footer>
-                            <div
-                                className={`flex items-center justify-center h-[35rem] md:h-[200px] w-full `}
-                            >
-                                <FloatingDock pathName={"about"} isDark={true} />
-                            </div>
-                        </footer>
                     </div>
                 </div>
                 <LoadingAnimation />

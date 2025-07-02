@@ -1,13 +1,20 @@
 export const ButtonList = [
-    { label: 'Home', link: '/', icon: 'home' },
-    { label: 'About', link: '/about', icon: 'about' },
-    { label: 'Projects', link: '/projects', icon: 'project' },
-    { label: 'Contact', link: '/contact', icon: 'phone' },
+    { label: 'Home', link: '/', icon: 'home',},
+    { label: 'About', link: '/about', icon: 'about',},
+    { label: 'Projects', link: '/projects', icon: 'project',},
+    { label: 'Contact', link: '/contact', icon: 'phone',},
     { label: 'Github', link: 'https://github.com/Bapparajsk', icon: 'github'},
     { label: 'LinkedIn', link: 'https://www.linkedin.com/in/bappa-raj-sk-6a0153233/', icon: 'linkedin'},
     { label: 'Resume', link: '#', icon: 'resume'},
     { label: 'x', link: 'https://twitter.com/bapparaj007', icon: 'x'},
 ];
+
+export const ButtonListColorMap = {
+    home: "text-[#00BFA6] dark:text-[#00BFA6]",
+    about: "text-[#66CCFF] dark:text-[#66CCFF]",
+    project: "text-[#00BFA6] dark:text-[#00BFA6]",
+    phone: "text-[#FFC107] dark:text-[#FFC107]",
+}
 
 export const testimonials = [
     {

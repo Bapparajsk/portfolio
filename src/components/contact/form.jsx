@@ -32,12 +32,7 @@ const FormButtonData = [
     }
 ]
 
-const MotionButton = motion.create(Button)
-
 export default function Form() {
-
-    const { ref, style, handleMouseMove, handleMouseLeave } = useMagnetic();
-
     const {
         register,
         handleSubmit,
@@ -167,7 +162,7 @@ export default function Form() {
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-2 px-2">
                                     {FormButtonData.map((item, index) => (
-                                        <MagneticContainer>
+                                        <MagneticContainer key={index}>
                                             <Button
                                                 as={"a"}
                                                 variant="bordered"

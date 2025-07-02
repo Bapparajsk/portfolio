@@ -4,7 +4,6 @@ import { MotionDiv } from "@/lib/motion";
 import { getIcon } from "@/assets/icons";
 import { addToast } from "@heroui/toast";
 import { useRouter } from "@/lib/next";
-import MagneticContainer from "../ui/MagneticButton";
 
 const item = {
     hidden: { scale: 0 },

@@ -1,18 +1,16 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 const roundValues = {
-    "input": 10,
-    "button": 15,
+    input: 10,
+    button: 15,
     "nav-button": 100,
+};
 
-}
-
-const Cursor = () => {
-
+const MagneticCursor = () => {
     const isMagnetActive = useRef(false);
     const currentType = useRef(null);
     const currentTarget = useRef(null);
@@ -73,9 +71,14 @@ const Cursor = () => {
             const isInteractive =
                 el &&
                 (el.classList.contains("nav-button") ||
+                    el.classList.contains("button") ||
+                    el.classList.contains("button-full-round") ||
                     el.classList.contains("text-paragraph") ||
                     el.classList.contains("text-heading") ||
-                    el.classList.contains("input"));
+                    el.classList.contains("text-heading-1") ||
+                    el.classList.contains("text-heading-3") ||
+                    el.classList.contains("input")
+                );
 
             if (!isInteractive) {
                 cursorScale.set(1.5);
@@ -99,8 +102,7 @@ const Cursor = () => {
                 currentTarget.current = target;
 
                 const rect = target.getBoundingClientRect();
-                console.log("Cursor target:", target, "Rect:", rect);
-                
+
                 cursorWidth.set(rect.width + 8);
                 cursorHeight.set(rect.height + 8);
 
@@ -183,10 +185,10 @@ const Cursor = () => {
                 height: springHeight,
                 scale: springScale,
                 borderRadius: springRound,
-                backgroundColor
+                backgroundColor,
             }}
         />
     );
 };
 
-export default Cursor;
+export default MagneticCursor;
