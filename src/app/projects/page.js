@@ -12,7 +12,7 @@ export default function page() {
     return (
         <LocomotiveProviders>
             <main className="relative w-full h-full">
-                <div className="absolute top-0 left-0 w-full h-full bg-project-bg z-0" />
+                <div className="absolute top-0 left-0 w-full h-full bg-project-bg-light dark:bg-project-bg z-0" />
                 <HeroParallax />
                 <ProjectsList />                
             </main>

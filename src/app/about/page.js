@@ -16,8 +16,8 @@ export default function page() {
 
     return (
         <LocomotiveProviders autoStart={false} >
-            <main className={"w-full px-2 md:px-0 bg-slate-950"} >
-                <div >
+            <main className={"w-full h-full px-2 md:px-0 dark:bg-slate-950 bg-[#F2F7FA]"} >
+                <div className="w-full h-full relative">
                     <div
                         data-scroll
                         data-scroll-section
@@ -36,7 +36,7 @@ export default function page() {
                                 className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl "
                             >
                                 <div className="text-center">
-                                    <div className="text-3xl md:text-5xl font-bold text-white mb-4 flex gap-5">
+                                    <div className="text-3xl md:text-5xl font-bold text-neutral-700 dark:text-neutral-200 mb-4 flex gap-5">
                                         <span className="text-heading">Hi, I'm a</span>
                                         <TrueFocus
                                             sentence="Software Developer."
@@ -48,21 +48,22 @@ export default function page() {
                                             
                                         />
                                     </div>
-                                    <p className="text-paragraph text-lg md:text-xl text-gray-300 max-w-xl mx-auto mt-4 leading-relaxed tracking-wide">
+                                    <p className="text-paragraph text-lg md:text-xl text-neutral-700 dark:text-neutral-300 max-w-xl mx-auto mt-4 leading-relaxed tracking-wide">
                                         I build scalable apps that solve real-world problems.
                                     </p>
                                 </div>
                             </MotionH1>
                         </LampContainer>
                     </div>
-                    <div className="w-full h-auto overflow-x-hidden hidden md:block">
+                    {/* <div className="w-full h-auto overflow-x-hidden hidden md:block">
                         <AboutDetails />
-                    </div>
+                    </div> */}
+                    {/* <div className="w-full h-[200vh]"/> */}
                     <div className="w-full h-auto bg-[#010409] relative">
                         <MainProjects />
                     </div>
+                    {/* <LoadingAnimation /> */}
                 </div>
-                <LoadingAnimation />
             </main>
         </LocomotiveProviders>
     );

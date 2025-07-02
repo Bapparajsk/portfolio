@@ -29,7 +29,10 @@ module.exports = {
         "svg-pattern": "linear-gradient(4deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(36,35,32,1) 50%, rgba(0,0,0,1) 74%, rgba(0,0,0,1) 100%)",
         "about-bg": "linear-gradient(142deg, rgba(97,207,232,1) 0%, rgba(97,207,232,1) 10%, rgba(182,98,209,1) 30%, rgba(97,52,111,1) 90%, rgba(43,30,81,1) 96%)",
         "project-bg": "linear-gradient(to left top, #001c30, #011b2e, #01192c, #02182a, #021728, #081425, #0c1222, #0f0f1e, #110a17, #10060f, #0a0306, #000000)",
+        "project-bg-light": "linear-gradient(to left top, #ffffff, #f6fafd, #eef5fa, #e6f0f6, #ddebf2, #d6e5ef, #cfe0ec, #c8dbe9, #c4d6e4, #c0d1df, #bccddc, #b8c8d8)",
         "contact-bg": "linear-gradient(to right top, #000000, #0a0306, #10060f, #110a17, #0f0f1e, #0c1020, #071022, #021124, #020e22, #030920, #03051e, #03001c)",
+        "contact-bg-light": "linear-gradient(to right top, #ffffff, #f6f6f8, #eeeeee, #e6e9f0, #dee3ea, #d8dde5, #d2d8e0, #ccd3dc, #c8d0da, #c4cdd8, #c0cad6, #bcc7d4)",
+
       },
       keyframes: {
         'spin-reverse': {

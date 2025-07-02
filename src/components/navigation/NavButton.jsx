@@ -45,39 +45,63 @@ export const NavButton = ({ x, y, label, link, icon, labelDirection = "right" })
                 return size && size >= 480 ? (
 
                     <div
-                        className={'absolute z-50 nav-button'}
+                        className="absolute z-50 nav-button"
                         style={{ transform: `translate(${x}, ${y})` }}
                     >
                         <MotionDiv
                             variants={item}
-                            className={'relative text-foreground rounded-full flex items-center justify-center transition-shadow duration-500'}
+                            className="relative text-foreground rounded-full flex items-center justify-center transition-shadow duration-500"
                             onClick={handleClick}
                             aria-label={label}
                             name={label}
                             whileHover={{ scale: 1.2, transition: { duration: 0.3, type: "spring" } }}
                             whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
                         >
-                            <div
-                                className="absolute top-0 left-0 w-full h-full bg-[#1c2a42] rounded-[50%_50%_48%_52%/39%_36%_64%_61%] animate-spin2 shadow-[0_0_100px_50px_rgba(0,0,0,0.25)]" />
+                            {/* LAYER 1 */}
+                            <div className="
+                                absolute top-0 left-0 w-full h-full 
+                                rounded-[50%_50%_48%_52%/39%_36%_64%_61%] 
+                                animate-spin2 
+                                shadow-[0_0_100px_50px_rgba(0,0,0,0.2)] 
+                                bg-[#dce3ee] dark:bg-[#1c2a42]
+                                " />
+
+                            {/* LAYER 2 (reversed animation) */}
                             <div
                                 style={{ animationDirection: 'reverse' }}
-                                className="absolute top-0 left-0 w-full h-full bg-[#1c2a42a0] rounded-[50%_50%_48%_52%/39%_36%_64%_61%] animate-spin2" />
-                            <div
-                                className="absolute top-0 left-0 w-full h-full bg-[#1c2a4261] rounded-[22%_78%_59%_41%/55%_27%_73%_45%] animate-spin2" />
-                            <span
-                                className={'relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent'}>
+                                className="
+                                    absolute top-0 left-0 w-full h-full 
+                                    rounded-[50%_50%_48%_52%/39%_36%_64%_61%] 
+                                    animate-spin2 
+                                    bg-[#e5edf8a0] dark:bg-[#1c2a42a0]
+                                "/>
+
+                            {/* LAYER 3 */}
+                            <div className="
+                                absolute top-0 left-0 w-full h-full 
+                                rounded-[22%_78%_59%_41%/55%_27%_73%_45%] 
+                                animate-spin2 
+                                bg-[#f5f9fda0] dark:bg-[#1c2a4261]
+                                " />
+
+
+                            {/* ICON & TOOLTIP */}
+                            <span className="relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent">
                                 {getIcon({ name: icon })}
-
-                                <span className={'peer bg-transparent absolute top-0 w-full h-full'} />
-
-                                <span
-                                    className={'absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-gradient-to-bl from-[#1b2a42] to-[#181e2a] text-foreground text-sm rounded-md  whitespace-nowrap'}>
+                                <span className="peer bg-transparent absolute top-0 w-full h-full" />
+                                <span className="
+                                    absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 
+                                    text-sm rounded-md whitespace-nowrap 
+                                    text-foreground 
+                                    bg-gradient-to-bl from-[#f3f7ff] to-[#e3e8f0] 
+                                    dark:from-[#1b2a42] dark:to-[#181e2a]
+            ">
                                     {label}
                                 </span>
                             </span>
-
                         </MotionDiv>
                     </div>
+
 
                 ) : (
                     <div className={'w-fit cursor-pointer z-50 nav-button '} >

@@ -6,6 +6,7 @@ import {useAnimate} from "framer-motion";
 const LoadingAnimation = () => {
 
     const [scope, animate] = useAnimate();
+
     const animateLoading = async () => {
         const config = {
             duration: 0.3,
@@ -48,7 +49,7 @@ const LoadingAnimation = () => {
     }, []);
 
     return (
-        <div ref={scope}id="root" className="absolute w-full h-screen z-40 top-0 left-0 flex justify-between overflow-x-hidden">
+        <div ref={scope}id="root" className="fixed w-full h-screen z-40 top-0 left-0 flex justify-between overflow-x-hidden">
             <div id="div1" className="w-1/2 h-screen bg-[#041020] border-r-[2px] border-transparent relative">
                 <h3 id="h3-1" className="text-heading-1 text-7xl text-white font-bold absolute top-1/2 transform -translate-y-1/2 right-5">
                     About

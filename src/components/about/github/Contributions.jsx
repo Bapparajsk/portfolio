@@ -53,7 +53,7 @@ export function Contributions() {
     })
 
     return (
-        <Card fullWidth className="w-full bg-[#151B23]">
+        <Card fullWidth className="bg-[#f1efe7] dark:bg-[#151B23] border border-[#173043]">
             <CardHeader>
                 <div className="w-full flex justify-between items-center">
                     <h3 className="text-md md:text-xl lg:text-2xl font-bold text-heading-3">

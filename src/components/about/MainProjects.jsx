@@ -91,38 +91,39 @@ export default function MainProjects() {
                 </div>
             </div>
 
+
             {/* Sections */}
-            <div className="lg:sticky top-0 border-t border-[#5BC3DE]">
+            <div className="lg:sticky top-0 border-t border-green-500 dark:border-[#5BC3DE]">
                 <section
                     ref={refs.about}
-                    className="relative w-full min-h-screen text-white flex items-center justify-center px-4 py-24 bg-[#010409]"
+                    className="relative w-full min-h-screen text-white flex items-center justify-center px-4 py-24 bg-[#F5F5F5] dark:bg-[#010409]"
                 >
                     <AboutMeCard />
                 </section>
             </div>
 
-            <div className="lg:sticky top-0 border-t border-[#5BC3DE]">
+            <div className="lg:sticky top-0 border-t border-green-500 dark:border-[#5BC3DE]">
                 <section
                     ref={refs.projects}
-                    className="top-0 w-full min-h-screen h-fit bg-[#010409] text-white px-6 py-10 flex items-center justify-center"
+                    className="top-0 w-full min-h-screen h-fit bg-[#F5F5F5] dark:bg-[#010409] text-white px-6 py-10 flex items-center justify-center"
                 >
                     <Projects />
                 </section>
             </div>
 
-            <div className="lg:sticky top-0 border-t border-[#5BC3DE]">
+            <div className="lg:sticky top-0 border-t border-green-500 dark:border-[#5BC3DE]">
                 <section
                     ref={refs.tools}
-                    className="top-0 w-full min-h-screen py-24 px-6 bg-[#010409] text-white"
+                    className="top-0 w-full min-h-screen py-24 px-6 bg-[#F5F5F5] dark:bg-[#010409] text-white"
                 >
                     <ToolsTechnologies />
                 </section>
             </div>
 
-            <div className="lg:sticky top-0 border-t border-[#5BC3DE]">
+            <div className="lg:sticky top-0 border-t border-green-500 dark:border-[#5BC3DE]">
                 <section
                     ref={refs.github}
-                    className="top-0 w-full h-full min-h-screen bg-[#010409] text-white flex items-center justify-center py-10 px-6"
+                    className="top-0 w-full h-full min-h-screen bg-[#F5F5F5] dark:bg-[#010409] text-white flex items-center justify-center py-10 px-6"
                 >
                     <GitHubLanguages />
                 </section>
@@ -141,7 +142,7 @@ const MotionTitle = ({ title, progress }) => (
         className="flex items-center gap-2 relative"
     >
         <div className="w-fit text-2xl font-semibold capitalize">
-            <h3 className="text-heading-3">{title}</h3>
+            <h3 className="text-heading-3 text-[#64D4EE] mix-blend-difference">{title}</h3>
             <motion.div
                 className="absolute bottom-0 left-0 w-0 h-1 bg-[#64D4EE] rounded-full"
                 style={{ width: progress }}

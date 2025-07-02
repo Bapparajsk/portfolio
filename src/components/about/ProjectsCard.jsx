@@ -103,10 +103,10 @@ export default function TopProjects() {
 
         <div className="max-w-7xl w-full space-y-10">
             <motion.h2
-                initial={{ opacity: 0, y: -30 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
-                className="text-4xl md:text-5xl font-bold text-center text-heading-1"
+                className="text-4xl md:text-5xl font-bold text-center text-heading-1 text-neutral-700 dark:text-neutral-200"
             >
                 🚀 Top Projects
             </motion.h2>
@@ -125,13 +125,14 @@ export default function TopProjects() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 * index }}
-                        className="bg-[#151B23] border border-[#173043] rounded-2xl p-6 shadow-lg hover:scale-[1.02] transition-transform duration-300"
+                        className="bg-[#f1efe7] dark:bg-[#151B23] border border-[#173043] rounded-2xl p-6 shadow-lg hover:scale-[1.02] transition-transform duration-300"
                     >
                         <div className="flex items-center gap-3 mb-3 text-xl font-semibold">
-                            <span className='text-paragraph'>{project.name}</span>
+                            <h4 className='text-paragraph text-neutral-600 dark:text-neutral-300'>
+                                {project.name}
+                            </h4>
                             <MagneticContainer sensitivity={8}>
                                 <Tooltip content="View on GitHub" color='foreground'>
-
                                     <Button
                                         as={"a"}
                                         href={project.url}
@@ -151,14 +152,14 @@ export default function TopProjects() {
                                 </Tooltip>
                             </MagneticContainer>
                         </div>
-                        <p className="text-gray-400 mb-4 text-sm text-paragraph">{project.description?.length > 200 ? project.description.substring(0, 200) + "..." : project.description}</p>
+                        <p className="text-neutral-500 dark:text-gray-400 mb-4 text-sm text-paragraph">{project.description?.length > 200 ? project.description.substring(0, 200) + "..." : project.description}</p>
                         <div className='flex flex-col gap-2'>
                             <div className="flex flex-wrap gap-2 items-center">
                                 {project.languages.map((tech) => (
                                     <MagneticContainer sensitivity={8} key={tech}>
                                         <span
                                             key={tech}
-                                            className="text-xs border border-gray-700 button-full-round text-gray-300 px-2 py-1 rounded-full shadow-sm"
+                                            className="text-xs border border-gray-700 button-full-round text-neutral-500 dark:text-gray-300 px-2 py-1 rounded-full shadow-sm"
                                         >
                                             {tech}
                                         </span>
@@ -170,7 +171,7 @@ export default function TopProjects() {
                                 {project.topics.map((tech) => (
                                     <MagneticContainer sensitivity={8} key={tech}>
                                         <span
-                                            className="button-full-round text-xs border border-gray-700 text-gray-300 px-2 py-1 rounded-full shadow-sm"
+                                            className="button-full-round text-xs border border-gray-700 text-neutral-500 dark:text-gray-300 px-2 py-1 rounded-full shadow-sm"
                                         >
                                             {tech}
                                         </span>

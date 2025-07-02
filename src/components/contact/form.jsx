@@ -8,9 +8,6 @@ import { Input, Textarea } from "@heroui/input";
 import { Spinner } from "@heroui/spinner";
 import { BorderBeam } from "../ui/border-beam";
 import { Image } from "@/lib/next";
-import { motion } from "framer-motion";
-import { useMagnetic } from "@/hooks/useMagnetic";
-import MagneticButton from "../ui/MagneticButton";
 import MagneticContainer from "../ui/MagneticButton";
 
 const FormButtonData = [

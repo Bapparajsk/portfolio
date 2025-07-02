@@ -26,7 +26,7 @@ export default function Card({
             <div 
                 className="absolute w-full h-10 flex items-center justify-end gap-2 px-7 bottom-0 left-0  bg-black/80 translate-y-20 transition-transform duration-300 group-hover:translate-y-0"
             >
-                <p className="font-roboto font-bold">{name || alt}</p>
+                <p className="font-roboto font-bold text-neutral-200">{name || alt}</p>
             </div>
         </div>
     )

@@ -61,10 +61,10 @@ export default function ToolsTechnologies() {
 
         <div className="max-w-7xl mx-auto z-10 relative">
             <motion.h2
-                initial={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-5xl font-extrabold text-center mb-16 flex justify-center items-center gap-4 text-heading-1"
+                className="text-5xl font-extrabold text-center mb-16 flex justify-center items-center gap-4 text-heading-1 text-neutral-700 dark:text-neutral-200"
             >
                 <img src={`/svg/tools.svg`} className={"size-20"} />
                 Tools & Technologies
@@ -78,7 +78,7 @@ export default function ToolsTechnologies() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                         viewport={{ once: true }}
-                        className="bg-[#151B23] p-6 rounded-2xl backdrop-blur-md shadow-lg"
+                        className="bg-[#f1efe7] dark:bg-[#151B23] border border-[#173043] p-6 rounded-2xl  dark:border-gray-700 backdrop-blur-md shadow-lg"
                     >
                         <h3 className={`text-2xl font-semibold mb-4 text-heading-3 ${color}`}>{title}</h3>
                         <div className="space-y-2">
@@ -100,7 +100,7 @@ export default function ToolsTechnologies() {
                                                 alt={i.name}
                                             />
                                         </motion.div>
-                                        <span className="ml-1">{i.name}</span>
+                                        <span className="ml-1 text-neutral-700 dark:text-neutral-400">{i.name}</span>
                                     </motion.div>
                                 </MagneticContainer>
                             ))}

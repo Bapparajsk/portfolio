@@ -20,12 +20,7 @@ export function LocomotiveProviders({ children, autoStart = true }) {
         content: scrollRef.current,
         smoothTouch: true,
       },
-      autoStart: autoStart,
     });
-
-    setTimeout(() => {
-      scroll.start();
-    }, 3100);
 
     return () => {
       scroll.destroy();
