@@ -129,9 +129,9 @@ export default function TopProjects() {
                     >
                         <div className="flex items-center gap-3 mb-3 text-xl font-semibold">
                             <span className='text-paragraph'>{project.name}</span>
+                            <MagneticContainer sensitivity={8}>
+                                <Tooltip content="View on GitHub" color='foreground'>
 
-                            <Tooltip content="View on GitHub" color='foreground'>
-                                <MagneticContainer sensitivity={8}>
                                     <Button
                                         as={"a"}
                                         href={project.url}
@@ -147,8 +147,9 @@ export default function TopProjects() {
                                             className: "text-gray-400 size-5"
                                         })}
                                     </Button>
-                                </MagneticContainer>
-                            </Tooltip>
+
+                                </Tooltip>
+                            </MagneticContainer>
                         </div>
                         <p className="text-gray-400 mb-4 text-sm text-paragraph">{project.description?.length > 200 ? project.description.substring(0, 200) + "..." : project.description}</p>
                         <div className='flex flex-col gap-2'>
