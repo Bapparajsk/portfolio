@@ -16,7 +16,7 @@ export default function Home() {
                     </RenderModel>
                 </div>
                 <div
-                    className="absolute top-10 right-10 border border-[#173043] flex items-center justify-center gap-2 p-2 rounded-full bg-[#ffffff] dark:bg-[#151B23]"
+                    className="hidden md:flex absolute top-10 right-10 border border-[#173043] items-center justify-center gap-2 p-2 rounded-full bg-[#ffffff] dark:bg-[#151B23]"
                 >
                     <ThemeButton sensitivity={10}/>
                     <CursorButton sensitivity={10} />

@@ -11,30 +11,70 @@ import {
 } from "@heroui/navbar";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ButtonList, ButtonListColorMap } from "@/app/data";
 import { getIcon } from "@/assets/icons";
 import { cn } from "@/lib/utils";
 import { ThemeButton } from "./ThemeButton";
 import { CursorButton } from "./CursorButton";
+import { ResumeButton } from "./ResumeButton";
 
-const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-];
+const parentVariants = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2,
+        },
+    },
+};
+
+const childVariants = {
+    hidden: { opacity: 0, y: 10 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.3 },
+    },
+};
 
 export const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const pathName = usePathname();
-    
+    const router = useRouter();
+
 
     if (pathName === '/') return null;
 
     const SlideTabsNavItems = ButtonList.slice(0, ButtonList.length / 2);
+    const externalLinks = ButtonList.slice(ButtonList.length / 2, ButtonList.length);
+
+    const onClickLinkHandler = (link) => {
+        setIsMenuOpen(false)
+        if (link === "#") {
+            const a = document.createElement('a');
+            a.href = "/bapparaj-resume.pdf";
+            a.download = 'bapparaj-resume.pdf';
+            a.click();
+            addToast({
+                title: 'Resume Downloaded',
+                description: 'Resume is being downloaded.',
+                type: 'success',
+                color: "success",
+                duration: 3000,
+            });
+            return;
+        }
+
+        if (link.startsWith('http')) {
+            window.open(link, '_blank');
+        } else {
+            router.push(link);
+        }
+    }
 
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen} isBordered>
+        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} isBordered disableScrollHandler>
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -49,23 +89,42 @@ export const Nav = () => {
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <SlideTabs pathName={pathName} item={SlideTabsNavItems} />
             </NavbarContent>
-            <NavbarContent justify="end">
+            <NavbarContent justify="end" className="gap-2">
                 <ThemeButton />
-                <CursorButton />
+                <ResumeButton />
+                <CursorButton sensitivity={7} />
             </NavbarContent>
             <NavbarMenu>
-                {menuItems.map((item, index) => (
-                    <NavbarMenuItem key={`${item}-${index}`}>
-                        <Link
-                            className="w-full"
-                            color={index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"}
-                            href="#"
-                            size="lg"
-                        >
-                            {item}
-                        </Link>
-                    </NavbarMenuItem>
-                ))}
+                <motion.div
+                    variants={parentVariants}
+                    initial="hidden"
+                    animate="show"
+                    className="w-full"
+                >
+                    {SlideTabsNavItems.map((item, index) => (
+                        <motion.div key={`${item}-${index}`} variants={childVariants}>
+                            <NavbarMenuItem>
+                                <div className="w-full flex gap-2 py-2" onClick={() => onClickLinkHandler(item.link)}>
+                                    {getIcon({ name: item.icon })}
+                                    {item.label}
+                                </div>
+                            </NavbarMenuItem>
+                        </motion.div>
+                    ))}
+
+                    <motion.div className="w-full h-[2px] bg-black" variants={childVariants} />
+
+                    {externalLinks.map((item, index) => (
+                        <motion.div key={`${item}-${index}`} variants={childVariants}>
+                            <NavbarMenuItem>
+                                <div className="w-full flex gap-2 py-2" onClick={() => onClickLinkHandler(item.link)}>
+                                    {getIcon({ name: item.icon })}
+                                    {item.label}
+                                </div>
+                            </NavbarMenuItem>
+                        </motion.div>
+                    ))}
+                </motion.div>
             </NavbarMenu>
         </Navbar>
     );
@@ -92,7 +151,7 @@ export const SlideTabs = ({ pathName, item }) => {
                 <Tab setPosition={setPosition} kay={idx} isActive={item.link === pathName} color={ButtonListColorMap[item.icon]}>
                     <Link href={item.link} className="flex gap-2 cursor-none">
                         {getIcon({ name: item.icon })}
-                        {item.label}
+                        <span className="hidden md:block">{item.label}</span>
                     </Link>
                 </Tab>
             ))}

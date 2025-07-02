@@ -60,13 +60,15 @@ export function Contributions() {
                         Contributions
                     </h3>
                     <Dropdown backdrop="opaque">
-                        <DropdownTrigger>
-                            <MagneticContainer>
+                        <MagneticContainer>
+                            <DropdownTrigger>
+
                                 <Button variant="ghost" className="button" color="primary" radius="lg" isLoading={isPending} isDisabled={isError}>
-                                <span className="font-semibold">{selectedValue}</span>
-                            </Button>
-                            </MagneticContainer>
-                        </DropdownTrigger>
+                                    <span className="font-semibold">{selectedValue}</span>
+                                </Button>
+
+                            </DropdownTrigger>
+                        </MagneticContainer>
                         <DropdownMenu
                             disallowEmptySelection
                             aria-label="Select Year"
