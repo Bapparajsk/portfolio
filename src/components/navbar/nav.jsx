@@ -71,7 +71,7 @@ export const Nav = () => {
     );
 }
 
-const SlideTabs = ({ pathName, item }) => {
+export const SlideTabs = ({ pathName, item }) => {
     const [position, setPosition] = useState({
         left: 0,
         width: 0,

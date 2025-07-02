@@ -1,13 +1,15 @@
+"use client";
+
 import MagneticContainer from '@/components/ui/MagneticButton';
 import { Button } from '@heroui/button';
 import { useTheme } from 'next-themes';
 
-export const ThemeButton = () => {
+export const ThemeButton = ({sensitivity = 4}) => {
 
     const { theme, setTheme } = useTheme();
 
     return (
-        <MagneticContainer>
+        <MagneticContainer sensitivity={sensitivity}>
             <Button radius="full" isIconOnly variant="bordered" onPress={() => setTheme(theme === 'light' ? 'dark' : 'light')} className="button-full-round cursor-none">
                 {theme === "light" ? <svg
                     xmlns="http://www.w3.org/2000/svg"
