@@ -55,14 +55,13 @@ export default function page() {
                             </MotionH1>
                         </LampContainer>
                     </div>
-                    {/* <div className="w-full h-auto overflow-x-hidden hidden md:block">
+                    <div className="w-full h-auto overflow-x-hidden hidden md:block">
                         <AboutDetails />
-                    </div> */}
-                    {/* <div className="w-full h-[200vh]"/> */}
+                    </div>
                     <div className="w-full h-auto bg-[#010409] relative">
                         <MainProjects />
                     </div>
-                    {/* <LoadingAnimation /> */}
+                    <LoadingAnimation />
                 </div>
             </main>
         </LocomotiveProviders>
