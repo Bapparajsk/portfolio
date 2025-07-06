@@ -106,7 +106,7 @@ export default function TopProjects() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
-                className="text-4xl md:text-5xl font-bold text-center text-heading-1 text-neutral-700 dark:text-neutral-200"
+                className="text-3xl md:text-5xl font-bold text-center text-heading-1 text-neutral-700 dark:text-neutral-200"
             >
                 🚀 Top Projects
             </motion.h2>
@@ -141,7 +141,7 @@ export default function TopProjects() {
                                         size='sm'
                                         color='primary'
                                         isIconOnly={true}
-                                        className='button'
+                                        className='button cursor-none'
                                     >
                                         {getIcon({
                                             name: "github",

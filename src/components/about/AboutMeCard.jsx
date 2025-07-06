@@ -10,7 +10,7 @@ export default function AboutMe() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl md:text-5xl font-bold flex items-center justify-center gap-4 text-heading-1 text-neutral-700 dark:text-neutral-200"
+                    className="text-3xl md:text-5xl font-bold flex items-center justify-center gap-4 text-heading-1 text-neutral-700 dark:text-neutral-200"
                 >
                     About Me
                 </motion.h1>

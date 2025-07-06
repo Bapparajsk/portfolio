@@ -64,9 +64,9 @@ export default function ToolsTechnologies() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-5xl font-extrabold text-center mb-16 flex justify-center items-center gap-4 text-heading-1 text-neutral-700 dark:text-neutral-200"
+                className="text-2xl md:text-5xl font-extrabold text-center mb-16 flex justify-center items-center gap-4 text-heading-1 text-neutral-700 dark:text-neutral-200"
             >
-                <img src={`/svg/tools.svg`} className={"size-20"} />
+                <img src={`/svg/tools.svg`} className={"size-10 md:size-20"} />
                 Tools & Technologies
             </motion.h2>
 

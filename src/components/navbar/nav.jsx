@@ -74,16 +74,21 @@ export const Nav = () => {
     }
 
     return (
-        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} isBordered disableScrollHandler>
+        <Navbar 
+            isMenuOpen={isMenuOpen} 
+            onMenuOpenChange={setIsMenuOpen} 
+            isBordered disableScrollHandler
+            // className="h-[50px] sm:h-[66px]"
+        >
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="sm:hidden"
                 />
                 <NavbarBrand>
-                    <p className="font-bold text-2xl text-paragraph">
+                    <Link href={"/"} className="cursor-none font-bold text-medium md:text-xl lg:text-2xl text-paragraph">
                         Bapparaj
-                    </p>
+                    </Link>
                 </NavbarBrand>
             </NavbarContent>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
